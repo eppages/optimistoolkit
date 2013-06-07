@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Define simple types -->
+    <xs:simpleType name="serviceIDType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="dataType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- Define complex types -->
+    <xs:complexType name="measurementType">
+        <xs:sequence>
+            <xs:element name="serviceID" type="serviceIDType"/>
+            <xs:element name="data" type="dataType"/>
+            <xs:element name="timestamp" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="itemsType">
+        <xs:sequence>
+            <xs:element name="measurement" type="measurementType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Reference to "itemsType" to define the "items" element -->
+    <xs:element name="items" type="itemsType"/>
+</xs:schema>

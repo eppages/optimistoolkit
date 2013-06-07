@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:opt="http://schemas.optimis.eu/optimis/" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" targetNamespace="http://schemas.optimis.eu/optimis/" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:import namespace="http://schemas.dmtf.org/ovf/envelope/1" schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd"/>
+	<xs:element name="ServiceManifest" type="opt:ManifestType"/>
+	<xs:element name="VirtualMachineDescription" type="opt:VirtualMachineDescriptionType" substitutionGroup="opt:ServiceDescriptionSection"/>
+	<xs:element name="TRECSection" type="opt:TRECSectionType"/>
+	<xs:element name="ElasticitySection" type="opt:ElasticityArraySectionType"/>
+	<xs:element name="DataProtectionSection" type="opt:DataProtectionSectionType"/>
+	<xs:complexType name="ManifestType">
+		<xs:annotation>
+			<xs:documentation>
+		        Type definition of the OPTIMIS service manifest. 
+	       </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="opt:ServiceDescriptionSection"/>
+			<xs:element ref="opt:TRECSection" minOccurs="0"/>
+			<xs:element ref="opt:ElasticitySection" minOccurs="0"/>
+			<xs:element ref="opt:DataProtectionSection" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="manifestId" use="required">
+			<xs:annotation>
+				<xs:documentation>
+                    The manifest id is composed of the SLA name and SLA version. 
+                    The values are separated by a colon.
+                    
+                    Remark: this pattern might change in future in case requirements change.
+                </xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="\w[\w_\-]*\:\d+"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="serviceProviderId" type="xs:string" />
+	</xs:complexType>
+	<xs:element name="ServiceDescriptionSection" type="opt:ServiceDescriptionSectionType">
+		<xs:annotation>
+			<xs:documentation>
+		        Base type of an OPTIMIS Service Description. All service descriptions inherit 
+		        from this type. Additional service descriptions MAY be defined for OPTIMIS and
+		        can be included into the service manifest as XSD substitution group.  
+            </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ServiceDescriptionSectionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+                Base type of an OPTIMIS service description.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="serviceId" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="VirtualMachineDescriptionType">
+		<xs:annotation>
+			<xs:documentation>
+		        Provisioning of plain virtual machines is the default OPTIMIS use case. The
+		        VirtualMachineServiceDescription specifies the VMs that are provided to a
+		        customer once an SLA is created.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="opt:ServiceDescriptionSectionType">
+				<xs:sequence>
+					<xs:element ref="ovf:Envelope"/>
+					<xs:element name="AllocationSection" type="opt:AllocationArrayType"/>
+					<xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AllocationArrayType">
+		<xs:annotation>
+			<xs:documentation>
+                Specifies a set of VM instances on which a specific Elasticity Action is invoked.
+                A specific elasticity actions are defined for a specific KPI. The elasticity actions 
+                are invoked for the VMs in the same sequence as specified in this list.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AllocationConstraint" type="opt:AllocationConstraintType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AllocationConstraintType">
+		<xs:annotation>
+			<xs:documentation>
+                Defines the scaling constraints for a specific VM instance.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LowerBound" type="xs:int"/>
+			<xs:element name="UpperBound" type="xs:int"/>
+			<xs:element name="Initial" type="xs:int"/>
+		</xs:sequence>
+		<xs:attribute name="virtualSystemId" type="xs:string"/>
+	</xs:complexType>
+	<!--
+        Definition of OPTIMIS TREC parameters. 
+     -->
+	<xs:complexType name="TRECSectionType">
+		<xs:sequence>
+			<xs:element name="TrustSection" type="opt:TrustSectionType" minOccurs="0"/>
+			<xs:element name="RiskSection" type="opt:RiskSectionType" minOccurs="0"/>
+			<xs:element name="EcoEfficiencySection" type="opt:EcoEfficiencySectionType" minOccurs="0"/>
+			<xs:element name="CostSection" type="opt:CostSectionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TrustSectionType">
+		<xs:annotation>
+			<xs:documentation>
+                Specifies the OPTIMIS trust parameters in a TREC section. 
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TrustLevel" type="opt:TrustLevelType"/>
+			<xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TrustLevelType">
+		<xs:annotation>
+			<xs:documentation>
+		        Specifies the OPTIMIS Trust Level that is used for delegation 
+		        in a federated cloud scenario. 
+		        
+		        TODO: is there a specification of the different Trust Levels in OPTIMIS? 
+		    </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+        Definition of OPTIMIS Risk Constraints. 
+     -->
+	<xs:complexType name="RiskSectionType">
+		<xs:sequence>
+			<xs:element name="RiskLevel" type="opt:RiskLevelType" minOccurs="0"/>
+			<xs:element name="AvailabilityArray" type="opt:AvailabilityArrayType" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AvailabilityArrayType">
+		<xs:sequence>
+			<xs:element name="Availability" type="opt:AvailabilityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AvailabilityType">
+		<xs:simpleContent>
+			<xs:extension base="xs:double">
+				<xs:attribute name="AssessmentInterval" type="xs:duration"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="RiskLevelType">
+		<xs:annotation>
+			<xs:documentation>
+                Specifies the OPTIMIS Risk Level that is used for delegation 
+                in a federated cloud scenario. 
+                
+                TODO: see comment TrustLevelType. 
+            </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+        Definition of OPTIMIS EcoEfficiency Constraints. 
+     -->
+	<xs:complexType name="EcoEfficiencySectionType">
+		<xs:sequence>
+			<xs:element name="LEEDCertification" type="opt:LEEDCertificationConstraintType" default="NotRequired"/>
+			<xs:element name="BREEAMCertification" type="opt:BREEAMCertificationConstraintType" default="NotRequired"/>
+			<xs:element name="EuCoCCompliant" type="xs:boolean" default="false"/>
+			<xs:element name="EnergyStarRating" type="opt:EnergyStarRatingType" default="No"/>
+			<xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LEEDCertificationConstraintType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotRequired"/>
+			<xs:enumeration value="Certified"/>
+			<xs:enumeration value="Silver"/>
+			<xs:enumeration value="Gold"/>
+			<xs:enumeration value="Platinum"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BREEAMCertificationConstraintType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotRequired"/>
+			<xs:enumeration value="Pass"/>
+			<xs:enumeration value="Good"/>
+			<xs:enumeration value="VeryGood"/>
+			<xs:enumeration value="Excellent"/>
+			<xs:enumeration value="Outstanding"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EnergyStarRatingType">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="No"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:int">
+					<xs:minInclusive value="1"/>
+					<xs:maxInclusive value="100"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<!--
+        Definition of OPTIMIS Cost constraints. 
+        
+        TODO: Additional input required.
+     -->
+	<xs:complexType name="CostSectionType">
+		<xs:choice>
+			<xs:element name="Price">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute name="currency" type="xs:string"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustomCostSection" type="xs:anyType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--
+        Definition of the ElasticityArray. The definition of the RuleType is based on the
+        Reservoir Elasticity Array. (see schema: http://schemas.telefonica.com/claudia/ovf)
+           
+        TODO: Review required! 
+     -->
+	<xs:complexType name="ElasticityArraySectionType">
+		<xs:sequence>
+			<xs:element name="Rule" type="opt:RuleType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RuleType">
+		<xs:sequence>
+			<xs:element name="Scope" type="opt:ScopeArrayType"/>
+			<xs:element name="KPIName" type="xs:string"/>
+			<xs:element name="Window" type="xs:duration"/>
+			<xs:element name="Frequency" type="xs:positiveInteger"/>
+			<xs:element name="Quota" type="xs:positiveInteger"/>
+			<xs:element name="Tolerance" type="opt:PositiveDecimalType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScopeArrayType">
+		<xs:sequence>
+			<xs:element name="VirtualSystemId" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PositiveDecimalType">
+		<xs:restriction base="xs:decimal">
+			<xs:minExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+        Definition of the OPTIMIS data protection constraints.
+     -->
+	<xs:complexType name="DataProtectionSectionType">
+		<xs:sequence>
+			<xs:element name="EligibleCountryList" type="opt:CountryListType" minOccurs="0"/>
+			<xs:element name="NonEligibleCountryList" type="opt:CountryListType" minOccurs="0"/>
+			<xs:element name="DataProtectionLevel" type="opt:DataProtectionLevelType" minOccurs="0"/>
+			<xs:element name="DataEncryptionLevel" type="opt:EncryptionLevelType" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DataProtectionLevelType">
+		<xs:annotation>
+			<xs:documentation>
+                DataProtectionLevel specifies the level of protection that is guaranteed by a
+                service provider regarding data management. In general it defines to which 
+                countries data may be transfered by the provider. Countries are divided into 
+                countries that have a sufficient level of protection (known as Data Protection Area-DPA) 
+                and countries that do not meet these levels. Transferring sensitive data to the 
+                latter is a violation and the cloud providers engaged in federations should have 
+                the necessary framework to prevent this from happening. By law, the Cloud Provider 
+                does not have the obligation to keep the data in one particular country of the DPA. 
+                The DataProtectionLevelType specifies whether the data included in the service 
+                under consideration is sensitive or not. If not, there are no limitations to their 
+                transfer. If yes, they should be restricted to countries that are part of the DPA. 
+                The list of the DPA countries is the following:
+
+                    -   all 27 EU Member States
+                    -   all countries of the European Economic Area (Iceland, Liechtenstein, Norway)
+                    -   Switzerland
+                    -   Canada
+                    -   Argentina
+                    -   Guernsey
+                    -   Isle of Man
+                    -   US organisations who take part in the US safe harbour program
+                    -   And the state of Israel.
+                    
+                TODO: Is there a maintained reference list of DPA countries online available?  
+            </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DPA"/>
+			<xs:enumeration value="None"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISO3166Alpha2">
+		<xs:annotation>
+			<xs:documentation>
+                Two-letter (alpha-2) ISO 3166-1 code for one of the 243 countries.
+                These codes are subject to change. For valid values refer to 
+                http://www.iso.org/iso/list-en1-semic-3.txt
+            </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="[A-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CountryListType">
+		<xs:sequence>
+			<xs:element name="Country" type="opt:ISO3166Alpha2" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EncryptionLevelType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="EncryptionAlgoritm" type="opt:EncryptionAlgoritmType"/>
+				<xs:element name="EncryptionKeySize" type="xs:int" default="128" minOccurs="0"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="CustomEncryptionLevel" type="xs:anyType"/>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="EncryptionAlgoritmType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotApplicable"/>
+			<xs:enumeration value="AES"/>
+			<xs:enumeration value="Twofish"/>
+			<xs:enumeration value="AES-Twofish"/>
+			<xs:enumeration value="AES-Twofish-Serpent"/>
+			<xs:enumeration value="Serpent-AES"/>
+			<xs:enumeration value="Serpent-Twofish-AES"/>
+			<xs:enumeration value="Twofish-Serpent"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,23 @@
+2012-04-03  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.7-SNAPSHOT to be in sync with other ICS
+ components.
+
+2012-03-22  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceClient.java (finalize): Returns the URL of the finalized
+ image.
+
+2012-03-09  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.2-SNAPSHOT.
+
+2012-03-05  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceClient.java (unfinalize): New method.
+
+ * ImageCreationServiceClient.java (finalize): New method.
+
+2012-03-02  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * pom.xml: Set version to 0.1-SNAPSHOT.

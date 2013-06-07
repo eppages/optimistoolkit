@@ -1,0 +1,25 @@
+--- changes in 1.0.4
+* added AllocationPattern, Cost and Risk in IP Extensions
+* implemented extractComponent() method
+
+--- changes in 1.0.3
+* added key in schema to make components unique
+* added keyref in schema to ensure that references in scope arrays always link to an existing component
+* added cost section
+* extended and refactored elasticity section
+ 
+--- changes in 1.0.2
+* added "isFederationAllowed" attribute in VirtualMachineDescriptionSection
+* added "SocialNetworkingTrustValue" in TrustSection
+* added "MinimumTrustValue" in TrustSection
+* changed schema structure in ServiceProviderExtensionSection:
+   - added element VirtualMachineComponentConfiguration in the SP extension section which
+     should hold all configuration for the component referenced by componentId.
+   - only one component configuration per component must exist.
+   - the scope element was removed
+* added "SecurityKeyType" in VirtualMachineComponentConfiguration
+* added "ComponentProperties" in VirtualMachineComponentConfiguration
+* added method extractComponent(componentId) to split a manifest (dummy implementation)
+
+--- changes in 1.0.1
+* all generated XmlBean classes wer renamed to have the prefix "XmlBean"

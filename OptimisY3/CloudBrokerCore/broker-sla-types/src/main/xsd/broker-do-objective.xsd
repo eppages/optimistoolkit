@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.optimis.eu/broker/deployment-objective-types"
+            xmlns:do-objective="http://www.optimis.eu/broker/deployment-objective-types">
+  
+  <xsd:element name="DeploymentObjective" type="do-objective:DeploymentObjectiveType" default="COST"/>
+  
+  <xsd:simpleType name="DeploymentObjectiveType">
+  	<xsd:restriction base="xsd:string">
+        <xsd:enumeration value="TRUST"/>
+        <xsd:enumeration value="RISK"/>
+        <xsd:enumeration value="ECO"/>
+        <xsd:enumeration value="COST"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>

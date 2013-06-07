@@ -1,0 +1,13 @@
+
+---------------------------------------------------------------------------
+redeploy to the different testbeds (no configuration needed afterwards)
+
+mvn -PATOS1 clean package cargo:redeploy -U
+mvn -PATOS2 clean package cargo:redeploy -U
+mvn -PUMU clean package cargo:redeploy -U
+mvn -PFLEX clean package cargo:redeploy -U
+mvn -PARSYS clean package cargo:redeploy -U
+mvn -PBSC clean package cargo:redeploy -U
+mvn -PLEEDS clean package cargo:redeploy -U
+---------------------------------------------------------------------------
+

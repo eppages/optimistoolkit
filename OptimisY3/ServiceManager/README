@@ -1,0 +1,182 @@
+====================================================================
+Service Manager 1.0-SNAPSHOT README
+====================================================================
+
+Service Manager
+Release Number (1.0-SNAPSHOT)
+Release Date 12/04/2012
+
+====================================================================
+LICENSE AND COPYRIGHT 
+====================================================================
+Copyright 2011 University of Stuttgart
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+====================================================================
+INTRODUCTION 
+====================================================================
+This document includes the user guide for the software component 
+Service Manager (SM). The Service Manager is responsible for storing
+information related to deployed services and is interacting with the
+Service Deployment Optimizer (SDO) and the Cloud Optimizer (CO).
+
+====================================================================
+NEW FEATURES AND FUNCTIONS IN THIS RELEASE 
+====================================================================
+None.
+
+====================================================================
+BUG FIXES 
+====================================================================
+None.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Regarding the following sections, please refer to the related    +
++ sections of "Service Manager Installation Guide"                 + 
++ and "Service Manager User Guide".                                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  
+
+====================================================================
+KNOWN LIMITATIONS
+====================================================================
+
+
+====================================================================
+GETTING STARTED
+====================================================================
+
+SOFTWARE DEPENDENCIES
+--------------------------------------------------------------------
+
+PLATFORM SUPPORTED
+--------------------------------------------------------------------
+
+INSTALLATION INSTRUCTIONS
+--------------------------------------------------------------------
+
+USING THE SOFTWARE
+--------------------------------------------------------------------
+
+The following URLs can be accessed:
+
+/services (GET) - get a list of all services
+/services (POST) - create a new service
+/services/{id} (GET) - get the service with the given id
+/services/{id} (DELETE) - delete the service with the given id
+/services/{id} (PUT) - update the service with the given id
+/services/{id}/vms/{vm-id} (DELETE) - deletes VM vm-id from the service id
+/services/{id}/vms/{vm-id} (PUT) - adds VM vm-id to service id
+/services/{id}/vms (GET) - get the list of VMs from a service
+/services/{serviceId}/ip/ids - get the list of infrastructure provider ids for a service
+
+TESTING THE SOFTWARE
+--------------------------------------------------------------------
+The simplest way to test this component is to fire off some curl commands.
+
+Let's assume the software is deployed at http://localhost:8080/ServiceManager.
+
+Initially, let's see if we get a list of services:
+$ curl http://localhost:8080/ServiceManager/services
+
+This should yield:
+<services></services>
+
+No service, good. Let's create one:
+$ curl -X POST http://localhost:8080/ServiceManager/services -d "<service xmlns=\"http://www.optimis.eu/service-manager\"><service_id>14711</service_id><status>running</status></service>"
+
+This should yield (formatted for easier viewing):
+<service>
+<service_id>14711</service_id>
+<status>running</status>
+<IP><ip_id>null</ip_id><ip_address>null</ip_address><vms></vms></IP>
+<link>/services/14711</link>
+</service>
+
+If we hadn't created an infrastructure provider with the call, we could have created one with
+
+curl -X POST http://localhost:8080/ServiceManager/services/14711/ip -d "<infrastructure-provider xmlns=\"http://www.optimis.eu/service-manager\"><id>someInfraId</id><ip_address>192.168.10.11</ip_address></infrastructure-provider>"
+
+Try the first command above, you should get the same wrapped in the
+<services></services> tags.
+
+Now, let's add a VM:
+
+$ curl -X POST  http://localhost:8080/ServiceManager/services/14711/vms -d "<vm xmlns=\"http://www.optimis.eu/service-manager\"><id>5ef8cf5b-f969-4eea-ac64-f24896770ea2</id><type>TypeA</type><status>pending</status></vm>"
+
+This should yield (formatted for easier viewing):
+<service>
+<service_id>14711</service_id>
+<status>running</status>
+<IP>
+<ip_id>null</ip_id>
+<ip_address>null</ip_address>
+<vms>
+<vm>
+<id>5ef8cf5b-f969-4eea-ac64-f24896770ea2</id>
+<type>TypeA</type>
+<status>pending</status>
+</vm>
+</vms>
+</IP>
+<link>/services/14711</link>
+</service>
+
+And delete it again:
+
+$ curl -X DELETE  http://localhost:8080/ServiceManager/services/14711/vms/135
+
+You can also update the status:
+
+curl -X PUT http://localhost:8080/ServiceManager/services/14711/status -d pending
+
+====================================================================
+CONTRIBUTORS 
+====================================================================  
+Roland Kübert <kuebert@hlrs.de>
+
+
+====================================================================
+CONTACT INFORMATION AND WEBSITE
+====================================================================
+http://www.optimis-project.eu/
+
+We welcome your feedback, suggestions and contributions. Contact us
+via email if you have questions, feedback, code submissions, 
+and bug reports.
+
+For general inquiries, see http://www.optimis-project.eu/contact
+
+
+You can submit bug, patches, software contributions, and feature 
+requests using Bugzilla.  
+Access Bugzilla at: 
+http://itforgebugzilla.atosresearch.eu/bugzilla/enter_bug.cgi?product=Optimis 
+====================================================================
+
+====================================================================
+SOURCE CODE INFORMATION
+====================================================================
+
+
+====================================================================
+DIRECTORY STRUCTURE 
+====================================================================
+This directory contains the following subdirectories or files:
+ - ServiceManagerCore
+ - ServiceManagerREST
+ - ServiceManagerRESTClient
+ - ServiceManagerSchema

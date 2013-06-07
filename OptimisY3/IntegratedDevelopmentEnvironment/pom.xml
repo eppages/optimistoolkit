@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.bsc.optimis</groupId>
+  <artifactId>IDE-Project</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
+  <properties>
+    <tycho-version>0.14.0</tycho-version>
+  </properties>
+  
+  <repositories>
+	<repository>
+	  	<id>maven2-repository.dev.java.net</id>
+		<name>Java.net Repository for Maven 2</name>
+		<url>http://download.java.net/maven/2/</url>
+	</repository>
+	<repository>
+		<id>maven2</id>
+		<url>http://repo1.maven.org/maven2</url>
+	</repository>
+	<repository>
+        <id>optimis-repo</id>
+        <name>repo</name>
+        <snapshots>
+          		<enabled>true</enabled>
+        </snapshots>
+        <url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url>
+    </repository>
+	<repository>
+	  	<id>maven2-wso2-repo</id>
+		<name>wso2</name>
+		<url>http://dist.wso2.org/maven2/</url>
+	</repository>
+	<repository>
+     		<id>helios</id>
+     		<layout>p2</layout>
+     		<url>http://download.eclipse.org/releases/indigo</url>
+	</repository>
+ 	<repository>
+		<id>zest</id>
+		<layout>p2</layout>
+		<url>https://hudson.eclipse.org/hudson/job/gef-zest-integration/lastSuccessfulBuild/artifact/targetPlatform</url>
+	</repository>
+	<repository>
+        	<id>elasticLM</id>
+        	<name>PACKCS - elasticLM Archiva Managed Repository</name>
+        	<url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/elasticlm</url>
+  	</repository>
+  </repositories>
+ 
+ <modules>  
+  <module>IDE-Plugin</module>
+  <module>IDE-Feature</module>
+  <module>IDE-site</module>   
+ </modules>  
+</project>

@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:opt="http://schemas.optimis.eu/optimis/"
+           xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+           targetNamespace="http://schemas.optimis.eu/optimis/"
+           elementFormDefault="qualified" attributeFormDefault="qualified">
+
+    <xs:import namespace="http://schemas.dmtf.org/ovf/envelope/1"
+               schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd"/>
+
+    <xs:element name="ServiceManifest" type="opt:ManifestType">
+        <!-- 
+        	componentId MUST BE unique within one service manifest
+        	for example: VirtualMachineComponent opt:componentId="jboss" 
+        -->
+        <xs:key name="vmComponentKey">
+            <xs:selector xpath=".//opt:VirtualMachineComponent"/>
+            <xs:field xpath="@opt:componentId"/>
+        </xs:key>
+        <!-- make sure that each ComponentId element in the Scope section REFERENCES to an existing componentId -->
+        <xs:keyref name="vmComponentKeyRef" refer="opt:vmComponentKey">
+            <xs:selector xpath=".//opt:Scope/opt:ComponentId"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+    </xs:element>
+    
+    <xs:complexType name="ManifestType">
+        <xs:annotation>
+            <xs:documentation>
+                Type definition of the OPTIMIS service manifest.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="opt:ServiceDescriptionSection"/>
+            <xs:element ref="opt:TRECSection" minOccurs="0"/>
+            <xs:element ref="opt:ElasticitySection" minOccurs="0"/>
+            <xs:element ref="opt:DataProtectionSection" minOccurs="0"/>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="strict" namespace="##other"/>
+        </xs:sequence>
+        <xs:attribute name="manifestId" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The manifest id is composed of the SLA name and SLA version. The
+                    values are separated by a colon.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="\w[\w_\-]*\:\d+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="serviceProviderId" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element name="ServiceDescriptionSection" type="opt:ServiceDescriptionSectionType"/>
+    <xs:element name="ServiceComponent" type="opt:ServiceComponentType"/>
+    <xs:element name="VirtualMachineDescription" type="opt:VirtualMachineDescriptionType"
+                substitutionGroup="opt:ServiceDescriptionSection"/>
+    <xs:element name="VirtualMachineComponent" type="opt:VirtualMachineComponentType"
+                substitutionGroup="opt:ServiceComponent"/>
+                
+    <xs:element name="TRECSection" type="opt:TRECSectionType"/>            
+    <xs:element name="ElasticitySection" type="opt:ElasticitySectionTypeY1"/>
+    <xs:element name="DataProtectionSection" type="opt:DataProtectionSectionType"/>
+    
+    <xs:complexType name="ServiceDescriptionSectionType" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                Base type of an OPTIMIS Service Description. All service descriptions
+                inherit from this type. Additional service descriptions MAY be defined
+                for OPTIMIS and can be included into the service manifest as XSD
+                substitution group.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="opt:ServiceComponent" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="serviceId" type="xs:string" use="required"/>
+        <xs:attribute name="isFederationAllowed" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ServiceComponentType" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                Base type of an OPTIMIS Service Component. All service components
+                inherit from this type. Additional service components MAY be defined for
+                OPTIMIS and can be included into the service manifest as XSD
+                substitution group.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="componentId" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="AbstractVirtualMachineDescriptionType" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                Provisioning of plain virtual machines is the default OPTIMIS use case.
+                The VirtualMachineServiceDescription specifies the VMs that are provided
+                to a customer once an SLA is created.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="opt:ServiceDescriptionSectionType">
+                <xs:sequence>
+                    <!--<xs:element ref="opt:VirtualMachineComponent" minOccurs="1"-->
+                    <!--maxOccurs="unbounded"/>-->
+                    <xs:element name="AffinitySection" type="opt:AffinitySectionType" maxOccurs="1"/>
+                    <xs:element name="AntiAffinitySection" type="opt:AntiAffinitySectionType" maxOccurs="1"/>
+                    <xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="VirtualMachineDescriptionType">
+        <xs:annotation>
+            <xs:documentation>
+                Provisioning of plain virtual machines is the default OPTIMIS use case.
+                The VirtualMachineServiceDescription specifies the VMs that are provided
+                to a customer once an SLA is created.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="opt:AbstractVirtualMachineDescriptionType">
+                <xs:sequence>
+                    <xs:element ref="opt:VirtualMachineComponent" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="AffinitySection" type="opt:AffinitySectionType" maxOccurs="1"/>
+                    <xs:element name="AntiAffinitySection" type="opt:AntiAffinitySectionType" maxOccurs="1"/>
+                    <xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ScopedSectionType" abstract="true">
+        <xs:sequence>
+            <xs:element name="Scope" type="opt:ScopeArrayType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="OVFDefinition" type="ovf:EnvelopeType"/>
+    <xs:element name="AllocationConstraints" type="opt:AllocationConstraintType"/>
+    <xs:element name="AffinityConstraints" type="opt:AffinityConstraintType"/>
+    <xs:element name="AntiAffinityConstraints" type="opt:AntiAffinityConstraintType"/>
+    <xs:element name="ServiceEndpoints" type="opt:ServiceEndpointsType"/>
+
+    <xs:complexType name="VirtualMachineComponentType">
+        <xs:annotation>
+            <xs:documentation>
+                It is used to describe one particular class of virtual machines that are
+                deployed in an OPTIMIS IP infrastructure.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="opt:ServiceComponentType">
+                <xs:sequence>
+                    <xs:element ref="opt:OVFDefinition"/>
+                    <xs:element ref="opt:AllocationConstraints"/>
+                    <xs:element ref="opt:AffinityConstraints"/>
+                    <xs:element ref="opt:AntiAffinityConstraints"/>
+                    <xs:element ref="opt:ServiceEndpoints" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="AllocationConstraintType">
+        <xs:annotation>
+            <xs:documentation>
+                Defines the scaling constraints for a specific component.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="LowerBound" type="xs:int"/>
+            <xs:element name="UpperBound" type="xs:int"/>
+            <xs:element name="Initial" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!--
+       Definition of OPTIMIS TREC parameters.
+    -->
+    <xs:element name="TrustSection" type="opt:TrustSectionType"/>
+    <xs:element name="RiskSection" type="opt:RiskSectionType"/>
+    <xs:element name="EcoEfficiencySection" type="opt:EcoEfficiencySectionType"/>
+    <xs:element name="CostSection" type="opt:CostSectionType"/>
+    <xs:element name="PriceComponent" type="opt:PriceComponentType"/>
+
+    <xs:complexType name="TRECSectionType">
+        <xs:sequence>
+            <xs:element ref="opt:TrustSection" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="opt:RiskSection" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="opt:EcoEfficiencySection" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="opt:CostSection" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TrustSectionType">
+        <xs:annotation>
+            <xs:documentation>
+                Specifies the OPTIMIS trust parameters in a TREC section.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="MinimumTrustLevel" type="opt:TrustLevelType" minOccurs="1"/>
+                    <xs:element name="SocialNetworkingTrustLevel" type="opt:TrustLevelType" minOccurs="0"/>
+                    <xs:element name="TrustLevel" type="opt:TrustLevelType" minOccurs="0"/>
+                    <xs:any namespace="##other" processContents="strict" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="TrustLevelType">
+        <xs:annotation>
+            <xs:documentation>
+                Specifies the OPTIMIS Trust Level that is used for delegation in a
+                federated cloud scenario.
+
+                TODO: is there a specification of the different Trust Levels in OPTIMIS?
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--
+       Definition of OPTIMIS Risk Constraints.
+    -->
+    <xs:complexType name="RiskSectionType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="RiskLevel" type="opt:RiskLevelType" minOccurs="0"/>
+                    <xs:element name="AvailabilityArray" type="opt:AvailabilityArrayType"
+                                minOccurs="0"/>
+                    <xs:any namespace="##other" processContents="strict" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AvailabilityArrayType">
+        <xs:sequence>
+            <xs:element name="Availability" type="opt:AvailabilityType" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AvailabilityType">
+        <xs:simpleContent>
+            <xs:extension base="xs:double">
+                <xs:attribute name="assessmentInterval" type="xs:duration"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="RiskLevelType">
+        <xs:annotation>
+            <xs:documentation>
+                Specifies the OPTIMIS Risk Level that is used for delegation in a
+                federated cloud scenario.
+
+                TODO: see comment TrustLevelType.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+       Definition of OPTIMIS EcoEfficiency Constraints.
+    -->
+    <xs:complexType name="EcoEfficiencySectionType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="LEEDCertification" type="opt:LEEDCertificationConstraintType" default="NotRequired"/>
+                    <xs:element name="BREEAMCertification" type="opt:BREEAMCertificationConstraintType" default="NotRequired"/>
+                    <xs:element name="EuCoCCompliant" type="xs:boolean" default="false"/>
+                    <xs:element name="EnergyStarRating" type="opt:EnergyStarRatingType" default="No"/>
+                    <!-- Y3 -->
+         			<xs:element name="ISO14000" type="opt:ISO14000Type" default="No"/>
+         			<xs:element name="GreenStar" type="opt:GreenStarType" default="No"/>
+         			<xs:element name="CASBEE" type="opt:CASBEEType" default="No"/>
+         			<xs:element name="EcoMetricArray" type="opt:EcoMetricArrayType" minOccurs="0"/>              
+         			<!-- Y3 -->            
+                    <xs:any namespace="##other" processContents="strict" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="LEEDCertificationConstraintType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NotRequired"/>
+            <xs:enumeration value="Certified"/>
+            <xs:enumeration value="Silver"/>
+            <xs:enumeration value="Gold"/>
+            <xs:enumeration value="Platinum"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BREEAMCertificationConstraintType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NotRequired"/>
+            <xs:enumeration value="Pass"/>
+            <xs:enumeration value="Good"/>
+            <xs:enumeration value="VeryGood"/>
+            <xs:enumeration value="Excellent"/>
+            <xs:enumeration value="Outstanding"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="EnergyStarRatingType">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- Y3 -->
+     <xs:simpleType name="ISO14000Type">
+     	<xs:restriction base="xs:string">
+        	<xs:enumeration value="No"/>
+            <xs:enumeration value="ISO14001-Compliant"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GreenStarType">
+     	<xs:restriction base="xs:string">
+        	<xs:enumeration value="No"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CASBEEType">
+     	<xs:restriction base="xs:string">
+        	<xs:enumeration value="No"/>
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="B-"/>
+            <xs:enumeration value="B+"/>
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="S"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EcoMetricArrayType">
+        <xs:sequence>
+            <xs:element name="EcoMetric" type="opt:EcoMetricType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EcoMetricType">
+   	  <xs:annotation>
+         <xs:documentation>
+            Two threasholds: EnergyEfficiency and EcologicalEfficiency
+            Unit: €/(CU/W) as Computing Units per Watt
+            Unit: €/(CU/kgCO2) as CO2 emissions
+            Unit: €/s as money paid for each second 
+            we want to establish the minimum thresholds per service in terms of energy efficiency 
+            (performance/W, currently as Computing Units per Watt, CU/W) and ecological efficiency 
+            (performance/CO2 emissions). These thresholds should be specified with their corresponding penalizations 
+            (SLA) in case they are surpassed. These penalizations need to be specified in terms of 
+            magnitude (money paid per each CU/W below the threshold) and time 
+            (money paid per each second the threshold is surpassed). 
+            In addition, they could be specified as soft (desirable thresholds, 
+            no penalization if surpassed) or hard (penalization if surpassed) thresholds.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="Name" type="xs:string"/>
+         <xs:element name="ThresholdValue" type="opt:ThresholdValueType" default="NotSpecified"/>
+         <xs:element name="SLAType" type="opt:SLATypeEnum" default="Soft"/> 
+         <xs:element name="MagnitudePenalty" type="opt:MagnitudePenaltyType" default="NA"/>
+         <xs:element name="TimePenalty" type="opt:TimePenaltyType" default="NA"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ThresholdValueType">		
+      <xs:union>
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="NotSpecified"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType>
+            <xs:restriction base="xs:float">
+            	<xs:minInclusive value="0"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="SLATypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Soft"/>
+         <xs:enumeration value="Hard"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="MagnitudePenaltyType">
+      <xs:union>
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="NA"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType>
+            <xs:restriction base="xs:float">
+            	<xs:minInclusive value="0"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="TimePenaltyType">
+      <xs:union>
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="NA"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType>
+            <xs:restriction base="xs:float">
+            	<xs:minInclusive value="0"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+    <!-- Y3  -->
+   
+    <!--
+       Definition of OPTIMIS Cost constraints.
+
+       TODO: Additional input required.
+       
+       Cost section should be removed from main manifest. 
+       In SP extensions: maximum price for service or component
+       In IP side on SLA should be the information on service execution price 
+    -->
+    <xs:complexType name="CostSectionType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="PricePlan" maxOccurs="unbounded"
+                                type="opt:PricePlanType" minOccurs="0">
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="PricePlanType">
+        <xs:annotation>
+            <xs:documentation>
+                A PricePlan is a set of charges associated with a network-provisioned
+                entity. Alternative sets of fees (i.e. alternative PricePlans) of the
+                same service provision may be made available for the consumer to choose
+                from, for example to offer the consumer the choice between a flat price
+                scheme and a usage-based scheme (a common practice in the
+                telecommunication industry). Several PricePlans may exist for the same
+                service in order to suit different user profiles and charge them
+                appropriately (e.g. heavy- and light-usage users), or as a key price
+                customization instrument to individually match diverse service
+                valuations. There are three attributes associated with the PricePlan
+                term:
+                <br/>
+                1. currency, as a name string, EString: the currency for all price
+                amounts within this PricePlan, e.g. EUR.
+                <br/>
+                2. planCap, as a float num., EFloat: providing this maximum PricePlan
+                value prevents from charging the user a higher total price, regardless
+                of the cumulative total price the components and adjustments within this
+                PricePlan may eventually amount to. Example: A cap may be used to set an
+                upper limit in a strictly usage-based plan.
+                <br/>
+                3. planFloor, as a float num., EFloat: providing this minimum PricePlan
+                value prevents from charging the user a lower total price, regardless of
+                the cumulative total price the components and adjustments within this
+                PricePlan may eventually amount to. Example: A floor may be used to set
+                a lower limit to discounts that may result in an excessively low price.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element ref="opt:PriceComponent" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="planCap" type="xs:float"/>
+        <xs:attribute name="planFloor" type="xs:float"/>
+        <xs:attribute name="currency" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="PriceComponentType">
+        <xs:annotation>
+            <xs:documentation>
+                PriceComponents are fees included in a PricePlan, which subject to
+                conditions (expressed as PriceFences) may contribute to the total amount
+                charged. Components within the same plan are summed together in order to
+                get the total amount (price of the service). Common examples of
+                PriceComponents that may coexist in the same PricePlan are: startup or
+                membership charges (to access the service), periodic subscription fees
+                (with a certain recurrence - e.g. monthly - as long as committed to by
+                the contract), pay-per-unit charges (whose total will be proportional to
+                the metered usage), options or feature dependent charges. The final
+                value of the component will depend on the active PriceLevel (determined
+                by the evaluation of the relative PriceFences) and the PriceAdjustments
+                that may apply (e.g. discounts). There are two attributes associated
+                with the PriceComponent term:
+                <br/>
+                1. componentCap, as a float num., EFloat: providing this maximum
+                PriceComponent value prevents the component final price from exceeding a
+                certain amount, regardless of its levels and the parameters they are
+                indexed to. Example: A cap may be used to set an upper limit for a
+                component whose levels vary with usage.
+                <br/>
+                2. componentFloor, as a float num., EFloat: providing this minimum
+                PriceComponent value prevents the component final price from falling
+                below a certain amount, regardless of its levels and the parameters they
+                are indexed to. Example: A floor may be used to set a lower limit for a
+                component whose levels vary with usage.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="PriceLevel" type="opt:PriceLevelType"
+                        maxOccurs="unbounded"/>
+
+        </xs:sequence>
+        <xs:attribute name="componentCap" type="xs:float"/>
+        <xs:attribute name="componentFloor" type="xs:float"/>
+    </xs:complexType>
+
+    <xs:complexType name="PriceLevelType">
+        <xs:annotation>
+            <xs:documentation>
+                PriceLevel captures amounts charged by a PriceComponent. Since each
+                PriceComponent may assume several values depending on the provider's
+                price segmentation strategies, it is allowed to contain multiple
+                PriceLevels. This allows shaping charged amounts according to customers'
+                behavior and aligning usage with capacity or incurred costs (just like
+                utilities do by offering different electricity rates for different times
+                of day).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PriceType" type="xs:string"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="AbsoluteAmount" type="xs:decimal"/>
+            <xs:element name="Multiplier" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="QuantityLiteralsArrayType">
+        <xs:sequence>
+            <xs:element name="Quantity" type="opt:QuantityType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="QuantityType">
+        <xs:sequence>
+            <xs:element name="Amount" type="xs:decimal"/>
+            <xs:element name="TypeReference" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- TODO: This is elasiticity year one, in year 3 this has to be updated to the one section before. -->
+
+    <xs:element name="Rule" type="opt:RuleType"/>
+
+    <xs:complexType name="ElasticitySectionTypeY1">
+        <xs:sequence>
+            <xs:element ref="opt:Rule" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RuleType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="KPIName" type="xs:string"/>
+                    <xs:element name="Window" type="xs:duration"/>
+                    <xs:element name="Frequency" type="xs:positiveInteger"/>
+                    <xs:element name="Quota" type="xs:positiveInteger"/>
+                    <xs:element name="Tolerance" type="opt:PositiveDecimalType" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!--
+
+       Definition of the ElasticityArray. The definition of the RuleType is based on the
+       Reservoir Elasticity Array. (see schema: http://schemas.telefonica.com/claudia/ovf)
+    -->
+    <xs:element name="ElasticityRule" type="opt:ElasticityRuleType"/>
+
+    <xs:complexType name="ElasticitySectionTypeY3">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element name="SPManagedElasticity" nillable="true"/>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element name="VariableSet" type="opt:VariableSetType"/>
+                <xs:element name="ElasticityRules">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="opt:ElasticityRule" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="ElasticityRuleType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="Condition" type="opt:ConditionType"/>
+                    <xs:element name="Effect" type="opt:Effect"/>
+                </xs:sequence>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ConditionType">
+        <xs:sequence>
+            <xs:element name="Expression" type="xs:string"/>
+            <xs:element name="AssessmentCriteria" type="opt:AssessmentCriteria"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AssessmentCriteria">
+        <xs:sequence>
+            <xs:element name="Window" type="xs:duration"/>
+            <xs:element name="Frequency" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Effect">
+        <xs:sequence>
+            <xs:element name="Importance" type="xs:int"/>
+            <xs:element name="Action" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Variable" type="opt:VariableType"/>
+
+    <xs:complexType name="VariableSetType">
+        <xs:sequence>
+            <xs:element ref="opt:Variable" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VariableType">
+        <xs:annotation>
+            <xs:documentation>
+                Location: the path to a location where the value can be found.
+                The type attribute [internal | external] specifies if the variable can be found internal in the
+                manifest itself (location would be an xpath expression) or at some external
+                location, e.g URL to REST address of a monitoring system which provides the current value of
+                the variable.
+                The metric attribute specifies the type of the value received at location, eg. int
+                The name specifies the variable name which will be used in the rules.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Location" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="metric" type="xs:string"/>
+        <xs:attribute name="type" type="opt:ElasticityLocationTypeEnum" use="required"/>
+    </xs:complexType>
+
+
+    <xs:simpleType name="ElasticityLocationTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="internal"/>
+            <xs:enumeration value="external"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="ScopeArrayType">
+        <xs:sequence>
+            <xs:element name="ComponentId" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="PositiveDecimalType">
+        <xs:restriction base="xs:decimal">
+            <xs:minExclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--
+       Definition of the OPTIMIS data protection constraints.
+    -->
+    <xs:complexType name="DataProtectionSectionType">
+        <xs:sequence>
+            <xs:element name="EligibleCountryList" type="opt:CountryListType"
+                        minOccurs="0"/>
+            <xs:element name="NonEligibleCountryList" type="opt:CountryListType"
+                        minOccurs="0"/>
+            <xs:element name="DataProtectionLevel" type="opt:DataProtectionLevelType"
+                        minOccurs="0"/>
+            <xs:element name="DataEncryptionLevel" type="opt:EncryptionLevelType"
+                        minOccurs="0"/>
+            <xs:element ref="opt:DataStorage" minOccurs="0" maxOccurs="unbounded"/>            
+            <!--  <xs:element name="DataStorage" type="opt:DataStorageType" minOccurs="0" maxOccurs="unbounded"/>  -->
+            
+            <xs:element name="SCC" type="opt:SCCType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="BCR" type="opt:BCRType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="IPR" type="opt:IPRType" minOccurs="0" maxOccurs="1"/>
+                                   
+            <xs:any namespace="##other" processContents="strict" minOccurs="0"
+                    maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DataStorage" type="opt:DataStorageType"/>
+    <xs:complexType name="DataStorageType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="Name" type="xs:string" default="storage-name"/>
+                    <xs:element name="AllocationUnit" type="xs:string" default="byte"/>
+                    <xs:element name="Capacity" type="xs:long" default="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="DataProtectionLevelType">
+        <xs:annotation>
+            <xs:documentation>
+                DataProtectionLevel specifies the level of protection that is guaranteed
+                by a service provider regarding data management. In general it defines
+                to which countries data may be transfered by the provider. Countries are
+                divided into countries that have a sufficient level of protection (known
+                as Data Protection Area-DPA) and countries that do not meet these
+                levels. Transferring sensitive data to the latter is a violation and the
+                cloud providers engaged in federations should have the necessary
+                framework to prevent this from happening. By law, the Cloud Provider
+                does not have the obligation to keep the data in one particular country
+                of the DPA. The DataProtectionLevelType specifies whether the data
+                included in the service under consideration is sensitive or not. If not,
+                there are no limitations to their transfer. If yes, they should be
+                restricted to countries that are part of the DPA. The list of the DPA
+                countries is the following:
+
+                - all 27 EU Member States - all countries of the European Economic Area
+                (Iceland, Liechtenstein, Norway) - Switzerland - Canada - Argentina -
+                Guernsey - Isle of Man - US organisations who take part in the US safe
+                harbour program - And the state of Israel.
+
+                TODO: Is there a maintained reference list of DPA countries online
+                available?
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DPA"/>
+            <xs:enumeration value="None"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ISO3166Alpha2">
+        <xs:annotation>
+            <xs:documentation>
+                Two-letter (alpha-2) ISO 3166-1 code for one of the 243 countries. These
+                codes are subject to change. For valid values refer to
+                http://www.iso.org/iso/list-en1-semic-3.txt
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:pattern value="[A-Z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="CountryListType">
+        <xs:sequence>
+            <xs:element name="Country" type="opt:ISO3166Alpha2" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EncryptionLevelType">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element name="EncryptionAlgoritm"
+                            type="opt:EncryptionAlgoritmType"/>
+                <xs:element name="EncryptionKeySize" type="xs:int" default="128"
+                            minOccurs="0"/>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element name="CustomEncryptionLevel" type="xs:anyType"/>
+            </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+    <xs:simpleType name="EncryptionAlgoritmType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NotApplicable"/>
+            <xs:enumeration value="AES"/>
+            <xs:enumeration value="Twofish"/>
+            <xs:enumeration value="AES-Twofish"/>
+            <xs:enumeration value="AES-Twofish-Serpent"/>
+            <xs:enumeration value="Serpent-AES"/>
+            <xs:enumeration value="Serpent-Twofish-AES"/>
+            <xs:enumeration value="Twofish-Serpent"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SCCType">
+    	<xs:annotation>
+            <xs:documentation>
+                Standard Contractual Clauses
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Clause" type="opt:SectionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BCRType">
+    	<xs:annotation>
+            <xs:documentation>
+                Binding Coorporate Rules
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Rule" type="opt:SectionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="IPRType">
+    	<xs:annotation>
+            <xs:documentation>
+                Intellectual Property Rights
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Rule" type="opt:SectionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SectionType">
+        <xs:sequence>
+            <xs:element name="Title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Item" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <!--
+       Definition of the AffinitySection.
+    -->
+    <xs:element name="AffinityRule" type="opt:AffinityRuleType"/>
+    <xs:complexType name="AffinitySectionType">
+        <xs:sequence>
+            <xs:element ref="opt:AffinityRule" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AffinityRuleType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="AffinityConstraints" type="opt:AffinityConstraintType"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="AffinityConstraintType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="High"/>
+            <xs:enumeration value="Medium"/>
+            <xs:enumeration value="Low"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+       Definition of the Anti AffinitySection.
+    -->
+    <xs:element name="AntiAffinityRule" type="opt:AntiAffinityRuleType"/>
+    <xs:complexType name="AntiAffinitySectionType">
+        <xs:sequence>
+            <xs:element ref="opt:AntiAffinityRule" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntiAffinityRuleType">
+        <xs:complexContent>
+            <xs:extension base="opt:ScopedSectionType">
+                <xs:sequence>
+                    <xs:element name="AntiAffinityConstraints" type="opt:AntiAffinityConstraintType"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiAffinityConstraintType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="High"/>
+            <xs:enumeration value="Medium"/>
+            <xs:enumeration value="Low"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="ServiceEndpointsType">
+        <xs:sequence>
+            <xs:element name="ServiceEndpoint" minOccurs="0" maxOccurs="unbounded" type="opt:ServiceEndPointType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ServiceEndPointType">
+        <xs:simpleContent>
+            <xs:extension base="xs:anyURI">
+                <xs:attribute name="name" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

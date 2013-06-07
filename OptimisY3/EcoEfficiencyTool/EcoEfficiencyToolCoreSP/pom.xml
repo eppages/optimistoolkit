@@ -1,0 +1,80 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>eu.optimis</groupId>
+        <artifactId>EcoEfficiencyToolPackage</artifactId>
+        <version>3.0-SNAPSHOT</version>
+    </parent>
+    <packaging>jar</packaging>
+    <version>3.0-SNAPSHOT</version>
+    <artifactId>EcoEfficiencyToolCoreSP</artifactId>
+    <name>EcoEfficiencyToolCoreSP</name>
+    <dependencies>
+        <!-- OPTIMIS DEPENDENCIES -->
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>EcoEfficiencyToolRESTClient</artifactId>
+            <version>${EcoEfficiencyToolRESTClient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>EcoEfficiencyToolDBSP</artifactId>
+            <version>${EcoEfficiencyToolDB.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.service_manager</groupId>
+            <artifactId>ServiceManagerRESTClient</artifactId>
+            <version>${ServiceManagerRESTClient.version}</version>
+        </dependency>
+        <dependency> 
+            <groupId>eu.optimis.cbr.client</groupId> 
+            <artifactId>CloudBrokerClient</artifactId>
+            <version>${CloudBrokerClient.version}</version>	
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-api</artifactId>
+            <version>${ServiceManifest.version}</version>
+        </dependency>
+        
+        <!-- EXTERNAL DEPENDENCIES -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>net.emotivecloud</groupId>
+            <artifactId>Commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.9</version>
+        </dependency>
+    </dependencies>	
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+	<!--<properties>
+		<webapp.dir>${project.build.directory}/CloudOptimizer</webapp.dir>
+	</properties>-->
+</project>
+

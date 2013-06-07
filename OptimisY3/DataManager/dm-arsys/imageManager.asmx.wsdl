@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://arsys.es/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://arsys.es/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://arsys.es/">
+      <s:element name="requestServiceUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="service_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="requestServiceUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestServiceUploadResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validateImageUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="service_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="image_filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5sum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validateImageUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validateImageUploadResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="terminateServiceUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="service_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="terminateServiceUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="terminateServiceUploadResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="requestServiceUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:requestServiceUpload" />
+  </wsdl:message>
+  <wsdl:message name="requestServiceUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:requestServiceUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="validateImageUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:validateImageUpload" />
+  </wsdl:message>
+  <wsdl:message name="validateImageUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:validateImageUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="terminateServiceUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:terminateServiceUpload" />
+  </wsdl:message>
+  <wsdl:message name="terminateServiceUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:terminateServiceUploadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="imageManagerSoap">
+    <wsdl:operation name="requestServiceUpload">
+      <wsdl:input message="tns:requestServiceUploadSoapIn" />
+      <wsdl:output message="tns:requestServiceUploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validateImageUpload">
+      <wsdl:input message="tns:validateImageUploadSoapIn" />
+      <wsdl:output message="tns:validateImageUploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="terminateServiceUpload">
+      <wsdl:input message="tns:terminateServiceUploadSoapIn" />
+      <wsdl:output message="tns:terminateServiceUploadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="imageManagerSoap" type="tns:imageManagerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="requestServiceUpload">
+      <soap:operation soapAction="http://arsys.es/requestServiceUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateImageUpload">
+      <soap:operation soapAction="http://arsys.es/validateImageUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminateServiceUpload">
+      <soap:operation soapAction="http://arsys.es/terminateServiceUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="imageManagerSoap12" type="tns:imageManagerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="requestServiceUpload">
+      <soap12:operation soapAction="http://arsys.es/requestServiceUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateImageUpload">
+      <soap12:operation soapAction="http://arsys.es/validateImageUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminateServiceUpload">
+      <soap12:operation soapAction="http://arsys.es/terminateServiceUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="imageManager">
+    <wsdl:port name="imageManagerSoap" binding="tns:imageManagerSoap">
+      <soap:address location="https://optimis-ws.servidoresdns.net:8443/OptimisWebService/imageManager/imageManager.asmx" />
+    </wsdl:port>
+    <wsdl:port name="imageManagerSoap12" binding="tns:imageManagerSoap12">
+      <soap12:address location="https://optimis-ws.servidoresdns.net:8443/OptimisWebService/imageManager/imageManager.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

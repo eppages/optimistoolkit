@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>eu.optimis.servicemanifest</groupId>
+      <artifactId>ServiceManifest</artifactId>
+      <version>1.0.2</version>
+   </parent>
+
+   <groupId>eu.optimis.servicemanifest</groupId>
+   <artifactId>service-manifest-xmlbeans</artifactId>
+   <version>1.0.2</version>
+   <name>service-manifest-xmlbeans</name>
+   <url>http://maven.apache.org</url>
+   <properties>
+      <schema-dir>target/schema-resources</schema-dir>
+   </properties>
+
+   <build>
+      <defaultGoal>install</defaultGoal>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>get optimis schemas</id>
+                  <phase>generate-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>eu.optimis.servicemanifest</groupId>
+                           <artifactId>service-manifest-schema</artifactId>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <outputDirectory>${schema-dir}</outputDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>xmlbeans-maven-plugin</artifactId>
+            <version>2.3.2</version>
+            <executions>
+               <execution>
+                  <id>compile schemas</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>xmlbeans</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <inherited>false</inherited>
+            <configuration>
+               <schemaDirectory>${schema-dir}</schemaDirectory>
+               <download>false</download>
+               <verbose>false</verbose>
+               <debug>false</debug>
+               <catalogLocation>${schema-dir}/catalog/resolver-catalog.xml</catalogLocation>
+            </configuration>
+            <!--
+             keep backward compatibility of the XML types
+            -->
+            <dependencies>
+               <dependency>
+                  <groupId>org.apache.xmlbeans</groupId>
+                  <artifactId>xmlbeans</artifactId>
+                  <version>2.3.0</version>
+               </dependency>
+            </dependencies>
+
+         </plugin>
+
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.apache.xmlbeans</groupId>
+         <artifactId>xmlbeans</artifactId>
+         <version>2.4.0</version>
+      </dependency>
+      <dependency>
+         <groupId>eu.optimis.servicemanifest</groupId>
+         <artifactId>service-manifest-schema</artifactId>
+         <version>1.0.2</version>
+      </dependency>
+   </dependencies>
+   <profiles>
+      <profile>
+         <id>windows</id>
+         <activation>
+            <os>
+               <family>Windows</family>
+            </os>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>xmlbeans-maven-plugin</artifactId>
+                  <configuration>
+                     <!-- the xmlbeans compiler needs to be set on windows machines, otherwise it will not find it. -->
+                     <compiler>${env.JAVA_HOME}/bin/javac</compiler>
+                  </configuration>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
+
+</project>

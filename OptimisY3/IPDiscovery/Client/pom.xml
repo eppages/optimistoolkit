@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>eu.optimis.ipdiscovery</groupId>
+        <artifactId>IPDiscovery</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    
+    <groupId>eu.optimis.ipdiscovery</groupId>
+    <artifactId>IPClient</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>IP Discovery Client</name>
+    <description>Client for IP discovery</description>
+    <url>http://www.optimis-project.eu/</url>
+    <dependencies>
+        <dependency>
+            <groupId>eu.optimis.ipdiscovery</groupId>
+            <artifactId>IPDatamodel</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Commons lang -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+            <optional>false</optional>
+        </dependency>
+
+        <!-- Commons configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>${commons-config.version}</version>
+            <optional>false</optional>
+        </dependency>
+
+        <!-- Log4J -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <optional>false</optional>
+        </dependency>
+
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Jersey REST -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        
+       <!-- json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+    </dependencies>
+    <properties>
+        <com.sun.jersey.version>1.6</com.sun.jersey.version>
+        <commons-lang.version>2.4</commons-lang.version>
+        <commons-config.version>1.6</commons-config.version>
+        <log4j.version>1.2.14</log4j.version>
+        <junit.version>4.8.2</junit.version>
+        <json.version>20090211</json.version>
+    </properties>
+    <build>  
+        <!-- ================== MAVEN EXEC PLUGIN =================== -->
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>eu.optimis.ipdiscovery.client.IPClient</mainClass>
+                </configuration>
+            </plugin>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>eu.optimis.ipdiscovery.client.IPClient</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </plugin>
+        </plugins>
+    </build>
+</project>
+

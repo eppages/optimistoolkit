@@ -1,0 +1,9 @@
+eu.optimis.vc.api
+eu.optimis.vc.api.Core
+eu.optimis.vc.api.DataAggregator
+eu.optimis.vc.api.DataModel
+eu.optimis.vc.api.DataModel.ContextDataTypes
+eu.optimis.vc.api.DataModel.Image
+eu.optimis.vc.api.ImageConverter
+eu.optimis.vc.api.ImageFabricator
+eu.optimis.vc.api.IsoCreator

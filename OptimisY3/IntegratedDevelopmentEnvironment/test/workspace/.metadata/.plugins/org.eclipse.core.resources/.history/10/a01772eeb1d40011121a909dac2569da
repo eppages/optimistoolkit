@@ -1,0 +1,7 @@
+package eu.optimis.ide.test;
+
+import javax.jws.WebService;
+
+@WebService
+public class TestService{
+}

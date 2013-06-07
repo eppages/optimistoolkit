@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-mon:SLASeriveMonitoring ServiceId="" xmlns:service-mon="http://www.optimis.eu/sla/service-monitoring-types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.optimis.eu/sla/service-monitoring-types service-monitoring-types.xsd ">
+  <service-mon:SLASeriveMonitoringRecord timestamp="2001-12-31T12:00:00">
+    <service-mon:ServiceRecord>
+      <service-mon:MetricName>service-mon:MetricName</service-mon:MetricName>
+      <service-mon:MetricUnit>service-mon:MetricUnit</service-mon:MetricUnit>
+      <service-mon:MetricValue>service-mon:MetricValue</service-mon:MetricValue>
+    </service-mon:ServiceRecord>
+    <service-mon:VirtualMachineSystem>
+    	<service-mon:VirtualMachine VirtualMachineId="">
+    		<service-mon:VirtualMachineRecord>
+    			<service-mon:MetricName>service-mon:MetricName</service-mon:MetricName>
+      			<service-mon:MetricUnit>service-mon:MetricUnit</service-mon:MetricUnit>
+      			<service-mon:MetricValue>service-mon:MetricValue</service-mon:MetricValue>	
+    		</service-mon:VirtualMachineRecord>
+    	</service-mon:VirtualMachine>
+    </service-mon:VirtualMachineSystem>
+  </service-mon:SLASeriveMonitoringRecord>
+</service-mon:SLASeriveMonitoring>

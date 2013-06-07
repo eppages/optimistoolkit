@@ -1,0 +1,66 @@
+<MonitoringResources>
+  <monitoring_resource>
+    <metric_name>os_release</metric_name>
+    <metric_value>linux</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>cpu_vnum</metric_name>
+    <metric_value>16</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>machine_type</metric_name>
+    <metric_value>x86</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>cpu_speed</metric_name>
+    <metric_value>3.5</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>cpu_user</metric_name>
+    <metric_value>demo</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>mem_total</metric_name>
+    <metric_value>25634</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>mem_total</metric_name>
+    <metric_value>25634</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>disk_total</metric_name>
+    <metric_value>65724</metric_value>
+    <virtual_resource_id>124d-456f-er35-dfe8-hj45-34gt-23sr</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <metric_timesstamp>Fri Sep 23 16:08:50 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+</MonitoringResources>

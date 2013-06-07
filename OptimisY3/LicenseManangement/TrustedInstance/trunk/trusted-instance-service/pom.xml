@@ -1,0 +1,607 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+    	<artifactId>trusted-instance</artifactId>
+    	<groupId>eu.optimis.trusted-instance</groupId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>trusted-instance-service</artifactId>
+   
+    <name>trusted-instance-service</name>
+    
+    <packaging>war</packaging>
+    
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<servlet-container-port>9090</servlet-container-port>
+        <deployed.final.name.of.war>trusted-instance</deployed.final.name.of.war>
+	</properties>
+	
+	<dependencies>
+    
+        <dependency>
+        	<groupId>eu.optimis.trusted-instance</groupId>
+            <artifactId>trusted-instance-server</artifactId>
+        </dependency>
+   
+        <dependency>
+        	<groupId>eu.optimis.trusted-instance</groupId>
+            <artifactId>trusted-instance-client</artifactId>
+        </dependency>
+        
+        <dependency>
+			<groupId>eu.elasticlm.types</groupId>
+			<artifactId>elasticlm-types</artifactId>
+		</dependency>
+		
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+
+        <dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<!-- JPA, EclipseLink -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+		</dependency>
+   
+    </dependencies>
+    
+    <build>
+
+        <filters>
+            <filter>src/main/filters/localhost.properties</filter>
+        </filters>
+
+        <plugins>
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            
+            <!-- we do not have any unit tests here, surefire is skipped -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- integration tests are run through the failsafe plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.12</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <systemPropertyVariables>
+                    </systemPropertyVariables>
+                    <excludes>
+                    	<!-- <exclude>**/TrustedInstanceServiceIT.java</exclude>  -->  
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            
+            <!-- standalone integration test of the web application -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>start-container</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <wait>false</wait>
+                            <!-- Container configuration -->
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <zipUrlInstaller>
+                                    <url>
+                                        http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.32/bin/apache-tomcat-6.0.32.zip
+                                    </url>
+                                </zipUrlInstaller>
+                                <output>${project.build.directory}/logs/container.log</output>
+                                <append>false</append>
+                                <log>${project.build.directory}/logs/cargo.log</log>
+                            </container>
+                            <!-- Configuration to use with the container or the deployer -->
+                            <configuration>
+                                <type>standalone</type>
+                                <home>${project.build.directory}/apache-tomcat</home>
+                                <properties>
+                                    <cargo.servlet.port>${servlet-container-port}
+                                    </cargo.servlet.port>
+                                    <cargo.logging>high</cargo.logging>
+                                </properties>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.trusted-instance</groupId>
+		                    			<artifactId>trusted-instance-service</artifactId>
+		                    			<type>war</type>
+		                    		<properties>
+		                        		<context>/trusted-instance</context>
+		                    		</properties>
+                                    </deployable>
+                                </deployables>
+                            </configuration>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-container</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <wait>false</wait>
+                            <!--  Container configuration -->
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <output>${project.build.directory}/logs/container.log</output>
+                                <append>true</append>
+                                <log>${project.build.directory}/logs/cargo.log</log>
+                            </container>
+                            <!-- Configuration to use with the container or the deployer -->
+                            <configuration>
+                                <type>existing</type>
+                                <home>${project.build.directory}/apache-tomcat</home>
+                                <properties>
+                                    <cargo.servlet.port>${servlet-container-port}
+                                    </cargo.servlet.port>
+                                    <cargo.logging>high</cargo.logging>
+                                </properties>
+                            </configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+                   
+        </plugins>
+    </build>
+	
+	<profiles>
+        <profile>
+            <id>ATOS</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/atos.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>tomcat-maven-plugin</artifactId>
+                        <version>1.1</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>1.6</source>
+                            <target>1.6</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.0</version>
+                        <configuration>
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <type>remote</type>
+                            </container>
+                            <configuration>
+                                <type>runtime</type>
+                                <properties>
+                                    <cargo.remote.username>${cargo.remote.username}
+                                    </cargo.remote.username>
+                                    <cargo.remote.password>${cargo.remote.password}
+                                    </cargo.remote.password>
+                                    <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+                                    </cargo.tomcat.manager.url>
+                                </properties>
+                            </configuration>
+                            <deployer>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.trusted-instance</groupId>
+		                    			<artifactId>trusted-instance-service</artifactId>
+										<type>war</type>
+                                    </deployable>
+                                </deployables>
+                            </deployer>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>deploy-remote</id>
+                                <goals>
+                                    <goal>undeploy</goal>
+                                    <goal>deploy</goal>
+                                    <goal>redeploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>
+                                            src/main/filters/atos.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+                <finalName>${deployed.final.name.of.war}</finalName>
+            </build>
+        </profile>
+        <profile>
+            <id>ATOS2</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/atos2.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>tomcat-maven-plugin</artifactId>
+                        <version>1.1</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>1.6</source>
+                            <target>1.6</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.0</version>
+                        <configuration>
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <type>remote</type>
+                            </container>
+                            <configuration>
+                                <type>runtime</type>
+                                <properties>
+                                    <cargo.remote.username>${cargo.remote.username}
+                                    </cargo.remote.username>
+                                    <cargo.remote.password>${cargo.remote.password}
+                                    </cargo.remote.password>
+                                    <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+                                    </cargo.tomcat.manager.url>
+                                </properties>
+                            </configuration>
+                            <deployer>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.trusted-instance</groupId>
+		                    			<artifactId>trusted-instance-service</artifactId>
+										<type>war</type>
+                                    </deployable>
+                                </deployables>
+                            </deployer>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>deploy-remote</id>
+                                <goals>
+                                    <goal>undeploy</goal>
+                                    <goal>deploy</goal>
+                                    <goal>redeploy</goal>
+                                </goals>
+                            </execution>
+
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>
+                                            src/main/filters/atos2.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+                <finalName>${deployed.final.name.of.war}</finalName>
+            </build>
+        </profile>
+        <profile>
+            <id>UMU</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/umea.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>tomcat-maven-plugin</artifactId>
+                        <version>1.1</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>1.6</source>
+                            <target>1.6</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.0</version>
+                        <configuration>
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <type>remote</type>
+                                <systemProperties>
+                                </systemProperties>
+                            </container>
+                            <configuration>
+                                <type>runtime</type>
+                                <properties>
+                                    <cargo.remote.username>${cargo.remote.username}
+                                    </cargo.remote.username>
+                                    <cargo.remote.password>${cargo.remote.password}
+                                    </cargo.remote.password>
+                                    <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+                                    </cargo.tomcat.manager.url>
+                                </properties>
+
+                            </configuration>
+                            <deployer>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.trusted-instance</groupId>
+		                    			<artifactId>trusted-instance-service</artifactId>
+										<type>war</type>
+                                    </deployable>
+                                </deployables>
+                            </deployer>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>deploy-remote</id>
+                                <goals>
+                                    <goal>undeploy</goal>
+                                    <goal>deploy</goal>
+                                    <goal>redeploy</goal>
+                                </goals>
+                            </execution>
+
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>
+                                            src/main/filters/umea.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+                <finalName>${deployed.final.name.of.war}</finalName>
+
+            </build>
+        </profile>
+        <!-- prfile for deployment on flexiant testbed -->
+        <profile>
+            <id>FLEX</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/flexiant.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>tomcat-maven-plugin</artifactId>
+                        <version>1.1</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>1.6</source>
+                            <target>1.6</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.0</version>
+                        <configuration>
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <type>remote</type>
+                                <systemProperties>
+                                    <wsag4j.gateway.address>${wsag4j.gateway.address}
+                                    </wsag4j.gateway.address>
+                                </systemProperties>
+                            </container>
+                            <configuration>
+                                <type>runtime</type>
+                                <properties>
+                                    <cargo.remote.username>${cargo.remote.username}
+                                    </cargo.remote.username>
+                                    <cargo.remote.password>${cargo.remote.password}
+                                    </cargo.remote.password>
+                                    <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+                                    </cargo.tomcat.manager.url>
+                                </properties>
+
+                            </configuration>
+                            <deployer>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.trusted-instance</groupId>
+		                    			<artifactId>trusted-instance-service</artifactId>
+										<type>war</type>
+                                    </deployable>
+
+                                </deployables>
+                            </deployer>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>deploy-remote</id>
+                                <goals>
+                                    <goal>undeploy</goal>
+                                    <goal>deploy</goal>
+                                    <goal>redeploy</goal>
+                                </goals>
+                            </execution>
+
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>
+                                            src/main/filters/flexiant.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+                <finalName>${deployed.final.name.of.war}</finalName>
+            </build>
+        </profile>
+        
+
+	</profiles>
+         
+</project>

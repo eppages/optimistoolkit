@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+           targetNamespace="http://schemas.optimis.eu/optimis/service"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified">
+
+    <xs:import namespace="http://schemas.dmtf.org/ovf/envelope/1"
+               schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd"/>
+    <xs:import namespace="http://schemas.optimis.eu/optimis/" schemaLocation="./optimis.xsd"/>
+
+    <xs:element name="ServiceProviderExtensions" type="opt-sp:ServiceProviderExtensionType"/>
+    <xs:element name="VirtualMachineComponentConfiguration"
+                type="opt-sp:VirtualMachineComponentConfigurationType">
+        <xs:key name="vmComponentConfigKey">
+            <xs:selector xpath="."/>
+            <xs:field xpath="@opt-sp:componentId"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="ServiceProviderExtensionType">
+        <xs:annotation>
+            <xs:documentation>
+                Provisioning of extensions for a Service Provider.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="opt-sp:VirtualMachineComponentConfiguration" maxOccurs="unbounded"
+                        minOccurs="0"/>
+            <xs:element name="DataManagerKey" type="xs:base64Binary" minOccurs="0"/>
+            <xs:element name="SLAID" type="xs:string" minOccurs="0"/>
+            <xs:element name="BlackListIPs" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VirtualMachineComponentConfigurationType">
+        <xs:sequence>
+            <xs:element name="SoftwareDependencies" type="opt-sp:SoftwareDependencyArrayType"/>
+            <xs:element name="SecurityVPN" type="xs:boolean" default="false" minOccurs="1"
+                        maxOccurs="1"/>
+            <xs:element name="SecuritySSH" type="xs:boolean" default="false" minOccurs="1"
+                        maxOccurs="1"/>
+            <xs:element name="SSHKey" type="xs:base64Binary" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="EncryptedSpace" type="opt-sp:EncryptedSpaceType" minOccurs="0"/>
+            <xs:element name="LicenseToken" type="xs:base64Binary" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="LicenseISVCert" type="xs:base64Binary" minOccurs="0"
+                        maxOccurs="unbounded"/>            
+            <!-- This can be used to add any desired configuration by using key, value, type -->
+            <xs:element name="ComponentProperties" type="opt-sp:ComponentPropertyArrayType"
+                        minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="componentId" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="SoftwareDependencyArrayType">
+        <xs:sequence>
+            <xs:element name="Dependency" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="groupId" type="xs:string"/>
+                        <xs:element name="artifactId" type="xs:string"/>
+                        <xs:element name="version" type="xs:string"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ComponentPropertyArrayType">
+        <xs:sequence>
+            <xs:element name="ComponentProperty" type="opt-sp:ComponentPropertyType"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ComponentPropertyType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Value" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EncryptedSpaceType">
+        <xs:annotation>
+            <xs:documentation>
+                The encrypted space type is set, if the allocated storage has to be
+                encrypted. Therefore the encryption key has to be provided.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EncryptionKey" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

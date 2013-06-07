@@ -1,0 +1,411 @@
+<ServiceManifest opt:manifestId="OPTIMIS_VM:1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://schemas.optimis.eu/optimis/"
+xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+xmlns:opt="http://schemas.optimis.eu/optimis/"
+xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData"
+opt:serviceProviderId="OPTIMUMWEB">
+  <opt:VirtualMachineDescription opt:serviceId="DemoApp">
+    <ovf:Envelope>
+      <ovf:References>
+        <!-- VM images -->
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.img"
+        ovf:id="jboss-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-db.img"
+        ovf:id="mysql-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-lb.img"
+        ovf:id="lb-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-vpn.img"
+        ovf:id="vpn-img" />
+        <!-- ISO images -->
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_1.iso"
+        ovf:id="jboss-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-db_1.iso"
+        ovf:id="mysql-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-lb_1.iso"
+        ovf:id="lb-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-vpn_1.iso"
+        ovf:id="vpn-1-iso" />
+      </ovf:References>
+      <ovf:DiskSection>
+        <ovf:Info />
+        <!-- VM Disks -->
+        <ovf:Disk ovf:capacity="6252516" ovf:diskId="jboss_disk"
+        ovf:fileRef="jboss-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="7380016" ovf:diskId="mysql_disk"
+        ovf:fileRef="mysql-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="5160576" ovf:diskId="lb_disk"
+        ovf:fileRef="lb-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="6252516" ovf:diskId="vpn_disk"
+        ovf:fileRef="vpn-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <!-- ISO Disks -->
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_2"
+        ovf:fileRef="jboss-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="mysql_disk_2"
+        ovf:fileRef="mysql-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="lb_disk_2"
+        ovf:fileRef="lb-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="vpn_disk_2"
+        ovf:fileRef="vpn-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+      </ovf:DiskSection>
+      <ovf:NetworkSection>
+        <ovf:Info />
+        <ovf:Network ovf:name="jboss_net">
+          <ovf:Description>Network to connect to
+          system-jboss</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="mysql_net">
+          <ovf:Description>Network to connect to
+          system-mysql</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="lb_net">
+          <ovf:Description>Network to connect to
+          LB</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="serviceLB_net">
+          <ovf:Description>Network to connect to
+          LB</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="vpn_net">
+          <ovf:Description>Network to connect to
+          VPN</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="vpn2_net">
+          <ovf:Description>Network to connect to
+          VPN</ovf:Description>
+        </ovf:Network>
+      </ovf:NetworkSection>
+      <!-- Django: Added all instances to collection -->
+      <ovf:VirtualSystemCollection ovf:id="service-collection">
+        <ovf:Info>Collection of virtual systems</ovf:Info>
+		<!-- VPN Instance -->
+        <ovf:VirtualSystem ovf:id="system-vpn">
+          <ovf:Info>VPN description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>VPN</ovf:Product>
+            <ovf:Version></ovf:Version>
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>vpn_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on VPN
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>vpn2_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on VPN
+              network</rasd:ElementName>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/vpn_disk</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/vpn_disk_2</rasd:HostResource>
+              <rasd:InstanceID>6</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+		<!-- Load Balancer Instance -->
+        <ovf:VirtualSystem ovf:id="system-lb">
+          <ovf:Info>LB description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>LB</ovf:Product>
+            <ovf:Version></ovf:Version>
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>512 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>lb_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on load balancer
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/lb_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/lb_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>        
+		<!-- Mysql Instance -->
+        <ovf:VirtualSystem ovf:id="system-mysql">
+          <ovf:Info>BBDD description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>mysql</ovf:Product>
+            <ovf:Version></ovf:Version>
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>512 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>mysql_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on mysql_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <!-- Jboss Instances -->
+        <ovf:VirtualSystem ovf:id="system-jboss">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>                
+      </ovf:VirtualSystemCollection>
+    </ovf:Envelope>
+    <opt:AllocationSection>
+      <opt:AllocationConstraint opt:virtualSystemId="system-jboss">
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>16</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemId="system-mysql">
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemId="system-lb">
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemId="system-vpn">
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+    </opt:AllocationSection>
+  </opt:VirtualMachineDescription>
+  <opt:TRECSection>
+    <opt:TrustSection>
+      <opt:TrustLevel>5</opt:TrustLevel>
+    </opt:TrustSection>
+    <opt:RiskSection>
+      <opt:AvailabilityArray>
+        <!-- defines a minimum availability of the VM of 99% at a day -->
+        <opt:Availability opt:AssessmentInterval="P1D">
+        98</opt:Availability>
+        <!-- defines a minimum availability of the VM of 99% at a month -->
+        <opt:Availability opt:AssessmentInterval="P1M">
+        99</opt:Availability>
+      </opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:EcoEfficiencySection>
+      <opt:LEEDCertification></opt:LEEDCertification>
+      <opt:BREEAMCertification></opt:BREEAMCertification>
+      <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>No</opt:EnergyStarRating>
+    </opt:EcoEfficiencySection>
+    <opt:CostSection>
+      <opt:Price opt:currency="EUR">100.00</opt:Price>
+    </opt:CostSection>
+  </opt:TRECSection>
+  <opt:ElasticitySection>
+    <opt:Rule>
+      <opt:Scope>
+        <opt:VirtualSystemId>instance-jboss</opt:VirtualSystemId>
+      </opt:Scope>
+      <!-- Current amount of JVM Threads in the JBoss JVM -->
+      <opt:KPIName>ThreadCount</opt:KPIName>
+      <!-- These values are not used for this measurement -->
+      <opt:Window>P5M</opt:Window>
+      <opt:Frequency>1</opt:Frequency>
+      <!-- 100 users per thread, with a tolerance of 5% (so trigger at more than 105 users, and down again at below 95 users ) -->
+      <opt:Quota>100</opt:Quota>
+      <opt:Tolerance>5</opt:Tolerance>
+    </opt:Rule>
+  </opt:ElasticitySection>
+  <opt:DataProtectionSection>
+    <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+    <opt:DataEncryptionLevel>
+      <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+    </opt:DataEncryptionLevel>
+  </opt:DataProtectionSection>
+</ServiceManifest>

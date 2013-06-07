@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.ide.iter2.feat5" name="Test_Iter2_Feat_5" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit" source_dir="src">
+  <dependency imported="false" location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+
+
+</project_metadata>

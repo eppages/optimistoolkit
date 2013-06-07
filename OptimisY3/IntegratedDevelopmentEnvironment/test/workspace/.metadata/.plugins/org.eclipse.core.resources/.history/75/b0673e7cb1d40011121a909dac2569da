@@ -1,0 +1,3 @@
+package eu.optimis.ide.test;
+
+import javax.jws.WebService;

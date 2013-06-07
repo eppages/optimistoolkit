@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.ide.tests.iter3.feat8" name="Test_Iter3_Feat_8" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit" source_dir="src">
+  <dependency imported="false" location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+<orchestration_class class="eu.optimis.ide.tests.iter3.feat8.TestOrchClass" type="Web Service Interface Class"/>
+<elasticity element="testOE()eu.optimis.ide.tests.iter3.feat8.TestOrchClass" max="4" min="2"/>
+  
+<elasticity element="testCE()TestCE" max="4" min="1"/>
+<package name="Test_Iter3_Feat_8" type="Orchestration Elements">
+    <element label="testOE()eu.optimis.ide.tests.iter3.feat8.TestOrchClass"/>
+  </package>
+  <package name="autoMethod" type="Method Core Elements">
+    <element label="testCE()TestCE"/>
+  </package>
+</project_metadata>

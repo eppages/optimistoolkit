@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.optimis</groupId>
+        <artifactId>optimis-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../optimis-parent/pom.xml</relativePath>
+    </parent>
+
+    <groupId>eu.optimis.sdo</groupId>
+    <artifactId>ServiceDeployer</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>ServiceDeployer</name>
+    <url>http://maven.apache.org</url>
+    
+    <!-- Version properties for different packages -->
+    <properties> 
+        <com.sun.jersey.version>1.6</com.sun.jersey.version> 
+        <do.version>1.0-SNAPSHOT</do.version>
+        
+        <vmc.version>3.1.0-SNAPSHOT</vmc.version>
+        <dmc.version>0.53-SNAPSHOT</dmc.version>
+        <smc.version>0.6-SNAPSHOT</smc.version>
+
+		<broker.client.version>1.0-SNAPSHOT</broker.client.version>
+         <corest.version>1.0-SNAPSHOT</corest.version>
+         <manifest.registry.client.version>0.0.2-SNAPSHOT</manifest.registry.client.version>
+    </properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>eu.optimis.manifest-registry</groupId>
+			<artifactId>manifest-registry-client</artifactId>
+			<version>${manifest.registry.client.version}</version>
+		</dependency>
+		
+		<!-- CloudOptimizerRESTClient -->
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>CloudOptimizerRESTClient</artifactId>
+            <version>${corest.version}</version>
+        </dependency>
+
+        <!-- DeploymentOptimizer -->
+        <dependency>
+            <groupId>eu.optimis.sdo</groupId>
+            <artifactId>DeploymentOptimizer</artifactId>
+            <version>${do.version}</version>
+            <optional>false</optional>
+            <exclusions>
+				<exclusion>
+					<artifactId>xercesImpl</artifactId>
+					<groupId>xerces</groupId>
+		    	</exclusion>
+			</exclusions>
+        </dependency>
+
+		<!-- Broker Client -->
+		<dependency>
+			<groupId>eu.optimis.cbr.client</groupId>
+			<artifactId>CloudBrokerClient</artifactId>
+			<version>${broker.client.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+	<!-- Contextualization -->
+        <dependency>
+            <groupId>eu.optimis.vc</groupId>
+            <artifactId>VmContextualizer</artifactId>
+            <version>${vmc.version}</version>
+            <optional>false</optional>
+        </dependency>
+        
+        <!-- Data Manager client -->
+        <dependency>
+            <groupId>eu.optimis.DataManagerClient</groupId>
+            <artifactId>DataManagerClient</artifactId>
+            <version>${dmc.version}</version>
+         </dependency>
+         
+        <!-- ServiceManager -->
+        <dependency>
+            <groupId>eu.optimis.service_manager</groupId>
+            <artifactId>ServiceManagerRESTClient</artifactId>
+            <version>${smc.version}</version>
+        </dependency>  
+              
+        <dependency>
+            <groupId>eu.optimis.service_manager</groupId>
+            <artifactId>ServiceManagerSchema</artifactId>
+            <version>${smc.version}</version>
+        </dependency>   
+        
+        <!-- Jersey REST -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId> 
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+  
+    </dependencies> 
+
+    <build>
+
+        <plugins> 
+  <!--       
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+     -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+            <!-- Specify default file to run in .jar -->
+<!--             
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>eu.optimis.sdo.RunMain</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>${env.HOME}/.m2/repository</classpathPrefix>
+                            <classpathLayoutType>repository</classpathLayoutType>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+ -->
+            <!-- Specify target of assembly command to build a single jar with all dependencies -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>eu.optimis.sdo.RunMain</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>eu.optimis.utils.marfileassembler</groupId>
+                        <artifactId>MarFileAssembler</artifactId>
+                        <version>0.1-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins> 
+    </build>
+</project>

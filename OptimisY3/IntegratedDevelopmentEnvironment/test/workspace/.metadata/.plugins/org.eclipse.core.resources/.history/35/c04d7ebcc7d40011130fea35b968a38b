@@ -1,0 +1,10 @@
+package eu.optimis.ide.test;
+
+import integratedtoolkit.types.annotations.Constraints;
+import integratedtoolkit.types.annotations.Method;
+import java.lang.String;
+import integratedtoolkit.types.annotations.Parameter;
+import integratedtoolkit.types.annotations.Parameter.*;
+
+public interface TestServiceItf{
+}

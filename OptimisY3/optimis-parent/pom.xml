@@ -1,0 +1,177 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.optimis</groupId>
+	<artifactId>optimis-parent</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>optimis-parent</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<!-- Admission controller -->
+		<ACGateway.version>1.0-SNAPSHOT</ACGateway.version>
+		<AdmissionController.version>1.0-SNAPSHOT</AdmissionController.version>
+		<TRECAnalyzer.version>1.0-SNAPSHOT</TRECAnalyzer.version>
+		
+		<!--  SDO -->
+		<DeploymentOptimizer.version>1.0-SNAPSHOT</DeploymentOptimizer.version>
+		<ServiceDeployer.version>1.0-SNAPSHOT</ServiceDeployer.version>
+		<DeploymentServiceClient.version>1.0-SNAPSHOT</DeploymentServiceClient.version>
+		<SDO-GUI.version>1.0-SNAPSHOT</SDO-GUI.version>
+
+		<!--  EE -->
+		<ElasticityEngine.version>0.0.5-SNAPSHOT</ElasticityEngine.version>
+		
+		<!-- Cloud Broker -->
+		<CloudBrokerClient.version>1.0-SNAPSHOT</CloudBrokerClient.version>
+
+		<!--  DM -->
+		<DataManagerClient.version>0.53-SNAPSHOT</DataManagerClient.version>
+
+		<!--  ServiceManifest -->
+		<ServiceManifest.version>1.0.8</ServiceManifest.version>
+
+		<!--  ManifestRegistry -->
+		<ManifestRegistry.version>0.0.2-SNAPSHOT</ManifestRegistry.version>
+		
+		<!--  IDE -->
+		<IDE.version>1.0.0-SNAPSHOT</IDE.version>
+		
+		<!--  Risk -->
+		<InfrastructureProviderRiskAssessmentFramework.version>1.0-SNAPSHOT</InfrastructureProviderRiskAssessmentFramework.version>
+		<ServiceProviderRiskAssessmentFramework.version>1.0-SNAPSHOT</ServiceProviderRiskAssessmentFramework.version>
+
+		<!--  Eco -->
+		<EcoEfficiencyToolDB.version>3.0-SNAPSHOT</EcoEfficiencyToolDB.version>
+		<EcoEfficiencyToolCoreIP.version>3.0-SNAPSHOT</EcoEfficiencyToolCoreIP.version>
+		<EcoEfficiencyToolRESTIP.version>3.0-SNAPSHOT</EcoEfficiencyToolRESTIP.version>
+		<EcoEfficiencyToolCoreSP.version>3.0-SNAPSHOT</EcoEfficiencyToolCoreSP.version>
+		<EcoEfficiencyToolRESTSP.version>3.0-SNAPSHOT</EcoEfficiencyToolRESTSP.version>
+		<EcoEfficiencyToolRESTClient.version>3.0-SNAPSHOT</EcoEfficiencyToolRESTClient.version>
+ 
+		<!--  Trust -->
+		<TrustFramework.version>3.0-SNAPSHOT</TrustFramework.version>
+		<TrustFrameworkClient.version>3.0-SNAPSHOT</TrustFrameworkClient.version>
+		<iptrustdb.version>3.0-SNAPSHOT</iptrustdb.version>
+		<sptrustdb.version>3.0-SNAPSHOT</sptrustdb.version>
+		<IPTrustFramework.version>3.0-SNAPSHOT</IPTrustFramework.version>
+		<SPTrustFramework.version>3.0-SNAPSHOT</SPTrustFramework.version>
+
+		<!--  TRECCommon -->
+		<TRECCommonDBIP.version>3.0-SNAPSHOT</TRECCommonDBIP.version>
+		<TRECCommonDBSP.version>3.0-SNAPSHOT</TRECCommonDBSP.version>
+		<TRECCommonAPIIP.version>3.0-SNAPSHOT</TRECCommonAPIIP.version>
+		<TRECCommonAPISP.version>3.0-SNAPSHOT</TRECCommonAPISP.version>
+		<TRECCommonDBIP.version>3.0-SNAPSHOT</TRECCommonDBIP.version>
+		<TRECCommonDBSP.version>3.0-SNAPSHOT</TRECCommonDBSP.version>
+		<TRECManagerWeb.version>3.0-SNAPSHOT</TRECManagerWeb.version>
+		
+		 <!--  CloudOptimizer -->
+		<BusinessDescriptor.version>1.0-SNAPSHOT</BusinessDescriptor.version>
+		<DataFormats.version>1.0-SNAPSHOT</DataFormats.version>
+		<CloudOptimizerServer.version>1.0-SNAPSHOT</CloudOptimizerServer.version>
+		<CloudOptimizerRESTClient.version>1.0-SNAPSHOT</CloudOptimizerRESTClient.version>
+
+		<!--  VMManager -->
+		<VMManagerService.version>1.9-SNAPSHOT</VMManagerService.version>
+		<VMManagerRESTClient.version>1.9-SNAPSHOT</VMManagerRESTClient.version>
+
+		<!--  FaultToleranceEngine -->
+		<FaultToleranceEngineService.version>1.0-SNAPSHOT</FaultToleranceEngineService.version>
+ 		<FaultToleranceEngineRESTClient.version>1.0-SNAPSHOT</FaultToleranceEngineRESTClient.version>
+		
+		<!--  MI -->
+		<DBUtil.version>0.0.1-SNAPSHOT</DBUtil.version>
+		<MonitoringResource.version>0.0.1-SNAPSHOT</MonitoringResource.version>
+		<RESTClient.version>0.0.2-SNAPSHOT</RESTClient.version>
+
+		<!--  SM -->
+		<ServiceManagerCore.version>0.6-SNAPSHOT</ServiceManagerCore.version>
+		<ServiceManagerSchema.version>0.6-SNAPSHOT</ServiceManagerSchema.version>
+		<ServiceManagerRESTClient.version>0.6-SNAPSHOT</ServiceManagerRESTClient.version>
+	
+	</properties> 
+	
+	<repositories>	      
+		<repository>
+			<id>optimis-repo</id>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+			<releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+			<name>repo</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url>
+		</repository>        		
+	</repositories>
+
+	<distributionManagement>
+		<!-- For releases -->
+		<repository>
+			<id>optimis-repo</id>
+			<name>optimis-repo-releases</name>
+			<!-- <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url> -->
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url>
+		</repository>
+		<!-- For snapshots -->
+		<snapshotRepository>
+			<id>optimis-repo</id>
+			<uniqueVersion>false</uniqueVersion>
+			<name>optimis-repo-snapshots</name>
+			<!-- <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url> -->
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+<!-- 
+	<modules>
+		<module>../AdmissionControl</module>
+        <module>../TrustFramework</module>
+        <module>../ImageCreationService</module>
+        <module>../ServiceManager</module>
+		<module>../ContextualizationTools</module>
+		<module>../ElasticityEngine</module>
+		<module>../MonitoringInfrastructure</module>
+		<module>../optimis-utils</module>
+		<module>../DeploymentOptimizer</module>
+		<module>../ServiceDeployer</module>
+	</modules>
+ -->
+ 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencyManagement>
+        <dependencies>
+            <!-- Optimis Dependencies -->
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-api</artifactId>
+                <version>1.0.8</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-schema</artifactId>
+                <version>1.0.8</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+</project>

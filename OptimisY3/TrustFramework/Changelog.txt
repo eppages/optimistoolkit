@@ -1,0 +1,1923 @@
+2012-02-07  jlprieto
+
+	* [r3489] TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkCore/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkDB, TrustFrameworkDB/.classpath,
+	  TrustFrameworkDB/.project, TrustFrameworkDB/.settings,
+	  TrustFrameworkDB/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkDB/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkDB/pom.xml, TrustFrameworkDB/src,
+	  TrustFrameworkDB/src/main, TrustFrameworkDB/src/main/java,
+	  TrustFrameworkDB/src/main/java/eu,
+	  TrustFrameworkDB/src/main/java/eu/optimis,
+	  TrustFrameworkDB/src/main/java/eu/optimis/tf,
+	  TrustFrameworkDB/src/main/java/eu/optimis/tf/App.java,
+	  TrustFrameworkDB/src/test, TrustFrameworkDB/src/test/java,
+	  TrustFrameworkDB/src/test/java/eu,
+	  TrustFrameworkDB/src/test/java/eu/optimis,
+	  TrustFrameworkDB/src/test/java/eu/optimis/tf,
+	  TrustFrameworkDB/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkSN/.settings/org.eclipse.wst.xsl.core.prefs,
+	  pom.xml: Created svn DB subpackage for managing Trust Framework
+	  Data Base
+	* [r3488] Changelog.txt: New change log created
+	* [r3484] Changelog.txt: STable version for Trec GUI Demo and
+	  Changelog created
+	* [r3464]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/Statistics.java:
+	  Statistical package added for year 2 version use
+
+2012-02-01  jlprieto
+
+	* [r3345]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrust.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrustHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsersTrust.hbm.xml:
+	* [r3344]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Npservices.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/NpservicesHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Trustnp.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/TrustnpHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCalculator.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Npservices.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Trustnp.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	* [r3343]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrecDemoClient.java,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkCoreClient.java:
+
+2012-01-30  jlprieto
+
+	* [r3297] TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrust.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrustHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNRelationshipQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersTrustQueries.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsersTrust.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java: updated
+	  sn db
+	* [r3285] TrustFrameworkSN/src/main/resources/hibernate.cfg.xml: SN
+	  Mysql changed in Hibernate.cfg.xml
+	* [r3282] TrustFrameworkClients/pom.xml,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrecDemoClient.java,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/utils,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/utils/ServiceManifestXMLProcessor.java:
+	  Trust console client for trec demo
+
+2012-01-27  jlprieto
+
+	* [r3224]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkCoreClient.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java:
+	* [r3223]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/AdminApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/TrustNPDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Npservices.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/NpservicesHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Trustnp.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/TrustnpHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPMIC.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Npservices.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Trustnp.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/NPTest.java:
+
+2012-01-26  jlprieto
+
+	* [r3178] TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkCoreClient.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/ServiceManifestXMLProcessor.java,
+	  TrustFrameworkClients/src/test/resources,
+	  TrustFrameworkClients/src/test/resources/optimis-DemoApplication.xml:
+	* [r3176] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/AdminApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/NPservicesDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/TrustNPDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Npservices.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/NpservicesHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Trustnp.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/TrustnpHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPMIC.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Npservices.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Trustnp.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/NPTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/TestXMLParser.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  NP environment finished
+
+2012-01-24  jlprieto
+
+	* [r3133]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/AdminApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPMIC.java:
+	  Service Start and Service Stop added to the API
+	  fixed problems with the non production environment
+	* [r3125]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/AdminApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/COClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/TrustNPDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/Trustnp.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/TrustnpHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/np/NPMIC.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/Trustnp.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/NPTest.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  non production environment created
+
+2012-01-20  jlprieto
+
+	* [r3032] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/COClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/threads,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/threads/MonitoringThread.java:
+	  New interfaces implemented
+	  New package with the continous thead to retrieve monitoring data
+
+2012-01-03  pramod
+
+	* [r2726] TrustFrameworkCore/src/main/resources/hibernate.cfg.xml:
+	  Username and Password added to the file
+	* [r2725] TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+	  Username and password added back to the file
+
+2011-12-07  pramod
+
+	* [r2384] TrustFrameworkClients/License.txt: License file added
+	* [r2383] TrustFrameworkCore/License.txt: License file added
+	* [r2382] TrustFrameworkSN/License.txt: License file added
+	* [r2381] TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+	  User name and Password Changed for DB
+	* [r2380] TrustFrameworkCore/src/main/resources/hibernate.cfg.xml:
+	  User name and Password removed for DB
+
+2011-12-07  epages
+
+	* [r2373] TrustFrameworkClients/ALv2.0.txt,
+	  TrustFrameworkCore/ALv2.0.txt, TrustFrameworkSN/ALv2.0.txt: -
+	  License updated
+
+2011-12-02  epages
+
+	* [r2356] TrustFrameworkClients/ALv2.0.txt,
+	  TrustFrameworkCore/ALv2.0.txt, TrustFrameworkSN/ALv2.0.txt: -
+	  Apache License v.2.0 added to each subcomponent
+
+2011-09-19  jlprieto
+
+	* [r2303]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/OpinionModel.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/OpinionTest.java:
+	* [r2302] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java: TF
+	  Core DB TEST sequence generated
+
+2011-09-02  jlprieto
+
+	* [r2258]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml:
+	* [r2257] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml:
+
+2011-09-02  epages
+
+	* [r2256] TrustFrameworkCore/src/main/resources/hibernate.cfg.xml:
+	  hibernate.cfgxml with generic URL to database
+
+2011-09-02  jlprieto
+
+	* [r2255] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml:
+	* [r2254] TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+
+2011-09-01  jlprieto
+
+	* [r2253] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/COTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/VMManagerTest.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNAdminManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersTrustDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNRelationshipQueries.java,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java:
+	* [r2252]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersTrustDAO.java:
+	* [r2251]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersTrustDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersTrustQueries.java:
+	* [r2250]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/resources/eu,
+	  TrustFrameworkCore/src/main/resources/eu/optimis,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkCore/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml:
+	* [r2249]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml:
+	* [r2248]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrust.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrustHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsersTrust.hbm.xml:
+	* [r2247]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrust.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrustHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsersTrust.hbm.xml:
+	* [r2246] TrustFrameworkSN/db/sndbSchema.sql:
+	* [r2244] TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNAdminManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersTrustDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrust.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersTrustHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNRelationshipQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersQueries.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsersTrust.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java:
+
+2011-08-24  jlprieto
+
+	* [r2240] .project, .settings,
+	  .settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitorRetrieval.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ServiceManifestXMLProcessor.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java,
+	  TrustFrameworkSN/.classpath, TrustFrameworkSN/db/sndbSchema.sql:
+
+2011-08-22  epages
+
+	* [r2232] TrustFrameworkCore/pom.xml: INT profile modified to point
+	  SP deployment
+	* [r2231] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml:
+	  Reverted to 2113
+	* [r2230] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml:
+	  Added profile INT as SP deployment #need to be modified adding
+	  more profiles
+
+2011-07-15  jlprieto
+
+	* [r2113] TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml: changes on
+	  the hibernate.cfg.xml to set the domain name for the database
+
+2011-07-07  jlprieto
+
+	* [r2094]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  pom.xml: clean of repositories in pom
+
+2011-06-17  jlprieto
+
+	* [r2079]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java:
+	* [r2078]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java:
+
+2011-06-16  jlprieto
+
+	* [r2056]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/COTest.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+
+2011-06-15  wubin.li
+
+	* [r2040] TrustFrameworkClients/pom.xml:
+
+2011-06-15  jlprieto
+
+	* [r2035]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitorRetrieval.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java:
+	* [r2031]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitorRetrieval.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/OpinonMain.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java:
+	* [r1997]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitorRetrieval.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/webapp/WEB-INF/web.xml,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java:
+	  trust giving value over 5
+
+2011-06-14  jlprieto
+
+	* [r1987] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java:
+	  problems with the database solved
+	* [r1980] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java:
+	* [r1970]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java:
+	* [r1969]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/OpinionModel.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java:
+	* [r1957]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/SNClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+
+2011-06-13  jlprieto
+
+	* [r1941]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	  Trust Framework core updated according the new Social Networking
+	* [r1940]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkSNClient.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/SNClientTest.java:
+	  client updated according to the changes in the sn
+	* [r1939] TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNAdminManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNRelationshipQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/AdminApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/utils/XmlUtils.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java: Social
+	  Network updated adding origin and destiny type (IP or SP)
+
+2011-06-10  pramod
+
+	* [r1870]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java:
+	  xml parsing for entityTrust and relationship trust
+
+2011-06-10  jlprieto
+
+	* [r1853]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  monitoring client configuration details taken from the properties
+	  file
+
+2011-06-10  fjnieto
+
+	* [r1848]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java:
+	* [r1847]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java:
+
+2011-06-09  pramod
+
+	* [r1841]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java:
+	  DB connection and query tested
+
+2011-06-09  fjnieto
+
+	* [r1831]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java:
+	* [r1829]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java:
+
+2011-06-09  jlprieto
+
+	* [r1828]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	  performing FleissKappaTest
+	* [r1816]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/OpinonMain.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/optimis-DemoApplication.xml,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java,
+	  TrustFrameworkCore/src/test/resources/optimis-DemoApplication.xml:
+	  fix getServiceMonitored query
+	* [r1807] TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNAdminManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+
+2011-06-09  pramod
+
+	* [r1800]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java:
+	  Added the getEntityRelationship() and updateEntityRelationShip()
+	  for sp and IP
+
+2011-06-09  fjnieto
+
+	* [r1799]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1797]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1796]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+
+2011-06-09  jlprieto
+
+	* [r1792] TrustFrameworkClients/pom.xml: modified the version of
+	  the component in the pom
+	* [r1791]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties:
+
+2011-06-08  pramod
+
+	* [r1779]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java:
+
+2011-06-08  jlprieto
+
+	* [r1774] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/DateUtils.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ServiceManifestXMLProcessor.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties:
+	  Changed db and serviceMonitoredDAO
+
+2011-06-07  pramod
+
+	* [r1749]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java:
+	  The Opinion getRelationship and updateRelationship is implemented
+
+2011-06-07  jlprieto
+
+	* [r1744] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.project,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/COClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/SDOClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties:
+	* [r1743]
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/COTest.java: Added
+	  cloud optimizer test
+	* [r1732] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.project,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.component,
+	  TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/SDOClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java:
+
+2011-06-03  pramod
+
+	* [r1649]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java:
+
+2011-06-02  jlprieto
+
+	* [r1639]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/internal,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/internal/datamodel,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/internal/datamodel/SlaData.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml: startSLA
+	  returns a list of SlaData
+	* [r1624] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemon.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemonListener.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/ServiceManagerClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/NormalizationUtils.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/Opinion.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/OpinionModel.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/main/webapp/WEB-INF/web.xml,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/VMManagerTest.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+
+2011-05-30  jlprieto
+
+	* [r1502]
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/CoreClientTest.java:
+	  Trust Framework Core client test
+
+2011-05-27  fjnieto
+
+	* [r1492]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1481]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java:
+	* [r1479]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1478]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java:
+	* [r1477]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java:
+
+2011-05-25  fjnieto
+
+	* [r1437]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1436]
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	* [r1435]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/MonitoringTrustCalculator.java:
+	* [r1434]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java:
+	* [r1425]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1423]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java:
+
+2011-05-24  fjnieto
+
+	* [r1400]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemon.java:
+	* [r1399]
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	* [r1398]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1397]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java:
+	* [r1396]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/MonitoringReader.java:
+	* [r1395]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java:
+
+2011-05-24  jlprieto
+
+	* [r1394]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/MonitoringDaemon.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/MonitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/monitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/NormalizationUtils.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  monitoring daemon partially developed
+
+2011-05-23  fjnieto
+
+	* [r1385]
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	* [r1382]
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/FleissKappaTest.java:
+	* [r1381]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java:
+	* [r1365]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java:
+	* [r1364]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java:
+
+2011-05-23  epages
+
+	* [r1361] TrustFrameworkSN/pom.xml: URL repos commented
+	* [r1360] TrustFrameworkClients/pom.xml: URL repos commented
+	* [r1359] TrustFrameworkCore/pom.xml: URL repos commented
+
+2011-05-18  jlprieto
+
+	* [r1215] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java:
+	  database updated
+	* [r1210] TrustFrameworkClients,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/SNClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/FleissKappaCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/Opinion.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/OpinionModel.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/FleissKappaCalculator.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/Opinion.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/operators/OpinionModel.java:
+	  operators moved to adifferent package
+
+2011-05-17  pramod
+
+	* [r1191] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.component,
+	  TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceMonitoredDAO.java:
+	  Created the Database objects for IPInfo, ServiceInfor, SPInfo,
+	  SPTrust and ServiceMonitored
+
+2011-05-10  jlprieto
+
+	* [r923]
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+
+2011-05-09  fjnieto
+
+	* [r884]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java:
+	* [r883]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java:
+	* [r882]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/FleissKappaCalculator.java:
+	* [r881]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/ManifestReader.java:
+
+2011-05-09  jlprieto
+
+	* [r878]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/monitoringClient.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  properties file changed and monitoring client using the
+	  properties fixed
+	* [r867] pom.xml:
+	* [r866]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/AdminApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/UserApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/monitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/PropertiesUtils.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkCore/src/test/resources,
+	  TrustFrameworkCore/src/test/resources/trustframework.properties:
+	  getProperties fixed
+	* [r864]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkCoreClient.java,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkSNClient.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/SNClientTest.java:
+
+2011-05-06  fjnieto
+
+	* [r804]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/FleissKappaCalculator.java:
+	* [r802]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/FleissKappaCalculator.java:
+	* [r801]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/FleissKappaCalculator.java:
+
+2011-05-06  jlprieto
+
+	* [r798]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkSNClient.java:
+	  TrustFramework SN Client finished
+
+2011-05-04  jlprieto
+
+	* [r723]
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkSNClient.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/AdminApi.java:
+	* [r722] TrustFrameworkClients/pom.xml,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TrustFrameworkSNClient.java,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TurstFrameworkSNClient.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/SNClientTest.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml, pom.xml:
+	  parent pom modified to fix the loop
+
+2011-05-04  epages
+
+	* [r720] buildEnv.sh: buildEnv.sh modified
+
+2011-05-03  jlprieto
+
+	* [r703] TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/pom.xml,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/App.java,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/clients/TurstFrameworkSNClient.java:
+	  sn client created
+	* [r658]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java:
+	  updates mapped in the api
+	* [r628] TrustFrameworkClients, TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/.project, TrustFrameworkClients/.settings,
+	  TrustFrameworkClients/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkClients/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkClients/pom.xml, TrustFrameworkClients/src,
+	  TrustFrameworkClients/src/main,
+	  TrustFrameworkClients/src/main/java,
+	  TrustFrameworkClients/src/main/java/eu,
+	  TrustFrameworkClients/src/main/java/eu/optimis,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf,
+	  TrustFrameworkClients/src/main/java/eu/optimis/tf/App.java,
+	  TrustFrameworkClients/src/test,
+	  TrustFrameworkClients/src/test/java,
+	  TrustFrameworkClients/src/test/java/eu,
+	  TrustFrameworkClients/src/test/java/eu/optimis,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf,
+	  TrustFrameworkClients/src/test/java/eu/optimis/tf/AppTest.java,
+	  pom.xml: clients modules generates properly
+	* [r627] TrustFrameworkClients,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/monitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/PropertiesUtils.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  pom.xml: clients archetype deleted
+
+2011-05-02  jlprieto
+
+	* [r610] TrustFrameworkClients, TrustFrameworkClients/.classpath,
+	  TrustFrameworkClients/.project, TrustFrameworkClients/.settings,
+	  TrustFrameworkClients/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkClients/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkClients/pom.xml, TrustFrameworkClients/src,
+	  TrustFrameworkClients/src/main,
+	  TrustFrameworkClients/src/main/resources,
+	  TrustFrameworkClients/src/main/resources/META-INF,
+	  TrustFrameworkClients/src/main/resources/META-INF/maven,
+	  TrustFrameworkClients/src/main/resources/META-INF/maven/archetype.xml,
+	  TrustFrameworkClients/src/main/resources/archetype-resources,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/pom.xml,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/main,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/main/java,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/main/java/App.java,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/test,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/test/java,
+	  TrustFrameworkClients/src/main/resources/archetype-resources/src/test/java/AppTest.java,
+	  TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties,
+	  pom.xml: module for clients created
+	* [r594] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/getClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/monitoringClient.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/trustframework.properties:
+	  monitoring client integrated
+
+2011-04-29  jlprieto
+
+	* [r561] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml:
+	* [r557] TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  buildEnv.sh: pom files updated with profiles
+
+2011-04-28  jlprieto
+
+	* [r517]
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/utils/XmlUtils.java:
+	  SN v0.5
+	* [r516] TrustFrameworkSN/lib/generics-0.7.jar,
+	  TrustFrameworkSN/lib/install.sh, TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/App.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNAdminManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/SNTrustManager.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/AdminApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java:
+
+2011-04-27  jlprieto
+
+	* [r512] TrustFrameworkCore/src/test/java/com:
+	* [r511] TrustFrameworkCore/src/main/resources:
+	* [r509]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNRelationshipQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNUsersQueries.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml:
+	  queries for sn externalized
+
+2011-04-26  jlprieto
+
+	* [r508] TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java: pom
+	  file deploys on remote tomcat using cargo plugin [cargo:deploy]
+	* [r507]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/queries,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/queries/TFCoreQueries.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/queries/TFSNQueries.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java: queries
+	  class added
+
+2011-04-14  jlprieto
+
+	* [r492] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java: test
+	  fixed for the new database
+
+2011-04-13  jlprieto
+
+	* [r456]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/UserApi.java:
+	  new interface for the SLA created
+	* [r407] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java:
+	  modifications to the database done
+	* [r381]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/Opinion.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/OpinionModel.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/clients/getClient.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/MonitoringTest.java:
+	* [r368] TrustFrameworkCore/.classpath, TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java:
+
+2011-04-11  jlprieto
+
+	* [r297]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/IPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPTrustDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/ServiceInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java:
+	  Hibernate environment TFCore continuantion
+	* [r290]
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/IpInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/IpTrust.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/ServiceInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/ServiceMonitored.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/SpInfo.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/SpTrust.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml:
+	  hbm config for Trust Framework Core
+	* [r289] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/HibernateUtil.hbm.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/core/utils/HibernateUtil.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/dao/SPInfoDAO.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/IpTrustId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitored.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/ServiceMonitoredId.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfo.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpInfoHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrust.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustHome.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model/SpTrustId.java,
+	  TrustFrameworkCore/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkCore/src/test/java/com/atosorigin/ari/tf,
+	  TrustFrameworkCore/src/test/java/eu,
+	  TrustFrameworkCore/src/test/java/eu/optimis,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/AppTest.java,
+	  TrustFrameworkCore/src/test/java/eu/optimis/tf/DBTest.java:
+
+2011-04-08  jlprieto
+
+	* [r276] TrustFrameworkCore/src/main/java/eu/optimis/tf/db,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/db/model,
+	  TrustFrameworkCore/src/main/resources: tf core data asset schema
+	  added
+	* [r275] TrustFrameworkSN/db/sndbSchema.sql,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFRelationshipDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/dao/TFUsersDAO.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/utils,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/utils/HibernateUtil.hbm.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/utils/HibernateUtil.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/DBTest.java:
+	  Hibernate layer created for Trust framework SN
+	* [r274] TrustFrameworkCore/pom.xml: pom modified
+
+2011-04-07  jlprieto
+
+	* [r270] TrustFrameworkCore/db/TFCoreDBschema.sql,
+	  TrustFrameworkCore/pom.xml, TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml: Hibernate
+	  installed and working for sn
+	* [r261] TrustFrameworkSN/conf, TrustFrameworkSN/db,
+	  TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml: changed
+	  name of conf file in the SN tools from conf to db
+	* [r258] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.component,
+	  TrustFrameworkCore/db, TrustFrameworkCore/db/TFCoreDBschema.sql:
+	  datamodel for TFCORE up
+
+2011-03-30  pramod
+
+	* [r204]
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/OpinionModel.java:
+	* [r203] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.project,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.component,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/Opinion.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/OpinionModel.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/OpinionModel.java:
+
+2011-03-24  jlprieto
+
+	* [r185] TrustFrameworkSN/.settings/org.eclipse.wst.xsl.core.prefs,
+	  TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationship.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipHome.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfRelationshipId.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsers.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model/TfUsersHome.java,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfRelationship.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model/TfUsers.hbm.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.out.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml,
+	  TrustFrameworkSN/src/main/resources/hibernate.reveng.xml:
+	  Hibernate classes and configuration added
+
+2011-03-22  jlprieto
+
+	* [r172] TrustFrameworkSN/src/main/resources/hibernate.cfg.xml:
+	  hibernate config file changed
+
+2011-03-21  jlprieto
+
+	* [r161] TrustFrameworkSN/conf,
+	  TrustFrameworkSN/conf/sndbSchema.sql, TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/db/model,
+	  TrustFrameworkSN/src/main/resources,
+	  TrustFrameworkSN/src/main/resources/eu,
+	  TrustFrameworkSN/src/main/resources/eu/optimis,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db,
+	  TrustFrameworkSN/src/main/resources/eu/optimis/tf/db/model,
+	  TrustFrameworkSN/src/main/resources/hibernate.cfg.xml: trust
+	  framwework social networking data model added
+
+2011-02-28  epages
+
+	* [r66] pom.xml: parent multi-module added for optimis || TF pom
+	  modified
+	* [r60] TrustFrameworkCore/target: target folder deleted
+
+2011-02-28  jlprieto
+
+	* [r59] TrustFrameworkCore, cc-build.xml: cruise control build file
+	  for the entire TrustFramework
+	* [r58] TrustFrameworkCore/pom.xml, TrustFrameworkSN/pom.xml: pom
+	  files modified in order to fix warnings due to plugin versions
+	* [r57] TrustFrameworkCore/pom.xml, TrustFrameworkSN/pom.xml,
+	  pom.xml: Parent pom for modular trust framework project created
+
+2011-02-23  jlprieto
+
+	* [r45] TrustFrameworkSN/cc-build.xml: cruise control build file
+	  for TrustFrameworkSN
+	* [r44] TrustFrameworkCore/src/main/webapp/WEB-INF/web.xml: web.xml
+	  modified
+	* [r43] TrustFrameworkSN/.classpath,
+	  TrustFrameworkSN/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkSN/lib/install.sh, TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/webapp,
+	  TrustFrameworkSN/src/main/webapp/WEB-INF/web.xml: added webapp
+	  folder
+	* [r42] TrustFrameworkCore/.classpath,
+	  TrustFrameworkCore/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkCore/cc-build.xml, TrustFrameworkCore/pom.xml:
+	  cruise control config file added + java repository added to pom
+
+2011-02-21  jlprieto
+
+	* [r30] TrustFrameworkSN,
+	  TrustFrameworkSN/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkSN/lib, TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/AdminApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java:
+	  Request Methods set in API
+	* [r29] TrustFrameworkCore/.classpath, TrustFrameworkCore/pom.xml,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/UserApi.java:
+	  Request Methods set in API
+	* [r28] TrustFrameworkSN/.classpath, TrustFrameworkSN/.project,
+	  TrustFrameworkSN/.settings,
+	  TrustFrameworkSN/.settings/org.eclipse.jdt.core.prefs,
+	  TrustFrameworkSN/.settings/org.maven.ide.eclipse.prefs,
+	  TrustFrameworkSN/pom.xml,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/AdminApi.java,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/sn/api/SNTrustApi.java:
+	  Trust Framework Social Networking tools: 1st version
+	* [r26] TrustFrameworkCore/pom.xml, TrustFrameworkSN,
+	  TrustFrameworkSN/.classpath, TrustFrameworkSN/.project,
+	  TrustFrameworkSN/pom.xml, TrustFrameworkSN/src,
+	  TrustFrameworkSN/src/main, TrustFrameworkSN/src/main/java,
+	  TrustFrameworkSN/src/main/java/eu,
+	  TrustFrameworkSN/src/main/java/eu/optimis,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf,
+	  TrustFrameworkSN/src/main/java/eu/optimis/tf/App.java,
+	  TrustFrameworkSN/src/test, TrustFrameworkSN/src/test/java,
+	  TrustFrameworkSN/src/test/java/eu,
+	  TrustFrameworkSN/src/test/java/eu/optimis,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf,
+	  TrustFrameworkSN/src/test/java/eu/optimis/tf/AppTest.java: tf
+	  social networking tools project created
+
+2011-02-09  jlprieto
+
+	* [r23] TrustFrameworkCore/src/main/java/eu/opmis,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/TrustFramework.java:
+	* [r22] TrustFrameworkCore/src/main/java/com:
+	* [r21] TrustFrameworkCore/src/main/java/com/atosorigin: old
+	  package deleted
+	* [r20] TrustFrameworkCore/.classpath, TrustFrameworkCore/.project,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.component,
+	  TrustFrameworkCore/.settings/org.eclipse.wst.common.project.facet.core.xml,
+	  TrustFrameworkCore/src/main/java/com/atosorigin/ari/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/com/atosorigin/ari/tf/api,
+	  TrustFrameworkCore/src/main/java/eu,
+	  TrustFrameworkCore/src/main/java/eu/opmis,
+	  TrustFrameworkCore/src/main/java/eu/opmis/tf,
+	  TrustFrameworkCore/src/main/java/eu/opmis/tf/TrustFramework.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/ListApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/TrustApi.java,
+	  TrustFrameworkCore/src/main/java/eu/optimis/tf/api/UserApi.java,
+	  TrustFrameworkCore/target: packages name changed to follow the
+	  agreed structure
+
+2011-01-24  jlprieto
+
+	* [r15] TrustFrameworkCore/pom.xml: Fixed library miss match.
+
+2011-01-20  jlprieto
+
+	* [r13] TrustFrameworkCore:
+	* [r12] .:
+

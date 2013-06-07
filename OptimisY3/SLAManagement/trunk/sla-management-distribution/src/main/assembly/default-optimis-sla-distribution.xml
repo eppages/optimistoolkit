@@ -1,0 +1,86 @@
+<assembly>
+    <id>server-bin</id>
+    
+    <formats>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+    
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+    
+        <!-- ALL (GENERIC) SCRIPTS -->
+        <fileSet>
+            <directory>src/main/resources/scripts/generic</directory>
+            <outputDirectory>/</outputDirectory>
+            <fileMode>755</fileMode>
+        </fileSet>
+
+        <!-- CONFIGURATIONS -->
+        <fileSet>
+            <directory>src/main/resources/configurations/generic</directory>
+            <outputDirectory>configurations/</outputDirectory>
+        </fileSet>
+
+        <!-- CERTIFICATES (optional) -->
+        <fileSet>
+            <directory>src/main/resources/certificates</directory>
+            <outputDirectory>certificates/</outputDirectory>
+        </fileSet>
+        
+        <!-- TOMCAT-HOSTED SERVICES -->
+        
+        <!-- APACHE TOMCAT -->
+            <fileSet>
+                <directory>target/unpacked-resources/apache-tomcat-${apache.tomcat6.version}</directory>
+                <outputDirectory>optimis-sla-server/</outputDirectory>
+                <fileMode>755</fileMode>
+            </fileSet>    
+
+            <!-- SLA DISTRIBUTION -->
+            <fileSet>
+                <directory>target/unpacked-resources/optimis-sla-service</directory>
+                <outputDirectory>optimis-sla-server/webapps/optimis-sla/</outputDirectory>
+            </fileSet>
+
+            <!-- SLA SERVER CONFIGURARTION(S) -->
+            <fileSet>
+                <directory>src/main/resources/configurations/optimis-sla-server</directory>
+                <outputDirectory>optimis-sla-server/conf/</outputDirectory>
+                <fileMode>755</fileMode>
+            </fileSet>
+
+            <!-- SLA SERVER SCRIPT(S) -->
+            <fileSet>
+                <directory>src/main/resources/scripts/optimis-sla-server</directory>
+                <outputDirectory>optimis-sla-server/</outputDirectory>
+                <fileMode>755</fileMode>
+            </fileSet>
+            
+            <!-- STORAGE FOLDERS -->
+            <fileSet>
+                <directory>src/main/resources/folders</directory>
+                <outputDirectory>optimis-sla-server/</outputDirectory>
+            </fileSet>
+            
+            <!-- DOCUMENTATION -->
+            <fileSet>
+                <directory>src/main/resources/documentation</directory>
+                <outputDirectory>documentation/</outputDirectory>
+            </fileSet>
+            
+    </fileSets>
+   
+</assembly>
+
+<!--
+
+    Directory structure:
+
+    certificates/
+    configurations/
+    documentation/
+    optimis-sla-server/
+
+-->

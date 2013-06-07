@@ -1,0 +1,12 @@
+This is the XSD schema used in the Service Manager, partially internally,
+partially as messages.
+
+You might have an issue in the ServiceManagerCore, ServiceManagerREST and
+ServiceManagerRESTClient projects because the necessary classes are not
+considered as included in their build paths even though this project
+(ServiceManagerSchema) is on the build path.
+
+If that happens, add "target/generated-sources/xmlbeans" &
+"target/generated-classes/xmlbeans" to the build paths of the ServiceManagerCore,
+ServiceManagerREST and ServiceManagerRESTClient projects. This lets Eclipse
+compile the xmlbeans sources and the errors should vanish.

@@ -1,0 +1,5 @@
+# Run from classes folder
+java -cp .:../P2PVPN-2.0-jar-with-dependencies.jar eu/optimis/ics/p2p/SuperPeer
+
+# Run from target folder as root or with sudo
+java -cp .:P2PVPN-2.0-jar-with-dependencies.jar

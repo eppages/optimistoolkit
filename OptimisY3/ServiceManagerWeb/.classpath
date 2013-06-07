@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java|*.properties|axis2-client/client.axis2.xml|axis2-client/modules/addressing-1.4.1.mar|axis2-client/modules/addressing-1.5.4.mar|axis2-client/modules/modules.list|axis2-client/modules/rahas-1.5.1.mar|axis2-client/modules/rampart-1.4.mar|axis2-client/modules/rampart-1.5.1.mar|jaas.config|wsag4j-client-keystore.jks|wsrf-client.config" kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry including="**/*.java" kind="src" path="src/test/java"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/addressing-1.5.4.mar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/rahas-1.5.1.mar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/rampart-1.5.1.mar"/>
+	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
+</classpath>

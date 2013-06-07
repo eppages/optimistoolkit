@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+    	<artifactId>provider-info</artifactId>
+    	<groupId>eu.optimis.provider-info</groupId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>provider-info-service</artifactId>
+   
+    <name>provider-info-service</name>
+    
+    <packaging>war</packaging>
+    
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<servlet-container-port>7070</servlet-container-port>
+        <deployed.final.name.of.war>provider-info</deployed.final.name.of.war>
+	</properties>
+	
+	<dependencies>
+    
+        <dependency>
+        	<groupId>eu.optimis.provider-info</groupId>
+            <artifactId>provider-info-client</artifactId>
+        </dependency>
+   
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+
+        <filters>
+            <filter>src/main/filters/localhost.properties</filter>
+        </filters>
+
+        <plugins>
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            
+            <!-- we do not have any unit tests here, surefire is skipped -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- integration tests are run through the failsafe plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.12</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <systemPropertyVariables>
+                    </systemPropertyVariables>
+                    <excludes>
+                    	<!-- <exclude>**/ProviderInfoServiceIT.java</exclude>  -->  
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            
+            <!-- standalone integration test of the web application -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>start-container</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <wait>false</wait>
+                            <!-- Container configuration -->
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <zipUrlInstaller>
+                                    <url>
+                                        http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.32/bin/apache-tomcat-6.0.32.zip
+                                    </url>
+                                </zipUrlInstaller>
+                                <output>${project.build.directory}/logs/container.log</output>
+                                <append>false</append>
+                                <log>${project.build.directory}/logs/cargo.log</log>
+                            </container>
+                            <!-- Configuration to use with the container or the deployer -->
+                            <configuration>
+                                <type>standalone</type>
+                                <home>${project.build.directory}/apache-tomcat</home>
+                                <properties>
+                                    <cargo.servlet.port>${servlet-container-port}
+                                    </cargo.servlet.port>
+                                    <cargo.logging>high</cargo.logging>
+                                </properties>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>eu.optimis.provider-info</groupId>
+		                    			<artifactId>provider-info-service</artifactId>
+		                    			<type>war</type>
+		                    		<properties>
+		                        		<context>/provider-info</context>
+		                    		</properties>
+                                    </deployable>
+                                </deployables>
+                            </configuration>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-container</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <wait>false</wait>
+                            <!--  Container configuration -->
+                            <container>
+                                <containerId>tomcat6x</containerId>
+                                <output>${project.build.directory}/logs/container.log</output>
+                                <append>true</append>
+                                <log>${project.build.directory}/logs/cargo.log</log>
+                            </container>
+                            <!-- Configuration to use with the container or the deployer -->
+                            <configuration>
+                                <type>existing</type>
+                                <home>${project.build.directory}/apache-tomcat</home>
+                                <properties>
+                                    <cargo.servlet.port>${servlet-container-port}
+                                    </cargo.servlet.port>
+                                    <cargo.logging>high</cargo.logging>
+                                </properties>
+                            </configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+                   
+        </plugins>
+    </build>
+     
+</project>

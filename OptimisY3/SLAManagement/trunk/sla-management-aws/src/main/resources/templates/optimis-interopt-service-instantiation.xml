@@ -1,0 +1,46 @@
+<ws:Template ws:TemplateId="1"
+	xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+
+	<ws:Name>OPTIMIS-SERVICE-INSTANTIATION</ws:Name>
+	<ws:Context>
+		<ws:AgreementInitiator>OPTIMUM-AWS-WEB</ws:AgreementInitiator>
+		<ws:AgreementResponder>OPTIMUM-AWS-IP</ws:AgreementResponder>
+		<ws:ServiceProvider>AgreementResponder</ws:ServiceProvider>
+		<ws:TemplateId>1</ws:TemplateId>
+		<ws:TemplateName>OPTIMIS-SERVICE-INSTANTIATION</ws:TemplateName>
+	</ws:Context>
+	<ws:Terms>
+		<ws:All>
+			<ws:ServiceDescriptionTerm ws:Name="OPTIMIS_SERVICE_SDT"
+				ws:ServiceName="OptimisService">
+				$serviceManifest
+			</ws:ServiceDescriptionTerm>
+			<ws:ServiceDescriptionTerm ws:Name="OPTIMIS_SERVICE_PRICE_SDT"
+				ws:ServiceName="OptimisService">
+				<service-price:SLAServicePrice
+					currency="EUR" unit="HOUR" xmlns:service-price="http://www.optimis.eu/sla/service-price-types">
+					<service-price:Amount>10.0</service-price:Amount>
+				</service-price:SLAServicePrice>
+			</ws:ServiceDescriptionTerm>
+		</ws:All>
+	</ws:Terms>
+	<ws:CreationConstraints xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<ws:Item ws:Name="PRICE_SDT_ServicePrice_Amount">
+			<ws:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace
+                service-price='http://www.optimis.eu/sla/service-price-types';$this/ws:AgreementOffer/ws:Terms/ws:All/ws:ServiceDescriptionTerm[@ws:Name='OPTIMIS_SERVICE_PRICE_SDT']/service-price:SLAServicePrice
+            </ws:Location>
+			<ws:ItemConstraint>
+				<xs:sequence>
+					<xs:element name="Amount">
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:minInclusive value="10.0" />
+								<xs:maxInclusive value="10.0" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</ws:ItemConstraint>
+		</ws:Item>
+	</ws:CreationConstraints>
+</ws:Template>

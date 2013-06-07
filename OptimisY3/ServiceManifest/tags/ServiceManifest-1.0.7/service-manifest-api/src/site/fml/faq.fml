@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+      title="Frequently Asked Questions"
+      toplink="false">
+
+
+   <part id="ovf">
+      <title>OVF Questions</title>
+
+      <faq id="retrieve-ovf">
+         <question>
+            How can I retrieve the incarnated OVF document from the manifest?
+         </question>
+         <answer>
+            <p>You can retrieve the OVF document as an xml bean object:</p>
+
+            <source>
+               XmlBeanEnvelopeType ovfEnvelope =
+               (XmlBeanEnvelopeType)ipManifest.getInfrastructureProviderExtensions().getIncarnatedVirtualMachineComponentByComponentId("jboss").getOVFDefinition().getXmlObject();
+               String xmlString =
+               ipManifest.getInfrastructureProviderExtensions().getIncarnatedVirtualMachineComponentByComponentId("jboss").getOVFDefinition().toString();
+            </source>
+
+            <p>It is also possible to retrieve the xml text:</p>
+            <source>
+               String xmlString =
+               ipManifest.getInfrastructureProviderExtensions().getIncarnatedVirtualMachineComponentByComponentId("jboss").getOVFDefinition().toString();
+            </source>
+         </answer>
+      </faq>
+      <faq id="retrieve-hardware-inf">
+         <question>
+            How can I retrieve information about the hardware of a virtual machine?
+         </question>
+         <answer>
+            <p>The information is stored in the virtual hardware section of a system.</p>
+
+            <source>
+               eu.optimis.manifest.api.ip.Manifest ipManifest = eu.optimis.manifest.api.ip.Manifest.Factory
+               .newInstance(manifest.toJaxB());
+
+               //get info for jboss component
+               eu.optimis.manifest.api.ovf.ip.VirtualHardwareSection jbossHardwareSection =
+               ipManifest.getVirtualMachineDescriptionSection().getVirtualMachineComponentById("jboss").getOVFDefinition().getVirtualSystem().getVirtualHardwareSection();
+
+               //memory size:
+               jbossHardwareSection.getMemorySize();
+
+               //number of cpus
+               jbossHardwareSection.getNumberOfVirtualCPUs();
+
+               //CPU speed
+               jbossHardwareSection.getCPUSpeed();
+            </source>
+
+
+         </answer>
+      </faq>
+
+   </part>
+</faqs>

@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>eu.optimis.sdo</groupId>
+		<artifactId>DeploymentService</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>eu.optimis.sdo</groupId>
+	<artifactId>DeploymentServiceClient</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>DeploymentServiceClient</name>
+	
+	<!-- Version properties for different packages -->
+	<properties>
+		<com.sun.jersey.version>1.6</com.sun.jersey.version>
+		<log4j.version>1.2.14</log4j.version>
+		<junit.version>4.8.2</junit.version>
+	</properties>
+	
+	<dependencies>
+
+		<dependency>
+			<groupId>eu.optimis.ipdiscovery</groupId>
+			<artifactId>IPDatamodel</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.2.2</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- Log4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<optional>false</optional>
+		</dependency>
+		
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Jersey REST -->
+		<!-- 
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		
+		<!-- 
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		 -->		
+
+	</dependencies>
+	
+<build>
+        <plugins> 
+        	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			        
+            <!-- Specify default file to run in .jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>eu.optimis.ds.client.DSClientTest</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>${env.HOME}/.m2/repository</classpathPrefix>
+                            <classpathLayoutType>repository</classpathLayoutType>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Specify target of assembly command to build a single jar with all dependencies -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>eu.optimis.ds.client.DSClientTest</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>eu.optimis.utils.marfileassembler</groupId>
+                        <artifactId>MarFileAssembler</artifactId>
+                        <version>0.1-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins> 
+ </build>
+        	
+</project>

@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- <parent> <artifactId>AdmissionControl</artifactId> <groupId>eu.optimis</groupId> 
+		<version>1.0-SNAPSHOT</version> </parent> -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis</groupId>
+		<artifactId>AdmissionControl</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+	<artifactId>AC_TRECcommon_aaS</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>AC_TRECcommon_aaS</name>
+	<description>Camel project that deploys the Camel Web Console, REST
+		API, and your routes as a WAR</description>
+	<url>http://www.myorganization.org</url>
+
+	<packaging>war</packaging>
+
+	<properties>
+		<camel-version>2.5.0</camel-version>
+		<activemq-version>5.3.2</activemq-version>
+		<jetty-version>7.1.6.v20100715</jetty-version>
+		<xbean-spring-version>3.5</xbean-spring-version>
+	</properties>
+	
+	<dependencies>
+            
+            <dependency>    
+                <groupId>eu.optimis.ac</groupId>
+                <artifactId>SMAnalyzer</artifactId>
+                <version>2.2-SNAPSHOT</version>
+            </dependency> 
+            
+            <dependency>    
+                <groupId>eu.optimis.ac</groupId>
+                <artifactId>ACRestClients</artifactId>
+                <version>2.2-SNAPSHOT</version>
+            </dependency>
+             <!--   -->
+             
+            <dependency>
+                <groupId>eu.optimis.tf</groupId>
+                <artifactId>TrustFrameworkClients</artifactId>
+                <version>3.0-SNAPSHOT</version>
+            <!--<scope>runtime</scope>-->
+            </dependency>
+        
+            <dependency>
+                <groupId>eu.optimis</groupId>
+                <artifactId>InfrastructureProviderRiskAssessmentToolRESTClient</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            <!--<scope>runtime</scope>-->
+            </dependency>
+     	
+            <dependency>
+                <groupId>eu.optimis</groupId>
+                <artifactId>EcoEfficiencyToolRESTClient</artifactId>
+                <version>3.0-SNAPSHOT</version>
+            <!--<scope>runtime</scope>-->
+            </dependency>
+        
+            <dependency>
+                <groupId>eu.optimis.economicframework</groupId>
+                <artifactId>EconomicFrameworkRESTClientIP</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            <!--<scope>runtime</scope>-->           
+            </dependency>
+        
+            <dependency>
+                <groupId>eu.optimis.trec.common.db</groupId>
+                <artifactId>TRECCommonDBIP</artifactId>
+                <version>3.0-SNAPSHOT</version>
+		<scope>runtime</scope> 
+            </dependency>        
+            
+            <dependency>
+                <groupId>eu.optimis.trec.common.ip</groupId>
+                <artifactId>TRECCommonAPIIP</artifactId>
+                <version>3.0-SNAPSHOT</version>
+            </dependency>
+      	
+            <dependency>
+                <groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>3.8.1</version>
+		<scope>test</scope>
+            </dependency>
+
+            <dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-server</artifactId>
+		<version>1.6</version>
+            </dependency>
+
+            <dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-client</artifactId>
+		<version>1.6</version>
+            </dependency>
+
+            <dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.14</version>
+            </dependency>
+		 
+	</dependencies>
+
+	<profiles>
+	
+	
+		<profile>
+			<id>UMU</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<!-- 
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+						 -->
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>${cargo.remote.username}
+									</cargo.remote.username>
+									<cargo.remote.password>${cargo.remote.password}
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment.umu.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+	
+	
+	
+		<profile>
+			<id>FLEX</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<!-- 
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+						 -->
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>${cargo.remote.username}
+									</cargo.remote.username>
+									<cargo.remote.password>${cargo.remote.password}
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment.flexiant.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+	
+	
+        <profile>
+			<id>FLEX2</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<!-- 
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+						 -->
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>${cargo.remote.username}
+									</cargo.remote.username>
+									<cargo.remote.password>${cargo.remote.password}
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment.flexiant.enhanced.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+	
+		<profile>
+			<id>TST</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<!-- 
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+						 -->
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>${cargo.remote.username}
+									</cargo.remote.username>
+									<cargo.remote.password>${cargo.remote.password}
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.TST.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+		<profile>
+			<id>INT</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>${cargo.remote.username}
+									</cargo.remote.username>
+									<cargo.remote.password>${cargo.remote.password}
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.INT.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+		
+		
+		<profile>
+			<id>ARSYS</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>admin
+									</cargo.remote.username>
+									<cargo.remote.password>
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>http://82.223.250.34:8080/manager
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.INT.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+                
+                
+                
+                
+                
+                <profile>
+			<id>ULEEDS</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>admin
+									</cargo.remote.username>
+									<cargo.remote.password>
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>http://88.198.134.18:8080/manager
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.INT.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+                
+                
+                
+                
+                <profile>
+			<id>BSC</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>admin
+									</cargo.remote.username>
+									<cargo.remote.password>
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>http://172.16.8.220:8080/manager
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.INT.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>
+
+                
+                                
+               <profile>
+			<id>SL</id>
+			<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<version>1.1</version>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+
+					<!-- Plugin Cargo -->
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.0 </version>
+						<configuration>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<type>remote</type>
+							</container>
+							<configuration>
+								<type>runtime</type>
+								<properties>
+									<cargo.remote.username>admin
+									</cargo.remote.username>
+									<cargo.remote.password>
+									</cargo.remote.password>
+									<cargo.tomcat.manager.url>http://109.231.86.35:8080/manager
+									</cargo.tomcat.manager.url>
+								</properties>
+							</configuration>
+							<deployer>
+								<deployables>
+									<deployable>
+										<artifactId>AC_TRECcommon_aaS</artifactId>
+										<groupId>eu.optimis.ac.ac_treccommon_aas</groupId>
+										<type>war</type>
+									</deployable>
+								</deployables>
+							</deployer>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>deploy-remote</id>
+								<goals>
+									<goal>undeploy</goal>
+									<goal>deploy</goal>
+									<goal>redeploy</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<!-- Read properties file plugin -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<version>1.0-alpha-2</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>../../optimis-parent/conf/IPenvironment1.INT.properties
+										</file>
+									</files>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+				<finalName>AC_TRECcommon_aaS</finalName>
+
+			</build>
+		</profile>  
+                                                
+                                                                                                              
+                                                                
+                                                                                                
+	</profiles>
+</project>

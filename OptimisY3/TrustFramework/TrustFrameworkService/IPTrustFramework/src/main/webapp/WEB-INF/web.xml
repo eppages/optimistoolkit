@@ -1,0 +1,37 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>IP Trust Application</display-name>
+	 
+	<!-- 
+	<listener>
+		<listener-class>eu.optimis.tf.listeners.SPListener</listener-class>
+	</listener>
+	 
+	<listener>
+		<listener-class>eu.optimis.tf.listeners.IPListener</listener-class>
+	</listener>
+	  -->
+	<servlet>
+		<servlet-name>IP Trust Application</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.resourceConfigClass</param-name>
+			<param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>eu.optimis.tf.ip.service.api</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>IP Trust Application</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
+
+</web-app>

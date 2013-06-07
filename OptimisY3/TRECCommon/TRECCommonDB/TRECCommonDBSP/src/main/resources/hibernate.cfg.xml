@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">2mUF51@4@NYptsl9</property>
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://optimis-database:3306/sptrecdb</property>
+        <property name="hibernate.connection.username">mmanager_usr</property>
+        <property name="hibernate.default_entity_mode">pojo</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.transaction.auto_close_session">true</property>
+        <mapping resource="eu/optimis/trec/common/db/sp/model/ManifestRaw.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SnTrustProvider.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/CostSpPersistedQuotePricecomponentPricelevel.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/CostSpPersistedQuotePricecomponent.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SpInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SnProvider.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/RiskThreat.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Providers.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/ServiceInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SnTrustRelationship.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/IpInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/ServiceSla.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Slas.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SpRisk.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/IpTrust.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SpToIp.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SpTrust.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/RiskAsset.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/SpEcoServiceTable.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Dsahpproviders.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Spcost.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/ServiceComponent.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/CostSpPersistedQuote.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/RiskVulnerability.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Quotes.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/RThreats.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/sp/model/Rejections.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

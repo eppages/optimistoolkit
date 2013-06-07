@@ -1,0 +1,10 @@
+package eu.optimis.ide.test.coreelements;
+
+import java.lang.String;
+
+public class CoreTest{
+
+	public static String concat(String input1, String input2){
+		CheckDependencyFile. 
+	}
+}

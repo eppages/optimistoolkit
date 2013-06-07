@@ -1,0 +1,17 @@
+#!/bin/bash
+
+NAME=odfs-master-prototype
+OUTCONF=$NAME.cfg
+MEM=512
+IMGPATH=`pwd`
+
+echo bootloader = \"/usr/bin/pygrub\"                            > $OUTCONF
+echo memory = $MEM                                              >> $OUTCONF
+echo name = \"$NAME\"                                           >> $OUTCONF
+echo disk = [\'tap:aio:$IMGPATH/$NAME.img,xvda,w\', \"tap:aio:$IMGPATH/context.iso,hdc:cdrom,r\" ]             >> $OUTCONF
+echo vif = [ \"bridge=xenbr0,script=vif-bridge\" ]              >> $OUTCONF
+echo root = \"/dev/xvda\"                                       >> $OUTCONF
+echo extra = \"fastboot\"                                       >> $OUTCONF
+
+
+/usr/sbin/xm create odfs-master-prototype.cfg -c

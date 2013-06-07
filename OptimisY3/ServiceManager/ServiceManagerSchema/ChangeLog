@@ -1,0 +1,28 @@
+2012-04-18  Roland Kuebert <kuebert@hlrs.de>
+ 
+ * pom.xml: Bumped version to 0.5-SNAPSHOT.
+
+2012-04-02  Roland Kuebert <kuebert@hlrs.de>
+ 
+ * pom.xml: Bumped version to 0.4-SNAPSHOT.
+ 
+ * service-manager.xsd: A service can have multiple infrastructure providers
+ now.
+
+2012-02-28  Roland Kuebert <kuebert@hlrs.de>
+
+ * service-manager.xsd: Sub-elements of VM are nillable.
+
+ * pom.xml: Updated version to 0.3-SNAPSHOT.
+ 
+ * service-manager.xsd: Removed public IP from VM element.
+
+2012-02-21  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Updated version to 0.2-SNAPSHOT.
+
+ * service-manager.xsd: Added type, public IP address and status to VM element.
+
+2011-06-02  Roland Kuebert <kuebert@hlrs.de>
+
+* service-manager.xsd: Make VMs an element instead of a complex type as well.

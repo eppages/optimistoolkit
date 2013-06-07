@@ -1,0 +1,13 @@
+filepath=/WEB-INF/classes/IP-Store.xml
+host=optimis-spvm
+port=8087
+trec.service.host=127.0.0.1
+trec.service.port=8080
+
+#Broker trec Monitoring
+sp.trec.db.url = jdbc:mysql://127.0.0.1:3306/sptrecdb
+sp.trec.db.username = usr
+sp.trec.db.password = password 
+#table name = manifest_raw
+
+

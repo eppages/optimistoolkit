@@ -1,0 +1,70 @@
+<ovf:Envelope
+    xml:lang="en-US"
+    xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement"
+    xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData"
+    xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+    xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+    xmlns:rsrvr="http://schemas.telefonica.com/claudia/ovf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.dmtf.org/ovf/envelope/1 http://schemas.dmtf.org/ovf/envelope/1">            
+    
+    <ovf:References>
+        <ovf:File ovf:id="de-DE-resources.xml" ovf:size="15240" ovf:href="http://mywebsite/virtualappliances/de-DE-resources.xml"/>
+        <ovf:File ovf:id="file1" ovf:href="frontenddisk.vmdk" ovf:size="180114671"/>
+        <ovf:File ovf:id="file2" ovf:href="appserverdisk.vmdk" ovf:size="4882023564" ovf:chunkSize="2147483648"/>
+        <ovf:File ovf:id="file3" ovf:href="databasedisk.vmdk" ovf:size="4882023564" ovf:chunkSize="2147483648"/>
+        <ovf:File ovf:id="file4" ovf:href="resource.iso" ovf:size="212148764" ovf:compression="gzip"/>
+        <ovf:File ovf:id="icon" ovf:href="icon.png" ovf:size="1360"/>
+    </ovf:References>
+    
+    <ovf:DiskSection>
+        <ovf:Info>Describes the set of virtual disks</ovf:Info>
+        <!-- Additional section content -->
+    </ovf:DiskSection>
+    
+    <ovf:NetworkSection>
+        <ovf:Info>List of logical networks used in the package</ovf:Info>
+        <!-- Additional section content -->
+    </ovf:NetworkSection>
+    
+    
+    <ovf:VirtualSystem ovf:id="CustomerVM" rsrvr:min="1" rsrvr:max="1" rsrvr:initial="1">
+        <ovf:Info>Database</ovf:Info>
+        <ovf:Name></ovf:Name>
+        <ovf:VirtualHardwareSection ovf:transport="iso">
+            <ovf:Info>500Mb, 1 CPU, 1 disk, 1 nic virtual machine</ovf:Info>
+            <ovf:System>
+                <vssd:ElementName></vssd:ElementName>
+                <vssd:InstanceID></vssd:InstanceID>
+                <vssd:VirtualSystemType>vmx-4</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+                <rasd:ElementName></rasd:ElementName>
+                <rasd:InstanceID></rasd:InstanceID>
+                <!-- Additional section content -->
+            </ovf:Item>
+            <!-- Additional Item elements can follow             -->
+        </ovf:VirtualHardwareSection>
+        <ovf:VirtualHardwareSection>
+            <ovf:Info></ovf:Info>
+            <ovf:Item>
+                <rasd:Address></rasd:Address>
+                <rasd:AllocationUnits></rasd:AllocationUnits>
+                <rasd:AutomaticAllocation></rasd:AutomaticAllocation>
+                <rasd:AutomaticDeallocation></rasd:AutomaticDeallocation>
+                <rasd:Caption></rasd:Caption>
+                <rasd:Connection></rasd:Connection>
+                <rasd:Connection></rasd:Connection>
+                <rasd:ConsumerVisibility></rasd:ConsumerVisibility>
+                <rasd:Description></rasd:Description>
+                <rasd:ElementName></rasd:ElementName>
+                <rasd:HostResource></rasd:HostResource>
+                <rasd:InstanceID></rasd:InstanceID>
+            </ovf:Item>
+            
+        </ovf:VirtualHardwareSection>
+    </ovf:VirtualSystem>
+    
+    
+    
+</ovf:Envelope>

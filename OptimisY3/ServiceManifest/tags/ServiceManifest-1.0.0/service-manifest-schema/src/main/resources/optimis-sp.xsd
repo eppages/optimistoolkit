@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+           targetNamespace="http://schemas.optimis.eu/optimis/service" elementFormDefault="qualified"
+           attributeFormDefault="qualified">
+
+   <xs:import namespace="http://schemas.dmtf.org/ovf/envelope/1"
+              schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd"/>
+   <xs:import namespace="http://schemas.optimis.eu/optimis/" schemaLocation="./optimis.xsd"/>
+
+   <xs:element name="ServiceProviderExtensions" type="opt-sp:ServiceProviderExtensionType"/>
+   <xs:complexType name="ServiceProviderExtensionType">
+      <xs:annotation>
+         <xs:documentation>
+            Provisioning of extensions for a Service Provider.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="SoftwareDependencies" type="opt-sp:SoftwareDependenciesType" maxOccurs="unbounded"
+                     minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="SoftwareDependenciesType">
+      <xs:sequence>
+         <xs:element name="Dependency" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+               <xs:all>
+                  <xs:element name="groupId" type="xs:string"/>
+                  <xs:element name="artifactId" type="xs:string"/>
+                  <xs:element name="version" type="xs:string"/>
+               </xs:all>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="componentId" type="xs:string"/>
+   </xs:complexType>
+
+</xs:schema>

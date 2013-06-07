@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.optimis.eu/sla/service-monitoring-types"
+            xmlns:service-mon="http://www.optimis.eu/sla/service-monitoring-types">
+  
+  <xsd:element name="SLASeriveMonitoring" type="service-mon:SLASeriveMonitoringType" />
+  
+  <xsd:complexType name="SLASeriveMonitoringType">
+    <xsd:sequence>
+      <xsd:element name="SLASeriveMonitoringRecord" type="service-mon:SLASeriveMonitoringRecordType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="ServiceId" type="xsd:string" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="SLASeriveMonitoringRecordType">
+    <xsd:sequence>
+      <xsd:element name="ServiceRecord" type="service-mon:MonitoringRecordType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="VirtualMachineSystem" type="service-mon:VirtualMachineSystemType"/>
+    </xsd:sequence>
+    <xsd:attribute name="timestamp" type="xsd:dateTime" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="VirtualMachineSystemType">
+    <xsd:sequence>
+      <xsd:element name="VirtualMachine" type="service-mon:VirtualMachineType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="VirtualMachineType">
+    <xsd:sequence>
+      <xsd:element name="VirtualMachineRecord" type="service-mon:MonitoringRecordType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="VirtualMachineId" type="xsd:string" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="MonitoringRecordType">
+    <xsd:sequence>
+      <xsd:element type="xsd:string" name="MetricName"/>
+      <xsd:element type="xsd:string" name="MetricUnit"/>
+      <xsd:element type="xsd:string"  name="MetricValue"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

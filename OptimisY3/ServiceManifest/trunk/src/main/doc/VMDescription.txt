@@ -1,0 +1,16 @@
+!!! WORK COPY !!!
+
+* Virtual Machine Description
+
+  The Virtual Machine Description section is specified by a service provider.
+  Each virtual machine description definition represents a group of virtual system instances at runtime.
+  The section consists a list of templates. Every template describes one service.
+  Service description contains a unique ID, a OVF section(1.2), allcation- (1.3) and affinity contraints (4<-- missing).
+
+* Infrastructure Provider Extensions
+ 
+ The new IP (infrastructure provider) extensions are generated bei IPs.
+ The extension provides a list of so called Incarnated Services. Every Incarnated Service contains a ID and a OVF section.
+ Every incarnated service consists of one or more virtual system instances.
+ A list such instances called Virtual System Collection is a part of the OVF section.
+ Each service instance refers to a group definied in the previous Virtual Machine Description. 

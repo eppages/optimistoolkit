@@ -1,0 +1,19 @@
+Read me file for the collector scripts of the Monitoring Infrastructure.
+
+--- Install instructions ---
+
+Edit ./share/database.properties to enter the MI database connection details.
+
+Read rabbitmq/README and follow the instructions there to install RabbitMQ.
+
+Collector scripts can be found under the directory named "scripts". Read scripts/README and follow the instructions there to configure the collector scripts. You can choose which collector scripts you want to configure.
+
+--- Start monitoring process ---
+
+Edit the crontab file (command: crontab -e). Insert the contents of ./cron/cronfile into the crontab file. You may have to adapt the contents of the crontab file depending on which scripts you configured and decided to enable for monitoring, and depending on the frequency of execution of those scripts. Save the crontab file. The MI will start running approx. 5 mins later.
+
+--- Stop monitoring process ---
+
+Edit the crontab file (crontab -e). Comment out the lines coming from ./cron/cronfile. Save the crontab file.
+Then, kill the ./rabbitmq/sender.py process.
+And finally, kill the ./rabbitmq/receiver.py process.

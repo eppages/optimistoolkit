@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+cp vmimages_key ~/.ssh/id_rsa

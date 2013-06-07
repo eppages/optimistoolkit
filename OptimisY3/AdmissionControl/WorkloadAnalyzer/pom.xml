@@ -1,0 +1,456 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
+    <modelVersion>4.0.0</modelVersion>
+         
+<!--     <parent> -->
+<!--         <groupId>eu.optimis</groupId> -->
+<!--         <artifactId>AdmissionControl</artifactId> -->
+<!--         <version>1.0-SNAPSHOT</version> -->
+<!--     </parent> -->
+
+    <groupId>eu.optimis</groupId>
+    <artifactId>WorkloadAnalyzer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <name>WorkloadAnalyzer</name>
+    <url>http://www.optimis-project.eu/</url>
+    
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>WorkloadAnalyzer-Impl</module>
+        <module>WorkloadAnalyzer-Types</module>
+        <module>WorkloadAnalyzer-WS</module>
+        <module>WorkloadAnalyzer-Client</module>
+    </modules>
+
+    <developers>
+
+        <developer>
+            <id>wziegler</id>
+            <email>wolfgang.ziegler@scai.fraunhofer.de</email>
+            <name>Wolfgang Ziegler</name>
+            <organization>Fraunhofer SCAI</organization>
+            <organizationUrl>http://www.scai.fraunhofer.de/</organizationUrl>
+            <url>http://www.scai.fraunhofer.de/ziegler.html</url>
+        </developer>
+
+        <developer>
+            <id>hrasheed</id>
+            <email>hassan.rasheed@scai.fraunhofer.de</email>
+            <name>Hassan Rasheed</name>
+            <organization>Fraunhofer SCAI</organization>
+            <organizationUrl>http://www.scai.fraunhofer.de/</organizationUrl>
+        </developer>
+
+    </developers>
+
+    <organization>
+        <name>Fraunhofer Institute SCAI</name>
+        <url>http://www.scai.fraunhofer.de</url>
+    </organization>
+
+    <properties>
+        <!-- variable definitions for specifying software versions of dependencies -->
+        <log4j.version>1.2.16</log4j.version>
+        <junit.version>4.7</junit.version>
+        <xmlbeans.version>2.4.0</xmlbeans.version>
+        <axis2.version>1.4.1</axis2.version>
+    </properties>
+    
+    <distributionManagement>
+        <!-- For releases -->
+        <repository>
+            <id>optimis-repo</id>
+            <name>optimis-repo-releases</name>
+            <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url>
+        </repository>
+        <!-- For snapshots -->
+        <snapshotRepository>
+            <id>optimis-repo</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>optimis-repo-snapshots</name>
+            <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+	
+	<pluginRepositories>
+        <pluginRepository>
+            <id>packcs</id>
+            <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+
+         <repository>
+            <id>packcs-maven2</id>
+            <name>PACKCS - Archiva Managed Snapshot Repository</name>
+            <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+        
+        <repository>
+			<id>optimis-repo</id>
+			<name>repo</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url>
+			<snapshots>
+    			<enabled>true</enabled>
+    			<updatePolicy>daily</updatePolicy>
+   			</snapshots>
+   			<releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+		</repository> 
+    </repositories>
+
+    <scm>
+        <connection>scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/AdmissionControl/WorkloadAnalyzer</connection>
+        <developerConnection>scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/AdmissionControl/WorkloadAnalyzer</developerConnection>
+        <url>http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/AdmissionControl/WorkloadAnalyzer</url>
+    </scm> 
+    
+    <build>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.0.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>xmlbeans-maven-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+                
+                <plugin>
+                	<groupId>org.apache.maven.plugins</groupId>
+                	<artifactId>maven-compiler-plugin</artifactId>
+                	<version>2.3.2</version>
+            	</plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1-alpha-2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.axis2</groupId>
+                    <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+                    <version>1.4.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.1.2</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+		    		<artifactId>maven-jar-plugin</artifactId>
+		    		<version>2.2</version>
+                </plugin>
+                        
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>tomcat-maven-plugin</artifactId>
+	    			<version>1.1</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+		    		<artifactId>cargo-maven2-plugin</artifactId>
+					<version>1.0-alpha-6 </version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>properties-maven-plugin</artifactId>
+		   			<version>1.0-alpha-2</version>
+                </plugin>
+                
+                <plugin>
+		    		<groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>sysdeo-tomcat-maven-plugin</artifactId>
+		    		<version>1.1</version>
+				</plugin>
+				
+				<!-- Below plugins configurations are used to store Eclipse m2e settings only. 
+				It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[2.3,)</versionRange>
+										<goals>
+											<goal>unpack-dependencies</goal>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>org.codehaus.mojo</groupId>
+    									<artifactId>xmlbeans-maven-plugin</artifactId>
+    									<versionRange>[2.3.2,)</versionRange>
+    									<goals>
+    										<goal>xmlbeans</goal>
+	    								</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<execute></execute>
+    								</action>
+    							</pluginExecution>
+    							<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>org.codehaus.mojo</groupId>
+    									<artifactId>openjpa-maven-plugin</artifactId>
+    									<versionRange>[1.2,)</versionRange>
+    									<goals>
+    										<goal>enhance</goal>
+    									</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<ignore></ignore>
+    								</action>
+    							</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>    
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+    
+    <dependencyManagement>
+
+        <dependencies>
+        
+        	<dependency>
+            	<groupId>eu.optimis</groupId>
+            	<artifactId>WorkloadAnalyzer-Types</artifactId>
+            	<version>${project.version}</version>
+        	</dependency>
+        	
+        	<dependency>
+            	<groupId>eu.optimis</groupId>
+            	<artifactId>WorkloadAnalyzer-WS</artifactId>
+            	<version>${project.version}</version>
+        	</dependency>
+        	
+        	<dependency>
+            	<groupId>eu.optimis</groupId>
+            	<artifactId>WorkloadAnalyzer-Impl</artifactId>
+            	<version>${project.version}</version>
+        	</dependency>
+
+            <dependency>
+            	<groupId>eu.optimis</groupId>
+            	<artifactId>WorkloadAnalyzer-Client</artifactId>
+            	<version>${project.version}</version>
+        	</dependency>
+        	
+        	<dependency>
+            	<groupId>eu.optimis.mi.restclient</groupId>
+            	<artifactId>RESTClient</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+        	</dependency>
+        	
+        	<dependency>
+                <groupId>eu.optimis.mi.monitoringresource</groupId>
+                <artifactId>MonitoringResource</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        	
+        	<dependency>
+		    	<groupId>eu.optimis</groupId>
+		    	<artifactId>CloudOptimizerRESTClient</artifactId>
+		    	<version>1.0-SNAPSHOT</version>
+		    	<exclusions>
+		    		<exclusion>
+		    			<artifactId>xercesImpl</artifactId>
+		    			<groupId>xerces</groupId>
+		    		</exclusion>
+		    	</exclusions>
+            </dependency>
+            
+            <dependency>
+            	<artifactId>xercesImpl</artifactId>
+		    	<groupId>xerces</groupId>
+		    	<version>2.8.1</version>
+        	</dependency> 
+        
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>${xmlbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans-xpath</artifactId>
+                <version>${xmlbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>xmlbeans</groupId>
+                <artifactId>xbean</artifactId>
+                <version>${xmlbeans.version}</version>
+            </dependency>
+            
+        	<dependency>
+            	<groupId>com.sun.jersey</groupId>
+            	<artifactId>jersey-server</artifactId>
+            	<version>1.6</version>
+        	</dependency>
+
+        	<dependency>
+            	<groupId>com.sun.jersey</groupId>
+            	<artifactId>jersey-client</artifactId>
+            	<version>1.6</version>
+        	</dependency>
+
+        	<dependency>
+            	<groupId>com.sun.grizzly</groupId>
+            	<artifactId>grizzly-servlet-webserver</artifactId>
+            	<version>1.9.18</version>
+        	</dependency>
+        	
+        	<dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.2</version>
+                <scope>test</scope>
+            </dependency>
+            
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.16</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymock</artifactId>
+                <version>3.0</version>
+                <scope>test</scope>
+            </dependency>
+        	
+        </dependencies>
+
+    </dependencyManagement>   
+
+    <dependencies>
+    
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        
+    </dependencies>
+    
+</project>

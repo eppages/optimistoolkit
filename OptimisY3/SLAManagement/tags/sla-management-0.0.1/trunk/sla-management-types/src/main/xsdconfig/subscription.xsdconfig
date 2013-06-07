@@ -1,0 +1,7 @@
+<xb:config xmlns:xb="http://www.bea.com/2002/09/xbean/config">
+
+    <xb:namespace uri="http://www.optimis.eu/subscription/">
+        <xb:package>eu.optimis.sla.types.subscription</xb:package>
+    </xb:namespace>
+    
+</xb:config>

@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+# OPTIMIS DATAMANAGER MOUNTING SCRIPT
+
+import os
+import base64
+import json
+import socket
+
+DMconfFileName = "/mnt/context/securitykeys/DM.key"
+
+def isAlive(addr, port):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(5)
+        try:
+                s.connect((addr, port))
+                s.close()
+                return True
+        except socket.error, msg:
+                s.close()
+                return False
+
+
+def checkIP(internal, external):
+        if isAlive(internal, 22):
+                return internal
+        else:
+                if isAlive(external, 22):
+                        return external
+                else:
+                        print "Error: connection cannot be established!"
+                        quit()
+
+if not os.path.exists(DMconfFileName):
+        print "Error: Cannot find DM.key in ", DMconfFileName
+        quit()
+
+
+DMconf = open(DMconfFileName, 'r').read()
+DMconf = base64.b64decode(DMconf)
+settings = json.loads(DMconf)
+
+provider     = settings['provider']
+intIPaddress = settings['ipaddress']
+extIPaddress = settings['ipaddressPub']
+key          = settings['key']
+path         = settings['path']
+cmd          = settings['cmd']
+
+datamanager = checkIP(intIPaddress, extIPaddress)
+sshkey = open('/etc/DMkey.ssh', 'w')
+sshkey.write(base64.b64decode(key))
+sshkey.close()
+os.system("chmod go-rwx /etc/DMkey.ssh")
+
+os.system("fusermount -u /storage  > /dev/null 2>&1")
+os.system("umount -l /storage  > /dev/null 2>&1")
+os.system("mkdir /storage > /dev/null 2>&1")
+
+cmd = cmd % datamanager
+os.system(cmd)
+
+if os.path.exists("/storage/.safevolume"):
+        os.system("mknod -m0660 /dev/optimis b 7 2")
+        os.system("chown root.disk /dev/optimis")
+        os.system("losetup /dev/optimis /storage/.safevolume")
+
+
+

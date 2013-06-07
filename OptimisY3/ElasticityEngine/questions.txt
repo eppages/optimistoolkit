@@ -1,0 +1,8 @@
+Open questions:
+	- How does data appear? Should we query the MonitoringManager or will data just arrive?
+	- How to apply several rules at once? Especially with regard to the above question.
+	- What is the type of "value" in the monitoring information?
+	
+Future considerations:
+	- Formulate rules differently for "spot-values" or for sets of measurements?
+	- Better to have "rules per ImageID" than "ImageID per rule"

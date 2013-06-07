@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure"
+           xmlns:opt="http://schemas.optimis.eu/optimis/"
+           targetNamespace="http://schemas.optimis.eu/optimis/infrastructure" elementFormDefault="qualified"
+           attributeFormDefault="qualified">
+    <xs:import namespace="http://schemas.optimis.eu/optimis/" schemaLocation="./optimis.xsd"/>
+
+    <xs:element name="InfrastructureProviderExtensions" type="opt-ip:InfrastructureProviderExtensionType"
+                nillable="true"/>
+    <xs:element name="IncarnatedServiceComponents" type="opt-ip:IncarnatedServiceComponentsType"/>
+    <xs:element name="IncarnatedServiceComponent" type="opt:ServiceComponentType"/>
+
+    <xs:element name="IncarnatedVirtualMachineComponents" type="opt-ip:IncarnatedVirtualMachineComponentsType"
+                substitutionGroup="opt-ip:IncarnatedServiceComponents"/>
+    <xs:element name="IncarnatedVirtualMachineComponent" type="opt-ip:IncarnatedVirtualMachineComponentType"
+                substitutionGroup="opt-ip:IncarnatedServiceComponent"/>
+
+    <xs:complexType name="InfrastructureProviderExtensionType">
+        <xs:annotation>
+            <xs:documentation>
+                Provisioning of extensions for an Infrastructure Provider.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="opt-ip:IncarnatedServiceComponents" minOccurs="0"/>
+            <xs:element name="AllocationOffer" type="opt-ip:AllocationOfferType" minOccurs="0"/>
+            <xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="IncarnatedServiceComponentsType" abstract="true">
+        <xs:sequence>
+            <xs:element ref="opt-ip:IncarnatedServiceComponent" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="IncarnatedVirtualMachineComponentsType">
+        <xs:complexContent>
+            <xs:restriction base="opt-ip:IncarnatedServiceComponentsType">
+                <xs:sequence>
+                    <xs:element ref="opt-ip:IncarnatedVirtualMachineComponent" minOccurs="1" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="IncarnatedVirtualMachineComponentType">
+        <xs:complexContent>
+            <xs:extension base="opt:ServiceComponentType">
+                <xs:sequence>
+                    <xs:element ref="opt:OVFDefinition" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ExternalDeploymentType">
+        <xs:sequence>
+            <xs:element ref="opt:ServiceManifest"/>
+        </xs:sequence>
+        <xs:attribute name="providerId" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="AllocationPatternType">
+        <xs:sequence>
+            <xs:element name="PhysicalHost" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="elastic" type="xs:boolean" default="false"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="componentId" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="AdmissionControlDecisionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="accepted"/>
+            <xs:enumeration value="rejected"/>
+            <xs:enumeration value="partial"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="AllocationOfferType">
+        <xs:sequence>
+            <xs:element name="AllocationPattern" minOccurs="0" maxOccurs="unbounded"
+                        type="opt-ip:AllocationPatternType"/>
+            <xs:element name="Cost" type="xs:anyType" minOccurs="0"/>
+            <xs:element name="Risk" type="xs:float" minOccurs="0"/>
+            <xs:element name="ExternalDeployment" minOccurs="0" maxOccurs="unbounded"
+                        type="opt-ip:ExternalDeploymentType"/>
+            <xs:element name="Decision" type="opt-ip:AdmissionControlDecisionType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

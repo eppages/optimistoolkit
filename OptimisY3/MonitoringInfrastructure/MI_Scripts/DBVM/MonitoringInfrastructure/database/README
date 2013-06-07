@@ -1,0 +1,38 @@
+Database maintenance scripts in DBVM. Path: /opt/optimis/MonitoringInfrastructure/database.
+
+---
+
+The add_new_partition.sh script needs to have the property file ../share/database.properties configured with the MySQL connection details of the Monitoring database.
+
+This script creates new partitions in the monitoring tables (monitoring_resource_energy, monitoring_resource_physical, monitoring_resource_service, monitoring_resource_virtual). Those tables are partitioned with a UNIX timestamp used as the partitioning column. There is one partition created per month.
+
+For each table of the Monitoring Infrastructure, the script checks if new partitions must be created for future months, and it creates them if necessary.
+
+---
+
+The archive_old_mdata.sh script needs to have the property file ../share/database.properties configured with the MySQL connection details of the Monitoring database.
+
+Run archive_old_mdata.sh as a monthly cron job to:
+- Archive records from the Monitoring database that are older than x months old. The records are archived in gzip files and deleted from the database tables.
+- Delete gzip files that are also older than x months old.
+
+This means that a record inserted today into a monitoring table would stay there x months, then it would be extracted into a gzip file, and finally it would stay there another x months before being deleted.
+
+---
+
+The reduce_db_volume.sh script needs to have the property file ../share/database.properties configured with the MySQL connection details of the Monitoring database.
+
+Run reduce_db_volume.sh as a monthly cron job to replace old values with a single mean value in the tables monitoring_resource_energy, monitoring_resource_physical, and monitoring_resource_virtual. 
+
+Mean values are calculated for the tables monitoring_resource_energy,  monitoring_resource_physical, monitoring_resource_virtual, and for the parameters listed in reduce_db_volume.properties.
+
+Example with the cpu_speed parameter stored in the monitoring_resource_physical table.
+Let's suppose that start-date = 2012-12 and decrement-parameter = 6.
+Step 1: calculate mean value of cpu_speed for month 2012-11.
+Step 2: insert a new record into monitoring_resource_physical with the new mean value.
+Step 3: delete from monitoring_resource_physical all the other cpu_speed records having a timestamp belonging to 2012-11.
+Go back to step 1 and run the same process for month 2012-10, and continue so until 2012-06.
+
+---
+
+To run the aforementioned scripts as a common monthly cron job, schedule database_maintenance.sh as a monthly cron job. It will first execute add_new_partition.sh, then archive_old_mdata.sh (with the input param value 6), and finally reduce_db_volume.sh (with the input param values: `date +%Y-%m` 6).

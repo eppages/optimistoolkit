@@ -1,0 +1,147 @@
+2012-04-18  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bump to version 0.5-SNAPSHOT, use schema 0.5-SNAPSHOT.
+
+ * ServiceManager.java (getInfrastructureProviderIds): New operation.
+
+ * TestUtil.java (createIpWithoutVm): Return an InfrastructureProviderDocument,
+ not an InfrastructureProvider.
+
+2012-04-02  Roland Kuebert <kuebert@hlrs.de>
+ 
+ * pom.xml: Bump to version 0.4-SNAPSHOT.
+ 
+ * ServiceManager.java: Multiple changes, a service can have multiple
+ Infrastructure Providers now. 
+
+2012-01-09  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceManager.java (updateVmStatus): Added javadoc.
+
+2012-01-03  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceManager.java (addVm): Add all fields of a VM when adding an new one.
+
+2012-02-29  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bump to version 0.2-SNAPSHOT.
+
+2012-02-28  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Depend on 0.3-SNAPSHOT of ServiceManagerSchema.
+
+2012-02-21  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Depend on 0.2-SNAPSHOT of ServiceManagerSchema.
+
+2011-06-02  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceResource.java (deleteVm): Do not take payload but take VM id from URL.
+
+2011-06-01  Roland Kuebert <kukebert@hlrs.de>
+
+ * ServiceResorce.java (updateStatus): Added operation to just update a service's
+ status.
+
+2011-05-26  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServicesResorce.java (getServicesHtml): Test version for HTML output.
+
+ * Service.java (create): Do not throw an error on receiving a service with 
+ already existing id but delete and recreate it.
+
+2011-05-25  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceModel.java (toXml): Added line breaks for better readability.
+ * InfrastructureProvider.java (toXml): Likewise. (getVmList): Likewise.
+
+ * ServiceResource.java (getVms): New operation.
+
+ * pom.xml: War file is always named ServiceManager.war.
+
+2011-05-16  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceResource.java (deleteVm): New operation.
+
+ * InfrastructureProviderModel.java (removeVm): New operation.
+
+2011-05-11  Roland Kuebert <kuebert@hlrs.de>
+
+ * CreateServiceClient.java: Renamed from CreateClient.java.
+
+ * CreateClient.java: New class.
+
+ * DeleteVmClient.java: New class.
+
+ * PutVmClient.java: New class.
+
+2011-05-10  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceModel.java (toXml): Only print SLA id if it is not null.
+
+ * ServiceStorage.java (removeService): Takes a String, not a Service object now.
+ (removeService): Implementation added, was a dummy before. 
+
+ * CompleteClient.java (main): Added a call to deletion operation.
+
+ * Service.java (delete): Added operation for deletion of one
+ service specified by its id.
+
+ * ServiceResource.java (deleteService): Added operation for deletion of one
+ service specified by its id.
+
+ * ItemNotFoundException.java: New class.
+
+ * CompleteClient.java (main): Use ServiceDocument to create XML input string.
+
+ * XmlUtil.java (validateServiceXml): Validate service using XmlBeans. 
+
+ * ServicesResource.java (createService): Added javadoc.
+
+ * pom.xml: Changed Java to version 1.6. 
+
+ * XmlUtilTest.java (testGetServiceFromXml): Disablke test for now (always pass).
+
+ * XmlUtilTest.java (testGetServiceFromXml): Adapted checks for default fields.
+
+2011-05-05  Roland Kuebert <kuebert@hlrs.de>
+
+ * service-manager.xsd: Defined types as elements, therefore bringing XMLBeans
+ to generate FooDocument classes.
+
+ * pom.xml: Specified correct paths for XMLBeans generated sources and classes.
+
+ * .classpath: Use standard JRE.
+
+ * CreateServiceClient.java: Renamed to CompleteClient.java.
+
+2011-04-19  Roland Kuebert <kuebert@hlrs.de>
+
+ * .classpath: Added xmlbeans generated classes to build path.
+
+ * pom.xml: Added xmlbeans plugin.
+
+ * service-manager.xsd: Added XML schema with definition of types.
+	
+	
+2011-03-13 Tinghe Wang <twang@hlrs.de>
+
+ * create a new resource only with a service id state=pending
+   Interface: POST services/{serviceId} Content-Type:text/plain,
+   Accept:application/xml.
+ * update the resource with IP information 
+   Interface: PUT services/{serviceId} Content-Type:application/xml,
+   Accept:application/xml
+
+ * ServiceResource.java (updateService): New method.
+	(createEmptyService): New method.
+
+2011-03-01  Roland Kuebert <kuebert@hlrs.de>
+
+ * cc-build.xml: Created CruiseControl build file.
+
+ * pom.xml: Added optimis-parent as parent project.
+
+ * SimpleResource.java: Renamed to ServiceResource.java.
+
+ * ServicesResource.java: New class.

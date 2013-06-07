@@ -1,0 +1,70 @@
+<ns1:Envelope xmlns:ns2="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:ns1="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ns4="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:ns3="http://schemas.dmtf.org/wbem/wscim/1/common">
+    <ns1:References>
+        <ns1:File ns1:href="default.img" ns1:id="base"/>
+    </ns1:References>
+    <ns1:DiskSection>
+        <ns1:Disk ns1:capacity="0MB" ns1:diskId="home"/>
+        <ns1:Disk ns1:capacity="0MB" ns1:diskId="swap"/>
+        <ns1:Disk ns1:capacity="0MB" ns1:fileRef="base" ns1:diskId="base"/>
+    </ns1:DiskSection>
+    <ns1:NetworkSection/>
+    <ns1:ProductSection ns1:class="net.emotivecloud.utils.ovf.OVFWrapper">
+        <ns1:Info>
+            Some configuration information for the VM (e.g. IP addresses)
+        </ns1:Info>
+        <ns1:Property ns1:value="VMTestMigrationPOC" ns1:type="string" ns1:key="VM.name"/>
+        <ns1:Property ns1:value="0.0.0.0" ns1:type="string" ns1:key="network.ip.public"/>
+        <ns1:Property ns1:value="65" ns1:type="string" ns1:key="VM.id"/>
+        <ns1:Property ns1:value="llwh193" ns1:type="string" ns1:key="VM.sourcehost"/>
+    </ns1:ProductSection>
+    <ns1:VirtualSystem ns1:id="1ecbbc2c-00e0-4f38-a026-4da9ba01d4eb">
+        <ns1:Info>VM description</ns1:Info>
+        <ns1:VirtualHardwareSection>
+            <ns1:Info>Virtual Hardware requirements</ns1:Info>
+            <ns1:Item>
+                <ns4:AllocationUnits>MegaBytes</ns4:AllocationUnits>
+                <ns4:Description>Memory Size</ns4:Description>
+                <ns4:ElementName>256 MB of Memory</ns4:ElementName>
+                <ns4:InstanceID>1</ns4:InstanceID>
+                <ns4:ResourceType>4</ns4:ResourceType>
+                <ns4:VirtualQuantity>256</ns4:VirtualQuantity>
+            </ns1:Item>
+            <ns1:Item>
+                <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+                <ns4:ElementName>Hardisk 1</ns4:ElementName>
+                <ns4:HostResource>ovf:/disk/home</ns4:HostResource>
+                <ns4:InstanceID>3</ns4:InstanceID>
+                <ns4:ResourceType>17</ns4:ResourceType>
+            </ns1:Item>
+            <ns1:Item>
+                <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+                <ns4:ElementName>Hardisk 2</ns4:ElementName>
+                <ns4:HostResource>ovf:/disk/swap</ns4:HostResource>
+                <ns4:InstanceID>5</ns4:InstanceID>
+                <ns4:ResourceType>17</ns4:ResourceType>
+            </ns1:Item>
+            <ns1:Item>
+                <ns4:Description>Number of Virtual CPUs</ns4:Description>
+                <ns4:ElementName>2 virtual CPU</ns4:ElementName>
+                <ns4:InstanceID>0</ns4:InstanceID>
+                <ns4:ResourceType>3</ns4:ResourceType>
+                <ns4:VirtualQuantity>2</ns4:VirtualQuantity>
+            </ns1:Item>
+            <ns1:Item>
+                <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+                <ns4:ElementName>Hardisk 1</ns4:ElementName>
+                <ns4:HostResource>ovf:/disk/base</ns4:HostResource>
+                <ns4:InstanceID>1</ns4:InstanceID>
+                <ns4:ResourceType>17</ns4:ResourceType>
+            </ns1:Item>
+            <ns1:Item>
+                <ns4:Address>0A:54:B5:7A:DD:EC</ns4:Address>
+                <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+                <ns4:Connection>public</ns4:Connection>
+                <ns4:ElementName>Ethernet adapter on public network</ns4:ElementName>
+                <ns4:InstanceID>2</ns4:InstanceID>
+                <ns4:ResourceType>10</ns4:ResourceType>
+            </ns1:Item>
+        </ns1:VirtualHardwareSection>
+    </ns1:VirtualSystem>
+</ns1:Envelope>

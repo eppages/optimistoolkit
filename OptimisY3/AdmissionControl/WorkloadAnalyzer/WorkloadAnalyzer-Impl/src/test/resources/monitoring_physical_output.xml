@@ -1,0 +1,78 @@
+<MonitoringResources>
+  <monitoring_resource>
+    <metric_name>status</metric_name>
+    <metric_value>OK</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>No_of_cores</metric_name>
+    <metric_unit>cores</metric_unit>
+    <metric_value>16</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>disk_free_space</metric_name>
+    <metric_unit>MB</metric_unit>
+    <metric_value>700249</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>total_memory</metric_name>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+    <metric_unit>kB</metric_unit>
+    <metric_value>8124416</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>Upstream</metric_name>
+    <metric_unit>Kbps</metric_unit>
+    <metric_value>528</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>cpu_average_load</metric_name>
+    <metric_value>0.800,0.500,0.470</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis1</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>status</metric_name>
+    <metric_value>OK</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis2</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>status</metric_name>
+    <metric_value>OK</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis3</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+  <monitoring_resource>
+    <metric_name>status</metric_name>
+    <metric_value>OK</metric_value>
+    <monitoring_information_collector_id>1</monitoring_information_collector_id>
+    <physical_resource_id>optimis4</physical_resource_id>
+    <resource_type>physical</resource_type>
+    <metric_timesstamp>Fri Sep 23 16:08:47 CEST 2011</metric_timesstamp>
+  </monitoring_resource>
+</MonitoringResources>

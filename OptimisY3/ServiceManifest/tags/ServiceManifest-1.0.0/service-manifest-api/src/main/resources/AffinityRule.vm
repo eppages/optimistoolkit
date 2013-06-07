@@ -1,0 +1,6 @@
+<opt:AffinityRule xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        <opt:componentId>${componentId}</opt:componentId>
+    </opt:Scope>
+    <opt:AffinityConstraints>${affinityConstraints}</opt:AffinityConstraints>
+</opt:AffinityRule>

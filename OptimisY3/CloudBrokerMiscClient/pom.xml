@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+    <parent> 
+        <groupId>eu.optimis</groupId>
+         <artifactId>optimis-parent</artifactId>
+         <version>0.1-SNAPSHOT</version>
+         <relativePath>../optimis-parent/pom.xml</relativePath>
+    </parent>
+
+  <groupId>eu.optimis.broker</groupId>
+  <artifactId>CloudBrokerMiscClient</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>CloudBrokerMiscClient Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+    <repositories>
+        <repository>
+			<id>optimis-repo</id>
+			<name>repo</name>
+			<url>http://optimis-artifactory/artifactory/repo</url>
+			<snapshots>
+    			<enabled>true</enabled>
+    			<updatePolicy>daily</updatePolicy>
+   			</snapshots>
+   			<releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+		</repository> 
+	</repositories>
+
+    <distributionManagement>
+        <!-- For releases -->
+        <repository>
+            <id>optimis-repo</id>
+            <name>optimis-repo-releases</name>
+            <url>http://optimis-artifactory/artifactory/libs-release-local</url>
+        </repository> 
+        <!-- For snapshots -->
+         <snapshotRepository>
+            <id>optimis-repo</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>optimis-repo-snapshots</name>
+            <url>http://optimis-artifactory/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+       </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+  		<groupId>com.sun.jersey</groupId>
+  		<artifactId>jersey-client</artifactId>
+  		<version>1.5</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+    
+    
+  </dependencies>
+  <build>
+    <finalName>CloudBrokerMiscClient</finalName>
+  </build>
+</project>

@@ -1,0 +1,6 @@
+
+--This line, and those below, will be ignored--
+
+A  + VMManagerService
+A  + VMManagerService/src/main/resources/config_rest.properties
+D    VMManagerService/src/main/resources/config.properties

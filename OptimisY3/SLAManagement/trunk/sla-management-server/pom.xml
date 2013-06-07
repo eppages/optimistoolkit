@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.optimis.sla-management</groupId>
+        <artifactId>sla-management</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>sla-management-server</artifactId>
+    <name>sla-management-server</name>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server-resources</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.fraunhofer.scai.commons</groupId>
+            <artifactId>jsdl-types</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.sla-management</groupId>
+            <artifactId>sla-management-types</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-api</artifactId>	
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.mi.restclient</groupId>
+            <artifactId>RESTClient</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>eu.optimis.mi.monitoringresource</groupId>
+			<artifactId>MonitoringResource</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,18 @@
+#include("./header.apt.vm")
+
+* Manifest Splitting
+
+    It is possible to extract a complete component from the manifest. Therefore it is necessary
+    that federation is allowed and affinity is set to "Low" for this component.
+
+    Splitting is possible at both IP and SP side. The method will return a Manifest without any extension sections.
+
+    You can either extract one component or a list of components.
+
++-------+
+        //either provide one componentId
+        Manifest extractedManifest =  manifest.extractComponent(componentId);
+
+        //or a list of componentIds
+        Manifest extractedManifest = manifest.extractComponentList(componentIdList);
++-------+

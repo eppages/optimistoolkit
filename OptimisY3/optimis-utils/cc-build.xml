@@ -1,0 +1,17 @@
+    <project name="optimis-utils" default="update-src" basedir="." >
+
+    <property name="base.dir" value="." />
+
+    <target name="update-src">
+
+    <echo>Updating source from Subversion</echo>
+
+    <exec executable="svn" dir="${base.dir}">
+
+    <arg line="up" />
+
+    </exec>
+
+    </target>
+
+    </project>

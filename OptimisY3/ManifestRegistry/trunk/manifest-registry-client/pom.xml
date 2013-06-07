@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <artifactId>manifest-registry</artifactId>
+    <groupId>eu.optimis.manifest-registry</groupId>
+    <version>0.0.2-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>manifest-registry-client</artifactId>
+  
+  
+  <name>manifest-registry-client</name>
+    
+  <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</configuration>
+			</plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+        	<groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-xmlbeans</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>   
+    </dependencies>
+  
+</project>

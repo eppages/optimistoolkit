@@ -1,0 +1,3 @@
+# Module servicemanagerweb
+# RPC service class, partial path of RPC policy file
+eu.optimis.sm.gui.client.ServiceManagerWebService, 355F0B776D7E65F7BA0DDBB46799325E.gwt.rpc

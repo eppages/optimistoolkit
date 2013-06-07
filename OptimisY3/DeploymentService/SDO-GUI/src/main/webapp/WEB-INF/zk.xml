@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by ZK Studio -->
+
+<zk>
+	<system-config>
+		<max-upload-size>-1</max-upload-size>
+	</system-config>
+	
+	<session-config>
+		<session-timeout>10800</session-timeout>
+		<timeout-uri>/timeout.zul</timeout-uri>
+		<timer-keep-alive>true</timer-keep-alive>
+		<max-desktops-per-session>500</max-desktops-per-session>
+		<max-requests-per-session>5</max-requests-per-session>
+	</session-config>
+	
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri><!-- An empty URL can cause the 
+			browser to reload the same URL -->
+	</device-config>
+</zk>

@@ -1,0 +1,621 @@
+<ws:Template ws:TemplateId="1"
+	xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+
+	<ws:Name>OPTIMIS-SERVICE-INSTANTIATION</ws:Name>
+	<ws:Context>
+		<ws:AgreementInitiator>OPTIMUMWEB</ws:AgreementInitiator>
+		<ws:AgreementResponder>OPTIMUMIP</ws:AgreementResponder>
+		<ws:ServiceProvider>AgreementResponder</ws:ServiceProvider>
+		<ws:TemplateId>1</ws:TemplateId>
+		<ws:TemplateName>OPTIMIS-SERVICE-INSTANTIATION</ws:TemplateName>
+	</ws:Context>
+	<ws:Terms>
+		<ws:All>
+			<ws:ServiceDescriptionTerm ws:Name="OPTIMIS_SERVICE_SDT"
+				ws:ServiceName="OptimisService">
+				<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB" xmlns:opt="http://schemas.optimis.eu/optimis/" xmlns:opt-sp="http://schemas.optimis.eu/optimis/service" xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure">
+  <opt:VirtualMachineDescription opt:serviceId="OptimisDemoService" opt:isFederationAllowed="false">
+    <opt:VirtualMachineComponent opt:componentId="jboss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.vmdk" ovf:id="jboss-img-file"/>
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.iso" ovf:id="jboss-context-file"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="6252516" ovf:diskId="jboss-img-disk" ovf:fileRef="jboss-img-file" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized"/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="jboss-context-disk" ovf:fileRef="jboss-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="jboss-net">
+            <ovf:Description>Network to connect to system-jboss</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-jboss">
+          <ovf:Info>jboss VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+          </ovf:ProductSection>
+          <!--this is the default operating system-->
+          <ovf:OperatingSystemSection ovf:id="36" ovf:version="Debian6">
+            <ovf:Info>Specifies the operating system installed</ovf:Info>
+            <ovf:Description>This is the debian description.</ovf:Description>
+          </ovf:OperatingSystemSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                    2 disks, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>5</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+              <rasd:ElementName>MHz reservation</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:Reservation>500</rasd:Reservation>
+              <rasd:ResourceType>3</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss-img-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss-context-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>17</opt:UpperBound>
+        <opt:Initial>3</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      <opt:ServiceEndpoints/>
+    </opt:VirtualMachineComponent>
+    <opt:VirtualMachineComponent opt:componentId="mysql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="" ovf:id="mysql-img-file"/>
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-db.img" ovf:id="mysql-context-file"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="7380016" ovf:diskId="mysql-img-disk" ovf:fileRef="mysql-img-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="mysql-context-disk" ovf:fileRef="mysql-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="mysql-net">
+            <ovf:Description>Network to connect to system-mysql</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-mysql">
+          <ovf:Info>mysql VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product/>
+            <ovf:Version/>
+          </ovf:ProductSection>
+          <!--this is the default operating system-->
+          <ovf:OperatingSystemSection ovf:id="76">
+            <ovf:Info>Specifies the operating system installed</ovf:Info>
+            <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+          </ovf:OperatingSystemSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                    2 disks, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+              <rasd:ElementName>MHz reservation</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:Reservation>500</rasd:Reservation>
+              <rasd:ResourceType>3</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>mysql-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on mysql-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql-img-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql-context-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      <opt:ServiceEndpoints/>
+    </opt:VirtualMachineComponent>
+    <opt:VirtualMachineComponent opt:componentId="VPN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="" ovf:id="VPN-img-file"/>
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-vpn.img" ovf:id="VPN-context-file"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="6252516" ovf:diskId="VPN-img-disk" ovf:fileRef="VPN-img-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="VPN-context-disk" ovf:fileRef="VPN-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="VPN-net">
+            <ovf:Description>Network to connect to system-VPN</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-VPN">
+          <ovf:Info>VPN VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product/>
+            <ovf:Version/>
+          </ovf:ProductSection>
+          <!--this is the default operating system-->
+          <ovf:OperatingSystemSection ovf:id="76">
+            <ovf:Info>Specifies the operating system installed</ovf:Info>
+            <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+          </ovf:OperatingSystemSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                    2 disks, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>2048</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+              <rasd:ElementName>MHz reservation</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:Reservation>500</rasd:Reservation>
+              <rasd:ResourceType>3</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>VPN-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on VPN-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/VPN-img-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/VPN-context-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      <opt:ServiceEndpoints/>
+    </opt:VirtualMachineComponent>
+    <opt:VirtualMachineComponent opt:componentId="LB" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="" ovf:id="LB-img-file"/>
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-lb.img" ovf:id="LB-context-file"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="5160576" ovf:diskId="LB-img-disk" ovf:fileRef="LB-img-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+          <ovf:Disk ovf:capacity="5160576" ovf:diskId="LB-context-disk" ovf:fileRef="LB-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="LB-net">
+            <ovf:Description>Network to connect to system-LB</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-LB">
+          <ovf:Info>LB VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product/>
+            <ovf:Version/>
+          </ovf:ProductSection>
+          <!--this is the default operating system-->
+          <ovf:OperatingSystemSection ovf:id="76">
+            <ovf:Info>Specifies the operating system installed</ovf:Info>
+            <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+          </ovf:OperatingSystemSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                    2 disks, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>2048</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+              <rasd:ElementName>MHz reservation</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:Reservation>500</rasd:Reservation>
+              <rasd:ResourceType>3</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>LB-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on LB-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/LB-img-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/LB-context-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      <opt:ServiceEndpoints/>
+    </opt:VirtualMachineComponent>
+    <opt:AffinitySection>
+      <opt:AffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>mysql</opt:ComponentId>
+          <opt:ComponentId>LB</opt:ComponentId>
+        </opt:Scope>
+        <opt:AffinityConstraints>High</opt:AffinityConstraints>
+      </opt:AffinityRule>
+      <opt:AffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>VPN</opt:ComponentId>
+          <opt:ComponentId>LB</opt:ComponentId>
+        </opt:Scope>
+        <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      </opt:AffinityRule>
+    </opt:AffinitySection>
+    <opt:AntiAffinitySection>
+      <opt:AntiAffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>mysql</opt:ComponentId>
+          <opt:ComponentId>LB</opt:ComponentId>
+        </opt:Scope>
+        <opt:AntiAffinityConstraints>High</opt:AntiAffinityConstraints>
+      </opt:AntiAffinityRule>
+      <opt:AntiAffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>VPN</opt:ComponentId>
+          <opt:ComponentId>LB</opt:ComponentId>
+        </opt:Scope>
+        <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      </opt:AntiAffinityRule>
+    </opt:AntiAffinitySection>
+  </opt:VirtualMachineDescription>
+  <opt:TRECSection>
+    <opt:TrustSection>
+      <opt:Scope>
+        <opt:ComponentId>mysql</opt:ComponentId>
+        <opt:ComponentId>jboss</opt:ComponentId>
+      </opt:Scope>
+      <opt:MinimumTrustLevel>5</opt:MinimumTrustLevel>
+      <opt:TrustLevel>5</opt:TrustLevel>
+    </opt:TrustSection>
+    <opt:TrustSection>
+      <opt:Scope>
+        <opt:ComponentId>VPN</opt:ComponentId>
+        <opt:ComponentId>LB</opt:ComponentId>
+      </opt:Scope>
+      <opt:MinimumTrustLevel>3</opt:MinimumTrustLevel>
+      <opt:SocialNetworkingTrustLevel>1</opt:SocialNetworkingTrustLevel>
+      <opt:TrustLevel>10</opt:TrustLevel>
+    </opt:TrustSection>
+    <opt:RiskSection>
+      <opt:Scope>
+        <opt:ComponentId>mysql</opt:ComponentId>
+        <opt:ComponentId>jboss</opt:ComponentId>
+      </opt:Scope>
+      <opt:RiskLevel>1</opt:RiskLevel>
+      <opt:AvailabilityArray>
+        <opt:Availability opt:assessmentInterval="P1D">98.0</opt:Availability>
+        <opt:Availability opt:assessmentInterval="P1M">99.0</opt:Availability>
+      </opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:RiskSection>
+      <opt:Scope>
+        <opt:ComponentId>VPN</opt:ComponentId>
+        <opt:ComponentId>LB</opt:ComponentId>
+      </opt:Scope>
+      <opt:RiskLevel>1</opt:RiskLevel>
+      <opt:AvailabilityArray>
+        <opt:Availability opt:assessmentInterval="P1D">98.0</opt:Availability>
+        <opt:Availability opt:assessmentInterval="P1M">99.0</opt:Availability>
+      </opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:EcoEfficiencySection>
+      <opt:Scope>
+        <opt:ComponentId>VPN</opt:ComponentId>
+        <opt:ComponentId>LB</opt:ComponentId>
+      </opt:Scope>
+      <opt:LEEDCertification>Silver</opt:LEEDCertification>
+      <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+      <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>No</opt:EnergyStarRating>
+      <opt:ISO14000>No</opt:ISO14000>
+      <opt:GreenStar>No</opt:GreenStar>
+      <opt:CASBEE>No</opt:CASBEE>
+    </opt:EcoEfficiencySection>
+    <opt:EcoEfficiencySection>
+      <opt:Scope>
+        <opt:ComponentId>mysql</opt:ComponentId>
+        <opt:ComponentId>jboss</opt:ComponentId>
+      </opt:Scope>
+      <opt:LEEDCertification>Gold</opt:LEEDCertification>
+      <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+      <opt:EuCoCCompliant>true</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>No</opt:EnergyStarRating>
+      <opt:ISO14000>No</opt:ISO14000>
+      <opt:GreenStar>No</opt:GreenStar>
+      <opt:CASBEE>No</opt:CASBEE>
+    </opt:EcoEfficiencySection>
+    <opt:CostSection>
+      <opt:Scope>
+        <opt:ComponentId>VPN</opt:ComponentId>
+        <opt:ComponentId>LB</opt:ComponentId>
+        <opt:ComponentId>jboss</opt:ComponentId>
+        <opt:ComponentId>mysql</opt:ComponentId>
+      </opt:Scope>
+      <opt:PricePlan opt:currency="EUR" opt:planCap="99.8" opt:planFloor="0.0"></opt:PricePlan>
+    </opt:CostSection>
+  </opt:TRECSection>
+  <opt:ElasticitySection>
+    <opt:Rule>
+      <opt:Scope>
+        <opt:ComponentId>LB</opt:ComponentId>
+        <opt:ComponentId>mysql</opt:ComponentId>
+      </opt:Scope>
+      <opt:KPIName>CPUSpeed</opt:KPIName>
+      <opt:Window>P1M</opt:Window>
+      <opt:Frequency>1</opt:Frequency>
+      <opt:Quota>500</opt:Quota>
+      <opt:Tolerance>5</opt:Tolerance>
+    </opt:Rule>
+  </opt:ElasticitySection>
+  <opt:DataProtectionSection>
+    <opt:EligibleCountryList>
+      <opt:Country>DE</opt:Country>
+    </opt:EligibleCountryList>
+    <opt:NonEligibleCountryList>
+      <opt:Country>AF</opt:Country>
+    </opt:NonEligibleCountryList>
+    <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+    <opt:DataEncryptionLevel>
+      <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+    </opt:DataEncryptionLevel>
+    <opt:DataStorage>
+      <opt:Scope>
+        <opt:ComponentId>jboss</opt:ComponentId>
+      </opt:Scope>
+      <opt:Name>storage</opt:Name>
+      <opt:AllocationUnit>byte</opt:AllocationUnit>
+      <opt:Capacity>0</opt:Capacity>
+    </opt:DataStorage>
+    <opt:SCC>
+        <opt:apply>true</opt:apply>
+    	<opt:Location>url</opt:Location>
+    	<opt:Description>description</opt:Description>
+    	<opt:Clause>
+      		<opt:Title>clause1</opt:Title>
+      		<opt:Description>description</opt:Description>
+      		<opt:Item>number1</opt:Item>
+    	</opt:Clause>
+	</opt:SCC>
+	<opt:BCR>
+	    <opt:apply>true</opt:apply>
+    	<opt:Location>url</opt:Location>
+    	<opt:Description>description</opt:Description>
+    	<opt:Rule>
+      		<opt:Title>title</opt:Title>
+      		<opt:Description>description</opt:Description>
+      		<opt:Item>item1</opt:Item>
+    	</opt:Rule>
+	</opt:BCR>
+	<opt:IPR>
+	    <opt:apply>false</opt:apply>
+    	<opt:Location>url</opt:Location>
+    	<opt:Description>description</opt:Description>
+    	<opt:Rule>
+      		<opt:Title>title</opt:Title>
+      		<opt:Description>description</opt:Description>
+      		<opt:Item>item1</opt:Item>
+    	</opt:Rule>
+	</opt:IPR>
+  </opt:DataProtectionSection>
+  <opt-sp:ServiceProviderExtensions>
+    <opt-sp:VirtualMachineComponentConfiguration opt-sp:componentId="jboss">
+      <opt-sp:SoftwareDependencies>
+        <opt-sp:Dependency>
+          <opt-sp:artifactId>xmlbeans</opt-sp:artifactId>
+          <opt-sp:version>2.3.9</opt-sp:version>
+          <opt-sp:groupId>org.apache.xmlbeans</opt-sp:groupId>
+        </opt-sp:Dependency>
+      </opt-sp:SoftwareDependencies>
+      <opt-sp:SecurityVPN>true</opt-sp:SecurityVPN>
+      <opt-sp:IPS>false</opt-sp:IPS>
+      <opt-sp:SecuritySSH>true</opt-sp:SecuritySSH>
+      <opt-sp:SSHKey>awFvHxAKawFfEjRKWwFvLxAK</opt-sp:SSHKey>
+      <opt-sp:LicenseToken>awFvHxAKawFfEjRKWwFvLxAK</opt-sp:LicenseToken>
+    </opt-sp:VirtualMachineComponentConfiguration>
+  </opt-sp:ServiceProviderExtensions>
+</opt:ServiceManifest>
+			</ws:ServiceDescriptionTerm>
+			<ws:ServiceDescriptionTerm ws:Name="OPTIMIS_SERVICE_PRICE_SDT"
+				ws:ServiceName="OptimisService">
+				<service-price:SLAServicePrice
+					currency="EUR" unit="HOUR" xmlns:service-price="http://www.optimis.eu/sla/service-price-types">
+					<service-price:Amount>10.0</service-price:Amount>
+				</service-price:SLAServicePrice>
+			</ws:ServiceDescriptionTerm> 
+			<ws:GuaranteeTerm ws:Name="OPTIMIS_SERVICE_AVAILABILITY">
+				<ws:ServiceScope ws:ServiceName="OptimisService"/>
+				<ws:QualifyingCondition>true</ws:QualifyingCondition>
+				<ws:ServiceLevelObjective>
+					<ws:KPITarget>
+						<ws:KPIName>Service Flag</ws:KPIName>
+						<ws:CustomServiceLevel>true</ws:CustomServiceLevel>
+					</ws:KPITarget>
+				</ws:ServiceLevelObjective>
+				<ws:BusinessValueList />
+			</ws:GuaranteeTerm>
+		</ws:All>
+	</ws:Terms>
+	<ws:CreationConstraints>
+		<ws:Item ws:Name="PRICE_SDT_ServicePrice_Amount">
+			<ws:Location>declare namespace ws='http://schemas.ggf.org/graap/2007/03/ws-agreement';declare namespace service-price='http://www.optimis.eu/sla/service-price-types';$this/ws:AgreementOffer/ws:Terms/ws:All/ws:ServiceDescriptionTerm[@ws:Name='OPTIMIS_SERVICE_PRICE_SDT']/service-price:SLAServicePrice</ws:Location>
+			<ws:ItemConstraint>
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element name="Amount">
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:minInclusive value="10.0" />
+								<xs:maxInclusive value="10.0" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</ws:ItemConstraint>
+		</ws:Item>
+	</ws:CreationConstraints>
+</ws:Template>

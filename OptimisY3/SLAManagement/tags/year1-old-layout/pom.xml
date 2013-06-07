@@ -1,0 +1,440 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.optimis</groupId>
+	<artifactId>sla-management</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<packaging>war</packaging>
+
+	<properties>
+            <wsag4j.gateway.address>http://localhost:8080/optimis-sla</wsag4j.gateway.address>
+<!--        <wsag4j.gateway.address>http://192.168.252.56:8080/optimis-sla</wsag4j.gateway.address>-->
+<!--        <wsag4j.gateway.address>http://localhost:8080/optimis-sla</wsag4j.gateway.address>-->
+<!--		<wsag4j.gateway.address>http://localhost:9000/optimis-sla</wsag4j.gateway.address>-->
+        <wsag4j.version>1.0.1-SNAPSHOT</wsag4j.version>
+		<servlet-container-port>9000</servlet-container-port>
+	    <skipTests>true</skipTests>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>packcs-maven2</id>
+			<name>PACKCS - Archiva Managed Snapshot Repository</name>
+			<url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</repository>
+		<!-- repository for optimis artifacts -->
+		<repository>
+        <id>optimis-repo</id>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+        <name>repo</name>
+        <url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url>
+    </repository>
+        
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-agreement-factory</artifactId>
+			<version>${wsag4j.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-server</artifactId>
+			<version>${wsag4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-client</artifactId>
+			<version>${wsag4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-client-resources</artifactId>
+			<scope>test</scope>
+			<version>${wsag4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+		    <artifactId>ServiceManifest</artifactId>
+		    <version>1.0.0-Y1</version> 
+			<!-- <version>1.0-SNAPSHOT</version> --> 
+		</dependency>
+        <dependency>
+		  <groupId>eu.optimis.ac</groupId>
+		  <artifactId>xmltypes</artifactId>
+		  <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.cxf</groupId>-->
+<!--            <artifactId>cxf-rt-transports-http</artifactId>-->
+<!--            <version>2.3.0</version>-->
+<!--        </dependency>-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+		</dependency>
+		<dependency>
+			<groupId>de.fraunhofer.scai.commons</groupId>
+			<artifactId>jsdl-types</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- Monitoring Insfrastructure Client -->
+        <dependency>
+        	<groupId>eu.optimis.mi.restclient</groupId>
+            <artifactId>RESTClient</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+        </dependency>
+		<!-- XML Types -->
+		<dependency>
+      		<groupId>org.apache.xmlbeans</groupId>
+      		<artifactId>xmlbeans</artifactId>
+    	</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+		
+	      <plugin>
+	        <groupId>org.codehaus.mojo</groupId>
+	        <artifactId>xmlbeans-maven-plugin</artifactId>
+	        <executions>
+               <execution>
+                  <id>compile schemas</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>xmlbeans</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <inherited>false</inherited>
+            <configuration>
+               <schemaDirectory>src/main/xsd</schemaDirectory>
+               <download>false</download>
+               <verbose>false</verbose>
+               <debug>false</debug>
+            </configuration>
+	     
+	        <!--
+	          keep backward compatibility of the XML types  
+	         -->
+	        <dependencies>
+	          <dependency>
+	            <groupId>org.apache.xmlbeans</groupId>
+	            <artifactId>xmlbeans</artifactId>
+	            <version>2.2.0</version>
+	          </dependency>
+	        </dependencies>
+	        
+	      </plugin>    
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<systemProperties>
+								<property>
+									<name>wsag4j.gateway.address</name>
+									<value>${wsag4j.gateway.address}</value>
+								</property>
+								<property>
+									<name>org.wsag4j.persistence.datapath</name>
+									<value>${project.build.directory}/data</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>${skipTests}</skip>
+					<systemProperties>
+						<property>
+							<name>wsag4j.gateway.address</name>
+							<value>${wsag4j.gateway.address}</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+
+			<!-- standalone integration test of the web application -->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0</version>
+
+				<executions>
+					<execution>
+						<id>start-container</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+<!--							<goal>start</goal>-->
+						</goals>
+		                <configuration>
+		                    <wait>false</wait>
+		
+		                    <!-- Container configuration -->
+		                    <container>
+		                        <containerId>tomcat6x</containerId>
+		                        <zipUrlInstaller>
+		                            <url>http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.32/bin/apache-tomcat-6.0.32.zip</url>
+		                            <!-- <installDir>${project.build.directory}/cargoinstalls</installDir> -->
+		                        </zipUrlInstaller>
+		                        <output>${project.build.directory}/logs/container.log</output>
+		                        <append>false</append>
+		                        <log>${project.build.directory}/logs/cargo.log</log>
+		
+		                        <systemProperties>
+		                            <wsag4j.gateway.address>${wsag4j.gateway.address}</wsag4j.gateway.address>
+		                        </systemProperties>
+		                    </container>
+		                    
+		
+		                    <!-- Configuration to use with the container or the deployer -->
+		                    <configuration>
+		                        <type>standalone</type>
+		                        <home>${project.build.directory}/apache-tomcat</home>
+		
+		                        <properties>
+		                            <cargo.servlet.port>${servlet-container-port}</cargo.servlet.port>
+		                            <cargo.logging>high</cargo.logging>
+		                            <!-- not required since we directly access tomcat -->
+		                            <!-- <cargo.runtime.args>-Dsun.security.ssl.allowUnsafeRenegotiation=true</cargo.runtime.args> -->
+		                            <!-- <cargo.jvmargs>-Dsun.security.ssl.allowUnsafeRenegotiation=true</cargo.jvmargs> -->
+		                        </properties>
+		
+		                        <deployables>
+		                            <deployable>
+		                                <groupId>eu.optimis</groupId>
+		                                <artifactId>sla-management</artifactId>
+		                                <type>war</type>
+		                                <properties>
+		                                    <context>/optimis-sla</context>
+		                                </properties>
+		                            </deployable>
+		                        </deployables>
+		                    </configuration>
+                        </configuration>
+					</execution>
+					<execution>
+						<id>stop-container</id>
+						<phase>post-integration-test</phase>
+						<goals>
+<!--							<goal>stop</goal>-->
+						</goals>
+		                <configuration>
+		                    <wait>false</wait>
+		
+		                    <!-- Container configuration -->
+		                    <container>
+		                        <containerId>tomcat6x</containerId>
+		                        <output>${project.build.directory}/logs/container.log</output>
+		                        <append>false</append>
+		                        <log>${project.build.directory}/logs/cargo.log</log>
+		                    </container>
+		                    
+		
+		                    <!-- Configuration to use with the container or the deployer -->
+		                    <configuration>
+		                        <type>existing</type>
+		                        <home>${project.build.directory}/apache-tomcat</home>
+		
+		                        <properties>
+		                            <cargo.servlet.port>${servlet-container-port}</cargo.servlet.port>
+		                            <cargo.logging>high</cargo.logging>
+		                            <!-- not required since we directly access tomcat -->
+		                            <!-- <cargo.runtime.args>-Dsun.security.ssl.allowUnsafeRenegotiation=true</cargo.runtime.args> -->
+		                            <!-- <cargo.jvmargs>-Dsun.security.ssl.allowUnsafeRenegotiation=true</cargo.jvmargs> -->
+		                        </properties>
+		
+		                    </configuration>
+		
+		                </configuration>
+					</execution>
+					<execution>
+					   <id>deploy-to-integration-environment</id>
+					   <phase>install</phase>
+					   <inherited>false</inherited>
+					   <goals>
+<!--                            <goal>undeploy</goal>-->
+<!--                            <goal>deploy</goal>-->
+<!--                            <goal>redeploy</goal>-->
+					   </goals>
+					   <configuration>
+		                    <!-- Container configuration -->
+		                    <container>
+		                        <containerId>tomcat6x</containerId>
+		                        <type>remote</type>
+		                    </container>
+		                    <configuration>
+		                        <type>runtime</type>
+		                        <properties>
+                                    <cargo.remote.username>tomcat</cargo.remote.username>
+                                    <cargo.remote.password>tomcat</cargo.remote.password>
+                                    <cargo.tomcat.manager.url>http://127.0.0.1:8080/manager</cargo.tomcat.manager.url>
+<!--		                            <cargo.remote.username>admin</cargo.remote.username>-->
+<!--		                            <cargo.remote.password>optimis</cargo.remote.password>-->
+<!--		                            <cargo.tomcat.manager.url>http://192.168.252.56:8080/manager</cargo.tomcat.manager.url>-->
+		<!--                            <cargo.remote.username>${cargo.remote.username}</cargo.remote.username>-->
+		<!--                            <cargo.remote.password>${cargo.remote.password}</cargo.remote.password>-->
+		<!--                            <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}</cargo.tomcat.manager.url>-->
+		                        </properties>
+		                    </configuration>
+		                    <deployer>
+		                        <deployables>
+		                            <deployable>
+		                                <groupId>eu.optimis</groupId>
+		                                <artifactId>sla-management</artifactId>
+		                                <type>war</type>
+		                                <properties>
+		                                    <context>/optimis-sla</context>
+		                                </properties>
+		                            </deployable>
+		                        </deployables>
+		                    </deployer>
+					   </configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.cargo</groupId>-->
+<!--				<artifactId>cargo-maven2-plugin</artifactId>-->
+<!--				<version>1.0</version>-->
+<!---->
+<!--				<configuration>-->
+<!--					 Container configuration -->
+<!--					<container>-->
+<!--						<containerId>tomcat6x</containerId>-->
+<!--						<type>remote</type>-->
+<!--					</container>-->
+<!--					<configuration>-->
+<!--						<type>runtime</type>-->
+<!--						<properties>-->
+<!--                            <cargo.remote.username>tomcat</cargo.remote.username>-->
+<!--                            <cargo.remote.password>tomcat</cargo.remote.password>-->
+<!--                            <cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>-->
+<!--							<cargo.remote.username>${cargo.remote.username}</cargo.remote.username>-->
+<!--							<cargo.remote.password>${cargo.remote.password}</cargo.remote.password>-->
+<!--							<cargo.tomcat.manager.url>${cargo.tomcat.remote.url}</cargo.tomcat.manager.url>-->
+<!--						</properties>-->
+<!--					</configuration>-->
+<!--					<deployer>-->
+<!--						<deployables>-->
+<!--							<deployable>-->
+<!--								<groupId>eu.optimis</groupId>-->
+<!--								<artifactId>sla-management</artifactId>-->
+<!--								<type>war</type>-->
+<!--								<properties>-->
+<!--									<context>/optimis-sla</context>-->
+<!--								</properties>-->
+<!--							</deployable>-->
+<!--						</deployables>-->
+<!--					</deployer>-->
+<!--				</configuration>-->
+<!---->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>deploy-to-intergration-environment</id>-->
+<!--						<phase>install</phase>-->
+<!--						<goals>-->
+<!--							<goal>undeploy</goal>-->
+<!--							<goal>deploy</goal>-->
+<!--							<goal>redeploy</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--								-->
+<!--			</plugin>-->
+			
+			<!-- Read properties file plugin -->
+<!--			<plugin>-->
+<!--			    <groupId>org.codehaus.mojo</groupId>-->
+<!--			    <artifactId>properties-maven-plugin</artifactId>-->
+<!--			    <version>1.0-alpha-2</version>-->
+<!--			    <executions>-->
+<!--			        <execution>-->
+<!--			            <phase>initialize</phase>-->
+<!--			            <goals>-->
+<!--			                <goal>read-project-properties</goal>-->
+<!--			            </goals>-->
+<!--			            <configuration>-->
+<!--			                <files>-->
+<!--			                    <file>../conf/environment.properties</file>-->
+<!--			                </files>-->
+<!--			            </configuration>-->
+<!--			        </execution>-->
+<!--			    </executions>-->
+<!--			</plugin>-->
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>2.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans-xpath</artifactId>
+                <version>2.4.0</version>
+                <exclusions>
+                    <exclusion>
+			            <groupId>net.sf.saxon</groupId>
+			            <artifactId>saxon</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.santuario</groupId>
+                <artifactId>xmlsec</artifactId>
+                <version>1.4.4</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

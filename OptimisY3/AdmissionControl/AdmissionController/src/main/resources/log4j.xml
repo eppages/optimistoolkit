@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+    
+     <!-- log all logs to a separate log file every day -->
+    <appender name="orgDevelopersLogFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="file" value="/opt/optimis/var/log/AdmissionControl/AdmController.log" />
+      <param name="datePattern" value="'.'yyyy-MM-dd" />
+      <param name="append" value="true" />
+      <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="%d [%t] %-5p %C{6} (%F:%L) - %m%n"/>
+      </layout>
+    </appender>   
+         
+    <!-- LOGGER LIST -->
+    <!-- log all classes in eu.optimis.admissioncontroller package -->
+    <logger name="eu.optimis.ac.admissioncontroller">
+    <!-- level info logs -->
+    <level value="DEBUG" />
+    <appender-ref ref="orgDevelopersLogFileAppender"/>
+    </logger>         
+         
+    <!-- ** -->    
+ 
+    <root>
+      <priority value="DEBUG"></priority>
+      <!-- log all log entries on log file -->
+      <appender-ref ref="consoleAppender"/>    
+    </root>  
+ 
+</log4j:configuration>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='servicemanagerweb'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.extjs.gxt.charts.Chart" />
+	<inherits name="com.google.gwt.xml.XML" />
+	<inherits name="com.google.gwt.http.HTTP" />
+	<inherits name="com.google.gwt.i18n.I18N" />
+	<inherits name='com.google.gwt.user.theme.clean.Clean' />
+	<inherits name="com.extjs.gxt.ui.GXT" />
+	<inherits name='com.google.gwt.user.theme.standard.Standard'/>
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG"/>
+	<!-- inherits name='com.emitrom.easygwt.wf.EasyGWT'/>
+	 <inherits name='com.google.api.gwt.oauth2.OAuth2'/-->
+	 <!--  source path='main'/-->
+<!--set-property name="user.agent" value="gecko1_8"/--> 
+<set-property name="user.agent" value="ie8,ie9,gecko1_8,safari,opera"/>
+ 
+	<!-- Inherit the default GWT style sheet. You can change -->
+	<!-- any one of the following lines. -->
+	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class='eu.optimis.sm.gui.client.ServiceManagerWeb' />
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+  	<!-- source path="test"/ -->
+  	
+<!-- script src='http://code.jquery.com/jquery-1.5.2.js'></script>
+<script type='text/javascript'> 
+$("button").click(function(){
+    jswin = window.open("", "jswin", "width=350,height=150");
+    jswin.document.write("Here's your popup!");});
+</script-->
+  	
+	<source path='shared' />
+</module>
+

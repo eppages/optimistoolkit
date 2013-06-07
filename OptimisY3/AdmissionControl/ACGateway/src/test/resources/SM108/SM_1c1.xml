@@ -1,0 +1,172 @@
+<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB" xmlns:opt="http://schemas.optimis.eu/optimis/" xmlns:opt-sp="http://schemas.optimis.eu/optimis/service" xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure">
+  <opt:VirtualMachineDescription opt:serviceId="DemoApp" opt:isFederationAllowed="false">
+    <opt:VirtualMachineComponent opt:componentId="jbossA1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="" ovf:id="jbossA1-img-file"/>
+          <ovf:File ovf:href="" ovf:id="jbossA1-context-file"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="jbossA1-img-disk" ovf:fileRef="jbossA1-img-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="jbossA1-context-disk" ovf:fileRef="jbossA1-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="jbossA1-net">
+            <ovf:Description>Network to connect to system-jbossA1</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-jbossA1">
+          <ovf:Info>jbossA1 VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product/>
+            <ovf:Version/>
+          </ovf:ProductSection>
+          <!--this is the default operating system-->
+          <ovf:OperatingSystemSection ovf:id="36">
+            <ovf:Info>Specifies the operating system installed</ovf:Info>
+            <ovf:Description>LINUX</ovf:Description>
+          </ovf:OperatingSystemSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 528Mb, 10CPU,
+                    2 disks, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>10 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>10</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>528 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>528</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+              <rasd:ElementName>MHz reservation</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:Reservation>500</rasd:Reservation>
+              <rasd:ResourceType>3</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>jbossA1-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jbossA1-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jbossA1-img-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jbossA1-context-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>4</opt:LowerBound>
+        <opt:UpperBound>8</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+      <opt:ServiceEndpoints/>
+    </opt:VirtualMachineComponent>
+    <opt:AffinitySection>
+      <opt:AffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>jbossA1</opt:ComponentId>
+        </opt:Scope>
+        <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      </opt:AffinityRule>
+    </opt:AffinitySection>
+    <opt:AntiAffinitySection>
+      <opt:AntiAffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>jbossA1</opt:ComponentId>
+        </opt:Scope>
+        <opt:AntiAffinityConstraints>High</opt:AntiAffinityConstraints>
+      </opt:AntiAffinityRule>
+    </opt:AntiAffinitySection>
+  </opt:VirtualMachineDescription>
+  <opt:TRECSection>
+    <opt:TrustSection>
+      <opt:Scope>
+        <opt:ComponentId>jbossA1</opt:ComponentId>
+      </opt:Scope>
+      <opt:MinimumTrustLevel>5</opt:MinimumTrustLevel>
+    </opt:TrustSection>
+    <opt:RiskSection>
+      <opt:Scope>
+        <opt:ComponentId>jbossA1</opt:ComponentId>
+      </opt:Scope>
+      <opt:RiskLevel>1</opt:RiskLevel>
+      <opt:AvailabilityArray>
+        <opt:Availability opt:assessmentInterval="P1D">80.0</opt:Availability>
+      </opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:EcoEfficiencySection>
+      <opt:Scope>
+        <opt:ComponentId>jbossA1</opt:ComponentId>
+      </opt:Scope>
+      <opt:LEEDCertification>Certified</opt:LEEDCertification>
+      <opt:BREEAMCertification>Excellent</opt:BREEAMCertification>
+      <opt:EuCoCCompliant>true</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>5</opt:EnergyStarRating>
+      <opt:ISO14000>No</opt:ISO14000>
+      <opt:GreenStar>No</opt:GreenStar>
+      <opt:CASBEE>No</opt:CASBEE>
+    </opt:EcoEfficiencySection>
+    <opt:CostSection>
+      <opt:Scope>
+        <opt:ComponentId>jbossA1</opt:ComponentId>
+      </opt:Scope>
+      <opt:PricePlan opt:currency="USD" opt:planCap="120.0" opt:planFloor="5.0"></opt:PricePlan>
+    </opt:CostSection>
+  </opt:TRECSection>
+  <opt:ElasticitySection></opt:ElasticitySection>
+  <opt:DataProtectionSection>
+    <opt:DataProtectionLevel>None</opt:DataProtectionLevel>
+    <opt:DataEncryptionLevel>
+      <opt:EncryptionAlgoritm>Twofish</opt:EncryptionAlgoritm>
+    </opt:DataEncryptionLevel>
+    <opt:DataStorage>
+      <opt:Scope>
+        <opt:ComponentId>jbossA1</opt:ComponentId>
+      </opt:Scope>
+      <opt:Name>storage</opt:Name>
+      <opt:AllocationUnit>byte</opt:AllocationUnit>
+      <opt:Capacity>0</opt:Capacity>
+    </opt:DataStorage>
+  </opt:DataProtectionSection>
+  <opt-sp:ServiceProviderExtensions>
+    <opt-sp:VirtualMachineComponentConfiguration opt-sp:componentId="jbossA1">
+      <opt-sp:SoftwareDependencies/>
+      <opt-sp:SecurityVPN>true</opt-sp:SecurityVPN>
+      <opt-sp:IPS>false</opt-sp:IPS>
+      <opt-sp:SecuritySSH>true</opt-sp:SecuritySSH>
+    </opt-sp:VirtualMachineComponentConfiguration>
+  </opt-sp:ServiceProviderExtensions>
+</opt:ServiceManifest>

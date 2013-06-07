@@ -1,0 +1,83 @@
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb"
+          xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          version="2.1">
+
+   <jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0" xmlns:xjc= "http://java.sun.com/xml/ns/jaxb/xjc">
+      <jaxb:globalBindings>
+         <xjc:simple/>
+      </jaxb:globalBindings>
+   </jaxb:bindings>
+
+   <bindings schemaLocation="http://schemas.dmtf.org/ovf/envelope/1/dsp8023_1.1.0.xsd" version="1.0">
+      <!-- Customise the package name -->
+      <schemaBindings>
+         <package name="org.dmtf.schemas.ovf.envelope"/>
+         <nameXmlTransform>
+            <elementName suffix="JaxB"/>
+            <typeName suffix="JaxB"/>
+         </nameXmlTransform>
+      </schemaBindings>
+      <!-- rename the value element -->
+      <bindings node="//xs:complexType[@name='PropertyConfigurationValue_Type']">
+         <bindings node=".//xs:attribute[@name='value']">
+            <property name="StringValue"/>
+         </bindings>
+      </bindings>
+      <bindings node="//xs:element[@name='Property']">
+         <bindings node=".//xs:attribute[@name='value']">
+            <property name="StringValue"/>
+         </bindings>
+      </bindings>
+   </bindings>
+
+   <bindings schemaLocation="../../../target/schema-resources/optimis.xsd">
+      <schemaBindings>
+         <package name="eu.optimis.schemas.optimis"/>
+         <nameXmlTransform>
+            <elementName prefix="JaxB"/>
+            <typeName prefix="JaxB"/>
+         </nameXmlTransform>
+      </schemaBindings>
+   </bindings>
+
+   <!--<bindings schemaLocation="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2.22.0/CIM_VirtualSystemSettingData.xsd" version="1.0">-->
+   <!--<schemaBindings>-->
+   <!--<package name="org.dmtf.schemas.cim.virtualsystem"/>-->
+   <!--</schemaBindings>-->
+   <!--<bindings node="//xs:element[@name='Caption']">-->
+   <!--<class name="VirtualSystemCaption"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='InstanceID']">-->
+   <!--<class name="VirtualSystemInstanceID"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='ElementName']">-->
+   <!--<class name="VirtualSystemElementName"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='Description']">-->
+   <!--<class name="VirtualSystemDescription"/>-->
+   <!--</bindings>-->
+   <!--</bindings>-->
+
+
+   <!--<bindings schemaLocation="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2.22.0/CIM_ResourceAllocationSettingData.xsd" version="1.0">-->
+
+   <!--<schemaBindings>-->
+   <!--<package name="org.dmtf.schemas.cim.resourceallocation"/>-->
+   <!--</schemaBindings>-->
+   <!--<bindings node="//xs:element[@name='Caption']">-->
+   <!--<class name="ResourceAllocationCaption"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='InstanceID']">-->
+   <!--<class name="ResourceAllocationInstanceID"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='ElementName']">-->
+   <!--<class name="ResourceAllocationElementName"/>-->
+   <!--</bindings>-->
+   <!--<bindings node="//xs:element[@name='Description']">-->
+   <!--<class name="ResourceAllocationDescription"/>-->
+   <!--</bindings>-->
+   <!--</bindings>-->
+
+
+</bindings>

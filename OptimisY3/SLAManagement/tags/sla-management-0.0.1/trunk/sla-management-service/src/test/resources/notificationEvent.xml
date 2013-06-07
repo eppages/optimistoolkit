@@ -1,0 +1,22 @@
+<eng:SLAMonitoringNotificationEvent eng:agreementId="123" xmlns:eng="http://schemas.scai.fraunhofer.de/2008/11/wsag4j/engine">
+  <eng:GuaranteeEvaluationResult>
+    <eng:Name>SAMPLE_GUARANTEE</eng:Name>
+    <eng:Type>SLO_FULFILLED</eng:Type>
+    <eng:Importance>0</eng:Importance>
+    <eng:Details>
+      <eng:Guarantee ws:Name="SAMPLE_GUARANTEE" xmlns:wsrf-rp="http://docs.oasis-open.org/wsrf/rp-2" xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+        <ws:ServiceScope ws:ServiceName="OptimisService"/>
+        <ws:ServiceLevelObjective>
+          <ws:KPITarget>
+            <ws:KPIName>Service Flag</ws:KPIName>
+            <ws:CustomServiceLevel>true</ws:CustomServiceLevel>
+          </ws:KPITarget>
+        </ws:ServiceLevelObjective>
+        <ws:BusinessValueList/>
+      </eng:Guarantee>
+      <eng:GuaranteeState ws:termName="SAMPLE_GUARANTEE" xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement">
+        <ws:State>Fulfilled</ws:State>
+      </eng:GuaranteeState>
+    </eng:Details>
+  </eng:GuaranteeEvaluationResult>
+</eng:SLAMonitoringNotificationEvent>

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+openssl genrsa -out ca/key.pem 2048
+#openssl rsa -in ca/key.pem -text -noout
+openssl rsa -in ca/key.pem -pubout -out ca/pub-key.pem
+
+echo "CA certificates created in ca folder"

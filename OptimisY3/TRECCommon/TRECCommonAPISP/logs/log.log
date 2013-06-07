@@ -1,0 +1,4 @@
+[2012-05-29 16:25:27,147] WARN     0[main] - org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:100) - SQL Error: 1146, SQLState: 42S02
+[2012-05-29 16:25:27,186]ERROR    39[main] - org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:101) - Table 'sptrecdb.ManifestRaw' doesn't exist
+[2012-05-29 16:26:49,286] WARN     0[main] - org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:100) - SQL Error: 1054, SQLState: 42S22
+[2012-05-29 16:26:49,303]ERROR    17[main] - org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:101) - Unknown column 'manifestra0_.uservice_manifest' in 'field list'

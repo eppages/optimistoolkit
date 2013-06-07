@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- <parent> <artifactId>MonitoringInfrastructure </artifactId> <groupId>eu.optimis.mi</groupId> 
+		<version>1.0-SNAPSHOT</version> <relativePath>../pom.xml</relativePath> </parent> -->
+
+    <parent>
+        <groupId>eu.optimis.trec.common</groupId>
+        <artifactId>TRECCommon</artifactId>
+        <version>3.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+	<!-- POM file generated with GWT webAppCreator -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>eu.optimis.trec.gui</groupId>
+    <artifactId>TRECManagerWeb</artifactId>
+    <packaging>war</packaging>
+	<!-- <version>3.0-SNAPSHOT</version> -->
+    <name>Optimis TREC Monitoring Web</name>
+
+    <properties>
+		<!-- Convenience property to set the GWT version -->
+        <gwtVersion>2.4.0</gwtVersion>
+		<!-- GWT needs at least java 1.5 -->
+
+        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+         <gwt.compile.user.agent>ie6,ie8,gecko,gecko1_8,safari,opera</gwt.compile.user.agent>
+    </properties>
+
+
+    <repositories>
+        <repository>
+            <id>maven2-repository.java.net</id>
+            <name>Java.net Repository 
+                for Maven
+            </name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>optimis-repo</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <name>repo</name>
+			<!-- <url>http://optimis-artifactory.atosorigin.es/artifactory/r epo</url> -->
+            <url>http://95.211.106.248/artifactory/repo</url>
+        </repository>
+        <repository>
+            <id>codehaus-maven-repo</id>
+            <name>Codehaus repo</name>
+            <url>http://repository.codehaus.org/org/codehaus/mojo/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.extjs</groupId>
+            <artifactId>gxt</artifactId>
+            <version>2.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.mi</groupId>
+            <artifactId>MonitoringInfrastructure</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>pom</type>
+        </dependency>
+
+		<!-- REST client for Monitoring -->
+        <dependency>
+            <groupId>eu.optimis.mi.restclient</groupId>
+            <artifactId>RESTClient</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+		<!-- REST client for CO -->
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>CloudOptimizerRESTClient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+			<!--exclusions> <exclusion> <groupId>eu.optimis.trec.common.sp</groupId> 
+				<artifactId>TRECCommonAPISP</artifactId> </exclusion> </exclusions -->
+        </dependency>
+		<!-- REST client for ECO -->
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>EcoEfficiencyToolRESTClient</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
+
+		<!-- REST client for FTE -->
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>FaultToleranceEngineRESTClient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+		<!-- Hibernate framework -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>hibernate3-maven-plugin</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+		<!-- TrustFrameworkClient Dependency -->
+        <dependency>
+            <groupId>eu.optimis.tf</groupId>
+            <artifactId>TrustFrameworkClients</artifactId>
+            <version>2.0-SNAPSHOT</version>
+        </dependency>
+
+		<!-- Hibernate library dependecy start -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.2</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+		<!-- Hibernate library dependecy end -->
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+			<!-- <scope>test</scope> -->
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+		<!-- <dependency> <groupId>edu.umontreal</groupId> <artifactId>ssj-api</artifactId> 
+			<version>1.0.0</version> </dependency> -->
+        <dependency>
+            <groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-servlet</artifactId>
+            <version>${gwtVersion}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwtVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+			<!-- <scope>test</scope> -->
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+            <classifier>sources</classifier>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.mi.monitoringresource</groupId>
+            <artifactId>MonitoringResource</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.2.GA</version>
+        </dependency>
+
+
+
+		<!-- TRUST DBS -->
+		<!-- iptrust db -->
+		<!-- 
+		<dependency>
+			<groupId>eu.optimis.tf.db.ip</groupId>
+			<artifactId>iptrustdb</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		-->
+		<!-- sptrust db -->
+		<!-- 
+		<dependency>
+			<groupId>eu.optimis.tf.db.sp</groupId>
+			<artifactId>sptrustdb</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		-->
+		<!-- Common DB -->
+        <dependency>
+            <groupId>eu.optimis.trec.common.db</groupId>
+            <artifactId>TRECCommonDBIP</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.optimis.trec.common.db</groupId>
+            <artifactId>TRECCommonDBSP</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>EcoEfficiencyToolDBIP</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.optimis</groupId>
+            <artifactId>EcoEfficiencyToolDBSP</artifactId>
+            <version>3.0-SNAPSHOT</version>
+        </dependency>
+        
+      <!--  <dependency>
+            <groupId>eu.optimis.ipraf</groupId>
+            <artifactId>InfrastructureProviderRiskAssessmentFramework
+            </artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/InfrastructureProviderRiskAssessmentFramework-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+    -->
+        <dependency>
+        	<groupId>com.allen-sauer.gwt.log</groupId>
+        	<artifactId>gwt-log</artifactId>
+        	<version>3.1.6</version>
+        	<type>jar</type>
+        	<scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+		<!-- Generate compiled stuff in the folder used for developing mode -->
+
+        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+        <plugins>
+			<!-- GWT Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+				<!-- <configuration> <runTarget>MonitoringManagerWeb.html</runTarget> 
+					<hostedWebapp>${webappDirectory}</hostedWebapp> </configuration> -->
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+			<!-- Copy static web files before executing gwt:run -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+				<!-- <configuration> <warName>MonitoringManagerWeb</warName> </configuration> -->
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat6x</containerId>
+                        <type>remote</type>
+                    </container>
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.remote.username>${cargo.remote.username}</cargo.remote.username>
+                            <cargo.remote.password>${cargo.remote.password}</cargo.remote.password>
+                            <cargo.tomcat.manager.url>${cargo.tomcat.remote.url}</cargo.tomcat.manager.url>
+							<!--<cargo.remote.username>admin</cargo.remote.username> <cargo.remote.password>password</cargo.remote.password> 
+								<cargo.tomcat.manager.url>http://127.0.0.1:8080/manager</cargo.tomcat.manager.url>-->
+                        </properties>
+                    </configuration>
+                      <deployables>
+                          <deployable>
+                              <artifactId>TRECManagerWeb</artifactId>
+                              <groupId>eu.optimis.trec.gui</groupId>
+                              <type>war</type>
+                          </deployable>
+                      </deployables>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy-remote</id>
+                        <goals>
+                            <goal>undeploy</goal>
+                            <goal>deploy</goal>
+                            <goal>redeploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <finalName>TrecgManagerWeb</finalName>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/java
+                </directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/test/java</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>LOCALJOSEP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/LOCAL.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>LOCALDJANGO</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/DJANGO.LOCAL.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>TSTIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment1.TST.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>TSTSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.TST.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>INTIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment1.INT.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>INTSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.INT.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>UMUIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment.umu.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>UMUSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.umu.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>FLEXIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment.flexiant.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>FLEXSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.flexiant.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>FLEXE</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment.flexiant.enhanced.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>ARSYSSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.arsys.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>ARSYSIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment.arsys.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>LEEDSSP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/SPenvironment.leeds.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>LEEDSIP</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment.leeds.properties
+                                        </file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>LOCAL</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0-alpha-2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>../../optimis-parent/conf/IPenvironment1.LOCAL.properties</file>
+										<!-- <file>src/main/resources/LocalDeploy.properties</file> -->
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+
+
+</project>

@@ -1,0 +1,7 @@
+OPTIMIS Image Creation Service (ICS) installation instructions
+
+* Target host needs sudo, rsync
+* Removed 'requiretty' from sudoers file
+* Install image files
+* Adapt properties file
+

@@ -1,0 +1,37 @@
+README
+
+Instructions on how to install and use the OpenStack's monitoring plugin for
+running VMs:
+- change the permission of the script to be executable:
+chmod 755 vm_collector.sh
+
+- copy the vm_collector.sh file into the physical nodes.
+The preferred location is /opt/optimis/MonitoringInfrastructure
+
+- make sure the virt-top package is installed in the physical nodes.
+NOTE: the "Domain ID" column should be in position 19. However, it may also
+be in the 18th position. Please check the virt-top output!
+
+- modify the virtual_collector.sh script in the IPVM (location: /opt/optimis/MonitoringInfrastructure/scripts)
+or in the below SVN location:
+optimis/branches/OptimisY3/MonitoringInfrastructure/MI_Scripts/IPVM/MonitoringInfrastructure/scripts
+for the following parameters:
+
+# list of nodes
+LIST="bscgrid21 bscgrid22"
+# location of storing the vm_collector.sh script in the node
+DIR=/opt/optimis/MonitoringInfrastructure
+# public key to access the node
+KEY=root_OPTIMIS
+
+- update virtual_collector.properties in the IPVM (location: /opt/optimis/MonitoringInfrastructure/scripts)
+or in the below SVN location:
+optimis/branches/OptimisY3/MonitoringInfrastructure/MI_Scripts/IPVM/MonitoringInfrastructure/scripts
+
+and set the below parameter to OpenStack:
+CLOUDMIDDLEWARE=OpenStack
+
+- Make sure Aggregator has been deployed in Tomcat. Then, test the plugin by typing:
+./virtual_collector.sh
+The output would be an XML string.
+

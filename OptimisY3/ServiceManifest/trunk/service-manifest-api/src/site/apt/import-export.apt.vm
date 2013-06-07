@@ -1,0 +1,39 @@
+#include("./header.apt.vm")
+
+* Export
+
+    It is not possible to import or export invalid manifest documents, you have to be careful
+    to create valid documents!
+
+    To transport the manifest via web services it is necessary to export the manifest to either
+    JaxB, XmlBeans, or simply a string. This can be done as follows:
+
++-------+
+        //export manifest to String
+        String manifestAsString = manifest.toString();
+
+        //export manifest to JaxB
+        JaxBServiceManifest manifestAsJaxB = manifest.toJaxB();
+
+        //export manifest to XmlBeans
+        XmlBeanServiceManifestDocument manifestAsXmlBean = manifest.toXmlBeanObject();
++-------+
+
+* Import
+
+    After the transport of the service manifest to another component, it must be imported again.
+    This can happen either at IP components or SP components.
+
+    For SP components:
+
++-------+
+        eu.optimis.manifest.api.sp.Manifest importedManifest =
+            eu.optimis.manifest.api.sp.Manifest.Factory.newInstance(manifestAsXmlBean)
++-------+
+
+    For IP components it is quite similar:
+
++-------+
+        eu.optimis.manifest.api.ip.Manifest importedManifest =
+            eu.optimis.manifest.api.ip.Manifest.Factory.newInstance(manifestAsXmlBean)
++-------+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">2mUF51@4@NYptsl9</property>
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://optimis-database:3306/iptrecdb</property>
+        <property name="hibernate.connection.username">mmanager_usr</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.default_entity_mode">pojo</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.transaction.auto_close_session">true</property>
+        <mapping resource="eu/optimis/trec/common/db/ip/model/ServiceRisk.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/ServiceInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/HostRisk.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Quotes.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpPersistedQuotePricecomponent.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SpTrust.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SnTrustProvider.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Proactiverule.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/RiskResourceVirtual.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Slas.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Ipcost.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Spcost.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpRisk.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Dsahpproviders.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpToSp.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpAssessedCost.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpEcoNodeTable.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/ServiceComponent.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/ManifestRaw.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/RiskResourceService.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpSetCost.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpPersistedQuotePricecomponentPricelevel.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpPersistedQuote.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpSetPrice.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/VmRisk.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SnProvider.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpTrust.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/ServiceSla.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Providers.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/RiskResourcePhysical.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Ipriskhistory.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/RThreats.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SpInfo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SnTrustRelationship.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/CostIpThresholdCo.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/SpToIp.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpEcoIpTable.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Rejections.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpEcoService.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/IpEcoVmTable.hbm.xml" />
+        <mapping resource="eu/optimis/trec/common/db/ip/model/Proactra.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

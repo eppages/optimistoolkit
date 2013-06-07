@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>eu.optimis</groupId>
+      <artifactId>optimis-parent</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <!--<relativePath>../../optimis-parent/pom.xml</relativePath>-->
+   </parent>
+
+   <groupId>eu.optimis.servicemanifest</groupId>
+   <artifactId>ServiceManifest</artifactId>
+   <packaging>pom</packaging>
+   <version>1.0.0</version>
+   <name>ServiceManifest</name>
+   <url>http://maven.apache.org</url>
+
+   <modules>
+      <module>service-manifest-schema</module>
+      <module>service-manifest-xmlbeans</module>
+      <module>service-manifest-jaxb</module>
+      <module>service-manifest-api</module>
+   </modules>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+   <repositories>
+      <repository>
+         <id>packcs</id>
+         <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2/</url>
+      </repository>
+   </repositories>
+
+   <scm>
+      <connection>scm:svn:http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.0</connection>
+      <developerConnection>scm:svn:http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.0</developerConnection>
+      <url>http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.0</url>
+   </scm>
+
+
+</project>

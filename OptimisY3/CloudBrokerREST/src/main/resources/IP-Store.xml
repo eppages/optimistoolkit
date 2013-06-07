@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ipInfoList>
+    <ipinfo>
+        <agrTemplateId>1</agrTemplateId>
+        <agrTemplateName>OPTIMIS-SERVICE-INSTANTIATION</agrTemplateName>
+        <cloudQosUrl>http://optimis-ipvm:8080/optimis-sla</cloudQosUrl>
+        <identifier>generic</identifier>
+        <ipAddress>optimis-ipvm</ipAddress>
+        <name>IP1</name>
+        <properties>
+            <entry>
+                <key>BT</key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>City</key>
+                <value>2</value>
+            </entry>
+        </properties>
+        <providerType>optimis</providerType>
+    </ipinfo>
+    <IPList>
+        <agrTemplateId>1</agrTemplateId>
+        <agrTemplateName>OPTIMIS-SERVICE-INSTANTIATION</agrTemplateName>
+        <cloudQosUrl>http://optimis-ipvm:8080/optimis-sla</cloudQosUrl>
+        <identifier>generic</identifier>
+        <ipAddress>optimis-ipvm</ipAddress>
+        <name>IP1</name>
+        <properties>
+            <entry>
+                <key>BT</key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>City</key>
+                <value>2</value>
+            </entry>
+        </properties>
+        <providerType>optimis</providerType>
+    </IPList>
+</ipInfoList>

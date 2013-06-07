@@ -1,0 +1,326 @@
+<ws:Template ws:TemplateId="1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:ws="http://schemas.ggf.org/graap/2007/03/ws-agreement"
+  xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData"
+  xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+  xmlns:opt="http://schemas.optimis.eu/optimis/"
+  xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+  xsi:schemaLocation="http://schemas.ggf.org/graap/2007/03/ws-agreement http://schemas.ggf.org/graap/2007/03/ws-agreement">
+                      
+  <ws:Name>OPTIMIS-MULTIPLE-VM-IMAGES</ws:Name>
+  <ws:Context>
+    <ws:ServiceProvider>AgreementResponder</ws:ServiceProvider>
+    <ws:TemplateId>1</ws:TemplateId>
+    <ws:TemplateName>OPTIMIS-MULTIPLE-VM-IMAGES</ws:TemplateName>
+  </ws:Context>
+  <ws:Terms>
+    <ws:All>
+    
+      <ws:ServiceDescriptionTerm ws:Name="VirtualSystemDescription" ws:ServiceName="MultipleImages">
+                    
+          <opt:VirtualMachineDescription opt:serviceId="VM_Collection_2" >
+            <ovf:Envelope>
+                <ovf:References>
+                    <!-- 
+                      removed opt:digest="391846509855d0c4c45a07269568cfc0d1448c9a" attribute
+                      it was mentioned that reservoir syntax is not supported in OVF 
+                    -->
+                    <ovf:File ovf:href="http://84.21.173.55:81/ttylinux.img"
+                        ovf:id="master" />
+                </ovf:References>
+                <ovf:DiskSection>
+                    <ovf:Info />
+                    <ovf:Disk ovf:capacity="1536MB" ovf:diskId="master"
+                        ovf:fileRef="master" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+                </ovf:DiskSection>
+                <ovf:NetworkSection>
+                    <ovf:Info />
+                    <ovf:Network ovf:name="sge_net">
+                        <ovf:Description>Network to connect service components (VEEMaster and VEEExecutors)</ovf:Description>
+                    </ovf:Network>
+                    <!-- 
+                      removed opt:public="true" attribute
+                      it was mentioned that reservoir syntax is not supported in OVF 
+                    -->
+                    <ovf:Network ovf:name="admin_net">
+                        <ovf:Description>Network to provide administrative access to VEEMaster</ovf:Description>
+                    </ovf:Network>
+                </ovf:NetworkSection>
+                <ovf:VirtualSystemCollection ovf:id="service-collection">
+                    <ovf:Info>Collection of virtual systems</ovf:Info>
+                    <ovf:VirtualSystem ovf:id="instance-1">
+                        <ovf:Info>First VEE description</ovf:Info>
+                        <ovf:ProductSection ovf:class="com.sun.master">
+                            <ovf:Info>Product customization for the installed master software</ovf:Info>
+                            <ovf:Product>SGE Master</ovf:Product>
+                            <ovf:Version>6.2</ovf:Version>
+                            <ovf:Property ovf:key="KPIQualifier" ovf:type="string"
+                                ovf:value="es.tid.customers.cc1.services.ss1"/>
+                            <ovf:Property ovf:key="KPIName" ovf:type="string"
+                                ovf:value="es.tid.customers.cc1.services.ss1.kpis.queueLength"/>
+                            <ovf:Property ovf:key="KPITimesUrl" ovf:type="string"
+                                ovf:value="http://10.95.240.4:5555/times" />
+                            <ovf:Property ovf:key="KPIChannel" ovf:type="string"
+                                ovf:value="229.229.0.1" />
+                            <ovf:Property ovf:key="ExternalIP" ovf:type="string"
+                                ovf:value="84.21.173.156" />
+                            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+                                ovf:value="192.168.0.9" />
+                            <ovf:Property ovf:key="ExternalMask" ovf:type="string"
+                                ovf:value="255.255.255.0" />
+                            <ovf:Property ovf:key="InternalMask" ovf:type="string"
+                                ovf:value="255.255.255.248" />
+                            <ovf:Property ovf:key="Hostname" ovf:type="string"
+                                ovf:value="loadBalancer1" />
+                            <ovf:Property ovf:key="InternalSecondaryIP" ovf:type="string"
+                                ovf:value="192.168.0.10" />
+                        </ovf:ProductSection>
+                        <ovf:VirtualHardwareSection>
+                            <ovf:Info>Virtual Hardware Requirements: 512Mb, 2 CPU, 1 disk, 1 nic</ovf:Info>
+                            <ovf:System>
+                                <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                                <vssd:InstanceID>0</vssd:InstanceID>
+                                <vssd:VirtualSystemType>kvm</vssd:VirtualSystemType>
+                            </ovf:System>
+                            <ovf:Item>
+                                <rasd:Description>Number of virtual CPUs</rasd:Description>
+                                <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                                <rasd:InstanceID>1</rasd:InstanceID>
+                                <rasd:ResourceType>3</rasd:ResourceType>
+                                <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                                <rasd:Description>Memory Size</rasd:Description>
+                                <rasd:ElementName>512 MB of memory</rasd:ElementName>
+                                <rasd:InstanceID>2</rasd:InstanceID>
+                                <rasd:ResourceType>4</rasd:ResourceType>
+                                <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                <rasd:Connection>sge_net</rasd:Connection>
+                                <rasd:ElementName>Ethernet adapter on sge_net network</rasd:ElementName>
+                                <rasd:InstanceID>3</rasd:InstanceID>
+                                <rasd:ResourceType>10</rasd:ResourceType>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                <rasd:Connection>admin_net</rasd:Connection>
+                                <rasd:ElementName>Ethernet adapter on admin_net network</rasd:ElementName>
+                                <rasd:InstanceID>3</rasd:InstanceID>
+                                <rasd:ResourceType>10</rasd:ResourceType>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                                <rasd:HostResource>ovf://disk/master</rasd:HostResource>
+                                <rasd:InstanceID>5</rasd:InstanceID>
+                                <rasd:Parent>4</rasd:Parent>
+                                <rasd:ResourceType>17</rasd:ResourceType>
+                            </ovf:Item>
+                        </ovf:VirtualHardwareSection>
+                    </ovf:VirtualSystem>
+                    <ovf:VirtualSystem ovf:id="instance-2">
+                        <ovf:Info>First VEE description</ovf:Info>
+                        <ovf:ProductSection ovf:class="com.sun.master">
+                            <ovf:Info>Product customization for the installed master software</ovf:Info>
+                            <ovf:Product>SGE Master</ovf:Product>
+                            <ovf:Version>6.2</ovf:Version>
+                            <ovf:Property ovf:key="KPIQualifier" ovf:type="string"
+                                ovf:value="es.tid.customers.cc1.services.ss1"/>
+                            <ovf:Property ovf:key="KPIName" ovf:type="string"
+                                ovf:value="es.tid.customers.cc1.services.ss1.kpis.queueLength"/>
+                            <ovf:Property ovf:key="KPITimesUrl" ovf:type="string"
+                                ovf:value="http://10.95.240.4:5555/times" />
+                            <ovf:Property ovf:key="KPIChannel" ovf:type="string"
+                                ovf:value="229.229.0.1" />
+                            <ovf:Property ovf:key="ExternalIP" ovf:type="string"
+                                ovf:value="84.21.173.156" />
+                            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+                                ovf:value="192.168.0.9" />
+                            <ovf:Property ovf:key="ExternalMask" ovf:type="string"
+                                ovf:value="255.255.255.0" />
+                            <ovf:Property ovf:key="InternalMask" ovf:type="string"
+                                ovf:value="255.255.255.248" />
+                            <ovf:Property ovf:key="Hostname" ovf:type="string"
+                                ovf:value="loadBalancer1" />
+                            <ovf:Property ovf:key="InternalSecondaryIP" ovf:type="string"
+                                ovf:value="192.168.0.10" />
+                        </ovf:ProductSection>
+                        <ovf:VirtualHardwareSection>
+                            <ovf:Info>Virtual Hardware Requirements: 512Mb, 2 CPU, 1 disk, 1 nic</ovf:Info>
+                            <ovf:System>
+                                <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                                <vssd:InstanceID>0</vssd:InstanceID>
+                                <vssd:VirtualSystemType>kvm</vssd:VirtualSystemType>
+                            </ovf:System>
+                            <ovf:Item>
+                                <rasd:Description>Number of virtual CPUs</rasd:Description>
+                                <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                                <rasd:InstanceID>1</rasd:InstanceID>
+                                <rasd:ResourceType>3</rasd:ResourceType>
+                                <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                                <rasd:Description>Memory Size</rasd:Description>
+                                <rasd:ElementName>512 MB of memory</rasd:ElementName>
+                                <rasd:InstanceID>2</rasd:InstanceID>
+                                <rasd:ResourceType>4</rasd:ResourceType>
+                                <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                <rasd:Connection>sge_net</rasd:Connection>
+                                <rasd:ElementName>Ethernet adapter on sge_net network</rasd:ElementName>
+                                <rasd:InstanceID>3</rasd:InstanceID>
+                                <rasd:ResourceType>10</rasd:ResourceType>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                <rasd:Connection>admin_net</rasd:Connection>
+                                <rasd:ElementName>Ethernet adapter on admin_net network</rasd:ElementName>
+                                <rasd:InstanceID>3</rasd:InstanceID>
+                                <rasd:ResourceType>10</rasd:ResourceType>
+                            </ovf:Item>
+                            <ovf:Item>
+                                <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                                <rasd:HostResource>ovf://disk/master</rasd:HostResource>
+                                <rasd:InstanceID>5</rasd:InstanceID>
+                                <rasd:Parent>4</rasd:Parent>
+                                <rasd:ResourceType>17</rasd:ResourceType>
+                            </ovf:Item>
+                        </ovf:VirtualHardwareSection>
+                    </ovf:VirtualSystem>
+                </ovf:VirtualSystemCollection>
+            </ovf:Envelope>
+            <opt:AllocationSection>
+                <opt:AllocationConstraint opt:virtualSystemId="instance-1">
+                      <opt:LowerBound>1</opt:LowerBound>
+                      <opt:UpperBound>4</opt:UpperBound>
+                      <opt:Initial>1</opt:Initial>
+                </opt:AllocationConstraint>
+                <opt:AllocationConstraint opt:virtualSystemId="instance-2">
+                      <opt:LowerBound>1</opt:LowerBound>
+                      <opt:UpperBound>16</opt:UpperBound>
+                      <opt:Initial>1</opt:Initial>
+                </opt:AllocationConstraint>
+            </opt:AllocationSection>
+          </opt:VirtualMachineDescription>
+      </ws:ServiceDescriptionTerm>
+      
+      <ws:ServiceDescriptionTerm ws:Name="TREC" ws:ServiceName="MultipleImages">
+          <opt:TRECSection>
+            <opt:TrustSection>
+                <opt:TrustLevel>5</opt:TrustLevel>
+            </opt:TrustSection>
+            <opt:RiskSection>
+                <opt:AvailabilityArray>
+                    <!-- defines a minimum availability of the VM of 99% at a day -->
+                    <opt:Availability opt:AssessmentInterval="P1D">98</opt:Availability>
+                    <!-- defines a minimum availability of the VM of 99% at a month -->
+                    <opt:Availability opt:AssessmentInterval="P1M">99</opt:Availability>
+                </opt:AvailabilityArray>
+            </opt:RiskSection>
+            <opt:EcoEfficiencySection>
+                <opt:LEEDCertification>NotRequired</opt:LEEDCertification>
+                <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+                <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+                <opt:EnergyStarRating>No</opt:EnergyStarRating>
+            </opt:EcoEfficiencySection>
+            <opt:CostSection>
+                <opt:Price opt:currency="EUR">100.00</opt:Price>
+            </opt:CostSection>
+          </opt:TRECSection>
+      </ws:ServiceDescriptionTerm>
+      
+      <ws:ServiceDescriptionTerm ws:Name="DataConstraints" ws:ServiceName="MultipleImages">
+          <opt:DataProtectionSection>
+            <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+            <opt:DataEncryptionLevel>
+                <opt:EncryptionAlgoritm>NotApplicable</opt:EncryptionAlgoritm>
+            </opt:DataEncryptionLevel>
+          </opt:DataProtectionSection>
+      </ws:ServiceDescriptionTerm>
+      
+      <ws:ServiceDescriptionTerm ws:Name="Elasticity" ws:ServiceName="MultipleImages">
+          <opt:ElasticitySection>
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!-- Max CPU utilization in last 5 minutes must not be more than 90% -->
+                    <opt:KPIName>Max_CPU_5</opt:KPIName>
+                    <opt:Window>P5M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>90</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!-- Max CPU utilization in last 10 minutes must not be more than 85% -->
+                    <opt:KPIName>Max_CPU_10</opt:KPIName>
+                    <opt:Window>P10M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>85</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!-- Max CPU utilization in last 15 minutes must not be more than 80% -->
+                    <opt:KPIName>Max_CPU_15</opt:KPIName>
+                    <opt:Window>P15M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>80</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!-- Max memory utilization in last 5 minutes must not be more than 90% -->
+                    <opt:KPIName>Max_MEM_5</opt:KPIName>
+                    <opt:Window>P5M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>90</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!-- Max memory utilization in last 10 minutes must not be more than 85% -->
+                    <opt:KPIName>Max_MEM_10</opt:KPIName>
+                    <opt:Window>P10M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>85</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+              <opt:Rule>
+                    <opt:Scope>
+                      <opt:VirtualSystemId>instance-1</opt:VirtualSystemId>
+                      <opt:VirtualSystemId>instance-2</opt:VirtualSystemId>
+                    </opt:Scope>
+                    <!--  Max memory utilization in last 15 minutes must not be more than 80% -->
+                    <opt:KPIName>Max_MEM_15</opt:KPIName>
+                    <opt:Window>P15M</opt:Window>
+                    <opt:Frequency>60</opt:Frequency>
+                    <opt:Quota>80</opt:Quota>
+                    <opt:Tolerance>5</opt:Tolerance>
+              </opt:Rule>   
+          </opt:ElasticitySection>
+      </ws:ServiceDescriptionTerm>
+      
+    </ws:All>
+  </ws:Terms>
+  <ws:CreationConstraints/>
+</ws:Template>

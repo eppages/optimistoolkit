@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BusinessDescriptor/BusinessDescriptor.iml" filepath="$PROJECT_DIR$/BusinessDescriptor/BusinessDescriptor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudOptimizerPackage.iml" filepath="$PROJECT_DIR$/CloudOptimizerPackage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudOptimizerRESTClient/CloudOptimizerRESTClient.iml" filepath="$PROJECT_DIR$/CloudOptimizerRESTClient/CloudOptimizerRESTClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudOptimizerServer/CloudOptimizerServer.iml" filepath="$PROJECT_DIR$/CloudOptimizerServer/CloudOptimizerServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataFormats/DataFormats.iml" filepath="$PROJECT_DIR$/DataFormats/DataFormats.iml" />
+    </modules>
+  </component>
+</project>
+

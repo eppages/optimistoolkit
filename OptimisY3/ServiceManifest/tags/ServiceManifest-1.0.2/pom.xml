@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <!--<parent> -->
+   <!--<groupId>eu.optimis</groupId> -->
+   <!--<artifactId>optimis-parent</artifactId> -->
+   <!--<version>0.1-SNAPSHOT</version> -->
+   <!--&lt;!&ndash;<relativePath>../../optimis-parent/pom.xml</relativePath>&ndash;&gt; -->
+   <!--</parent> -->
+
+   <groupId>eu.optimis.servicemanifest</groupId>
+   <artifactId>ServiceManifest</artifactId>
+   <packaging>pom</packaging>
+   <version>1.0.2</version>
+   <name>ServiceManifest</name>
+   <url>http://maven.apache.org</url>
+
+   <modules>
+      <module>service-manifest-schema</module>
+      <module>service-manifest-xmlbeans</module>
+      <module>service-manifest-jaxb</module>
+      <module>service-manifest-api</module>
+   </modules>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+            </configuration>
+         </plugin>
+      </plugins>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <version>2.3</version>
+            </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>xmlbeans-maven-plugin</artifactId>
+               <version>2.3.3</version>
+            </plugin>
+            <plugin>
+               <groupId>org.eclipse.m2e</groupId>
+               <artifactId>lifecycle-mapping</artifactId>
+               <version>1.0.0</version>
+               <configuration>
+                  <lifecycleMappingMetadata>
+                     <pluginExecutions>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.apache.maven.plugins</groupId>
+                              <artifactId>maven-dependency-plugin</artifactId>
+                              <versionRange>[2.3,)</versionRange>
+                              <goals>
+                                 <goal>unpack-dependencies</goal>
+                                 <goal>unpack</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                     </pluginExecutions>
+                  </lifecycleMappingMetadata>
+               </configuration>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+
+   <distributionManagement>
+
+      <!-- For releases -->
+
+      <repository>
+         <id>optimis-repo</id>
+         <name>optimis-repo-releases</name>
+         <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url>
+      </repository>
+
+      <!-- For snapshots -->
+
+      <snapshotRepository>
+         <id>optimis-repo</id>
+         <uniqueVersion>false</uniqueVersion>
+         <name>optimis-repo-snapshots</name>
+         <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url>
+      </snapshotRepository>
+
+   </distributionManagement>
+
+   <scm>
+      <connection>scm:svn:http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.2</connection>
+      <developerConnection>scm:svn:http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.2
+      </developerConnection>
+      <url>http://pandora.atosorigin.es/svn/optimis/trunk/ServiceManifest/tags/ServiceManifest-1.0.2</url>
+   </scm>
+
+
+</project>

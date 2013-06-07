@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.ide.tests.iter2.feat6" name="Test_Iter2_Feat_6" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit" source_dir="src">
+  <dependency imported="false" location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+<orchestration_class class="eu.optimis.ide.tests.iter2.feat6.TestClass" type="Web Service Interface Class"/>
+<package name="fron-end" type="Orchestration Elements">
+    <element label="OE_test(java.lang.String)eu.optimis.ide.tests.iter2.feat6.TestClass"/>
+  </package>
+<package name="cores_1" type="Method Core Elements">
+    <element label="test_ce_1(OBJECT_T)TestCE"/>
+  </package>
+
+<package name="cores_2_enc" type="Method Core Elements">
+    <element label="test_ce_2_encrypted()TestCE"/>
+  </package>
+<elasticity element="test_ce_1(OBJECT_T)TestCE" max="1" min="1"/>
+<elasticity element="test_ce_2_encrypted()TestCE" max="1" min="1"/>
+</project_metadata>

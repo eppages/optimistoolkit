@@ -1,0 +1,246 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis.sla-management</groupId>
+		<artifactId>sla-management</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sla-management-arsys</artifactId>
+
+	<packaging>war</packaging>
+
+	<properties>
+		<!-- url of the local integration test instance -->
+		<wsag4j.gateway.address>http://localhost:9090/optimis-sla</wsag4j.gateway.address>
+		<servlet-container-port>9090</servlet-container-port>
+		<skipTests>true</skipTests>
+	</properties>
+
+	<!-- pre-configured dependencies that are required by the SLA Management -->
+	<dependencies>
+		<!-- add additional dependencies here -->
+
+		<!-- end additional dependencies -->
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-agreement-factory</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-webservice</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-client</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-client-resources</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.fraunhofer.scai.commons</groupId>
+			<artifactId>jsdl-types</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.sla-management</groupId>
+			<artifactId>sla-management-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+			<artifactId>service-manifest-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.ac</groupId>
+			<artifactId>xmltypes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.mi.restclient</groupId>
+			<artifactId>RESTClient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+							<systemProperties>
+								<property>
+									<name>wsag4j.gateway.address</name>
+									<value>${wsag4j.gateway.address}</value>
+								</property>
+								<property>
+									<name>org.wsag4j.persistence.datapath</name>
+									<value>${project.build.directory}/data</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</execution>
+				</executions>
+<!-- 				<configuration> -->
+<!--                     <systemProperties> -->
+<!--                         <property> -->
+<!--                             <name>wsag4j.gateway.address</name> -->
+<!--                             <value>${wsag4j.gateway.address}</value> -->
+<!--                         </property> -->
+<!--                     </systemProperties> -->
+<!-- 				</configuration> -->
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+                    <systemPropertyVariables>
+                        <property>
+                            <name>wsag4j.gateway.address</name>
+                            <value>${wsag4j.gateway.address}</value>
+                        </property>
+                    </systemPropertyVariables>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<overlays>
+						<overlay>
+						</overlay>
+						<overlay>
+							<groupId>wsag4j</groupId>
+							<artifactId>wsag4j-agreement-factory</artifactId>
+							<excludes>
+								<exclude>WEB-INF/lib/*.jar</exclude>
+							</excludes>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
+
+			<!-- standalone integration test of the web application -->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>start-container</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<!-- <goal>start</goal> -->
+						</goals>
+						<configuration>
+							<wait>false</wait>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<zipUrlInstaller>
+									<url>http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.32/bin/apache-tomcat-6.0.32.zip</url>
+								</zipUrlInstaller>
+								<output>${project.build.directory}/logs/container.log</output>
+								<append>false</append>
+								<log>${project.build.directory}/logs/cargo.log</log>
+								<systemProperties>
+									<wsag4j.gateway.address>${wsag4j.gateway.address}</wsag4j.gateway.address>
+								</systemProperties>
+							</container>
+							<!-- Configuration to use with the container or the deployer -->
+							<configuration>
+								<type>standalone</type>
+								<home>${project.build.directory}/apache-tomcat</home>
+								<properties>
+									<cargo.servlet.port>${servlet-container-port}</cargo.servlet.port>
+									<cargo.logging>high</cargo.logging>
+								</properties>
+								<deployables>
+									<deployable>
+										<groupId>eu.optimis.sla-management</groupId>
+										<artifactId>sla-management</artifactId>
+										<type>war</type>
+										<properties>
+											<context>/optimis-sla</context>
+										</properties>
+									</deployable>
+								</deployables>
+							</configuration>
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop-container</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<!-- <goal>stop</goal> -->
+						</goals>
+						<configuration>
+							<wait>false</wait>
+							<!-- Container configuration -->
+							<container>
+								<containerId>tomcat6x</containerId>
+								<output>${project.build.directory}/logs/container.log</output>
+								<append>false</append>
+								<log>${project.build.directory}/logs/cargo.log</log>
+							</container>
+							<!-- Configuration to use with the container or the deployer -->
+							<configuration>
+								<type>existing</type>
+								<home>${project.build.directory}/apache-tomcat</home>
+								<properties>
+									<cargo.servlet.port>${servlet-container-port}</cargo.servlet.port>
+									<cargo.logging>high</cargo.logging>
+								</properties>
+							</configuration>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

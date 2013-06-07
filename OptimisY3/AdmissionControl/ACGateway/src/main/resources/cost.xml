@@ -1,0 +1,74 @@
+<pricePlan>
+<currency>EUR</currency>
+<planCap>70</planCap>
+<planFloor>10</planFloor>
+<name>DemoApp</name>
+<priceComponent>
+<name>system-vpn</name>
+<componentCap>4</componentCap>
+<componentFloor>4</componentFloor>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>VM_Costs</name>
+<absoluteAmount> 4 </absoluteAmount>
+<multiplier> Hr </multiplier>
+</priceLevel>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>jboss_disk</name>
+<absoluteAmount> 5.962863922119140625 </absoluteAmount>
+<multiplier> Gbyte </multiplier>
+</priceLevel>
+</priceComponent>
+<priceComponent>
+<name>system-lb</name>
+<componentCap>1</componentCap>
+<componentFloor>1</componentFloor>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>VM_Costs</name>
+<absoluteAmount> 1 </absoluteAmount>
+<multiplier> Hr </multiplier>
+</priceLevel>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>mysql_disk</name>
+<absoluteAmount> 7.0381317138671875 </absoluteAmount>
+<multiplier> Gbyte </multiplier>
+</priceLevel>
+</priceComponent>
+<priceComponent>
+<name>system-mysql</name>
+<componentCap>1</componentCap>
+<componentFloor>1</componentFloor>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>VM_Costs</name>
+<absoluteAmount> 1 </absoluteAmount>
+<multiplier> Hr </multiplier>
+</priceLevel>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>lb_disk</name>
+<absoluteAmount> 4.9215087890625 </absoluteAmount>
+<multiplier> Gbyte </multiplier>
+</priceLevel>
+</priceComponent>
+<priceComponent>
+<name>system-jboss</name>
+<componentCap>64</componentCap>
+<componentFloor>4</componentFloor>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>VM_Costs</name>
+<absoluteAmount> 4 </absoluteAmount>
+<multiplier> Hr </multiplier>
+</priceLevel>
+<priceLevel>
+<priceType>USAGE</priceType>
+<name>vpn_disk</name>
+<absoluteAmount> 5.962863922119140625 </absoluteAmount>
+<multiplier> Gbyte </multiplier>
+</priceLevel>
+</priceComponent>
+</pricePlan>

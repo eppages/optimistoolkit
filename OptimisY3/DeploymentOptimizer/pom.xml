@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis</groupId>
+		<artifactId>optimis-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../optimis-parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>eu.optimis.sdo</groupId>
+	<artifactId>DeploymentOptimizer</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>DeploymentOptimizer</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- Version properties for different packages -->
+	<properties>
+		<junit.version>4.8.2</junit.version>
+		<log4j.version>1.2.14</log4j.version>
+
+		<wsag4j.version>1.0.2</wsag4j.version>
+		<sla.types.version>0.0.1-SNAPSHOT</sla.types.version>
+		<wsag.api.version>1.0.2</wsag.api.version>
+		
+		<json.version>20090211</json.version>
+
+		<TRECCommonAPISP.version>3.0-SNAPSHOT</TRECCommonAPISP.version>
+		<ServiceManifest.version>1.0.8</ServiceManifest.version>
+	</properties>
+
+	<!-- <dependencyManagement> -->
+	<dependencies>
+
+		<!-- TRECCommonAPI -->
+		<dependency>
+			<groupId>eu.optimis.trec.common.sp</groupId>
+			<artifactId>TRECCommonAPISP</artifactId>
+			<version>${TRECCommonAPISP.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- Log4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- ServiceManifest API -->
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+			<artifactId>service-manifest-api</artifactId>
+			<version>${ServiceManifest.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- WS agreement -->
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-client</artifactId>
+			<version>${wsag4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xercesImpl</artifactId>
+					<groupId>xerces</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>wsag4j</groupId>
+			<artifactId>wsag4j-api</artifactId>
+			<version>${wsag.api.version}</version>
+		</dependency>
+
+		<!-- Sla agreement types -->
+		<dependency>
+			<groupId>eu.optimis.sla-management</groupId>
+			<artifactId>sla-management-types</artifactId>
+			<version>${sla.types.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<!-- </dependencyManagement> -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- Specify default file to run in .jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>eu.optimis._do.DeploymentOptimizer</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${env.HOME}/.m2/repository</classpathPrefix>
+							<classpathLayoutType>repository</classpathLayoutType>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- Specify target of assembly command to build a single jar with all 
+				dependencies -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>eu.optimis._do.DeploymentOptimizer</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>eu.optimis.utils.marfileassembler</groupId>
+						<artifactId>MarFileAssembler</artifactId>
+						<version>0.1-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+</project>

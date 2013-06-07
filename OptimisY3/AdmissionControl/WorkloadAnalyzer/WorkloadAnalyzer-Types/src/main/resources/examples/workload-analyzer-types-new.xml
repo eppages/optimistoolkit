@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wor:WorkloadAnalysis xmlns:wor="http://schemas.optimis.eu/workload" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.optimis.eu/workload ../xsd/workload-analyzer-types.xsd">
+  <wor:PhysicalHost id="optimis1" host_name="optimis1" public_ip="192.168.252.1" usedForElasticity="true">
+    <wor:description>Insfrastructure Provider's Physical Host [optimis1] for hosting VMs</wor:description>
+    <wor:Load>
+      <wor:Current>
+        <wor:ResourceInformation>
+          <wor:CpuCores Name="number_of_cores" MetricUnit="Cores" ActualValue="16">16</wor:CpuCores>
+          <wor:Memory Name="main_memory" MetricUnit="kB" ActualValue="8124416">696760</wor:Memory>
+          <wor:Storage Name="storage" MetricUnit="kB">700249</wor:Storage>
+          <wor:NetworkBandwidth Name="netowrk_bandwidth" MetricUnit="Kbps">4.784</wor:NetworkBandwidth>
+          <wor:Metric MetricName="cpu_load" MetricUnit="%">0.80</wor:Metric>
+        </wor:ResourceInformation>
+      </wor:Current>
+    </wor:Load>
+  </wor:PhysicalHost>
+  <wor:PhysicalHost id="optimis2" host_name="optimis2" public_ip="192.168.252.1" usedForElasticity="true">
+    <wor:description>Insfrastructure Provider's Physical Host [optimis2] for hosting VMs</wor:description>
+    <wor:Load>
+      <wor:Current>
+        <wor:ResourceInformation>
+          <wor:CpuCores Name="number_of_cores" MetricUnit="Cores" ActualValue="16">16</wor:CpuCores>
+          <wor:Memory Name="main_memory" MetricUnit="kB" ActualValue="9177088">87776</wor:Memory>
+          <wor:Storage Name="storage" MetricUnit="kB">235985</wor:Storage>
+          <wor:NetworkBandwidth Name="netowrk_bandwidth" MetricUnit="Kbps">0</wor:NetworkBandwidth>
+          <wor:Metric MetricName="cpu_load" MetricUnit="%">0.07</wor:Metric>
+        </wor:ResourceInformation>
+      </wor:Current>
+    </wor:Load>
+  </wor:PhysicalHost>
+  <wor:PhysicalHost id="optimis3" host_name="optimis3" public_ip="192.168.252.1" usedForElasticity="true">
+    <wor:description>Insfrastructure Provider's Physical Host [optimis3] for hosting VMs</wor:description>
+    <wor:Load>
+      <wor:Current>
+        <wor:ResourceInformation>
+          <wor:CpuCores Name="number_of_cores" MetricUnit="Cores" ActualValue="8">6</wor:CpuCores>
+          <wor:Memory Name="main_memory" MetricUnit="kB" ActualValue="524288">19612</wor:Memory>
+          <wor:Storage Name="storage" MetricUnit="kB">668698</wor:Storage>
+          <wor:NetworkBandwidth Name="netowrk_bandwidth" MetricUnit="Kbps">0</wor:NetworkBandwidth>
+          <wor:Metric MetricName="cpu_load" MetricUnit="%">1.94</wor:Metric>
+        </wor:ResourceInformation>
+      </wor:Current>
+    </wor:Load>
+  </wor:PhysicalHost>
+  <wor:PhysicalHost id="optimis4" host_name="optimis4" public_ip="192.168.252.1" usedForElasticity="true">
+    <wor:description>Insfrastructure Provider's Physical Host [optimis4] for hosting VMs</wor:description>
+    <wor:Load>
+      <wor:Current>
+        <wor:ResourceInformation>
+          <wor:CpuCores Name="number_of_cores" MetricUnit="Cores" ActualValue="4">4</wor:CpuCores>
+          <wor:Memory Name="main_memory" MetricUnit="kB" ActualValue="978944">70864</wor:Memory>
+          <wor:Storage Name="storage" MetricUnit="kB">6802</wor:Storage>
+          <wor:NetworkBandwidth Name="netowrk_bandwidth" MetricUnit="Kbps">.704</wor:NetworkBandwidth>
+          <wor:Metric MetricName="cpu_load" MetricUnit="%">0.00</wor:Metric>
+        </wor:ResourceInformation>
+      </wor:Current>
+    </wor:Load>
+  </wor:PhysicalHost>
+</wor:WorkloadAnalysis>

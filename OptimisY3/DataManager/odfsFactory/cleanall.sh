@@ -1,0 +1,1 @@
+cd clusters && rm -rf *

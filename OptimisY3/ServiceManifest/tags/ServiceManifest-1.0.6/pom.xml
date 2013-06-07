@@ -1,0 +1,300 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 	<parent> -->
+    <!-- 	<groupId>eu.optimis</groupId> -->
+    <!-- 	<artifactId>optimis-parent</artifactId> -->
+    <!-- 	<version>0.1-SNAPSHOT</version> -->
+    <!-- 	<relativePath>../../optimis-parent/pom.xml</relativePath> -->
+    <!-- 	</parent> -->
+
+    <groupId>eu.optimis.servicemanifest</groupId>
+    <artifactId>ServiceManifest</artifactId>
+    <version>1.0.6</version>
+    
+    <packaging>pom</packaging>
+    <name>ServiceManifest</name>
+    <url>http://optimis-project.eu</url>
+
+    <modules>
+        <module>service-manifest-schema</module>
+        <module>service-manifest-xmlbeans</module>
+        <module>service-manifest-jaxb</module>
+        <module>service-manifest-api</module>
+    </modules>
+
+    <developers>
+        <developer>
+            <name>Hassan Rasheed</name>
+            <email>hassan.rasheed@scai.fraunhofer.de</email>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>packcs</id>
+            <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>optimis-repo</id>
+            <name>repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>http://95.211.106.248/artifactory/repo</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+    <pluginRepository>
+        <id>packcs</id>
+        <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+        </snapshots>
+    </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <!-- For releases -->
+        <repository>
+            <id>optimis-repo</id>
+            <name>optimis-repo-releases</name>
+            <!-- <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url> -->
+            <url>http://95.211.106.248/artifactory/libs-release-local</url>
+        </repository>
+        <!-- For snapshots -->
+        <snapshotRepository>
+            <id>optimis-repo</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>optimis-repo-snapshots</name>
+            <!-- <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url> -->
+            <url>http://95.211.106.248/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <ciManagement>
+        <system>CruiseControl</system>
+        <url>
+            http://arisrv12.atosorigin.es:8081/dashboard/tab/build/detail/ServiceManifest-branchY2
+        </url>
+        <notifiers>
+            <notifier>
+                <type>mail</type>
+                <address>angela.rumpl@scai.fraunhofer.de</address>
+            </notifier>
+        </notifiers>
+    </ciManagement>
+
+    <issueManagement>
+        <system>Bugzilla</system>
+        <url>http://itforgebugzilla.atosresearch.eu/bugzilla/buglist.cgi?product=Optimis&amp;component=ServiceManifest
+        </url>
+    </issueManagement>
+
+    <mailingLists>
+        <mailingList>
+            <name>ServiceManifest project mailing list</name>
+            <subscribe>http://pandora.atosorigin.es/mailman/listinfo/optimis-act1</subscribe>
+            <unsubscribe>http://pandora.atosorigin.es/mailman/listinfo/optimis-act1</unsubscribe>
+            <post>optimis-act1@ymir.atosorigin.es</post>
+        </mailingList>
+    </mailingLists>
+
+    <scm>
+        <connection>
+            scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY2/ServiceManifest/tags/ServiceManifest-1.0.6
+        </connection>
+        <developerConnection>
+            scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY2/ServiceManifest/tags/ServiceManifest-1.0.6
+        </developerConnection>
+        <url>http://pandora.atosorigin.es/svn/optimis/branches/OptimisY2/ServiceManifest/tags/ServiceManifest-1.0.6</url>
+    </scm>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>xmlbeans-maven-plugin</artifactId>
+                    <version>2.3.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <buildDirectory>${project.build.directory}</buildDirectory>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+                <!-- applies only to eclipse environments during development -->
+                <plugin>
+                    <!--suppress MavenModelInspection -->
+                    <groupId>org.eclipse.m2e</groupId>
+                    <!--suppress MavenModelInspection -->
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <!--suppress MavenModelInspection -->
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-dependency-plugin</artifactId>
+                                        <versionRange>[2.3,)</versionRange>
+                                        <goals>
+                                            <goal>unpack-dependencies</goal>
+                                            <goal>unpack</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <!-- module versions -->
+        <dependencies>
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-schema</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-xmlbeans</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-jaxb</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.optimis.servicemanifest</groupId>
+                <artifactId>service-manifest-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- third party software -->
+            <dependency>
+                <artifactId>jaxb-api</artifactId>
+                <groupId>javax.xml.bind</groupId>
+                <version>2.2</version>
+            </dependency>
+            <dependency>
+                <artifactId>jaxb-impl</artifactId>
+                <groupId>com.sun.xml.bind</groupId>
+                <version>2.1.12</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>3.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.16</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>1.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans-xpath</artifactId>
+                <version>2.4.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>saxon</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>2.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.saxon</groupId>
+                <artifactId>saxon</artifactId>
+                <version>9.1.0.8</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.saxon</groupId>
+                <artifactId>saxon</artifactId>
+                <version>9.1.0.8</version>
+                <classifier>dom</classifier>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.saxon</groupId>
+                <artifactId>saxon</artifactId>
+                <version>9.1.0.8</version>
+                <classifier>xpath</classifier>
+            </dependency>
+            <dependency>
+                <groupId>xml-resolver</groupId>
+                <artifactId>xml-resolver</artifactId>
+                <version>1.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

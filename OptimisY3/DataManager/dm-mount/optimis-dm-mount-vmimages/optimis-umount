@@ -1,0 +1,25 @@
+#!/usr/bin/ruby
+require 'base64'
+require "rexml/document"
+include REXML
+
+conf = "/etc/datamanager.conf"
+
+if ! File.exist?(conf)
+   puts "Cannot Find configuration file at '#{conf}'"
+   exit
+end
+
+file = File.new(conf)
+doc = Document.new(file)
+mountpoint = ""
+
+doc.elements.each("datamanager/mountpoint") { |element|
+    mountpoint = element.text.strip
+}
+
+out = `/usr/bin/fusermount -u #{mountpoint}   > /dev/null 2>&1`
+out = `/usr/bin/fuser -m -k #{mountpoint}/*   > /dev/null 2>&1`
+out = `/bin/umount -l #{mountpoint}       > /dev/null 2>&1`
+out = `/bin/rmdir #{mountpoint}           > /dev/null 2>&1`
+

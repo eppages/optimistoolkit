@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>eu.optimis.ics</groupId>
+  <artifactId>P2PVPN</artifactId>
+  <version>3.0</version>
+  <packaging>jar</packaging>
+
+  <name>P2PVPN</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>tomp2p.net</id>
+      <url>http://tomp2p.net/dev/mvn/</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.tomp2p</groupId>
+      <artifactId>TomP2P</artifactId>
+      <version>4.0.7</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-io</groupId>
+    	<artifactId>commons-io</artifactId>
+    	<version>2.2</version>
+    </dependency>
+    <dependency>
+		<groupId>net.sf.opencsv</groupId>
+		<artifactId>opencsv</artifactId>
+		<version>2.0</version>
+	</dependency>
+    <dependency>
+    	<groupId>commons-validator</groupId>
+    	<artifactId>commons-validator</artifactId>
+    	<version>1.4.0</version>
+    </dependency>
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-assembly-plugin</artifactId>
+        	<version>2.3</version>
+       		<configuration>
+         			<descriptorRefs>
+           			<descriptorRef>jar-with-dependencies</descriptorRef>
+        			</descriptorRefs>
+        			<archive>
+            			<manifest>
+              				<mainClass>eu.optimis.ics.p2p.VPNPeer</mainClass>
+            			</manifest>
+          			</archive>
+       		</configuration>
+       		<executions>
+         			<execution>
+           			<id>make-assembly</id> <!-- this is used for inheritance merges -->
+           			<phase>package</phase> <!-- bind to the packaging phase -->
+           			<goals>
+             				<goal>single</goal>
+           			</goals>
+         			</execution>
+       		</executions>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>

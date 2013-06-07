@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tok:UserTokenAuthorization TokenID="sample-token-id" ID="elasticlm-b80614bc-0502-41f0-b61a-4359b8d85d07" NotBefore="2012-02-01T00:00:00.739+01:00" NotOnOrAfter="2015-12-31T00:00:00.739+01:00" xmlns:tok="http://elasticlm.eu/schemas/2009/07/security/authorization/user/token"><tok:Issuer><xd:KeyInfo xmlns:xd="http://www.w3.org/2000/09/xmldsig#"><xd:X509Data><xd:X509Certificate>MIIDLzCCApigAwIBAgIBAzANBgkqhkiG9w0BAQUFADCBnjELMAkGA1UEBhMCREUxDDAKBgNVBAgTA05SVzEXMBUGA1UEBxMOU2Fua3QgQXVndXN0aW4xGDAWBgNVBAoTD0ZyYXVuaG9mZXIgU0NBSTEXMBUGA1UECxMOQklPIEdyaWQgR3JvdXAxFTATBgNVBAMTDGVsYXN0aWNMTSBDQTEeMBwGCSqGSIb3DQEJARYPY2FAZWxhc3RpY2xtLmRlMB4XDTExMDkwODA5MTU0M1oXDTIxMDkwNTA5MTU0M1owgacxCzAJBgNVBAYTAkRFMQwwCgYDVQQIEwNOUlcxFzAVBgNVBAcTDlNhbmt0IEF1Z3VzdGluMRgwFgYDVQQKEw9GcmF1bmhvZmVyIFNDQUkxFzAVBgNVBAsTDkJJTyBHcmlkIEdyb3VwMRwwGgYDVQQDExNlbGFzdGljTE0gRGVtbyBVc2VyMSAwHgYJKoZIhvcNAQkBFhFkZW1vQGVsYXN0aWNsbS5kZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAuLdyVvcJWeJKJKYODqVz7D/aXCh6jelaUVROQwdKViKYgbjRp7a0qIVUmeZP0E9ZrGB/5nkCTKnbXhuj9KCyIn8dbGPVEOrT7RtFjLCoLpHnYjgT5OnQ/oTyfOdotQBR6nMbfQRgFpqF3lW9bDeMXQD7hhfTbgjjQeqdnqJlVVECAwEAAaNyMHAwDwYDVR0TAQH/BAUwAwIBADAdBgNVHQ4EFgQUHSc+D+M4giJMKE4QjjVco/EskX4wCwYDVR0PBAQDAgSwMBEGCWCGSAGG+EIBAQQEAwIFoDAeBglghkgBhvhCAQ0EERYPeGNhIGNlcnRpZmljYXRlMA0GCSqGSIb3DQEBBQUAA4GBAJypa6fa1oYv55wtTh5/SjmmRcSW7PKackskhP7BcJs278/ewezvaLTW32N2jgLwQ/7WEtEXT83NZI9vv86GDQgTG0N30MXP2DU3oO3ukwVArl/+OaBge5vHsUe0dBiCgwQiMZIc507zmOKM3Nhps+W3VJxJF0NlwR9LBzHdmN7e</xd:X509Certificate></xd:X509Data></xd:KeyInfo></tok:Issuer><tok:Subject><xd:KeyInfo xmlns:xd="http://www.w3.org/2000/09/xmldsig#"><xd:X509Data><xd:X509Certificate>MIIDLzCCApigAwIBAgIBBjANBgkqhkiG9w0BAQUFADCBnjELMAkGA1UEBhMCREUxDDAKBgNVBAgTA05SVzEXMBUGA1UEBxMOU2Fua3QgQXVndXN0aW4xGDAWBgNVBAoTD0ZyYXVuaG9mZXIgU0NBSTEXMBUGA1UECxMOQklPIEdyaWQgR3JvdXAxFTATBgNVBAMTDGVsYXN0aWNMTSBDQTEeMBwGCSqGSIb3DQEJARYPY2FAZWxhc3RpY2xtLmRlMB4XDTExMDkwODA5MjMwMloXDTIxMDkwNTA5MjMwMlowgacxCzAJBgNVBAYTAkRFMQwwCgYDVQQIEwNOUlcxFzAVBgNVBAcTDlNhbmt0IEF1Z3VzdGluMRgwFgYDVQQKEw9GcmF1bmhvZmVyIFNDQUkxFzAVBgNVBAsTDkJJTyBHcmlkIEdyb3VwMRwwGgYDVQQDExNlbGFzdGljTE0gRGVtbyBVVk9TMSAwHgYJKoZIhvcNAQkBFhFkZW1vQGVsYXN0aWNsbS5kZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsBZyhmn6YCB0Kpx1Z0SRKr7dSnFJtGOMIemGbXHSQD3SFQ5gQkO4M4Usae32JXUgl3EB7no9NGxGKw5YMnlck+T/Km46TLdqDdbuHmuaYMbiMdyb9c5SVztHw9+S9y5gPYBI1QUM3IAwku95g+r17gddudRsRHoH0kPeYMi380kCAwEAAaNyMHAwDwYDVR0TAQH/BAUwAwIBADAdBgNVHQ4EFgQUKP5Df3Q2iNSUmXFPts+WqLkbL4gwCwYDVR0PBAQDAgXgMBEGCWCGSAGG+EIBAQQEAwIGQDAeBglghkgBhvhCAQ0EERYPeGNhIGNlcnRpZmljYXRlMA0GCSqGSIb3DQEBBQUAA4GBADRy3r8BFqRl0CfWDwJXyIs9TGyc+Gvy/jJZvxWeciejzjDlPpzcFnR+puULwKXvX+luc0vufJbU0TGVkoOrrvvhI4YdOiLlsSyxN9aX1uHpG5GVPo+yhK0ogmB5ajmkOL/rLmlocyNwYQ8Zs8r+9nrw1GE3MC6PJ8z04TCgOcXW</xd:X509Certificate></xd:X509Data></xd:KeyInfo></tok:Subject><tok:ProviderInfo><tok:Name>optimis</tok:Name><tok:ProviderHash hashAlgorithm="sha1">12345-23456-34567-45678</tok:ProviderHash><tok:TrustedInstanceURL>http://localhost:9090/trustinstance</tok:TrustedInstanceURL></tok:ProviderInfo><lsdl:LicenseDescription version="090716" isUsedOffline="false" xmlns:lsdl="http://elasticlm.eu/schemas/2009/05/lsdl">
+  <lsdl:Application>
+    <lsdl:Name>ElasticLM Sample App</lsdl:Name>
+    <lsdl:Version>1.0</lsdl:Version>
+    <lsdl:Description>Just a sample description</lsdl:Description>
+    <lsdl:Features>
+      <lsdl:BasicFeature featureId="bfid">
+        <lsdl:Name>SAMPLE</lsdl:Name>
+        <lsdl:Version>1.0</lsdl:Version>
+        <lsdl:Value>1</lsdl:Value>
+      </lsdl:BasicFeature>
+      <lsdl:ConsumableFeature featureId="cfid">
+        <lsdl:Name>THREADS</lsdl:Name>
+        <lsdl:Version>1.0</lsdl:Version>
+        <lsdl:Value>3</lsdl:Value>
+      </lsdl:ConsumableFeature>
+    </lsdl:Features>
+  </lsdl:Application>
+  <lsdl:Reservation>
+    <lsdl:Duration>PT2H</lsdl:Duration>
+    <lsdl:EarliestStartTime>2012-02-01T13:57:48.119+02:00</lsdl:EarliestStartTime>
+    <lsdl:Deadline>2015-12-31T00:00:00</lsdl:Deadline>
+    <lsdl:ReservationStartTime>2012-02-01T13:57:48.119+02:00</lsdl:ReservationStartTime>
+    <lsdl:ReservationEndTime>2013-12-31T13:57:48.119+02:00</lsdl:ReservationEndTime>
+  </lsdl:Reservation>
+  <lsdl:Charge currency="EUR">0</lsdl:Charge>
+  <lsdl:AccountingGroup>/ElasticLM/Users</lsdl:AccountingGroup>
+  <lsdl:InputHashes>
+    <lsdl:InputHash fileName="sample-input.xml" hashAlgorithm="http://www.w3.org/2001/04/xmlenc#sha1">33babb333f0e373fa48a2f0967cbd90be72a95bc</lsdl:InputHash>
+  </lsdl:InputHashes>
+</lsdl:LicenseDescription><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#elasticlm-b80614bc-0502-41f0-b61a-4359b8d85d07"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>ejPzcDduGwt93pEqnXlTmw6ispk=</DigestValue></Reference></SignedInfo><SignatureValue>XK9V76o7j/I8DKYNWZv8liLIYqJmn+0NQvUbhMTKuh+qkTvRnyC40F0Wqds5GNvCS/r9XtCORwkH
+li0NnJxzsLEV17/eNKwcQm1hNx2msTuUSg8ID++qhP9iVMYMKPexMdWaBvUEAna4zOUKmMCExvQU
+/b8Uk+tMTtUAb93KJHw=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIIDLzCCApigAwIBAgIBAzANBgkqhkiG9w0BAQUFADCBnjELMAkGA1UEBhMCREUxDDAKBgNVBAgT
+A05SVzEXMBUGA1UEBxMOU2Fua3QgQXVndXN0aW4xGDAWBgNVBAoTD0ZyYXVuaG9mZXIgU0NBSTEX
+MBUGA1UECxMOQklPIEdyaWQgR3JvdXAxFTATBgNVBAMTDGVsYXN0aWNMTSBDQTEeMBwGCSqGSIb3
+DQEJARYPY2FAZWxhc3RpY2xtLmRlMB4XDTExMDkwODA5MTU0M1oXDTIxMDkwNTA5MTU0M1owgacx
+CzAJBgNVBAYTAkRFMQwwCgYDVQQIEwNOUlcxFzAVBgNVBAcTDlNhbmt0IEF1Z3VzdGluMRgwFgYD
+VQQKEw9GcmF1bmhvZmVyIFNDQUkxFzAVBgNVBAsTDkJJTyBHcmlkIEdyb3VwMRwwGgYDVQQDExNl
+bGFzdGljTE0gRGVtbyBVc2VyMSAwHgYJKoZIhvcNAQkBFhFkZW1vQGVsYXN0aWNsbS5kZTCBnzAN
+BgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAuLdyVvcJWeJKJKYODqVz7D/aXCh6jelaUVROQwdKViKY
+gbjRp7a0qIVUmeZP0E9ZrGB/5nkCTKnbXhuj9KCyIn8dbGPVEOrT7RtFjLCoLpHnYjgT5OnQ/oTy
+fOdotQBR6nMbfQRgFpqF3lW9bDeMXQD7hhfTbgjjQeqdnqJlVVECAwEAAaNyMHAwDwYDVR0TAQH/
+BAUwAwIBADAdBgNVHQ4EFgQUHSc+D+M4giJMKE4QjjVco/EskX4wCwYDVR0PBAQDAgSwMBEGCWCG
+SAGG+EIBAQQEAwIFoDAeBglghkgBhvhCAQ0EERYPeGNhIGNlcnRpZmljYXRlMA0GCSqGSIb3DQEB
+BQUAA4GBAJypa6fa1oYv55wtTh5/SjmmRcSW7PKackskhP7BcJs278/ewezvaLTW32N2jgLwQ/7W
+EtEXT83NZI9vv86GDQgTG0N30MXP2DU3oO3ukwVArl/+OaBge5vHsUe0dBiCgwQiMZIc507zmOKM
+3Nhps+W3VJxJF0NlwR9LBzHdmN7e</X509Certificate></X509Data></KeyInfo></Signature></tok:UserTokenAuthorization>

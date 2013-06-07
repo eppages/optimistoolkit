@@ -1,0 +1,44 @@
+<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1"
+                     xmlns:opt="http://schemas.optimis.eu/optimis/"
+                     xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+                     xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure"
+                     opt:serviceProviderId="OPTIMUMWEB">
+    <opt:VirtualMachineDescription opt:serviceId="${serviceId}" opt:isFederationAllowed="false">
+        #foreach(${componentId} in ${componentIdList})
+            #parse("/VirtualMachineComponent.vm")
+        #end
+        <opt:AffinitySection>
+            <opt:AffinityRule>
+                <opt:Scope>
+                    #foreach(${componentId} in ${componentIdList})
+                        <opt:ComponentId>${componentId}</opt:ComponentId>
+                    #end
+                </opt:Scope>
+                <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+            </opt:AffinityRule>
+        </opt:AffinitySection>
+    </opt:VirtualMachineDescription>
+    <opt:TRECSection>
+        #parse("/TrustSection.vm")
+        #parse("/RiskSection.vm")
+        #parse("/EcoEfficiencySection.vm")
+        #parse("/CostSection.vm")
+    </opt:TRECSection>
+    <opt:ElasticitySection>
+    </opt:ElasticitySection>
+    <opt:DataProtectionSection>
+        <opt:DataProtectionLevel>${dataProtectionLevel}</opt:DataProtectionLevel>
+        <opt:DataEncryptionLevel>
+            <opt:EncryptionAlgoritm>${encryptionAlgorithm}</opt:EncryptionAlgoritm>
+        </opt:DataEncryptionLevel>
+        <opt:DataStorage>
+            <opt:AllocationUnit>byte</opt:AllocationUnit>
+            <opt:Capacity>0</opt:Capacity>
+        </opt:DataStorage>
+    </opt:DataProtectionSection>
+    <opt-sp:ServiceProviderExtensions>
+        #foreach(${componentId} in ${componentIdList})
+            #parse("/VirtualMachineComponentConfiguration.vm")
+        #end
+    </opt-sp:ServiceProviderExtensions>
+</opt:ServiceManifest>

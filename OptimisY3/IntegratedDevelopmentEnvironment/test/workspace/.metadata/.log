@@ -1,0 +1,2492 @@
+!SESSION 2013-05-27 17:27:13.953 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+This is a continuation of log file /home/user/OPTIMIS/IntegratedDevelopmentEnvironment/test/workspace/.metadata/.bak_0.log
+Created Time: 2013-05-27 17:54:49.390
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 17:54:49.390
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter3_Feat_8/META-INF/optimis.properties'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findRelevantLabelProviders(NavigatorContentService.java:496)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getForeground(NavigatorContentServiceLabelProvider.java:224)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getForeground(NavigatorDecoratingLabelProvider.java:119)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getForeground(DelegatingStyledCellLabelProvider.java:137)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getForeground(DecoratingStyledCellLabelProvider.java:144)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:120)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.update(DecoratingStyledCellLabelProvider.java:134)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:152)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:938)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1018)
+	at org.eclipse.ui.navigator.CommonViewer.doUpdateItem(CommonViewer.java:409)
+	at org.eclipse.ui.internal.navigator.resources.ResourceToItemsMapper.updateItem(ResourceToItemsMapper.java:142)
+	at org.eclipse.ui.internal.navigator.resources.ResourceToItemsMapper.objectChanged(ResourceToItemsMapper.java:131)
+	at org.eclipse.ui.navigator.CommonViewer.handleLabelProviderChanged(CommonViewer.java:223)
+	at org.eclipse.jface.viewers.ContentViewer$1.labelProviderChanged(ContentViewer.java:97)
+	at org.eclipse.jface.viewers.BaseLabelProvider$1.run(BaseLabelProvider.java:74)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.BaseLabelProvider.fireLabelProviderChanged(BaseLabelProvider.java:72)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider$1.labelProviderChanged(DecoratingStyledCellLabelProvider.java:77)
+	at org.eclipse.ui.internal.decorators.DecoratorManager$1.run(DecoratorManager.java:430)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.DecoratorManager.fireListener(DecoratorManager.java:428)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$3.runInUIThread(DecorationScheduler.java:529)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 17:54:49.391
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter3_Feat_8/META-INF/optimis.properties'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 17:54:49.392
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter3_Feat_8/META-INF/optimis.properties'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findRelevantLabelProviders(NavigatorContentService.java:496)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getBackground(NavigatorContentServiceLabelProvider.java:242)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getBackground(NavigatorDecoratingLabelProvider.java:109)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getBackground(DelegatingStyledCellLabelProvider.java:153)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getBackground(DecoratingStyledCellLabelProvider.java:154)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:121)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.update(DecoratingStyledCellLabelProvider.java:134)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:152)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:938)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:106)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1018)
+	at org.eclipse.ui.navigator.CommonViewer.doUpdateItem(CommonViewer.java:409)
+	at org.eclipse.ui.internal.navigator.resources.ResourceToItemsMapper.updateItem(ResourceToItemsMapper.java:142)
+	at org.eclipse.ui.internal.navigator.resources.ResourceToItemsMapper.objectChanged(ResourceToItemsMapper.java:131)
+	at org.eclipse.ui.navigator.CommonViewer.handleLabelProviderChanged(CommonViewer.java:223)
+	at org.eclipse.jface.viewers.ContentViewer$1.labelProviderChanged(ContentViewer.java:97)
+	at org.eclipse.jface.viewers.BaseLabelProvider$1.run(BaseLabelProvider.java:74)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.BaseLabelProvider.fireLabelProviderChanged(BaseLabelProvider.java:72)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider$1.labelProviderChanged(DecoratingStyledCellLabelProvider.java:77)
+	at org.eclipse.ui.internal.decorators.DecoratorManager$1.run(DecoratorManager.java:430)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.DecoratorManager.fireListener(DecoratorManager.java:428)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$3.runInUIThread(DecorationScheduler.java:529)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 17:54:49.393
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter3_Feat_8/META-INF/optimis.properties'.
+
+!ENTRY org.eclipse.ui 4 0 2013-05-27 17:54:49.508
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTException: Widget is disposed)
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:466)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:403)
+	at org.eclipse.swt.widgets.Composite.layout(Composite.java:871)
+	at org.eclipse.ui.texteditor.StatusTextEditor.updatePartControl(StatusTextEditor.java:92)
+	at es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:303)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:15.918
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1142)] Updating options
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:15.919
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1145)] Selected item is Optimis Cloud
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.440
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.tests.iter3.feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.441
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.tests.iter3.feat8 with eu.optimis.ide.tests.iter3.feat8.TestOrchClass
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.441
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestOrchClassItf.java in /Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.442
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.442
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE();
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.443
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.444
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.tests.iter3.feat8 with eu.optimis.ide.tests.iter3.feat8.TestOrchClass
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.444
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestOrchClass.java in /Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.444
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.478
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4213)] Creating Component for package Test_Iter3_Feat_8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.479
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.479
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:179)] Setting value for processorCPUCount to 2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.480
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:210)] Setting final value for processorCPUCount to 2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.481
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.481
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.482
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.482
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.483
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.485
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4236)] Creating Component for package autoMethod
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.491
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.491
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testCE()TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.492
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.493
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.493
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.494
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.494
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.501
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testCE()TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.502
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:179)] Setting value for processorCPUCount to 2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.502
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:210)] Setting final value for processorCPUCount to 2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.503
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.tests.iter3.feat8 with eu.optimis.ide.tests.iter3.feat8.TestOrchClass
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.503
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestOrchClass.java in /Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:16.504
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 17:55:17.080
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.loadDataStorageSection(OptimisDeployer.java:3530)] Data storage Encrypted Storage not found.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.140
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.tests.iter3.feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.141
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.tests.iter3.feat8 with eu.optimis.ide.tests.iter3.feat8.TestOrchClass
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.142
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestOrchClassItf.java in /Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.142
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.143
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE();
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.143
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.144
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.tests.iter3.feat8 with eu.optimis.ide.tests.iter3.feat8.TestOrchClass
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.144
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestOrchClass.java in /Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.144
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:17.190
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1198)] deployment options updated
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:20.399
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer$27.run(OptimisDeployer.java:4285)] writing the manifest in the file 
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:20.526
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:55:20.579
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.141
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.149
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.153
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.211
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.270
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.278
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.281
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 17:55:57.329
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:56:23.818
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:56:23.855
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:56:53.596
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 17:56:53.684
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:00:34.392
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:00:34.467
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:00:34.510
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:51.578
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1142)] Updating options
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:51.579
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1145)] Selected item is Optimis Cloud
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.092
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.092
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.093
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.170
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.181
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.183
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.185
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.185
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.195
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.243
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4213)] Creating Component for package Test_Iter_1_Feat_20
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.244
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.245
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testOE()eu.optimis.ide.test.iter1.feat2.TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.245
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.246
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.246
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.247
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.247
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.248
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4236)] Creating Component for package autoMethod0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.254
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.255
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testCE_license(OBJECT_T)TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.256
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.256
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.257
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.258
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.259
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.264
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testCE_license(OBJECT_T)TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.265
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testOE()eu.optimis.ide.test.iter1.feat2.TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.265
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.266
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:52.267
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:00:52.996
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.loadDataStorageSection(OptimisDeployer.java:3530)] Data storage Encrypted Storage not found.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.017
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.018
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.018
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.019
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.020
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.020
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.020
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.021
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.022
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:00:53.089
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1198)] deployment options updated
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.524
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.525
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.525
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.526
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.527
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.527
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.616
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.616
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:14.617
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:17.587
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:23.880
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:23.886
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:23.889
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:23.894
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:23.962
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:24.029
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:24.035
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:01:24.073
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.527
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.528
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.529
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.529
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2546)] Loading document for modify constraint licenseTokens in method testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.743
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2563)] pack: package eu.optimis.ide.test.iter1.feat2;
+ types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.744
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2568)] Type: TestCEItf(TestCEItf)
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.744
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2575)] method FQDN: testCE_license identifier: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.745
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2580)] modifier: class org.eclipse.jdt.core.dom.NormalAnnotation
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.746
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2583)] annotation: Method
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.746
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2580)] modifier: class org.eclipse.jdt.core.dom.Modifier
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.749
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2632)] Adding property to annotation: licenseTokens="Genewise"
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:33.919
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.modifyConstraintInCompilationUnit(ImplementationFormPage.java:2652)] writting modifications package eu.optimis.ide.test.iter1.feat2;
+
+import integratedtoolkit.types.annotations.Method;
+import java.lang.String;
+import integratedtoolkit.types.annotations.Parameter;
+import integratedtoolkit.types.annotations.Parameter.*;
+import integratedtoolkit.types.annotations.Constraints;
+import integratedtoolkit.types.annotations.Constraints;
+import integratedtoolkit.types.annotations.Constraints;
+
+public interface TestCEItf{
+
+	@Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+}
+
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.031
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.095
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:34.537
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:34.538
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:34.539
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:34.539
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.544
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.651
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.652
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.652
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.655
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.656
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.656
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.671
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.671
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.672
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.885
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.885
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:34.919
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.284
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.309
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:35.367
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:35.367
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:35.368
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:35.369
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.373
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.445
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.446
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.446
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.447
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.447
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.448
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.491
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.492
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.493
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.715
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.716
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:35.788
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.150
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.193
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:36.256
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:36.257
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:36.258
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:36.259
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.264
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.400
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.400
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.401
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.401
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.402
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.403
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.451
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.452
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.452
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.672
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.673
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:36.713
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.241
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.275
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.337
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.444
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.445
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.446
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.446
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.447
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.448
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.522
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.522
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.524
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.792
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.793
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:37.825
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.249
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.262
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:38.313
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:38.313
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:38.314
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:38.315
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.326
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.360
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.360
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.361
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.361
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.362
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.362
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.388
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.388
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.390
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.679
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.681
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:38.739
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.171
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.249
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:39.309
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:39.310
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:39.311
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:39.311
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.314
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.455
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.456
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.456
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.457
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.457
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.458
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.481
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.482
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.483
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.693
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.694
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:39.742
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.086
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.147
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:40.208
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:40.209
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:40.210
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:40.210
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.214
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.252
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.253
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.254
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.254
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.255
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.256
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.276
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.276
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.277
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.515
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.516
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.561
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.979
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:40.995
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:41.074
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:41.074
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:41.075
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:41.076
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.079
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.222
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.222
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.223
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.223
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.224
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.224
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.245
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.245
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.247
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.485
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.486
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:41.543
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.019
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.091
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:42.146
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:42.148
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:42.149
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:42.149
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.155
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.238
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.239
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.239
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.240
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.240
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.241
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.306
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.306
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.307
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.515
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.516
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.544
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:42.955
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.009
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.066
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.067
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.067
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.068
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.071
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.120
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.121
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.121
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.122
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.122
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.123
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.178
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.179
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.179
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.397
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.398
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.413
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.704
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.746
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.805
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.805
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.806
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:43.807
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.810
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.855
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.855
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.856
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.857
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.857
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.858
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.928
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.928
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:43.929
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.148
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.148
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.180
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.587
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.614
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:44.682
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:44.682
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:44.683
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:44.684
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.687
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.713
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.714
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.714
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.715
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.716
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.716
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.789
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.789
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.790
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.996
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:44.997
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.061
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.495
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.559
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:45.621
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:45.622
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:45.623
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:45.623
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.628
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.765
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.765
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.766
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.767
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.767
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.768
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.835
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.835
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:45.836
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.023
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.024
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.038
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.429
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.445
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:46.531
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:46.532
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:46.532
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:46.533
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.536
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.641
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.642
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.643
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.643
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.644
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.645
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.656
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.657
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.658
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.897
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.898
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:46.949
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.313
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.321
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:47.401
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:47.402
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:47.402
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:01:47.403
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.414
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.457
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.458
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.459
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.460
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.461
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.461
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.496
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.496
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.497
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.721
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.721
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:47.743
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.184
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.249
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.312
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.432
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.432
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.433
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.433
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.434
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.434
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.478
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.479
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.480
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.726
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2272)]  No Orchestration Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.727
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2280)]  No Core Element interface changes
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:01:48.760
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.printElementDescription(ImplementationFormPage.java:780)] Printing: testCE_license
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.645
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.selectionChanged(CommonNavigatorManager.java:222)
+	at org.eclipse.jface.viewers.Viewer$2.run(Viewer.java:164)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:162)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2188)
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1211)
+	at org.eclipse.ui.navigator.CommonViewer.handleSelect(CommonViewer.java:478)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1241)
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:239)
+	at org.eclipse.jface.util.OpenStrategy.access$4(OpenStrategy.java:233)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:403)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.646
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.647
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.selectionChanged(CommonNavigatorManager.java:222)
+	at org.eclipse.jface.viewers.Viewer$2.run(Viewer.java:164)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:162)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2188)
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1211)
+	at org.eclipse.ui.navigator.CommonViewer.handleSelect(CommonViewer.java:478)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1241)
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:239)
+	at org.eclipse.jface.util.OpenStrategy.access$4(OpenStrategy.java:233)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:403)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.648
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.693
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getColumnImage(NavigatorContentServiceLabelProvider.java:102)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getImage(NavigatorContentServiceLabelProvider.java:98)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getImage(NavigatorDecoratingLabelProvider.java:60)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getImage(DelegatingStyledCellLabelProvider.java:184)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getImage(DecoratingStyledCellLabelProvider.java:167)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.updateStatusBar(CommonNavigatorManager.java:308)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$1.selectionChanged(CommonNavigatorManager.java:74)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.ui.navigator.CommonViewer.handlePostSelect(CommonViewer.java:470)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.694
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.695
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findRelevantLabelProviders(NavigatorContentService.java:496)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceDescriptionProvider.getDescription(NavigatorContentServiceDescriptionProvider.java:58)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.updateStatusBar(CommonNavigatorManager.java:313)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$1.selectionChanged(CommonNavigatorManager.java:74)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.ui.navigator.CommonViewer.handlePostSelect(CommonViewer.java:470)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.696
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.725
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.selectionChanged(CommonNavigatorManager.java:222)
+	at org.eclipse.jface.viewers.Viewer$2.run(Viewer.java:164)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:162)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2188)
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1211)
+	at org.eclipse.ui.navigator.CommonViewer.handleSelect(CommonViewer.java:478)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1241)
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:239)
+	at org.eclipse.jface.util.OpenStrategy.access$4(OpenStrategy.java:233)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:403)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.725
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.726
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.selectionChanged(CommonNavigatorManager.java:222)
+	at org.eclipse.jface.viewers.Viewer$2.run(Viewer.java:164)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:162)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2188)
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1211)
+	at org.eclipse.ui.navigator.CommonViewer.handleSelect(CommonViewer.java:478)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1241)
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:239)
+	at org.eclipse.jface.util.OpenStrategy.access$4(OpenStrategy.java:233)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:403)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.726
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.735
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:184)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.736
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:01:59.737
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionProviderDescriptor.isEnabledFor(CommonActionProviderDescriptor.java:235)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.addProviderIfRelevant(CommonActionDescriptorManager.java:258)
+	at org.eclipse.ui.internal.navigator.actions.CommonActionDescriptorManager.findRelevantActionDescriptors(CommonActionDescriptorManager.java:235)
+	at org.eclipse.ui.navigator.NavigatorActionService.fillActionBars(NavigatorActionService.java:248)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:184)
+	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
+	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
+	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
+	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
+	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
+	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
+	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1258)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3588)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3209)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:01:59.737
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:02:00.921
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getColumnImage(NavigatorContentServiceLabelProvider.java:102)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getImage(NavigatorContentServiceLabelProvider.java:98)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getImage(NavigatorDecoratingLabelProvider.java:60)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getImage(DelegatingStyledCellLabelProvider.java:184)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getImage(DecoratingStyledCellLabelProvider.java:167)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.updateStatusBar(CommonNavigatorManager.java:308)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$1.selectionChanged(CommonNavigatorManager.java:74)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.ui.navigator.CommonViewer.handlePostSelect(CommonViewer.java:470)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:02:00.922
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY org.eclipse.core.resources 4 1 2013-05-27 18:02:00.923
+!MESSAGE Core exception while retrieving the content description
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+	at org.eclipse.core.internal.resources.File.getContentDescription(File.java:269)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.testContentType(FilePropertyTester.java:108)
+	at org.eclipse.core.internal.propertytester.FilePropertyTester.test(FilePropertyTester.java:60)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateOr(CompositeExpression.java:68)
+	at org.eclipse.core.internal.expressions.OrExpression.evaluate(OrExpression.java:21)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.CustomAndExpression.evaluate(CustomAndExpression.java:71)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin$Evaluator.run(NavigatorPlugin.java:245)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorPlugin.safeEvaluate(NavigatorPlugin.java:260)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor.isPossibleChild(NavigatorContentDescriptor.java:454)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptors(NavigatorContentDescriptorManager.java:234)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptorManager.findDescriptorsForPossibleChild(NavigatorContentDescriptorManager.java:204)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findDescriptorsWithPossibleChild(NavigatorContentService.java:842)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findPossibleLabelExtensions(NavigatorContentService.java:457)
+	at org.eclipse.ui.internal.navigator.NavigatorContentService.findRelevantLabelProviders(NavigatorContentService.java:496)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceDescriptionProvider.getDescription(NavigatorContentServiceDescriptionProvider.java:58)
+	at org.eclipse.ui.navigator.CommonNavigatorManager.updateStatusBar(CommonNavigatorManager.java:313)
+	at org.eclipse.ui.navigator.CommonNavigatorManager$1.selectionChanged(CommonNavigatorManager.java:74)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.ui.navigator.CommonViewer.handlePostSelect(CommonViewer.java:470)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2013-05-27 18:02:00.924
+!MESSAGE Resource is out of sync with the file system: '/Test_Iter_1_Feat_2/META-INF/metadata.xml'.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:05.646
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1142)] Updating options
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:05.647
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1145)] Selected item is Optimis Cloud
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.236
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.236
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.237
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.237
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.238
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.238
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.239
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.239
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.240
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.282
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4213)] Creating Component for package Test_Iter_1_Feat_20
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.283
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.284
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testOE()eu.optimis.ide.test.iter1.feat2.TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.284
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.285
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.286
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.286
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.287
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.287
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.generateNewManifest(OptimisDeployer.java:4236)] Creating Component for package autoMethod0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.293
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:74)] Setting constraints
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.294
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:192)] Setting value for licenseTokens to Genewise
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.294
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:210)] Setting final value for licenseTokens to Genewise
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.295
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:184)] Setting Storage to 10240
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.295
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:191)] Setting Memory to 1024.0
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.296
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setConstraintsInManifest(ManifestCreation.java:195)] Setting CPU count to 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.297
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:84)] Setting signatures in product
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.297
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.ManifestCreation.setComponentDescription(ManifestCreation.java:97)] Setting Allocation and elasticity rules
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.301
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.getConstraintsElements(BuildingDeploymentFormPage.java:1239)] Element testOE()eu.optimis.ide.test.iter1.feat2.TestCE has no constraints.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.302
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:192)] Setting value for licenseTokens to Genewise
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.302
+!MESSAGE [es.bsc.servicess.ide.ConstraintsUtils.getMaxConstraints(ConstraintsUtils.java:210)] Setting final value for licenseTokens to Genewise
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.303
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.303
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.304
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:02:06.857
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer.loadDataStorageSection(OptimisDeployer.java:3530)] Data storage Encrypted Storage not found.
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.921
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.921
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.922
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.922
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.923
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.924
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.925
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.925
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:06.926
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:07.010
+!MESSAGE [es.bsc.servicess.ide.editors.BuildingDeploymentFormPage.updateDeploymentOptions(BuildingDeploymentFormPage.java:1198)] deployment options updated
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.312
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:315)] Getting Package fragment eu.optimis.ide.test.iter1.feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.312
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:317)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.313
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCEInterface(CommonFormPage.java:320)] Looking for TestCEItf.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.313
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:393)] Number of types: 1
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.315
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getDirectionsAndTypes(CommonFormPage.java:736)] Inspecting source: @Constraints(licenseTokens = "Genewise")
+	@Method(declaringClass = "TestCE", isModifier = true, isInit = false)
+	public void testCE_license(@Parameter(direction = Direction.IN)  String in);
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.316
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getCoreElements(CommonFormPage.java:569)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.317
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:339)] Comparing eu.optimis.ide.test.iter1.feat2 with eu.optimis.ide.test.iter1.feat2.TestCE
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.318
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationClass(CommonFormPage.java:342)] Looking for TestCE.java in /Test_Iter_1_Feat_2/src/eu/optimis/ide/test/iter1/feat2
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:02:13.319
+!MESSAGE [es.bsc.servicess.ide.editors.CommonFormPage.getOrchestrationElements(CommonFormPage.java:220)]  There are 1 elements to print
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:04:09.703
+!MESSAGE [es.bsc.servicess.ide.editors.deployers.OptimisDeployer$27.run(OptimisDeployer.java:4285)] writing the manifest in the file 
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:04:09.894
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:04:09.895
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:04:09.897
+!MESSAGE [es.bsc.servicess.ide.actions.CreateCoreElementAction.selectionChanged(CreateCoreElementAction.java:64)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 2 0 2013-05-27 18:04:09.898
+!MESSAGE [es.bsc.servicess.ide.actions.CreateOrchestrationElementAction.selectionChanged(CreateOrchestrationElementAction.java:61)] Selection not valid
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:04:09.909
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:04:09.955
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:04:10.426
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:04:10.499
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.001
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.006
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.011
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.014
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.073
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.135
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.142
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:06:34.146
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:06:40.277
+!MESSAGE [es.bsc.servicess.ide.editors.ServiceFormEditor$1.run(ServiceFormEditor.java:311)] Element changed refreshing data
+
+!ENTRY es.bsc.servicess.ide 1 0 2013-05-27 18:06:40.301
+!MESSAGE [es.bsc.servicess.ide.editors.ImplementationFormPage.refreshData(ImplementationFormPage.java:2329)] No service class was selected
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.325
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.328
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.330
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.334
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.374
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.435
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.485
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:11:40.490
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.252
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.270
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.301
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.305
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.342
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.368
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.380
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar
+
+!ENTRY es.bsc.servicess.ide 0 0 2013-05-27 18:14:09.382
+!MESSAGE [es.bsc.servicess.ide.DependenciesClasspathContainer.getDependencies(DependenciesClasspathContainer.java:84)] Adding dependency /home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar

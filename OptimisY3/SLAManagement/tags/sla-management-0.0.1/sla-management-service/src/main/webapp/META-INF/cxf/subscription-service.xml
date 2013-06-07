@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:jaxws="http://cxf.apache.org/jaxws"
+      xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+      xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+         http://cxf.apache.org/jaxws
+         http://cxf.apache.org/schemas/jaxws.xsd
+         http://cxf.apache.org/jaxrs
+         http://cxf.apache.org/schemas/jaxrs.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml"/>
+  <import resource="classpath:META-INF/cxf/java2wsbeans.xml"/>
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+  <jaxrs:server id="subscriptionService"
+      address="/subscriptions">
+      <jaxrs:serviceBeans>
+          <ref bean="subscription"/>
+      </jaxrs:serviceBeans>
+      <jaxrs:providers>
+        <ref bean="xmlBeansProvider"/>
+        <ref bean="uriProvider"/>
+        <ref bean="uriListProvider"/>
+        <ref bean="exceptionProvider"/>
+      </jaxrs:providers>
+  </jaxrs:server> 
+  
+  <jaxrs:server id="notificationService"
+      address="/notifications">
+      <jaxrs:serviceBeans>
+          <ref bean="notification"/>
+      </jaxrs:serviceBeans>
+        <jaxrs:providers>
+          <ref bean="xmlBeansProvider"/>
+          <ref bean="uriProvider"/>
+          <ref bean="uriListProvider"/>
+          <ref bean="exceptionProvider"/>
+        </jaxrs:providers>
+  </jaxrs:server>
+  
+  <bean id="xmlBeansProvider" class="org.apache.cxf.jaxrs.provider.XMLBeansElementProvider"/>
+  <bean id="uriProvider" class="eu.optimis.sla.notification.providers.URIProvider"/>
+  <bean id="uriListProvider" class="eu.optimis.sla.notification.providers.URIListProvider"/>
+  <bean id="exceptionProvider" class="eu.optimis.sla.notification.providers.ServiceExceptionMapper"/>
+  
+  <bean id="subscription" class="eu.optimis.sla.notification.impl.SubscriptionServiceImpl"/>
+  <bean id="notification" class="eu.optimis.sla.notification.impl.NotificationServiceImpl"/>
+  
+</beans>

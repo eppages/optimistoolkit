@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.optimis.eu/service-manager" xmlns:sm="http://www.optimis.eu/service-manager"
+	elementFormDefault="qualified">
+
+	<xs:element name="service">
+		<xs:complexType>
+		<xs:sequence>
+			<xs:element name="service_id" type="xs:string" />
+			<xs:element name="status" type="xs:string" />
+			<xs:element name="manifest_id" type="xs:string" />
+			<xs:element name="trec_monitoring" type="xs:string" />
+			<xs:element name="objective" type="xs:string" />
+			<xs:element ref="sm:infrastructure-provider" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="services">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="sm:service" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="vms">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="sm:vm" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="infrastructure-provider">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" />
+			<xs:element name="ip_address" type="xs:string" />
+			<xs:element name="sla_id" type="xs:string" />
+			<xs:element name="agreement_endpoint" type="xs:string" />
+			<xs:element name="initial_trust_value" type="xs:float" />
+			<xs:element name="initial_risk_value" type="xs:float" />
+			<xs:element name="initial_eco_value" type="xs:float" />
+			<xs:element name="initial_cost_value" type="xs:float" />
+			<xs:element ref="sm:vms" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+
+	<xs:element name="vm">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs="1"
+				maxOccurs="1" nillable="true" />
+			<xs:element name="type" type="xs:string" minOccurs="1"
+				maxOccurs="1" nillable="true "/>
+			<xs:element name="status" type="xs:string" minOccurs="1"
+				maxOccurs="1" nillable="true" />
+			<xs:element name="deployment_duration_in_ms" type="xs:int" minOccurs="1"
+				maxOccurs="1" nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>

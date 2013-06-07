@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.optimis.ee:ElasticityEngine:0.0.5-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ee/ElasticityEngine/0.0.5-SNAPSHOT/ElasticityEngine-0.0.5-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ee/ElasticityEngine/0.0.5-SNAPSHOT/ElasticityEngine-0.0.5-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ee/ElasticityEngine/0.0.5-SNAPSHOT/ElasticityEngine-0.0.5-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

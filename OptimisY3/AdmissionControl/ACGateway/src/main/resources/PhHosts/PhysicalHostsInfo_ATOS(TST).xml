@@ -1,0 +1,1 @@
+<PhysicalHosts IP_Id="atos"><PhysicalHost id="optimis1" maxCores="8" usedCores="0" maxMemoryInGigabytes="16" freeMemoryInGigabytes="16"></PhysicalHost><PhysicalHost id="optimis2" maxCores="8" usedCores="0" maxMemoryInGigabytes="16" freeMemoryInGigabytes="16"></PhysicalHost></PhysicalHosts>

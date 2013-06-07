@@ -1,0 +1,35 @@
+\/\* 
+\s\*\sCopyright \(c\) (20\d\d)(-20\d\d)?, Fraunhofer-Gesellschaft
+\s\*\sAll rights reserved.
+\s\* 
+\s\*\sRedistribution and use in source and binary forms, with or without
+\s\*\smodification, are permitted provided that the following conditions are
+\s\*\smet:
+\s\* 
+\s\*\s\(1\) Redistributions of source code must retain the above copyright
+\s\*\s*notice, this list of conditions and the disclaimer at the end.
+\s\*\s*Redistributions in binary form must reproduce the above copyright
+\s\*\s*notice, this list of conditions and the following disclaimer in
+\s\*\s*the documentation and/or other materials provided with the
+\s\*\s*distribution.
+\s\*
+\s\*\s\(2\) Neither the name of Fraunhofer nor the names of its
+\s\*\s*contributors may be used to endorse or promote products derived
+\s\*\s*from this software without specific prior written permission.
+\s\*
+\s\*\sDISCLAIMER
+\s\*
+\s\*\sTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+\s\*\s"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+\s\*\sLIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+\s\*\sA PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+\s\*\sOWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+\s\*\sSPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES \(INCLUDING, BUT NOT
+\s\*\sLIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+\s\*\sDATA, OR PROFITS; OR BUSINESS INTERRUPTION\) HOWEVER CAUSED AND ON ANY
+\s\*\sTHEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+\s\*\s\(INCLUDING NEGLIGENCE OR OTHERWISE\) ARISING IN ANY WAY OUT OF THE USE
+\s\*\sOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+\s\*
+\s\*\/
+ 

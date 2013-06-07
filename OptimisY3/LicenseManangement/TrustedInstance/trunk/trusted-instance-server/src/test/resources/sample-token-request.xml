@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lsdl:LicenseDescription version="090716" isUsedOffline="false" xmlns:lsdl="http://elasticlm.eu/schemas/2009/05/lsdl">
+  <lsdl:Application>
+    <lsdl:Name>ElasticLM Sample App</lsdl:Name>
+    <lsdl:Version>1.0</lsdl:Version>
+    <lsdl:Description>Just a sample description</lsdl:Description>
+    <lsdl:Features>
+      <lsdl:BasicFeature featureId="bfid">
+        <lsdl:Name>SAMPLE</lsdl:Name>
+        <lsdl:Version>1.0</lsdl:Version>
+        <lsdl:Value>1</lsdl:Value>
+      </lsdl:BasicFeature>
+      <lsdl:ConsumableFeature featureId="cfid">
+        <lsdl:Name>THREADS</lsdl:Name>
+        <lsdl:Version>1.0</lsdl:Version>
+        <lsdl:Value>3</lsdl:Value>
+      </lsdl:ConsumableFeature>
+    </lsdl:Features>
+  </lsdl:Application>
+  <lsdl:Reservation>
+    <lsdl:Duration>PT2H</lsdl:Duration>
+    <lsdl:EarliestStartTime>2012-02-01T13:57:48.119+02:00</lsdl:EarliestStartTime>
+    <lsdl:Deadline>2015-12-31T00:00:00</lsdl:Deadline>
+    <lsdl:ReservationStartTime>2012-02-01T13:57:48.119+02:00</lsdl:ReservationStartTime>
+    <lsdl:ReservationEndTime>2013-12-31T13:57:48.119+02:00</lsdl:ReservationEndTime>
+  </lsdl:Reservation>
+  <lsdl:Charge currency="EUR">0</lsdl:Charge>
+  <lsdl:AccountingGroup>/ElasticLM/Users</lsdl:AccountingGroup>
+  <lsdl:InputHashes>
+    <lsdl:InputHash fileName="sample-input.xml" hashAlgorithm="http://www.w3.org/2001/04/xmlenc#sha1">33babb333f0e373fa48a2f0967cbd90be72a95bc</lsdl:InputHash>
+  </lsdl:InputHashes>
+</lsdl:LicenseDescription>

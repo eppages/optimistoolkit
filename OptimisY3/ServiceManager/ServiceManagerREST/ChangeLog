@@ -1,0 +1,55 @@
+2012-04-18  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (getInfrastructureProviderIds): Do not produce
+ 'application/xml'.
+
+ * pom.xml: Bump to version 0.5-SNAPSHOT, use Core 0.5-SNAPSHOT.
+
+ * ServiceManagerREST.java (getInfrastructureProviderIds): New operation.
+
+2012-04-11  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (createService): Added more logging statements.
+
+ * ServiceManagerREST.java (getServicesHtml): Print a sub-table for each
+ infrastructure provider, as there can be multiple ones.
+
+2012-04-04  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (addIp): New method.
+
+2012-04-03  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (addVm): Typo in @Path. (deleteVm): Likewise.
+
+2012-04-02  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bump to version 0.4-SNAPSHOT, use Core 0.4-SNAPSHOT.
+
+ * ServiceManagerREST.java: Take infrastructure provider id as path parameter
+ where appropriate.
+
+2012-03-09  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (addVm): Enhanced logging.
+
+ * pom.xml: Deploy to SP environment, not IP.
+
+ * ServiceManagerREST.java: Converted System.out logging to log4j logging.
+
+ * pom.xml: Depend on log4j.
+
+2012-03-01  Roland Kuebert <kuebert@hlrs.de>
+
+ * ServiceManagerREST.java (updateVmStatus): New method. (udpateVmStatus):
+ Corrected path to /services/{serviceId}/vms/{vmId}/status.
+
+ * ServiceManagerREST.java (updateStatus): Renamed to updateServiceStatus().
+ 
+ * ServiceManagerREST.java (deleteService): Return void.
+
+2012-02-29  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bump to version 0.2-SNAPSHOT.
+ 
+ * pom.xml: Use ServiceManagerCore 0.2-SNAPSHOT.

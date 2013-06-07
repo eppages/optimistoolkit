@@ -1,0 +1,11 @@
+[
+{
+"name":"atos",
+"identifier":"atos",
+"ipAddress":"optimis-ipvm.atosorigin.es",
+"providerType":"optimis",
+"cloudQosUrl":"http://optimis-ipvm.atosorigin.es:8080/optimis-sla",
+"agreementTemplateName":"OPTIMIS-SERVICE-INSTANTIATION",
+"agreementTemplateId":"1"
+}
+]

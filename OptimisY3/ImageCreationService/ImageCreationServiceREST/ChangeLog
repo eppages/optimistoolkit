@@ -1,0 +1,103 @@
+2012-05-04  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.9-SNAPSHOT; depend on ImageCreationServiceCore
+ 0.9-SNAPSHOT.
+
+2012-05-03  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.8-SNAPSHOT; depend on ImageCreationServiceCore
+ 0.8-SNAPSHOT.
+
+ * pom.xml: Try to fix non-working deployment.
+
+2012-04-03  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.7-SNAPSHOT; depend on ImageCreationServiceCore
+ 0.7-SNAPSHOT.
+
+2012-03-22  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceREST.java (finalize): Return the URL of the finalized
+ image.
+
+ * INSTALL: Initial text added.
+ 
+ * pom.xml: Bumped to version 0.6-SNAPSHOT; depend on ImageCreationServiceCore
+ 0.6-SNAPSHOT.
+
+2012-03-15  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * pom.xml: Depend on ImageCreationServiceCore 0.5-SNAPSHOT.
+ 
+ * ImageCreationServiceREST.java (setPermissions): New method for setting
+ permissions of a file on an image.
+ 
+ * ImageCreationServiceREST.java (putZipFile): New method to extract a ZIP file
+ to an image.
+
+ * pom.xml: Bumped to version 0.5-SNAPSHOT.
+
+ * ImageCreationServiceREST.java (getImageStatus): New method to obtain only
+ the status of an image.
+
+2012-03-14  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.4-SNAPSHOT; includes putWar functionality.
+
+ * ImageCreationServiceREST.java (putWarFile): New method.
+
+ * ics.properties: Default target.directory is "optimis_service" now.
+
+2012-03-13  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * pom.xml: Deploy to SP VM instead of IP VM.
+
+ * pom.xml: Bumped to version 0.3-SNAPSHOT.
+
+2012-03-09  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceREST.java (putFile): Use temp directory and intended
+ file name instead of random file name.
+
+ * pom.xml: Bumped to version 0.2-SNAPSHOT.
+
+2012-03-06  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceREST.java (unfinalize): Updated logging statements.
+
+2012-03-05  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * ImageCreationServiceREST.java (unfinalizeImage): New method.
+ 
+ * ImageCreationServiceREST.java (flushImages): New method.
+
+2012-03-02  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * pom.xml: Set version to 0.1-SNAPSHOT.
+ 
+ * ImageCreationServiceREST.java (finalize): Catch StateChangeException.
+
+2012-02-27  Roland Kuebert  <kuebert@hlrs.de>
+ 
+ * ImageCreationServiceREST.java (listImages): Use toTextPlain() instead of
+ toString(). (listImage): Likewise.
+
+2012-02-24  Roland Kuebert  <kuebert@hlrs.de>
+
+ * web.xml: Set com.sun.jersey.config.property.packages.
+
+
+2012-02-23  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceREST.java: Use log4j for logging.
+
+2012-01-27  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Added jersey-multipart. Use version 1.11 of jersey.
+
+ * ImageCreationServiceREST.java (putMultipartFileUpload): New operation for
+ uploading files to a VM image.
+
+2012-01-25  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationServiceREST.java: Started with implementation.

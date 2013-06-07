@@ -1,0 +1,43 @@
+optimis-sla-management 0.0.2-SNAPSHOT
+--------------------------------------------------
+
+Requirements
+------------
+Java 1.6
+
+Configuration
+-------------
+
+One needs to run a configure script before starting and using any of the services.
+This script is located in the root directory of the distribution and is called 
+configure.py. You can run it as follows:
+
+./configure.py configurations/configure.properties
+
+It uses settings from configure.properties, which you may want to review before running it. 
+
+Starting and Stopping Services
+------------------------------
+
+All optimis-sla services can be started using the start.sh script
+
+./start.sh
+
+and can be stopped by the stop.sh script
+
+./stop.sh
+
+The services are
+
+- optimis-sla-server
+
+You can choose which services you want to start/stop through configure.properties
+
+The tail-services.sh script can be used to tail the services log files 
+
+./tail-services.sh
+
+The clean-dist-dir.sh script can be used to clean logs and other files. Please be aware that this
+script also removes stored agreements in sla server
+
+./clean-dist-dir.sh . 

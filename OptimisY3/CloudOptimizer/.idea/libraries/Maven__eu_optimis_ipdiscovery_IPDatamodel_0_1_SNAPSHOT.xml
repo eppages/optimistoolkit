@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.optimis.ipdiscovery:IPDatamodel:0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ipdiscovery/IPDatamodel/0.1-SNAPSHOT/IPDatamodel-0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ipdiscovery/IPDatamodel/0.1-SNAPSHOT/IPDatamodel-0.1-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/ipdiscovery/IPDatamodel/0.1-SNAPSHOT/IPDatamodel-0.1-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MonitoringResources>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>machine_type</metric_name>
+    <metric_value>i386</metric_value>
+    <metric_unit />
+    <metric_timestamp>Tue Apr 09 12:05:18 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>vm_status</metric_name>
+    <metric_value>running</metric_value>
+    <metric_unit />
+    <metric_timestamp>Tue Apr 09 12:05:18 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>mem_total</metric_name>
+    <metric_value>613</metric_value>
+    <metric_unit>MB</metric_unit>
+    <metric_timestamp>Tue Apr 09 12:05:18 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>cpu_speed</metric_name>
+    <metric_value>1100</metric_value>
+    <metric_unit>MHz</metric_unit>
+    <metric_timestamp>Tue Apr 09 12:05:18 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>cpu_vnum</metric_name>
+    <metric_value>1</metric_value>
+    <metric_unit />
+    <metric_timestamp>Tue Apr 09 12:05:18 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>os_release</metric_name>
+    <metric_value>linux</metric_value>
+    <metric_unit />
+    <metric_timestamp>Tue Apr 09 12:05:19 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+  <monitoring_resource>
+    <physical_resource_id>optimisaws001</physical_resource_id>
+    <metric_name>disk_total</metric_name>
+    <metric_value>8</metric_value>
+    <metric_unit>GB</metric_unit>
+    <metric_timestamp>Tue Apr 09 12:05:19 CEST 2013</metric_timestamp>
+    <service_resource_id>d3f64f3f-c57b-460c-97d4-9b84c576c397</service_resource_id>
+    <virtual_resource_id>i-aa7dbde0</virtual_resource_id>
+    <resource_type>virtual</resource_type>
+    <monitoring_information_collector_id>aws001</monitoring_information_collector_id>
+  </monitoring_resource>
+</MonitoringResources>

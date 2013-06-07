@@ -1,0 +1,88 @@
+
+FUNCTION_BLOCK utilityAspect	
+
+VAR_INPUT
+	risk : REAL;
+	security : REAL;
+	elasticityRules : REAL;
+	performanceGap : REAL;
+	reliability : REAL;
+	legal : REAL;
+END_VAR
+
+VAR_OUTPUT
+	trust : REAL;
+END_VAR
+
+FUZZIFY risk			
+	TERM veryLow := gauss 0 1; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1; 
+END_FUZZIFY
+
+FUZZIFY security			
+	TERM tooLow := gauss 0 1; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1; 
+END_FUZZIFY
+
+FUZZIFY elasticityRules			
+	TERM veryClose := gauss 0 1; 
+	TERM close := gauss 1.25 1;
+	TERM normal := gauss 2.5 1;
+	TERM far := gauss 3.75 1;
+	TERM veryFar := gauss 5 1; 
+END_FUZZIFY
+
+FUZZIFY performanceGap			
+	TERM veryLow := gauss 0 1; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1; 
+END_FUZZIFY
+
+FUZZIFY reliability			
+	TERM tooLow := gauss 0 1; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1; 
+END_FUZZIFY
+
+FUZZIFY legal			
+	TERM tooLow := gauss 0 1; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1; 
+END_FUZZIFY
+
+DEFUZZIFY trust
+	TERM veryLow := gauss 0 1.25; 
+	TERM low := gauss 1.25 1;
+	TERM medium := gauss 2.5 1;
+	TERM high := gauss 3.75 1;
+	TERM veryHigh := gauss 5 1.25;
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 2.5;		// Default value is 2.5 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or')
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF (performanceGap IS veryLow AND security IS veryHigh) AND (reliability IS veryHigh AND legal is veryHigh) THEN trust IS veryHigh;
+	RULE 2 : IF (security IS high AND legal IS high) AND (performanceGap IS low AND risk IS veryLow) THEN trust IS high;
+	RULE 3 : IF ((security IS high AND legal IS medium) OR (security IS medium AND legal IS high)) AND ((performanceGap IS low OR (performanceGap IS medium AND (reliability IS high OR reliability IS veryHigh))) AND (risk IS low OR risk IS medium)) THEN trust IS medium;
+	RULE 4 : IF (legal IS low OR security IS low) AND ((performanceGap IS medium OR (performanceGap IS high AND (reliability IS medium OR reliability IS high))) AND (risk IS high OR risk IS medium)) THEN trust IS low;
+	RULE 5 : IF (legal IS tooLow OR security IS tooLow) AND ((performanceGap IS veryHigh OR (performanceGap IS high AND (reliability IS NOT tooLow OR reliability IS NOT low))) AND risk IS veryHigh) THEN trust IS veryLow;		
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
+

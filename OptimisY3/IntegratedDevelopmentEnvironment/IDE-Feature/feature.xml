@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="IDEFeature"
+      label="IDEFeature"
+      version="1.1.0.qualifier"
+      provider-name="Barcelona Supercomputing Center">
+
+   <description url="http://www.optimis-project.eu">
+      This feature provides an integrated development environment for developing Cloud applications using the OPTIMIS Cloud programming model.
+   </description>
+
+   <copyright url="http://www.bsc.es">
+      Copyright 2011-2013  
+Barcelona Supercomputing Center - Centro Nacional de Supercomputación
+
+Authors:
+Jorge Ejarque, Raul Sirvent, Rosa M. Badia
+
+Grid Computing and Cluster Group.
+Computer Science Department.
+   </copyright>
+
+   <license url="http://www.apache.org/licenses/LICENSE-2.0">
+      This software is licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and limitations under the License.
+   </license>
+
+   <plugin
+         id="IDE"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

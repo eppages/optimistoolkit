@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<xs:schema
+    targetNamespace="http://schemas.optimis.eu/trec/blo"
+    xmlns:blo="http://schemas.optimis.eu/trec/blo"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+    
+    <xs:element name="BusinessDescription">
+        <xs:complexType>
+            <xs:sequence>                
+                <xs:element name="Objective" minOccurs="1" maxOccurs="1" type="blo:Objective"/>
+                <xs:element name="Constraints" minOccurs="0" maxOccurs="1" type="blo:Constraints"/>
+            </xs:sequence>        
+            <xs:attribute name="sender" type="xs:anyURI" use="required"/>                
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Constraints">
+        <xs:sequence>
+            <xs:element name="TrustGreaterThan" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="RiskLessThan" minOccurs="0" maxOccurs="1" type="xs:int"/>
+            <xs:element name="EcoGreaterThan" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="EnergyEfficiencyGreaterThan" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="CostLessThan" minOccurs="0" maxOccurs="1" type="xs:double"/>
+        </xs:sequence>    
+        <!--xs:attribute name="weight" type="xs:double"/-->
+    </xs:complexType>   
+    
+    <xs:complexType name="Objective">
+        <!--xs:sequence>
+            <xs:element name="Trust" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="Risk" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="Eco" minOccurs="0" maxOccurs="1" type="xs:double"/>
+            <xs:element name="Cost" minOccurs="0" maxOccurs="1" type="xs:double"/>
+        </xs:sequence-->
+        <xs:attribute name="type" use="required" type="blo:ObjectiveType"/>
+        <!--xs:attribute name="weight" type="xs:double"/-->
+    </xs:complexType>
+    
+    <xs:simpleType name="ObjectiveType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MaxEco"/>
+            <xs:enumeration value="MaxEnergyEff"/>
+            <xs:enumeration value="MaxTrust"/>
+            <xs:enumeration value="MinCost"/>
+            <xs:enumeration value="MinRisk"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

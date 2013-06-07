@@ -1,0 +1,234 @@
+#!/usr/bin/env ruby
+require 'net/http'
+require 'uri'
+require 'rubygems'
+require "rexml/document"
+include REXML
+    
+
+puts "OPTIMIS - DataManager Y2 Test Suite"
+
+numArgs = ARGV.size
+
+if numArgs != 2
+  puts "Usage: OPTIMIS_DM_test_suite-Y2 -run <testID>"
+  exit
+end
+
+if ARGV[0] != "-run"
+  puts "Usage: OPTIMIS_DM_test_suite-Y2 -run <testID>"
+  exit
+end
+
+testID = ARGV[1]
+
+def time_method(method=nil, *args)
+  beginning_time = Time.now
+  if block_given?
+    yield
+  else
+    self.send(method, args)
+  end
+  end_time = Time.now
+  puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
+end
+ 
+
+#######################################
+
+def tc_dm_5_1()
+ puts "\nTC_DM_5.1: Configurable management of reliability"
+
+ riskProp = File.open('riskproposal.xml', 'r') { |file| file.read }
+
+time_method do
+
+  url = URI.parse('http://213.27.211.117:8080/DataManagerAPI/Notify')
+  http = Net::HTTP.new(url.host, url.port)
+  req = Net::HTTP::Post.new(url.path)
+  req.set_form_data({'RiskProposal' => riskProp})
+  res = Net::HTTP.new(url.host, url.port).start { http.request(req) }
+  
+  case res
+    when Net::HTTPSuccess, Net::HTTPRedirection
+       puts res.body
+       puts "Success"
+    else
+      puts res.error!
+      puts "Failure"
+    end
+
+end
+
+end
+
+def tc_dm_7_1()
+    puts "\nTC_DM_7.1: Monitoring of location of user data"
+    puts "Login to http://213.27.211.117:8080/monitor/"
+    puts "Use ServiceID = btagent"
+    puts "Success: if you can see on the map blocks of data"
+end
+
+
+def tc_dm_8_1()
+  puts "\nTC_DM_8.1: User-defined geographic location for data"
+  puts "\nChoose location: "
+  puts "1. Sweden"
+  puts "2. Spain"
+  puts "3. UK"
+
+  puts "prompt> "
+  country =  $stdin.gets.chomp
+  sid = "progModelService"
+
+  case country
+   when "1"
+    code = "SWE"
+   when "2"
+     code = "ESP"
+   when "3"
+     code = "GBR"
+   else
+    puts "Wrong Choise!"
+    exit
+  end
+
+  params = { :sid => sid }
+
+time_method do
+
+  uri = URI("http://213.27.211.117:8080/DataManagerAPI/risk/parameters?sid=#{sid}")
+
+  req = Net::HTTP::Get.new(uri.path)
+  res = Net::HTTP.start(uri.host, uri.port) {|http|
+    http.request(req)
+  }
+  xml = res.body
+
+  violation = false
+  doc = Document.new(xml)
+  doc.elements.each("service/id/storagevm/location") { |element|
+   if element.text.strip != code
+      puts "Data Location Violation: Found data at #{element.text.strip}"  
+      violation = true
+   end
+  }
+
+   if violation == true
+     puts "Found Data Location Violation"
+   else
+     puts "No Violation for the Data Location"
+     puts "Success"
+   end
+
+end
+
+end  
+
+
+def tc_dm_9_1()
+ puts "\nTC_DM_9.1: Access to the DFS from the service VMS" 
+
+ puts "mount datamanager storage..."
+ mount_storage = `./optimis-mount`
+ `g++ -o write write_file.cpp`
+ `g++ -o read read_file.cpp`
+
+  puts "\nWriting 1MB of unbuffered Data to DM Storage..."
+  time_method do
+   `./write`
+  end
+
+  puts "\nReading 1MB of unbuffered Data from DM Storage..."
+  time_method do
+   `./read`
+  end
+ 
+ puts "\nUmount datamanager storage..."   
+end
+
+def tc_dm_11()
+ puts "\nTC_DM_11: VPN deployment between storage node VMs"
+ sid = "progModelService"
+ params = { :sid => sid }
+
+ time_method do
+ uri = URI("http://213.27.211.117:8080/DataManagerAPI/risk/parameters?sid=#{sid}")
+ req = Net::HTTP::Get.new(uri.path)
+ res = Net::HTTP.start(uri.host, uri.port) {|http|
+    http.request(req)
+  }
+  
+ xml = res.body
+
+ doc = Document.new(xml)
+ doc.elements.each("service/id/storagevm/ip") { |element|
+    puts element.text
+  }
+
+ end
+
+end
+
+def tc_dm_12_1()
+ puts "\nTC_DM_12.1: Encrypted storage at rest integration"
+
+ `g++ -o write-secure write_secure_file.cpp`
+ `g++ -o read-secure  read_secure_file.cpp`
+
+  puts "\nWriting 1MB of unbuffered Data to secure DM Storage..."
+  time_method do
+   `./write-secure`
+  end
+
+  puts "\nReading 1MB of unbuffered Data from secure DM Storage..."
+  time_method do
+   `./read-secure`
+  end
+end
+
+def tc_dm_16_1()
+  puts "TC_DM_16.1: Cloud Provider Description Schema validation and retrieval"
+
+  time_method do
+    uri = URI("http://213.27.211.117:8080/DataManagerAPI/risk/cloudproviderdescription")
+    req = Net::HTTP::Get.new(uri.path)
+    res = Net::HTTP.start(uri.host, uri.port) { |http|
+    http.request(req)
+  }
+  xml = res.body
+
+  puts xml
+ end
+
+end
+
+#######################################
+
+case testID
+ when "TC_DM_5.1"
+   tc_dm_5_1()
+
+ when "TC_DM_7.1"
+   tc_dm_7_1()
+  
+ when "TC_DM_8.1"
+   tc_dm_8_1()
+
+ when "TC_DM_9.1"
+   tc_dm_9_1()
+
+ when "TC_DM_11"
+   tc_dm_11()
+
+ when "TC_DM_12.1"
+   tc_dm_12_1()
+
+ when "TC_DM_16.1"
+   tc_dm_16_1()
+
+else
+  puts "Error: Uknown Test ID"
+  exit
+end
+

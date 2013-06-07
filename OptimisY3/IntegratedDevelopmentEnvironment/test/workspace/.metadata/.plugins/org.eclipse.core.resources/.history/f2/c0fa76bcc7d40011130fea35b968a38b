@@ -1,0 +1,7 @@
+package eu.optimis.ide.test;
+
+import integratedtoolkit.types.annotations.Constraints;
+import integratedtoolkit.types.annotations.Method;
+
+public interface TestServiceItf{
+}

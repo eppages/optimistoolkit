@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>eu.optimis.servicemanifest</groupId>
+      <artifactId>ServiceManifest</artifactId>
+      <version>1.0.2</version>
+   </parent>
+
+   <groupId>eu.optimis.servicemanifest</groupId>
+   <artifactId>service-manifest-jaxb</artifactId>
+   <version>1.0.2</version>
+   <name>service-manifest-jaxb</name>
+   <url>http://maven.apache.org</url>
+   <properties>
+      <schema-dir>target/schema-resources/</schema-dir>
+   </properties>
+
+   <build>
+      <defaultGoal>install</defaultGoal>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>get optimis schemas</id>
+                  <phase>generate-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>eu.optimis.servicemanifest</groupId>
+                           <artifactId>service-manifest-schema</artifactId>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <outputDirectory>${schema-dir}</outputDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.jvnet.jaxb2.maven2</groupId>
+            <artifactId>maven-jaxb2-plugin</artifactId>
+            <version>0.8.0</version>
+            <executions>
+               <execution>
+                  <id>process schemas</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>generate</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <!-- the package for the generated java classes -->
+               <!--<generatePackage>eu.optimis.servicemanifest.types.jaxb</generatePackage>-->
+               <schemaDirectory>${schema-dir}</schemaDirectory>
+
+               <extension>true</extension>
+               <!-- whether old output should be removed, this field should generally be set to "true" -->
+               <removeOldOutput>true</removeOldOutput>
+               <!-- generate lots of output -->
+               <verbose>true</verbose>
+               <catalog>${schema-dir}/catalog/resolver-catalog.xml</catalog>
+               <bindingDirectory>src/main/xjb</bindingDirectory>
+            </configuration>
+
+            <dependencies>
+               <dependency>
+                  <groupId>xerces</groupId>
+                  <artifactId>xercesImpl</artifactId>
+                  <version>2.11.0-patch</version>
+               </dependency>
+               <dependency>
+                  <groupId>xml-apis</groupId>
+                  <artifactId>xml-apis</artifactId>
+                  <version>1.4.01</version>
+               </dependency>
+            </dependencies>
+
+         </plugin>
+
+
+      </plugins>
+   </build>
+
+   <repositories>
+      <repository>
+         <id>packcs</id>
+         <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+         <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+         </releases>
+         <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+         </snapshots>
+      </repository>
+   </repositories>
+
+   <dependencies>
+      <dependency>
+         <artifactId>jaxb-api</artifactId>
+         <groupId>javax.xml.bind</groupId>
+         <version>2.2</version>
+      </dependency>
+      <dependency>
+         <artifactId>jaxb-impl</artifactId>
+         <groupId>com.sun.xml.bind</groupId>
+         <version>2.1.12</version>
+      </dependency>
+      <dependency>
+         <groupId>eu.optimis.servicemanifest</groupId>
+         <artifactId>service-manifest-schema</artifactId>
+         <version>1.0.2</version>
+      </dependency>
+
+   </dependencies>
+
+</project>

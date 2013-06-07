@@ -1,0 +1,169 @@
+#include("./header.apt.vm")
+
+%{toc|section=1|fromDepth=2|toDepth=3}
+
+* Initialization
+
+    The Service Provider initializes a new Manifest by providing the ServiceId and the initial components Id. This will
+    create a manifest with one virtual machine component and default rules for this component.
+
++-------+
+        eu.optimis.manifest.api.sp.Manifest manifest =
+            eu.optimis.manifest.api.sp.Manifest.Factory.newInstance("OptimisDemoService", "jboss");
++-------+
+
+    The snippet above will create a service manifest with default properties applied (see next section on the default
+    property file). You can use your own properties file to create your individual manifest like this:
+
+%{snippet|id=manifestWithPropertyFile|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/ManifestConstructionTest.java}
+
+** Property File
+
+    The default property file looks like the snipped below. Only the values specified here have any effects to the
+    created manifest.
+
++-------+
+    #virtual system
+    vmImageFile=
+    vmImageFormat=http://www.gnome.org/~markmc/qcow-image-format.html
+    vmImageCapacity=1
+    contextualizationImageFile=
+    contextualizationImageFormat=http://www.gnome.org/~markmc/qcow-image-format.html
+    contextualizationImageCapacity=1
+    numberOfVirtualCPUs=1
+    operatingSystemId=76
+    operatingSystemDescription=Microsoft Windows Server 2008
+    virtualHardwareFamily=xen
+    memorySize=1024
+    cpuSpeed=500
+
+    #allocation constraints
+    maxNumberOfInstances=1
+    minNumberOfInstances=1
+    initialNumberOfInstances=1
+
+    #affinity constraints between vm instances
+    affinityConstraints=Low
+
+    #TREC section
+    trustLevel=5
+    riskLevel=1
+    ecoLEEDCertification=NotRequired
+    ecoBREEAMCertification=NotRequired
+    ecoEuCoCCompliant=false
+    ecoEnergyStarRating=No
+    costCurrency=EUR
+    costPlanCap=0.0
+    costPlanFloor=0.0
+
+    #Data Protection
+    dataProtectionLevel=DPA
+    encryptionAlgorithm=AES
+
+    #SP extensions
+    securityVPN=false
+    securitySSH=false
++-------+
+
+
+* Virtual Machine Component
+
+    We need to add/set values in the initial jboss component. At first, we are going to configure the initial jboss
+    component's OVF image description. Then we will set allocation constraints for the components vm instances.
+
+** OVF Image Description
+
+%{snippet|id=vmComponentInitialization|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+** Allocation Constraints
+
+    To specify the initial, minimum and maximum number of incarnated instances of a component, you have to specify the
+    allocation constraints for a component. By default these values are set to 1.
+
++-------+
+        jbossComponent.getAllocationConstraints().setUpperBound(17);
+        jbossComponent.getAllocationConstraints().setLowerBound(1);
+        jbossComponent.getAllocationConstraints().setInitial(3);
++-------+
+
+** Affinity between Component Instances
+
+    To set the affinity between incarnated component instances you simply have to set the affinity constraint
+    for this component. The affinity constraint is set to "Low" by default.
+
++-------+
+        manifest.getVirtualMachineDescriptionSection().getVirtualMachineComponentById("jboss")
+            .setAffinityConstraints("High");
++-------+
+
+** Add Virtual Machine Components
+
+    As a service can comprise more than one component, it is possible to add other components.
+
+%{snippet|id=AddComponents|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+** Affinity between Components
+
+    Set affinity constraints between jboss and mysql to "High"
+
+%{snippet|id=affinityConstraints|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+* TREC
+
+
+    The trec values are initialized to default values. The SP can of course change those initial values:
+
+%{snippet|id=TRECValues|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+* Elasticity
+
+%{snippet|id=elasticityY1|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+##    By default, elasticity is set to '''SPManagedElasticity'''. In this case there is no need for the IP to do any
+##    elasticity actions.
+##
+##    Otherwise, the SP has to specify Variables and Rules for intended elasticity actions.
+##    Example: The SP wants that the component is scaled up if the provided availability does not fulfill the required
+##    availability specified in the manifest.
+##
+##    First we add two variables, required and provided availability, those can be used to evaluate the expression in the rules.
+##
+##+-------+
+##        // internal: the location is an xpath expression which directs to a variable in our manifest document
+##        manifest.getElasticitySection().addNewInternalVariable("REQ_AVAILABILITY", "int",
+##            "//opt:RiskSection/opt:AvailabilityArray/Availability[@opt:assessmentInterval='P1D']");
+##
+##        // external: the url to a monitoring interface which monitors the actual value of our variable
+##        manifest.getElasticitySection().addNewExternalVariable("PROVIDED_AVAILABILITY", "int",
+##            "http://my-monitoring-system.org/DemoApp/system-jboss/availability");
+##+-------+
+##
+##    Now we add a rule named "MinAvailability" which uses the variables we defined previously to indicate that the
+##    required availability of the jboss component has to be less or equal the provided availability within a specified
+##    window of 1 day. If this rule is violated, the action is "scaleUp".
+##
+##+-------+
+##        ElasticityRule rule = manifest.getElasticitySection().addNewRule("jboss", "MinAvailability");
+##        rule.getCondition().setExpression("REQ_AVAILABILITY le PROVIDED_AVAILABILITY");
+##        rule.getCondition().getAssessmentCriteria().setFrequency(1);
+##        rule.getCondition().getAssessmentCriteria().setWindow("P1D");
+##        rule.getEffect().setAction("scaleUp");
+##        rule.getEffect().setImportance(10);
+##+-------+
+
+* Data Protection
+
+%{snippet|id=dataProtection|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+* Validation
+
+    Before you can export your manifest, you should validate the document to make sure
+    you made no mistakes in construction.
+
+%{snippet|id=manifestValidation|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+

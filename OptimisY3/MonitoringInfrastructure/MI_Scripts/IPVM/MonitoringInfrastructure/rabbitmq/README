@@ -1,0 +1,223 @@
+Author: Anthony Sulistio
+Date: 2 October 2012
+
+                    Installation of RabbitMQ on CentOS 6.3
+
+
+Software requirements and their minimum version number:
+- python 2.7
+- python modules: pycurl 7.19.0 and pika 0.9.5
+- curl and libcurl 7.19.0
+- Erlang R14B04
+- RabbitMQ 2.8.7
+
+If you have an older version of CentOS (e.g. 5.8), you may need to install Python 2.7 
+and Erlang from source, due to older versions of python and curl packages. 
+The explanations are given at the end of this file.
+
+Follow these steps to install RabbitMQ on CentOS 6.3:
+* Enable EPEL.
+  $ rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm
+
+* Make sure Python 2.7 is installed. If not, see below on how to install Python 2.7 and
+  its modules (pika and pycurl).
+
+* Install the python client for RabbitMQ.
+  $ yum install python-pip
+  $ pip-python install pika==0.9.5
+  $ pip-python install pycurl==7.19.0
+
+* Enable the Erlang repository.
+  $ wget -O /etc/yum.repos.d/epel-erlang.repo http://repos.fedorapeople.org/repos/peter/erlang/epel-erlang.repo
+
+* Install Erlang. 
+  $ yum install erlang
+
+  NOTE: If installation fails due to the wxWidgets package dependency, then
+  you need to install Erlang from source. The installation steps can be found
+  at the end of this file.
+
+* Install rabbitmq-server. This assumes Erlang has been installed.
+  $ rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+  $ yum install rabbitmq-server-2.8.7-1.noarch.rpm
+  -- OR --
+  $ wget http://www.rabbitmq.com/releases/rabbitmq-server/v2.8.7/rabbitmq-server-2.8.7-1.noarch.rpm
+  $ rpm -i --nodeps rabbitmq-server-2.8.7-1.noarch.rpm
+
+* RabbitMQ needs by default a free space >= 1 GB. If you do not have this free space on your server, then change the default value to something smaller:
+  $ cd /etc/rabbitmq/
+
+  Open rabbitmq.config (or create it). Then, set the disk free limit to 5MB for example. 
+  Note: the dot or "." at the end is needed.
+  $ vim rabbitmq.config  -- then type below:  
+    [{rabbit, [{disk_free_limit, 5000000}]}].
+
+* Start RabbitMQ.
+  $ /etc/init.d/rabbitmq-server start
+  
+* To automatically start RabbitMQ upon restart or reboot 
+  $ chkconfig rabbitmq-server on
+  
+* To test the RabbitMQ installation, run the provided simple example by using python2.7.
+  This script sends one message to RabbitMQ, so try running it multiple times.
+  $ python2.7 test_send_msg.py
+  $ python2.7 test_send_msg.py
+
+  Then run another script to retrieve the messages stored in the queue.
+  $ python2.7 test_get_msg.py
+
+
+------------------------------------
+To run the Monitoring Infrastructure's RabbitMQ scripts:
+- Create the following directories: 
+  $ install -d /opt/optimis/MonitoringInfrastructure/var/energy 
+  $ install -d /opt/optimis/MonitoringInfrastructure/var/physical
+  $ install -d /opt/optimis/MonitoringInfrastructure/var/virtual
+  $ install -d /opt/optimis/MonitoringInfrastructure/var/service
+
+- Populate the directories with XML files.
+
+- Make sure the /opt/optimis/MonitoringInfrastructure/share/database.properties file exists. 
+  The contents of this file must have the MI database connection details, e.g.
+    SQLHOST=localhost
+    SQLUSER=test
+    SQLPASSWORD=abc123
+    SQLDATABASE=optimis_db
+
+- Open a terminal and type:
+  $ python sender.py &
+
+  By default, it will send messages to a queueing system every 30 seconds.
+
+- Open a terminal and type:
+  $ python receiver.py &
+
+Useful RabbitMQ commands:
+$ rabbitmqctl list_queues
+$ rabbitmqctl list_connections
+
+------------------------------------
+Python 2.7 INSTALLATION
+
+Follow these steps:
+- install the following package dependencies:
+  $ yum install gcc zlib zlib-devel python-setuptools readline-devel
+
+- download and install python
+  $ wget http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
+  $ tar -xzvf Python-2.7.2.tgz
+  $ cd Python-2.7.2
+
+- specify the installation directory 
+  $ ./configure --prefix=/usr/local
+  OR
+  $ ./configure --prefix=/opt        
+  $ make altinstall
+
+- make a symbolic link for python2.7 executable or set the PATH
+  $ ln -s /usr/local/bin/python2.7 /usr/bin
+  OR
+  $ ln -s /opt/bin/python2.7 /usr/bin
+
+- test the python installation by typing:
+  $ python2.7 -V
+
+- install setuptools such that new modules can be installed easily
+  $ wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg
+  $ sh setuptools-0.6c11-py2.7.egg
+
+- install pika which is a python client for RabbitMQ. This is done through python-pip
+  $ python2.7 -m easy_install pip
+  $ pip-2.7 install pika==0.9.5
+
+- install pycurl which is needed to send POST message to Aggregator
+  $ pip-2.7 install pycurl==7.19.0
+
+  NOTE: if the pycurl installation fails due to older version of curl and libcurl
+  (as happens in CentOS 5.8), then you need to install the dependencies manually,
+  as described below.
+
+
+------------------------------------
+Curl, libcurl and pycurl INSTALLATION
+
+- remove curl and libcurl installation (if they are less than version 7.19.0), 
+  and other lib dependency packages like libidn, libssh2, libcurl ...
+  $ rpm -qa | grep curl
+  $ yum remove python-pycurl curl curl-dev libcurl libcurl-devel
+  $ yum remove libidn libidn-devel libssh2 libssh2-devel
+
+- install openssl-devel package
+  $ yum install openssl-devel
+
+- download all the relevant packages. Note this is only for CentOS 5.8 / RedHat 5.
+  For i386: (You can select the whole block - then copy and paste to terminal. It will download the whole thing)
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/curl-7.27.0-3.1.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl-7.27.0-3.1.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl-devel-7.27.0-3.1.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl7112-7.11.2-23.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/c-ares-1.9.1-3.0.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libcares140-1.4.0-4.0.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libidn-1.25-3.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libidn-devel-1.25-3.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libssh2-1.4.2-3.0.cf.rhel5.i386.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libssh2-devel-1.4.2-3.0.cf.rhel5.i386.rpm
+
+  For x86_64:
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/curl-7.27.0-3.1.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl-7.27.0-3.1.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl-devel-7.27.0-3.1.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/sysutils/Mirroring/libcurl7112-7.11.2-23.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/c-ares-1.9.1-3.0.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libcares140-1.4.0-4.0.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libidn-1.25-3.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libidn-devel-1.25-3.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libssh2-1.4.2-3.0.cf.rhel5.x86_64.rpm
+    wget http://mirror.city-fan.org/ftp/contrib/libraries/libssh2-devel-1.4.2-3.0.cf.rhel5.x86_64.rpm
+
+- install the packages in this following order:
+    rpm -Uvh libidn-*
+    rpm -Uvh libssh2-* libcares140-* c-ares-* 
+    rpm -Uvh libcurl* curl-*
+
+- apparently, there is a minor bug in the curl-config. So, modify the script.
+  $ vim /usr/bin/curl-config
+    -- line 138: change the paranthesis from "(" to "}"
+       $(CPPFLAG_CURL_STATICLIB) to ${CPPFLAG_CURL_STATICLIB}
+
+- finally, pycurl can be installed
+  $ pip-2.7 install pycurl==7.19.0
+
+- test the pycurl installation by downloading these scripts:
+    wget http://pycurl.cvs.sourceforge.net/viewvc/pycurl/pycurl/tests/test_getinfo.py
+    wget http://pycurl.cvs.sourceforge.net/viewvc/pycurl/pycurl/tests/test_post.py
+    wget http://pycurl.cvs.sourceforge.net/viewvc/pycurl/pycurl/examples/basicfirst.py
+
+  and then run them:
+  $ python2.7 test_getinfo.py
+  $ python2.7 test_post.py
+  $ python2.7 basicfirst.py
+
+
+------------------------------------
+Erlang INSTALLATION
+
+Follow these steps:
+- install the following package dependencies:
+  $ yum install openssl-devel unixODBC unixODBC-devel libxslt ncurses-devel
+
+- download Erlang
+  $ wget http://www.erlang.org/download/otp_src_R14B04.tar.gz
+  $ tar zxvf otp_src_R14B04.tar.gz 
+  $ cd otp_src_R14B04
+
+- install Erlang
+  $ ./configure
+  $ make
+  $ make install
+
+- make a symbolic link for 'erl' executable or set the PATH
+  $ ln -s /usr/local/bin/erl /usr/bin/
+
+NOTE: Apache fop and wxWidgets can be ignored, since both are needed only for 
+documentation and GUI, respectively.

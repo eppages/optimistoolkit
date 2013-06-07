@@ -1,0 +1,9 @@
+<opt:PriceComponent xmlns:opt="http://schemas.optimis.eu/optimis/" opt:componentCap="0.0" opt:componentFloor="0.0">
+    <opt:Name>${name}</opt:Name>
+    <opt:PriceLevel>
+        <opt:PriceType>USAGE</opt:PriceType>
+        <opt:Name></opt:Name>
+        <opt:AbsoluteAmount>0.0</opt:AbsoluteAmount>
+        <opt:Multiplier>Hr</opt:Multiplier>
+    </opt:PriceLevel>
+</opt:PriceComponent>

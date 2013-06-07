@@ -1,0 +1,3 @@
+# m h  dom mon dow   command 
+# Monthly, on the 2nd day at 01:00
+0 1 2 * * /opt/optimis/MonitoringInfrastructure/database/database_maintenance.sh 1>/opt/optimis/MonitoringInfrastructure/logs/database_maintenance.log 2>&1

@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>eu.optimis</groupId>
+    <artifactId>EcoEfficiencyToolPackage</artifactId>
+    <version>3.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>EcoEfficiencyTool</name>
+    <url>http://www.optimis-project.eu/</url>
+    <parent>
+        <groupId>eu.optimis</groupId>
+        <artifactId>optimis-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../optimis-parent/pom.xml</relativePath>
+    </parent>
+  	
+  	<!--repositories>
+		<repository>
+  			<id>maven2-repository.java.net</id>
+  			<name>Java.net Repository for Maven</name>
+	  		<url>http://download.java.net/maven/2/</url>
+  			<layout>default</layout>
+		</repository>
+	</repositories-->
+	
+	<!--build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <source>1.5</source>
+                <target>1.5</target>
+            	</configuration>
+        	</plugin>
+    	</plugins>
+    </build-->
+    <modules>
+        <module>EcoEfficiencyToolDBIP</module>
+        <module>EcoEfficiencyToolCoreIP</module>
+        <module>EcoEfficiencyToolRESTIP</module>
+        <module>EcoEfficiencyToolDBSP</module>
+        <module>EcoEfficiencyToolCoreSP</module>
+        <module>EcoEfficiencyToolRESTSP</module>
+        <module>EcoEfficiencyToolRESTClient</module>
+    </modules>
+</project>

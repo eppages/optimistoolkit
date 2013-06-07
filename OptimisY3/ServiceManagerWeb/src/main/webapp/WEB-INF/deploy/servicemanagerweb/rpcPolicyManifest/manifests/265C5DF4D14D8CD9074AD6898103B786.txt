@@ -1,0 +1,2 @@
+serviceClass: eu.optimis.sm.gui.client.ServiceManagerWebService
+path: 355F0B776D7E65F7BA0DDBB46799325E.gwt.rpc

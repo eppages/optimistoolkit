@@ -1,0 +1,152 @@
+<?page title="SDO GUI"?>
+
+<window title="Service Deployment Optimizer GUI" border="normal" 
+	width="800px" apply="eu.optimis.demogui.sdo.frontend.GuiComposer">
+	<zk>
+		<style dynamic="true">.comet-news { color: #0A94F3; }</style>
+		<label>Use the below controls to deploy a service in the infrastructure. </label>
+
+		<vbox>
+			<space />
+
+<!-- 			<window border="normal">  -->	
+				<box>	
+					<label multiline="true">
+						To run the SDO, a properties file is required. An example file can be found below:
+					</label>
+					<a href="sdo.example.properties" target="_blank"
+						label="sdo.properties">
+					</a>
+				</box>
+
+				<space />
+				<box>
+					<label>If no file is specified, a default file will be used, and it should be located in:
+					</label>
+					<label style="color:blue" 
+							onCreate='
+							String host="@Server";
+							try
+							{
+								host = java.net.InetAddress.getLocalHost().getHostName().toUpperCase();
+							} 
+							catch(Exception e)
+							{
+								System.err.println("Warning: UnknownHostException Ignored! Message: "+e.getMessage());
+							}
+							self.setValue(host+":/opt/optimis/etc/sdo/sdo.properties");
+					'/>
+				</box>
+				<space />
+				<box>
+					<label multiline="true">
+						To use a user-specified properties file, you have to use the below controls to upload.
+						More info about the configuration could be found at: 				
+					</label>
+					<a href="https://bscw.scai.fraunhofer.de/bscw/bscw.cgi/330000">configuration guide</a>
+				</box>
+				
+<!-- 				
+				<space />
+				<box>
+					<label multiline="true">
+						For Cloud Brokerage Scenario, this file is a little bit different, 
+						e.g., no need to specify the endpoint for TREC Common API. 
+						Instead, this endpoint is passed to DeploymentOptimizer(DO) when it's called by Broker. 
+					</label>
+				</box>
+ -->
+ 				<!-- 
+			</window>  -->
+		</vbox>
+		
+		<vlayout  style="border: 0px; border-bottom: 1px solid #069;"/>
+
+		<vbox>
+			<space />
+<!-- 
+			<hlayout>
+				<label value="Deployment Scenario:" />
+				<listbox id="caseList" mold="select" rows="1">
+					<listitem label="NON-Brokerage" value="NON_BROKER" selected="true" />
+					<listitem label="Brokerage" value="BROKER"		selected="false" />
+				</listbox>
+			</hlayout>
+-->
+			<!-- SDO Properties File -->
+			<hlayout>
+				<checkbox id="cbxPFile" label="Use a user-specified properties file" checked="false"/>
+			</hlayout>
+							
+			<hlayout id ="hlayoutPFileALL" visible="false">
+				<label value="SDO properties File:" />
+				<vlayout>
+					<hlayout id="hlayoutPFile" visible="false">
+						<label id="pFileLabel"></label>
+						<button id="btnPFileDelete" label="Delete"></button>
+					</hlayout>
+				</vlayout>
+				<button id="btnPFileUpload" label="Upload" upload="true" />
+			</hlayout>
+			
+			<!-- Manifest File -->
+			<hlayout>
+				<label value="Manifest File:" />
+				<vlayout> <!-- list the manifest file here -->
+					<hlayout id="hlayoutMFile" visible="false">
+						<label id="mFileLabel"></label>
+						<button id="btnMFileDelete" label="Delete"></button>
+					</hlayout>
+				</vlayout>
+				<button id="btnMFileUpload" label="Upload" upload="true" />
+			</hlayout>
+
+			<hlayout>
+				<label value="Optimization Objective:" />
+				<listbox id="objectiveList" mold="select" rows="1">
+					<listitem label="COST" value="COST" selected="true" />
+					<listitem label="RISK" value="RISK" />
+				</listbox>
+			</hlayout>
+
+			<hbox>
+				<button id="btnDeploy" label="Deploy" disabled="true"
+					width="140px" autodisable="+self"/>
+					<!-- 
+				<button id="btnUndeploy" disabled="true"
+					label="Undeploy" width="98px" autodisable="+self" />
+					 -->
+			</hbox>
+
+			<space/>
+
+			<vlayout  style="border: 0px; border-bottom: 1px dashed #069;"/>
+			
+			<hbox>  <label value="Status List:"/> </hbox>			
+			<listbox id="statusList" width="790px">
+				<listhead sizable="true" id="listHead">
+					<listheader id="componentHead" label="Component" sort="auto" />
+					<listheader id="operationHead" label="Operation" sort="auto" />
+					<listheader id="statusHead" label="Status"		 sort="auto" />
+				</listhead>
+			</listbox>
+			
+
+			<vlayout id ="trecLayout" visible="true">		
+				<space/>
+				<vlayout  style="border: 0px; border-bottom: 1px dashed #069;"/>
+				<hbox>  <label value="Click to see TREC values used:"/> </hbox>			
+				<listbox id="trecList" width="790px">
+					<listhead sizable="true" id="listHeadTREC">
+						<listheader id="ipHead" label="Infrastructure Provider" sort="auto" />
+						<listheader id="trecLinkHead" label="TREC Link (clickable)" sort="auto" />
+					</listhead>
+				</listbox>			
+			</vlayout>			
+		</vbox>
+		
+		<vlayout id ="vlayoutBottom" visible="true">
+		<space/>
+		</vlayout>
+	</zk>
+</window>

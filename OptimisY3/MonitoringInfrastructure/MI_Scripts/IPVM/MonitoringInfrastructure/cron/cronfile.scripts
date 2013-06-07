@@ -1,0 +1,14 @@
+# m h  dom mon dow   command
+
+# Adapt the exec frequencies to your monitoring requirements. Cron job examples can be found there:
+# http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/
+
+*/2 * * * * /opt/optimis/MonitoringInfrastructure/scripts/arsys_virtual_collector.sh 1>/opt/optimis/MonitoringInfrastructure/logs/arsys_virtual_collector.log 2>&1
+*/2 * * * * /opt/optimis/MonitoringInfrastructure/scripts/get_metric/run_get_metric.sh 1>/opt/optimis/MonitoringInfrastructure/logs/run_get_metric.log 2>&1
+0 1 * * * /opt/optimis/MonitoringInfrastructure/scripts/get_peak_time.sh 1>/opt/optimis/MonitoringInfrastructure/logs/get_peak_time.log 2>&1
+0 1 * * * /opt/optimis/MonitoringInfrastructure/scripts/get_trough_time.sh 1>/opt/optimis/MonitoringInfrastructure/logs/get_trough_time.log 2>&1
+* * * * * /opt/optimis/MonitoringInfrastructure/scripts/nagios2mon001.sh 1>/opt/optimis/MonitoringInfrastructure/logs/nagios2mon001.log 2>&1
+* */12 * * * /opt/optimis/MonitoringInfrastructure/scripts/nagios2mon002.sh 1>/opt/optimis/MonitoringInfrastructure/logs/nagios2mon002.log 2>&1
+*/2 * * * * /opt/optimis/MonitoringInfrastructure/scripts/virtual_collector.sh 1>/opt/optimis/MonitoringInfrastructure/logs/virtual_collector.log 2>&1
+*/5 * * * * /opt/optimis/MonitoringInfrastructure/scripts/check_running_scripts.sh 1>/opt/optimis/MonitoringInfrastructure/logs/check_running_scripts.log 2>&1
+0 2 * * * /opt/optimis/MonitoringInfrastructure/scripts/check_data_files.sh 1>/opt/optimis/MonitoringInfrastructure/logs/check_data_files.log 2>&1

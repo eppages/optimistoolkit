@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.0">
+    <persistence-unit name="wsag4j_file" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>org.ogf.graap.wsag.wsrf.persistence.AgreementEprContainer</class>
+        <class>org.ogf.graap.wsag.server.persistence.impl.PersistentAgreementContainer</class>
+        <properties>
+            <!--
+                By default, wsag4j uses a HSQLDB to persist all agreement-related information. Use the following line
+                in order to specify the path, which is used to store the db-files.
+
+                You can use the system property "org.wsag4j.persistence.datapath" to specify the db-files location. By
+                default this is the directory "WEB-INF/wsag4j-data". Either this system property can be changed or
+                you modify the url to link to a relative or absolute path.
+
+                In the development environment the system property is set in the projects' POM.
+
+                INFO: The specification of a path via a system property requires a HSQLDB version >= 2.0.1.
+             -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:/opt/optimis/var/log/optimis-sla-aws/optimis-sla-data/wsag4j-testdb"/>
+            <!-- <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:/Users/hassan/dev/workspace/SLAManagement/sla-management-aws/target/optimis-sla-aws-data/wsag4j-testdb"/>  --> 
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:optimis-sla-aws-data/wsag4j-testdb"/>
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction='refresh')" />
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="wsag4j_mem" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>org.ogf.graap.wsag.wsrf.persistence.AgreementEprContainer</class>
+        <class>org.ogf.graap.wsag.server.persistence.impl.PersistentAgreementContainer</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:wsag4j-testdb"/>
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction='refresh')" />
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+        </properties>
+    </persistence-unit>
+
+    <!--
+        For tests of the server module only. 
+     -->
+    <persistence-unit name="wsag4j_mem_server" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>org.ogf.graap.wsag.server.persistence.impl.PersistentAgreementContainer</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:wsag4j-testdb"/>
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction='refresh')" />
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

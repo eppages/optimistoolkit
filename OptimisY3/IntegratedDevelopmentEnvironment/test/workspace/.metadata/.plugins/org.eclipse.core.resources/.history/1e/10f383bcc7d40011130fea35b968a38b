@@ -1,0 +1,6 @@
+package eu.optimis.ide.test.coreelements;
+
+import java.lang.String;
+
+public class CoreTest{
+}

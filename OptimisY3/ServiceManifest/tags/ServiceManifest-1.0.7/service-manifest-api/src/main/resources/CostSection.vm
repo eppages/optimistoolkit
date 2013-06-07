@@ -1,0 +1,9 @@
+<opt:CostSection xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach(${componentId} in ${componentIdList})
+            <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:PricePlan opt:currency="${costCurrency}" opt:planCap="${costPlanCap}" opt:planFloor="${costPlanFloor}">
+    </opt:PricePlan>
+</opt:CostSection>

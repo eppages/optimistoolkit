@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/VMManagerPackage.iml" filepath="$PROJECT_DIR$/VMManagerPackage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VMManagerRESTClient/VMManagerRESTClient.iml" filepath="$PROJECT_DIR$/VMManagerRESTClient/VMManagerRESTClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VMManagerService/VMManagerService.iml" filepath="$PROJECT_DIR$/VMManagerService/VMManagerService.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,430 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
+    <modelVersion>4.0.0</modelVersion>
+         
+    <groupId>eu.optimis.provider-info</groupId>
+    <artifactId>provider-info</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <name>ProviderInfo</name>
+    <url>http://www.optimis-project.eu/</url>
+    
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>provider-info-service</module>
+        <module>provider-info-client</module>
+    </modules>
+
+    <properties>
+        <!-- variable definitions for specifying software versions of dependencies -->
+        <commons-collections.version>3.2.1</commons-collections.version>
+		<commons-configuration.version>1.6</commons-configuration.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>wziegler</id>
+            <email>wolfgang.ziegler&lt;at&gt;scai.fraunhofer.de</email>
+            <name>Wolfgang Ziegler</name>
+            <roles>
+                <role>Project leader</role>
+            </roles>
+            <timezone>UTC+1</timezone>
+            <organization>Fraunhofer SCAI</organization>
+            <organizationUrl>http://www.scai.fraunhofer.de/</organizationUrl>
+            <url>http://www.scai.fraunhofer.de/ziegler.html</url>
+        </developer>
+        <developer>
+            <id>hrasheed</id>
+            <name>Hassan Rasheed</name>
+            <email>hassan.rasheed&lt;at&gt;scai.fraunhofer.de</email>
+            <roles>
+                <role>Java developer</role>
+            </roles>
+            <timezone>UTC+1</timezone>
+            <organization>Fraunhofer SCAI</organization>
+            <organizationUrl>http://www.scai.fraunhofer.de</organizationUrl>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>Fraunhofer Institute SCAI</name>
+        <url>http://www.scai.fraunhofer.de</url>
+    </organization>
+
+    <repositories>
+        <repository>
+            <id>packcs-maven2</id>
+            <name>PACKCS - Archiva Managed Snapshot Repository</name>
+            <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+			<id>optimis-repo</id>
+			<name>repo</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url>
+			<snapshots>
+    			<enabled>true</enabled>
+    			<updatePolicy>daily</updatePolicy>
+   			</snapshots>
+   			<releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+		</repository> 
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>packcs</id>
+            <url>http://packcs-e0.scai.fraunhofer.de/archiva/repository/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <distributionManagement>
+        <!-- For releases -->
+        <repository>
+            <id>optimis-repo</id>
+            <name>optimis-repo-releases</name>
+            <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url>
+        </repository>
+        <!-- For snapshots -->
+        <snapshotRepository>
+            <id>optimis-repo</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>optimis-repo-snapshots</name>
+            <url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <ciManagement>
+        <system>CruiseControl</system>
+        <url>http://arisrv12.atosorigin.es:8081/dashboard/tab/build/detail/ProviderInfoService-branchY3</url>
+        <notifiers>
+            <notifier>
+                <type>mail</type>
+                <address>hassan.rasheed@scai.fraunhofer.de</address>
+            </notifier>
+        </notifiers>
+    </ciManagement>
+
+    <issueManagement>
+        <system>Bugzilla</system>
+        <url>http://itforgebugzilla.atosresearch.eu/bugzilla/buglist.cgi?product=Optimis&amp;component=ProviderInfoService</url>
+    </issueManagement>
+
+    <mailingLists>
+        <mailingList>
+            <name>Optimis SLA Management project mailing list</name>
+            <subscribe>http://pandora.atosorigin.es/mailman/listinfo/optimis-act1</subscribe>
+            <unsubscribe>http://pandora.atosorigin.es/mailman/listinfo/optimis-act1</unsubscribe>
+            <post>optimis-act1@ymir.atosorigin.es</post>
+        </mailingList>
+    </mailingLists>
+
+    <scm>
+        <connection>
+            scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/LicenseManangement/ProviderInfoService/trunk
+        </connection>
+        <developerConnection>
+            scm:svn:http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/LicenseManangement/ProviderInfoService/trunk
+        </developerConnection>
+        <url>http://pandora.atosorigin.es/svn/optimis/branches/OptimisY3/LicenseManangement/ProviderInfoService/trunk</url>
+    </scm>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- provider-info -->
+            <dependency>
+                <groupId>eu.optimis.provider-info</groupId>
+                <artifactId>provider-info-service</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>eu.optimis.provider-info</groupId>
+                <artifactId>provider-info-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- SUN Jersy -->
+        	<dependency>
+            	<groupId>com.sun.jersey</groupId>
+            	<artifactId>jersey-server</artifactId>
+            	<version>1.6</version>
+        	</dependency>
+        	<dependency>
+            	<groupId>com.sun.jersey</groupId>
+            	<artifactId>jersey-client</artifactId>
+            	<version>1.6</version>
+        	</dependency>
+        	<dependency>
+            	<groupId>com.sun.grizzly</groupId>
+            	<artifactId>grizzly-servlet-webserver</artifactId>
+            	<version>1.9.18</version>
+        	</dependency>
+			<!-- Common Collection  -->
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons-collections.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>${commons-configuration.version}</version>
+			</dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.2</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.16</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+  
+    <build>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.0.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>xmlbeans-maven-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <buildDirectory>${project.build.directory}</buildDirectory>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+                
+                <plugin>
+                	<groupId>org.apache.maven.plugins</groupId>
+                	<artifactId>maven-compiler-plugin</artifactId>
+                	<version>2.3.2</version>
+            	</plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1-alpha-2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.0</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+					<artifactId>wagon-maven-plugin</artifactId>
+					<version>1.0-beta-3</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.axis2</groupId>
+                    <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+                    <version>1.4.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.1.2</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+		    		<artifactId>maven-jar-plugin</artifactId>
+		    		<version>2.2</version>
+                </plugin>
+                        
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>tomcat-maven-plugin</artifactId>
+	    			<version>1.1</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+		    		<artifactId>cargo-maven2-plugin</artifactId>
+					<version>1.0-alpha-6 </version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>properties-maven-plugin</artifactId>
+		   			<version>1.0-alpha-2</version>
+                </plugin>
+                
+                <plugin>
+		    		<groupId>org.codehaus.mojo</groupId>
+		    		<artifactId>sysdeo-tomcat-maven-plugin</artifactId>
+		    		<version>1.1</version>
+				</plugin>
+				
+				<!-- Below plugins configurations are used to store Eclipse m2e settings only. 
+				It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[2.3,)</versionRange>
+										<goals>
+											<goal>unpack-dependencies</goal>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>org.codehaus.mojo</groupId>
+    									<artifactId>xmlbeans-maven-plugin</artifactId>
+    									<versionRange>[2.3.2,)</versionRange>
+    									<goals>
+    										<goal>xmlbeans</goal>
+	    								</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<execute></execute>
+    								</action>
+    							</pluginExecution>
+    							<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>org.codehaus.mojo</groupId>
+    									<artifactId>openjpa-maven-plugin</artifactId>
+    									<versionRange>[1.2,)</versionRange>
+    									<goals>
+    										<goal>enhance</goal>
+    									</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<ignore></ignore>
+    								</action>
+    							</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>    
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+    
+</project>

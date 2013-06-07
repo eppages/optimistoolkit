@@ -1,0 +1,18 @@
+#include("./header.apt.vm")
+
+   The Service Manifest API was developed to provide a common interface to the Service Manifest XML Document which is accessed
+   by multiple Optimis components in several stages. IP components have different access rights than SP components. Therefore
+   it was necessary to provide two interfaces with different access rights to the Service Manifest. The sections in this
+   guide describe the usage of these Interfaces.
+
+   The javadoc can be found {{{./apidocs/index.html}here}}.
+
+* Example Manifest Document
+
+   You can have a look at the example documents:
+
+      * {{{./xml/IP-Manifest.xml} IP-Manifest}}
+
+      * {{{./xml/SP-Manifest.xml} SP-Manifest}}
+
+

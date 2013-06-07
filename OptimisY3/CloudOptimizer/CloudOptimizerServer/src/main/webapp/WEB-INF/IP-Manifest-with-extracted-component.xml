@@ -1,0 +1,509 @@
+<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB" xmlns:opt="http://schemas.optimis.eu/optimis/" xmlns:opt-sp="http://schemas.optimis.eu/optimis/service" xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure">
+  <opt:VirtualMachineDescription opt:serviceId="DemoApp" opt:isFederationAllowed="true">
+    <opt:VirtualMachineComponent opt:componentId="jboss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+      <opt:OVFDefinition>
+        <ovf:References>
+          <!--vm image-->
+          <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.img" ovf:id="jboss-img"/>
+        </ovf:References>
+        <ovf:DiskSection>
+          <ovf:Info/>
+          <ovf:Disk ovf:capacity="1" ovf:diskId="jboss-disk" ovf:fileRef="jboss-img" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+        </ovf:DiskSection>
+        <ovf:NetworkSection>
+          <ovf:Info/>
+          <ovf:Network ovf:name="jboss-net">
+            <ovf:Description>Network to connect to system-jboss</ovf:Description>
+          </ovf:Network>
+        </ovf:NetworkSection>
+        <!--Virtual System Instances Template-->
+        <ovf:VirtualSystem ovf:id="system-jboss">
+          <ovf:Info>jboss VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed software</ovf:Info>
+            <ovf:Product/>
+            <ovf:Version/>
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU, 1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss-net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss-net network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss-disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+      </opt:OVFDefinition>
+      <opt:AllocationConstraints>
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraints>
+      <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+    </opt:VirtualMachineComponent>
+    <opt:AffinitySection>
+      <opt:AffinityRule>
+        <opt:Scope>
+          <opt:ComponentId>jboss</opt:ComponentId>
+        </opt:Scope>
+        <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+      </opt:AffinityRule>
+    </opt:AffinitySection>
+  </opt:VirtualMachineDescription>
+  <opt:TRECSection>
+    <opt:TrustSection>
+      <opt:TrustLevel>5</opt:TrustLevel>
+    </opt:TrustSection>
+    <opt:RiskSection>
+      <opt:AvailabilityArray></opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:EcoEfficiencySection>
+      <opt:LEEDCertification/>
+      <opt:BREEAMCertification/>
+      <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>No</opt:EnergyStarRating>
+    </opt:EcoEfficiencySection>
+    <opt:CostSection>
+      <opt:PricePlan opt:currency="EUR" opt:planCap="200.00" opt:planFloor="50.00">
+        <opt:Scope>
+          <opt:ComponentId>jboss</opt:ComponentId>
+        </opt:Scope>
+        <opt:PlanComponents>
+          <opt:PriceComponent opt:componentCap="100.00" opt:componentFloor="20.00">
+            <opt:ComponentLevels>
+              <opt:PriceLevel>
+                <opt:AbsoluteAmount>10.00</opt:AbsoluteAmount>
+                <opt:PriceMetrics>
+                  <opt:PriceMetric opt:factor="0.25">VM_Cost</opt:PriceMetric>
+                </opt:PriceMetrics>
+                <opt:LevelFences>
+                  <opt:PriceFence>
+                    <opt:BusinessTerm>purchaseVolume</opt:BusinessTerm>
+                    <opt:BusinessTermExpression>purchaseVolume >= quantity['discountThreshold']</opt:BusinessTermExpression>
+                    <opt:QuantityLiterals>
+                      <opt:Quantity opt:id="discountThreshold">
+                        <opt:Amount>100.0</opt:Amount>
+                        <opt:TypeReference>Gb</opt:TypeReference>
+                      </opt:Quantity>
+                    </opt:QuantityLiterals>
+                  </opt:PriceFence>
+                </opt:LevelFences>
+              </opt:PriceLevel>
+            </opt:ComponentLevels>
+            <opt:Multiplier>totalHours</opt:Multiplier>
+          </opt:PriceComponent>
+        </opt:PlanComponents>
+      </opt:PricePlan>
+    </opt:CostSection>
+  </opt:TRECSection>
+  <opt:ElasticitySection>
+    <opt:SPManagedElasticity/>
+  </opt:ElasticitySection>
+  <opt:DataProtectionSection>
+    <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+    <opt:DataEncryptionLevel>
+      <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+    </opt:DataEncryptionLevel>
+  </opt:DataProtectionSection>
+  <opt-sp:ServiceProviderExtensions>
+    <opt-sp:VirtualMachineComponentConfiguration opt-sp:componentId="jboss">
+      <opt-sp:SoftwareDependencies/>
+      <opt-sp:SecurityVPN>false</opt-sp:SecurityVPN>
+      <opt-sp:SecuritySSH>false</opt-sp:SecuritySSH>
+    </opt-sp:VirtualMachineComponentConfiguration>
+  </opt-sp:ServiceProviderExtensions>
+  <opt-ip:InfrastructureProviderExtensions>
+    <opt-ip:IncarnatedServiceComponents xsi:type="opt-ip:IncarnatedVirtualMachineComponentsType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <opt-ip:IncarnatedVirtualMachineComponent opt:componentId="jboss" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+        <opt:OVFDefinition>
+          <ovf:References>
+            <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.img" ovf:id="jboss-img"/>
+            <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.img" ovf:id="jboss-img_instance-1"/>
+          </ovf:References>
+          <ovf:DiskSection>
+            <ovf:Info/>
+            <ovf:Disk ovf:capacity="1" ovf:diskId="jboss-disk" ovf:fileRef="jboss-img" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+            <ovf:Disk ovf:capacity="1" ovf:diskId="jboss-disk_instance-1" ovf:fileRef="jboss-img_instance-1" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+          </ovf:DiskSection>
+          <ovf:NetworkSection>
+            <ovf:Info/>
+            <ovf:Network ovf:name="jboss-net">
+              <ovf:Description>Network to connect to system-jboss</ovf:Description>
+            </ovf:Network>
+          </ovf:NetworkSection>
+          <ovf:VirtualSystemCollection ovf:id="jboss-system-collection">
+            <ovf:Info>Collection of virtual system instances</ovf:Info>
+            <ovf:VirtualSystem ovf:id="system-jboss_instance-1">
+              <ovf:Info>jboss VM description</ovf:Info>
+              <ovf:ProductSection ovf:class="com.sun.master">
+                <ovf:Info>Product customization for the installed software</ovf:Info>
+                <ovf:Product/>
+                <ovf:Version/>
+                <ovf:Property ovf:key="ExternalIP" ovf:type="string" ovf:value=""/>
+                <!--Example of IP specific property, needs to be changed-->
+                <ovf:Property ovf:key="InternalIP" ovf:type="string" ovf:value=""/>
+                <!--Example of IP specific property, needs to be changed-->
+                <ovf:Property ovf:key="InternalMask" ovf:type="string" ovf:value=""/>
+                <!--Example of IP specific property, needs to be changed-->
+                <ovf:Property ovf:key="Hostname" ovf:type="string" ovf:value="optimis-instance-jboss-1"/>
+              </ovf:ProductSection>
+              <ovf:VirtualHardwareSection>
+                <ovf:Info>Virtual Hardware Requirements: 1024MB, 1 CPU,
+                            1 disk, 1 nic</ovf:Info>
+                <ovf:System>
+                  <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                  <vssd:InstanceID>0</vssd:InstanceID>
+                  <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                </ovf:System>
+                <ovf:Item>
+                  <rasd:Description>Number of virtual CPUs</rasd:Description>
+                  <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                  <rasd:InstanceID>1</rasd:InstanceID>
+                  <rasd:ResourceType>3</rasd:ResourceType>
+                  <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+                </ovf:Item>
+                <ovf:Item>
+                  <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                  <rasd:Description>Memory Size</rasd:Description>
+                  <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                  <rasd:InstanceID>2</rasd:InstanceID>
+                  <rasd:ResourceType>4</rasd:ResourceType>
+                  <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+                </ovf:Item>
+                <ovf:Item>
+                  <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                  <rasd:Connection>jboss-net</rasd:Connection>
+                  <rasd:ElementName>Ethernet adapter on jboss-net network</rasd:ElementName>
+                  <rasd:InstanceID>3</rasd:InstanceID>
+                  <rasd:ResourceType>10</rasd:ResourceType>
+                </ovf:Item>
+                <ovf:Item>
+                  <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                  <rasd:HostResource>ovf:/disk/jboss-disk</rasd:HostResource>
+                  <rasd:InstanceID>4</rasd:InstanceID>
+                  <rasd:Parent>4</rasd:Parent>
+                  <rasd:ResourceType>17</rasd:ResourceType>
+                </ovf:Item>
+                <ovf:Item>
+                  <rasd:ElementName>Harddisk 2</rasd:ElementName>
+                  <rasd:HostResource>ovf:/disk/jboss-disk_instance-1</rasd:HostResource>
+                  <rasd:InstanceID>4</rasd:InstanceID>
+                  <rasd:Parent>4</rasd:Parent>
+                  <rasd:ResourceType>17</rasd:ResourceType>
+                </ovf:Item>
+              </ovf:VirtualHardwareSection>
+            </ovf:VirtualSystem>
+          </ovf:VirtualSystemCollection>
+        </opt:OVFDefinition>
+      </opt-ip:IncarnatedVirtualMachineComponent>
+    </opt-ip:IncarnatedServiceComponents>
+    <opt-ip:ExternalDeployment>
+      <opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB">
+        <opt:VirtualMachineDescription opt:serviceId="DemoApp" opt:isFederationAllowed="true">
+          <opt:VirtualMachineComponent opt:componentId="First" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+            <opt:OVFDefinition>
+              <ovf:References>
+                <!--vm image-->
+                <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-First.img" ovf:id="First-img"/>
+              </ovf:References>
+              <ovf:DiskSection>
+                <ovf:Info/>
+                <ovf:Disk ovf:capacity="1" ovf:diskId="First-disk" ovf:fileRef="First-img" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+              </ovf:DiskSection>
+              <ovf:NetworkSection>
+                <ovf:Info/>
+                <ovf:Network ovf:name="First-net">
+                  <ovf:Description>Network to connect to system-First</ovf:Description>
+                </ovf:Network>
+              </ovf:NetworkSection>
+              <!--Virtual System Instances Template-->
+              <ovf:VirtualSystem ovf:id="system-First">
+                <ovf:Info>First VM description</ovf:Info>
+                <ovf:ProductSection ovf:class="com.sun.master">
+                  <ovf:Info>Product customization for the installed software</ovf:Info>
+                  <ovf:Product/>
+                  <ovf:Version/>
+                </ovf:ProductSection>
+                <ovf:VirtualHardwareSection>
+                  <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU, 1 disk, 1 nic</ovf:Info>
+                  <ovf:System>
+                    <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                    <vssd:InstanceID>0</vssd:InstanceID>
+                    <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                  </ovf:System>
+                  <ovf:Item>
+                    <rasd:Description>Number of virtual CPUs</rasd:Description>
+                    <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                    <rasd:InstanceID>1</rasd:InstanceID>
+                    <rasd:ResourceType>3</rasd:ResourceType>
+                    <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                    <rasd:Description>Memory Size</rasd:Description>
+                    <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                    <rasd:InstanceID>2</rasd:InstanceID>
+                    <rasd:ResourceType>4</rasd:ResourceType>
+                    <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                    <rasd:Connection>First-net</rasd:Connection>
+                    <rasd:ElementName>Ethernet adapter on First-net network</rasd:ElementName>
+                    <rasd:InstanceID>3</rasd:InstanceID>
+                    <rasd:ResourceType>10</rasd:ResourceType>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                    <rasd:HostResource>ovf:/disk/First-disk</rasd:HostResource>
+                    <rasd:InstanceID>4</rasd:InstanceID>
+                    <rasd:Parent>4</rasd:Parent>
+                    <rasd:ResourceType>17</rasd:ResourceType>
+                  </ovf:Item>
+                </ovf:VirtualHardwareSection>
+              </ovf:VirtualSystem>
+            </opt:OVFDefinition>
+            <opt:AllocationConstraints>
+              <opt:LowerBound>1</opt:LowerBound>
+              <opt:UpperBound>1</opt:UpperBound>
+              <opt:Initial>1</opt:Initial>
+            </opt:AllocationConstraints>
+            <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+          </opt:VirtualMachineComponent>
+          <opt:AffinitySection>
+            <opt:AffinityRule>
+              <opt:Scope>
+                <opt:ComponentId>First</opt:ComponentId>
+              </opt:Scope>
+              <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+            </opt:AffinityRule>
+          </opt:AffinitySection>
+        </opt:VirtualMachineDescription>
+        <opt:TRECSection>
+          <opt:TrustSection>
+            <opt:TrustLevel>5</opt:TrustLevel>
+          </opt:TrustSection>
+          <opt:RiskSection>
+            <opt:AvailabilityArray></opt:AvailabilityArray>
+          </opt:RiskSection>
+          <opt:EcoEfficiencySection>
+            <opt:LEEDCertification/>
+            <opt:BREEAMCertification/>
+            <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+            <opt:EnergyStarRating>No</opt:EnergyStarRating>
+          </opt:EcoEfficiencySection>
+          <opt:CostSection>
+            <opt:PricePlan opt:currency="EUR" opt:planCap="200.00" opt:planFloor="50.00">
+              <opt:Scope>
+                <opt:ComponentId>First</opt:ComponentId>
+              </opt:Scope>
+              <opt:PlanComponents>
+                <opt:PriceComponent opt:componentCap="100.00" opt:componentFloor="20.00">
+                  <opt:ComponentLevels>
+                    <opt:PriceLevel>
+                      <opt:AbsoluteAmount>10.00</opt:AbsoluteAmount>
+                      <opt:PriceMetrics>
+                        <opt:PriceMetric opt:factor="0.25">VM_Cost</opt:PriceMetric>
+                      </opt:PriceMetrics>
+                      <opt:LevelFences>
+                        <opt:PriceFence>
+                          <opt:BusinessTerm>purchaseVolume</opt:BusinessTerm>
+                          <opt:BusinessTermExpression>purchaseVolume >= quantity['discountThreshold']</opt:BusinessTermExpression>
+                          <opt:QuantityLiterals>
+                            <opt:Quantity opt:id="discountThreshold">
+                              <opt:Amount>100.0</opt:Amount>
+                              <opt:TypeReference>Gb</opt:TypeReference>
+                            </opt:Quantity>
+                          </opt:QuantityLiterals>
+                        </opt:PriceFence>
+                      </opt:LevelFences>
+                    </opt:PriceLevel>
+                  </opt:ComponentLevels>
+                  <opt:Multiplier>totalHours</opt:Multiplier>
+                </opt:PriceComponent>
+              </opt:PlanComponents>
+            </opt:PricePlan>
+          </opt:CostSection>
+        </opt:TRECSection>
+        <opt:ElasticitySection>
+          <opt:SPManagedElasticity/>
+        </opt:ElasticitySection>
+        <opt:DataProtectionSection>
+          <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+          <opt:DataEncryptionLevel>
+            <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+          </opt:DataEncryptionLevel>
+        </opt:DataProtectionSection>
+        <opt-ip:InfrastructureProviderExtensions/>
+      </opt:ServiceManifest>
+    </opt-ip:ExternalDeployment>
+    <opt-ip:ExternalDeployment>
+      <opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB">
+        <opt:VirtualMachineDescription opt:serviceId="DemoApp" opt:isFederationAllowed="true">
+          <opt:VirtualMachineComponent opt:componentId="Second" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+            <opt:OVFDefinition>
+              <ovf:References>
+                <!--vm image-->
+                <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-Second.img" ovf:id="Second-img"/>
+              </ovf:References>
+              <ovf:DiskSection>
+                <ovf:Info/>
+                <ovf:Disk ovf:capacity="1" ovf:diskId="Second-disk" ovf:fileRef="Second-img" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+              </ovf:DiskSection>
+              <ovf:NetworkSection>
+                <ovf:Info/>
+                <ovf:Network ovf:name="Second-net">
+                  <ovf:Description>Network to connect to system-Second</ovf:Description>
+                </ovf:Network>
+              </ovf:NetworkSection>
+              <!--Virtual System Instances Template-->
+              <ovf:VirtualSystem ovf:id="system-Second">
+                <ovf:Info>Second VM description</ovf:Info>
+                <ovf:ProductSection ovf:class="com.sun.master">
+                  <ovf:Info>Product customization for the installed software</ovf:Info>
+                  <ovf:Product/>
+                  <ovf:Version/>
+                </ovf:ProductSection>
+                <ovf:VirtualHardwareSection>
+                  <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU, 1 disk, 1 nic</ovf:Info>
+                  <ovf:System>
+                    <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                    <vssd:InstanceID>0</vssd:InstanceID>
+                    <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                  </ovf:System>
+                  <ovf:Item>
+                    <rasd:Description>Number of virtual CPUs</rasd:Description>
+                    <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                    <rasd:InstanceID>1</rasd:InstanceID>
+                    <rasd:ResourceType>3</rasd:ResourceType>
+                    <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                    <rasd:Description>Memory Size</rasd:Description>
+                    <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                    <rasd:InstanceID>2</rasd:InstanceID>
+                    <rasd:ResourceType>4</rasd:ResourceType>
+                    <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                    <rasd:Connection>Second-net</rasd:Connection>
+                    <rasd:ElementName>Ethernet adapter on Second-net network</rasd:ElementName>
+                    <rasd:InstanceID>3</rasd:InstanceID>
+                    <rasd:ResourceType>10</rasd:ResourceType>
+                  </ovf:Item>
+                  <ovf:Item>
+                    <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                    <rasd:HostResource>ovf:/disk/Second-disk</rasd:HostResource>
+                    <rasd:InstanceID>4</rasd:InstanceID>
+                    <rasd:Parent>4</rasd:Parent>
+                    <rasd:ResourceType>17</rasd:ResourceType>
+                  </ovf:Item>
+                </ovf:VirtualHardwareSection>
+              </ovf:VirtualSystem>
+            </opt:OVFDefinition>
+            <opt:AllocationConstraints>
+              <opt:LowerBound>1</opt:LowerBound>
+              <opt:UpperBound>1</opt:UpperBound>
+              <opt:Initial>1</opt:Initial>
+            </opt:AllocationConstraints>
+            <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+          </opt:VirtualMachineComponent>
+          <opt:AffinitySection>
+            <opt:AffinityRule>
+              <opt:Scope>
+                <opt:ComponentId>Second</opt:ComponentId>
+              </opt:Scope>
+              <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+            </opt:AffinityRule>
+          </opt:AffinitySection>
+        </opt:VirtualMachineDescription>
+        <opt:TRECSection>
+          <opt:TrustSection>
+            <opt:TrustLevel>5</opt:TrustLevel>
+          </opt:TrustSection>
+          <opt:RiskSection>
+            <opt:AvailabilityArray></opt:AvailabilityArray>
+          </opt:RiskSection>
+          <opt:EcoEfficiencySection>
+            <opt:LEEDCertification/>
+            <opt:BREEAMCertification/>
+            <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+            <opt:EnergyStarRating>No</opt:EnergyStarRating>
+          </opt:EcoEfficiencySection>
+          <opt:CostSection>
+            <opt:PricePlan opt:currency="EUR" opt:planCap="200.00" opt:planFloor="50.00">
+              <opt:Scope>
+                <opt:ComponentId>Second</opt:ComponentId>
+              </opt:Scope>
+              <opt:PlanComponents>
+                <opt:PriceComponent opt:componentCap="100.00" opt:componentFloor="20.00">
+                  <opt:ComponentLevels>
+                    <opt:PriceLevel>
+                      <opt:AbsoluteAmount>10.00</opt:AbsoluteAmount>
+                      <opt:PriceMetrics>
+                        <opt:PriceMetric opt:factor="0.25">VM_Cost</opt:PriceMetric>
+                      </opt:PriceMetrics>
+                      <opt:LevelFences>
+                        <opt:PriceFence>
+                          <opt:BusinessTerm>purchaseVolume</opt:BusinessTerm>
+                          <opt:BusinessTermExpression>purchaseVolume >= quantity['discountThreshold']</opt:BusinessTermExpression>
+                          <opt:QuantityLiterals>
+                            <opt:Quantity opt:id="discountThreshold">
+                              <opt:Amount>100.0</opt:Amount>
+                              <opt:TypeReference>Gb</opt:TypeReference>
+                            </opt:Quantity>
+                          </opt:QuantityLiterals>
+                        </opt:PriceFence>
+                      </opt:LevelFences>
+                    </opt:PriceLevel>
+                  </opt:ComponentLevels>
+                  <opt:Multiplier>totalHours</opt:Multiplier>
+                </opt:PriceComponent>
+              </opt:PlanComponents>
+            </opt:PricePlan>
+          </opt:CostSection>
+        </opt:TRECSection>
+        <opt:ElasticitySection>
+          <opt:SPManagedElasticity/>
+        </opt:ElasticitySection>
+        <opt:DataProtectionSection>
+          <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+          <opt:DataEncryptionLevel>
+            <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+          </opt:DataEncryptionLevel>
+        </opt:DataProtectionSection>
+      </opt:ServiceManifest>
+    </opt-ip:ExternalDeployment>
+  </opt-ip:InfrastructureProviderExtensions>
+</opt:ServiceManifest>

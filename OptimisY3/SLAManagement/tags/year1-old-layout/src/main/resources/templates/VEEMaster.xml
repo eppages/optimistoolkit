@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<InstantiateOvfParams name="es.tid.customers.cc1.services.ss1.vees.VEEMaster.replicas.1">
+  <ns1:Envelope xmlns:ns1="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ns2="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:ns3="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:ns4="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:ns5="http://schemas.telefonica.com/claudia/ovf">
+  <ns1:References>
+     <ns1:File ns1:href="http://84.21.173.55:81/ttylinux.img" ns1:id="master" ns5:digest="391846509855d0c4c45a07269568cfc0d1448c9a"/>
+  </ns1:References>
+  <ns1:DiskSection>
+    <ns1:Info/>
+    <ns1:Disk ns1:capacity="1536MB" ns1:diskId="master" ns1:fileRef="master" ns1:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+  </ns1:DiskSection>
+  <ns1:NetworkSection>
+    <ns1:Info/>
+     <ns1:Network ns1:name="sge_net">
+       <ns1:Description>Network to connect service components (VEEMaster and VEEExecutors)</ns1:Description></ns1:Network>
+       <ns1:Network ns1:name="admin_net" ns5:public="true"><ns1:Description>Network to provide administrative access to VEEMaster</ns1:Description>
+    </ns1:Network>
+    </ns1:NetworkSection>
+   <ns1:VirtualSystem ns1:id="VEEMaster" ns5:initial="1" ns5:max="1" ns5:min="1">
+     <ns1:Info>Master VEE description</ns1:Info>
+     <ns1:ProductSection ns1:class="com.sun.master">
+       <ns1:Info>Product customization for the installed master software</ns1:Info>
+       <ns1:Product>SGE Master</ns1:Product>
+       <ns1:Version>6.2</ns1:Version>
+       <ns1:Property ns1:key="KPIQualifier" ns1:type="string" ns1:value="es.tid.customers.cc1.services.ss1" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="KPIName" ns1:type="string" ns1:value="es.tid.customers.cc1.services.ss1.kpis.queueLength" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="KPITimesUrl" ns1:type="string" ns1:value="http://10.95.240.4:5555/times" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="KPIChannel" ns1:type="string" ns1:value="229.229.0.1" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="ExternalIP" ns1:type="string" ns1:value="84.21.173.156" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="InternalIP" ns1:type="string" ns1:value="192.168.0.9" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="ExternalMask" ns1:type="string" ns1:value="255.255.255.0" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="InternalMask" ns1:type="string" ns1:value="255.255.255.248" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="Hostname" ns1:type="string" ns1:value="loadBalancer1" ns5:cloudConfigurable="true"/>
+      <ns1:Property ns1:key="InternalSecondaryIP" ns1:type="string" ns1:value="192.168.0.10" ns5:cloudConfigurable="true"/>
+    </ns1:ProductSection>
+   <ns1:VirtualHardwareSection>
+    <ns1:Info>Virtual Hardware Requirements: 512Mb, 2 CPU, 1 disk, 1 nic</ns1:Info>
+    <ns1:System>
+      <ns2:ElementName>Virtual Hardware Family</ns2:ElementName>
+      <ns2:InstanceID>0</ns2:InstanceID>
+      <ns2:VirtualSystemType>kvm</ns2:VirtualSystemType>
+    </ns1:System>
+    <ns1:Item>
+      <ns4:Description>Number of virtual CPUs</ns4:Description>
+      <ns4:ElementName>1 virtual CPU</ns4:ElementName>
+      <ns4:InstanceID>1</ns4:InstanceID>
+      <ns4:ResourceType>3</ns4:ResourceType>
+      <ns4:VirtualQuantity>1</ns4:VirtualQuantity>
+      </ns1:Item>
+     <ns1:Item>
+       <ns4:AllocationUnits>MegaBytes</ns4:AllocationUnits>
+       <ns4:Description>Memory Size</ns4:Description>
+       <ns4:ElementName>512 MB of memory</ns4:ElementName>
+       <ns4:InstanceID>2</ns4:InstanceID>
+      <ns4:ResourceType>4</ns4:ResourceType>
+      <ns4:VirtualQuantity>512</ns4:VirtualQuantity>
+       </ns1:Item>
+     <ns1:Item>
+      <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+      <ns4:Connection>sge_net</ns4:Connection>
+       <ns4:ElementName>Ethernet adapter on sge_net network</ns4:ElementName>
+        <ns4:InstanceID>3</ns4:InstanceID>
+       <ns4:ResourceType>10</ns4:ResourceType>
+     </ns1:Item>
+     <ns1:Item>
+       <ns4:AutomaticAllocation>true</ns4:AutomaticAllocation>
+       <ns4:Connection>admin_net</ns4:Connection>
+       <ns4:ElementName>Ethernet adapter on admin_net network</ns4:ElementName>
+       <ns4:InstanceID>3</ns4:InstanceID>
+       <ns4:ResourceType>10</ns4:ResourceType>
+    </ns1:Item>
+    <ns1:Item>
+      <ns4:ElementName>Harddisk 1</ns4:ElementName>
+      <ns4:HostResource>ovf://disk/master</ns4:HostResource>
+      <ns4:InstanceID>5</ns4:InstanceID>
+      <ns4:Parent>4</ns4:Parent>
+      <ns4:ResourceType>17</ns4:ResourceType>
+  </ns1:Item>
+  </ns1:VirtualHardwareSection>
+ <ns1:ProductSection/>
+ </ns1:VirtualSystem>
+ </ns1:Envelope>
+<InstantiationParams>
+  <NetworkConfigSection href="http://84.21.173.28:8182/api/org/es_tid/vdc/cc1/vapp/ss1/net/admin_net">
+    <NetworkConfig/>
+    <NetworkAssociation/>
+   <NetworkAssociation/>
+   </NetworkConfigSection>
+   <AspectsSection>
+     <Aspect name="IP Config" required="true" vsystem="es.tid.customers.cc1.services.ss1.vees.VEEMaster.replicas.1">
+      <Property type="string"><Key>es.tid.customers.cc1.services.ss1.networks.sge_net</Key><Value>192.168.0.9</Value></Property>
+      <Property type="string"><Key>es.tid.customers.cc1.services.ss1.networks.admin_net</Key><Value>84.21.173.156</Value></Property>
+   </Aspect>
+  </AspectsSection>
+</InstantiationParams>
+</InstantiateOvfParams>
+
+ 

@@ -1,0 +1,10 @@
+
+---------------------------------------------------------------------------
+redeploy to the different testbeds (no configuration needed afterwards)
+
+mvn -PATOS1 -DskipTests=true clean package cargo:redeploy -U
+mvn -PATOS2 -DskipTests=true clean package cargo:redeploy -U
+mvn -PUMU -DskipTests=true clean package cargo:redeploy -U
+mvn -PFLEXIANT -DskipTests=true clean package cargo:redeploy -U
+---------------------------------------------------------------------------
+

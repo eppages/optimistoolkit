@@ -1,0 +1,262 @@
+README - Instructions for the installation of collector scripts
+
+It is up to you to decide which collector scripts you would like to enable.
+
+The next sections also provide checklists to verify that the MI runs fine.
+
+---
+
+Check the Nagios server and NRPE
+
+In the physical host where the Nagios server is installed, check that the Nagios server is running:
+
+ps -ef | grep nagios
+
+Check that <Nagios-dir>/var/status.dat (for instance, in /usr/local/nagios/var/status.dat) is correctly populated with monitored data. For instance, check the values of the parameter named "Downstream".
+
+---
+
+In IPVM (where the collector scripts are installed)
+
+If not done yet, update /opt/optimis/MonitoringInfrastructure/share/database.properties with the connection details of the optimis_db database.
+Then, test mysql with the connection details found in database.properties. Example:
+ mysql -h <database-host> -u mmanager_usr -p<password> -D optimis_db
+ 
+ Note that there is no space character between "-p" and the password.
+
+---
+
+In IPVM
+
+Test the Aggregator RESTFul web service:
+Open 1 terminal window. Log on to IPVM with the root user.
+
+Then: cd /opt/optimis/MonitoringInfrastructure/var/physical/
+
+Then, check the contents of the directory with the ls -l command.
+
+Then:
+curl -X POST -d "<?xml version=\"1.0\"?><MonitoringResources><monitoring_resource><physical_resource_id>optimis1</physical_resource_id><metric_name>Downstream</metric_name><metric_value>37.936</metric_value><metric_unit>Kbps</metric_unit><metric_timestamp>1349774306</metric_timestamp><service_resource_id></service_resource_id><virtual_resource_id></virtual_resource_id><resource_type>physical</resource_type><monitoring_information_collector_id>001</monitoring_information_collector_id></monitoring_resource></MonitoringResources>" -H "Content-Type:text/plain" http://localhost:8080/Aggregator/Aggregator/monitoringresources/physical
+
+Then, run: ls -l
+
+And check that a new XML file has been created. If RabbitMQ is running, the XML file won't stay long in that directory, since RabbitMQ will upload the file contents into the MI database.
+
+---
+
+In IPVM
+
+Common approach to test the collector scripts: run them manually and check their output on standard output.
+
+-----------------
+-- Script getting virtual monitoring data from ARSYS 
+Edit and configure scripts/arsys_virtual_collector.properties. It may be necessary to adjust the values of USER, PASSWORD, SERVER and PORT. Then, run arsys_virtual_collector.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script calculating the network peak time of the day before
+Edit and configure scripts/get_peak_time.properties. Depending on the environment, it may be necessary to adjust the value of NODELIST. NODELIST lists the identifiers (used in the MI database) of the OPTIMIS physical hosts monitored by Nagios. Then, run get_peak_time.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script calculating the network trough time (i.e. opposite of peak time) of the day before
+Edit and configure scripts/get_trough_time.properties. Depending on the environment, it may be necessary to adjust the value of NODELIST. NODELIST lists the identifiers (used in the MI database) of the OPTIMIS physical hosts monitored by Nagios. Then, run get_trough_time.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script #1 getting physical monitoring data from Nagios
+Edit and configure scripts/nagios2mon001.properties. Depending on the environment, you will have to adjust the value of REMOTEHOST. REMOTEHOST stores the IP address of the Nagios Server host. Then, run nagios2mon001.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script #2 getting physical monitoring data from Nagios
+Edit and configure scripts/nagios2mon002.properties. Depending on the environment, you will have to adjust the value of REMOTEHOST. REMOTEHOST stores the IP address of the Nagios Server host. Then, run nagios2mon002.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script getting virtual monitoring data from Emotive
+Edit and configure scripts/virtual_collector.properties. You may need to change the value of the CLOUDMIDDLEWARE variable, depending on which cloud middleware you want to extract data from. When done, run virtual_collector.sh manually and check the output. You should expect to see XML data displayed on standard output.
+
+-----------------
+-- Script getting energy monitoring data from a power distribution unit (Racktivity sensor, HP PDU sensor or the Flexiant PDU)
+Before running the energy data collector, first check the presence of /usr/bin/python2.7. Install python2.7 if not present. If necessary, create a /usr/bin/python2.7 symbolic link. For instance:
+lrwxrwxrwx 1 root root   24 Sep 28 16:58 /usr/bin/python2.7 -> /usr/local/bin/python2.7
+
+Then, you must install the configobj-4.7.2 module:
+- cd /opt/optimis/MonitoringInfrastructure/scripts/get_metric/configobj-4.7.2
+- Run the command: python setup.py install
+
+Depending on the PDU used:
+
+EITHER configure /opt/optimis/MonitoringInfrastructure/scripts/get_metric/racktivity.properties. This is the file storing the connection parameters necessary to collect data from the Racktivity sensor. Obviously, it is necessary to configure that property file if you want to collect data from that sensor.
+
+OR configure script /opt/optimis/MonitoringInfrastructure/scripts/get_metric/hppdu.properties. This is the file storing the connection parameters necessary to collect data from the HP PDU. Obviously, it is necessary to configure that property file if you want to collect data from that PDU.
+
+OR configure script /opt/optimis/MonitoringInfrastructure/scripts/get_metric/flexiantpdu.properties. This is the file storing the connection parameters necessary to collect data from the Flexiant PDU. Obviously, it is necessary to configure that property file if you want to collect data from that PDU.
+
+Edit /etc/hosts. You need to enter the following lines into that file:
+
+#############################################
+# Do not remove. Needed by the energy collector script of the OPTIMIS Monitoring Infrastructure.
+[hostname or IP address of physical host #1] optimis1
+[hostname or IP address of physical host #2] optimis2
+[hostname or IP address of physical host #3] optimis3
+[hostname or IP address of physical host #4] optimis4
+...
+#############################################
+
+List all the servers in /etc/hosts that are to be monitored by the energy collector script. 
+
+Edit scripts/get_metric/run_get_metric.properties. Depending on your environment, you may have to change the value of GETENERGYMETRICS. Accepted values are: RACKTIVITY, HPPDU, FLEXIANT, FALSE. The first value will enable calls going to the Racktivity sensor. The second value will enable calls going to the HP PDU. The third value will enable calls going to the Flexiant PDU. The last value will disable calls going to any energy sensor/PDU.
+
+You must also set the SERVERLIST variable. It must contain the list of monitored hosts. The listed hostnames must refer to the aliases listed in /etc/hosts.
+
+If your script has to connect to the HP PDU or the Flexiant PDU, you must also set the SNMPTARGET variable with the appropriate values needed by snmpwalk or snmpget so that they can query the PDUs and get back power consumption information.
+
+The other variables can stay unchanged. Save and close run_get_metric.properties.
+
+Set up public and private keys in /opt/optimis/MonitoringInfrastructure/scripts/get_metric/xentop_scripts/ for all the physical hosts that need to be monitored (optimis1, optimis2, etc.). The private keys files must be named so:
+-rw------- 1 root root 1675 Oct  9 15:59 root_OPTIMIS1
+-rw------- 1 root root 1675 Oct  9 16:00 root_OPTIMIS2
+-rw------- 1 root root 1675 Oct  9 16:00 root_OPTIMIS3
+-rw------- 1 root root 1675 Oct  9 16:00 root_OPTIMIS4
+...
+Log on to each and every of those physical hosts with the root user. Paste the public key line into /root/.ssh/authorized_keys. Log out. In IPVM, test the connection for all the physical hosts. For instance: ssh root@optimis1 -i root_OPTIMIS1
+
+Log back again to each and every of those physical hosts with the root user. On each host, install virt-top. For instance, on Debian: apt-get install virt-top
+
+Check the installed version of virt-top. For instance, on Debian: "dpkg -l virt-top" will return something looking like this:
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                       Version                    Description
++++-==========================-==========================-====================================================================
+ii  virt-top                   1.0.4-2                    show stats of virtualized domains
+
+On CentOS, the corresponding command is: yum info virt-top. It will return something looking like this:
+[root@optimis1 ~]# yum info virt-top
+Loaded plugins: dellsysid, fastestmirror
+Loading mirror speeds from cached hostfile
+ * addons: centos.mirror.xtratelecom.es
+ * base: centos.mirror.xtratelecom.es
+ * extras: centos.mirror.xtratelecom.es
+ * rpmforge: archive.cs.uu.nl
+ * updates: centos.mirror.xtratelecom.es
+http://www.gitco.de/repo/xen3.3.2/repodata/repomd.xml: [Errno 14] HTTP Error 404: Not Found
+Trying other mirror.
+Installed Packages
+Name       : virt-top
+Arch       : x86_64
+Version    : 0.3.3.0
+Release    : 2
+Size       : 786 k
+Repo       : installed
+Summary    : Utility like top(1) for displaying virtualization stats
+URL        : http://et.redhat.com/~rjones/ocaml-libvirt/
+License    : GPLv2+
+Description: virt-top is a 'top(1)'-like utility for showing stats of virtualized
+           : domains.  Many keys and command line options are the same as for
+           : ordinary 'top'.
+           : 
+           : It uses libvirt so it is capable of showing stats across a variety of
+           : different virtualization systems.
+
+Configure /opt/optimis/MonitoringInfrastructure/scripts/get_metric/xentop_scripts/check_optimis_xentop.properties. Depending on the version of virt-top used, you may have to adjust the value of DOMAINIDPOSITION. If virt-top has the version 1.0.4-2 on Debian, then set DOMAINIDPOSITION=19. If virt-top has the version 0.3.3.0 on CentOS, then set DOMAINIDPOSITION=18. This is caused by the fact that those two different versions of virt-top have unfortunately a different output when run in batch mode.
+
+Test /opt/optimis/MonitoringInfrastructure/scripts/get_metric/xentop_scripts/check_optimis_xentop.sh. For instance, test this:
+./check_optimis_xentop.sh root_OPTIMIS1 optimis1 `date +%s`
+
+You should get something back looking like this:
+optimis1|xentop_cpu|Domain-0 53.55;system-optimis-pm-GeneDetection_instance-1 .28;system-optimis-pm-TypeC_instance-1 .27;system-optimis-pm-TypeD_instance-1 .51||1360080622
+
+If you get a different kind of output, it is probably caused by a wrong value in DOMAINIDPOSITION.
+
+Test /opt/optimis/MonitoringInfrastructure/scripts/get_metric/get_metric.py. The script needs to call /usr/bin/python2.7 (you should have normally already set up a symlink for it). For instance, test this: ./get_metric.py 6 8 `pwd` `date +%s`
+
+You should get back something looking like this:
+OPTIMIS2_p1|current|0.44|A|1360080943
+OPTIMIS2_p2|current|0.61|A|1360080943
+OPTIMIS1_p1|current|0.52|A|1360080943
+OPTIMIS1_p2|current|0.43|A|1360080943
+
+Finally, you can run: ./run_get_metric.sh. You should get back an XML dataset displayed on the standard output. Example:
+<?xml version="1.0"?>
+<MonitoringResources>
+<monitoring_resource>
+<physical_resource_id>optimis1</physical_resource_id>
+<metric_name>real_power</metric_name>
+<metric_value>93.00</metric_value>
+<metric_unit>W</metric_unit>
+<metric_timestamp>1360081488</metric_timestamp>
+<service_resource_id></service_resource_id>
+<virtual_resource_id></virtual_resource_id>
+<resource_type>energy</resource_type>
+<monitoring_information_collector_id>003</monitoring_information_collector_id>
+</monitoring_resource>
+<monitoring_resource>
+<physical_resource_id>optimis2</physical_resource_id>
+<metric_name>real_power</metric_name>
+<metric_value>59.00</metric_value>
+<metric_unit>W</metric_unit>
+<metric_timestamp>1360081488</metric_timestamp>
+<service_resource_id></service_resource_id>
+<virtual_resource_id></virtual_resource_id>
+<resource_type>energy</resource_type>
+<monitoring_information_collector_id>003</monitoring_information_collector_id>
+</monitoring_resource>
+</MonitoringResources>
+
+-----------------
+--- Set up check_data_files.properties. The script named "check_data_files.sh" is called by a daily cronjob and checks if there are possible issues in the Monitoring Infrastructure. First, edit the config file and configure it. EMAILNOTIF must be set to either TRUE or FALSE (in the latter case, no notification email will be sent when a problem is detected). Set RECIPIENTS with the list of email addresses receiving notification emails (example: abc@example.com,xyz@example.com). Save the file.
+
+For notification emails to be sent, you must install and set up Postfix on IPVM. Gmail will be used as a relayhost forwarding the notification emails to the addresses listed in the RECIPIENTS variable. Here are the instructions for the install and setup of Postfix on CentOS (slightly adapted from http://charlesa.net/tutorials/centos/centosgmail.php).
+
+Installing Postfix is easy, just run these commands as root:
+
+yum install postfix
+yum install cyrus-sasl-lib cyrus-sasl-plain
+yum install mailx
+
+Configuring
+
+Basically, you need to create a password file so that Postfix can authenticate to Gmail's servers. You do this by creating a file named sasl_passwd in /etc/postfix. Replace smtp_user and smtp_passwd with their respective values:
+
+echo 'smtp.gmail.com smtp_user:smtp_passwd' > /etc/postfix/sasl_passwd
+
+You then hash that file so that the password is not stored in clear text. This command will create a file named sasl_passwd.db in the /etc/postfix/ directory.
+
+postmap hash:/etc/postfix/sasl_passwd
+
+After that is done, add these to the bottom of /etc/postfix/main.cf. This is assuming that your root certificates installed from openssl are located in /etc/pki/tls/certs/ca-bundle.crt.
+
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+# Secure channel TLS with exact nexthop name match.
+smtp_tls_security_level = secure
+smtp_tls_mandatory_protocols = TLSv1
+smtp_tls_mandatory_ciphers = high
+smtp_tls_secure_cert_match = nexthop
+smtp_tls_CAfile = /etc/pki/tls/certs/ca-bundle.crt
+relayhost = smtp.gmail.com:587
+
+After that is done, restart postfix:
+
+service postfix restart
+
+Now test it to make sure it is working. Run this:
+
+echo "Hello world" > /tmp/mailtext
+mail -s "My Subject" abc@example.com </tmp/mailtext
+rm /tmp/mailtext
+
+Replace abc@example.com with any email address you'd like (it can be a different one from the one entered in sasl_passwd).
+
+If all went well, you should get an email at the email address you entered. If you do, you can delete the file that has the password.
+
+rm /etc/postfix/sasl_passwd
+
+If it did not work, check the log to see what happened.
+
+tail /var/log/maillog
+
+---
+
+If using Debian/Ubuntu, you can follow these instructions to install and set up Postfix for Gmail (in German!... but the instructions are fairly easy to understand):
+http://www.deimeke.net/dirk/blog/index.php?/archives/2989-GMail-als-Relay-mit-Postfix-....html
+

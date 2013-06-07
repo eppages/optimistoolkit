@@ -1,0 +1,7 @@
+Certificates in this directory
+
+wsag4j-server-keystore.jks    -- SLA service certificate
+wsag4j-client-keystore        -- SLA service client certificate
+ 
+wsag4j-server-keystore.jks    -> password: server@wsag4j
+wsag4j-client-keystore        -> password: user@wsag4j

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:wl="http://schemas.optimis.eu/workload" 
+           targetNamespace="http://schemas.optimis.eu/workload" 
+           elementFormDefault="qualified" 
+           attributeFormDefault="unqualified">
+
+    <xs:element name="WorkloadAnalysis" type="wl:WorkloadAnalysisType"/>
+
+    <xs:complexType name="WorkloadAnalysisType">
+        <xs:sequence>
+            <xs:element type="wl:PhysicalHostType" name="PhysicalHost" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PhysicalHostType" mixed="true">
+        <xs:sequence>
+            <xs:element type="xs:string" name="description" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:AssigendServicesType" name="AssigendServices" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:LoadType" name="Load" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:RemainingCapacityType" name="Remaining" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id" use="required"/>
+        <xs:attribute type="xs:string" name="host_name" use="required"/>
+        <xs:attribute type="xs:string" name="public_ip" use="required"/>
+        <xs:attribute type="xs:boolean" name="usedForElasticity" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="AssigendServicesType">
+        <xs:sequence>
+            <xs:element type="wl:ServiceType" name="Service" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ServiceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="id" use="optional"/>
+                <xs:attribute type="xs:string" name="name" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="LoadType">
+        <xs:sequence>
+            <xs:element type="wl:CurrentType" name="Current" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:MinType" name="Min" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:AverageType" name="Average" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:MaxType" name="Max" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RemainingCapacityType">
+        <xs:sequence>
+            <xs:element type="wl:ResourceInformationType" name="ResourceInformation" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResourceInformationType">
+        <xs:sequence>
+            <xs:element type="wl:CpuType" name="Cpu" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:CpuCoresType" name="CpuCores" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:CpuSpeedType" name="CpuSpeed" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:MemoryType" name="Memory" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:SwapType" name="Swap" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:StorageType" name="Storage" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:NetworkBandwidthType" name="NetworkBandwidth" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="wl:MetricType" name="Metric" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <!-- MIN, AVG, MAX, CURRENT, REMAINING -->
+    <xs:complexType name="MaxType">
+        <xs:sequence>
+            <xs:element type="wl:ResourceInformationType" name="ResourceInformation"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AverageType">
+        <xs:sequence>
+            <xs:element type="wl:ResourceInformationType" name="ResourceInformation"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CurrentType">
+        <xs:sequence>
+            <xs:element type="wl:ResourceInformationType" name="ResourceInformation"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MinType">
+        <xs:sequence>
+            <xs:element type="wl:ResourceInformationType" name="ResourceInformation"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- RESOURCES -->
+    <xs:complexType name="CpuType">
+    	<xs:simpleContent>
+    		<xs:extension base="xs:string">
+    		    <xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="CpuCoresType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="CpuSpeedType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="MemoryType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="StorageType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="SwapType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="NetworkBandwidthType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="Name" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="ActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+    
+     <xs:complexType name="MetricType">
+        <xs:simpleContent>
+    		<xs:extension base="xs:string">
+        		<xs:attribute type="xs:string" name="MetricName" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricUnit" use="required"/>
+        		<xs:attribute type="xs:string" name="MetricActualValue" use="optional"/>
+     		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

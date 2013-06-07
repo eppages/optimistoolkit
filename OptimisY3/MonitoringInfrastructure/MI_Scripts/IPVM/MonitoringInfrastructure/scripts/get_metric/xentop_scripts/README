@@ -1,0 +1,6 @@
+put the public keys here in this folder. Each key for one host (unless all hosts
+share the same key), e.g.
+root_OPTIMIS1
+root_OPTIMIS2
+root_OPTIMIS3
+

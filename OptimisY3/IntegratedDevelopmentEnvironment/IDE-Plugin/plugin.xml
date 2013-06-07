@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+    point="org.eclipse.jdt.core.classpathContainerInitializer">
+   	  <classpathContainerInitializer
+       id="Dependencies"
+       class="es.bsc.servicess.ide.DependenciesClasspathContainerInitializer"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="es.bsc.servicess.ide.category.wizards"
+            name="ServiceSs">
+      </category>
+      <wizard
+            category="es.bsc.servicess.ide.category.wizards"
+            class="es.bsc.servicess.ide.wizards.ServiceSsNewProjectWizard"
+            id="es.bsc.servicess.ide.wizards.new.project"
+            icon="icons/optimis.gif"
+            name="New Project"
+            project = "true">
+      </wizard>
+       <wizard
+            category="es.bsc.servicess.ide.category.wizards"
+            class="es.bsc.servicess.ide.wizards.ServiceSsNewServiceClassWizard"
+            id="es.bsc.serviicess.ide.wizards.new.service.class"
+            icon="icons/optimis.gif"
+            name="New Service Class"
+            project = "false">
+      </wizard>
+   </extension>
+ 	<extension
+         point="org.eclipse.ui.actionSets">
+      <!--change this label to move to OPTIMIS/ServiceSs environment-->   
+      <actionSet
+            id="es.bsc.servicess.ide.actionSetNewMenu"
+            label="OPTIMIS"
+            visible="true">
+         <menu
+               id="NewServiceSs"
+               label="OPTIMIS"
+               path="file/new/additions">
+               <separator
+                	  name="implementation"/>
+               
+         </menu>
+          <action
+               class="es.bsc.servicess.ide.actions.CreateCoreElementAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.newCreateCoreElementAction"
+               label="Add &amp;Core Element"
+               menubarPath="file/new/NewServiceSs/implementation"          
+               tooltip="Creates an Core Element in the project ">
+         </action>
+         <action
+               class="es.bsc.servicess.ide.actions.CreateOrchestrationElementAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.newCreateOrchestrationElementAction"
+               label="Add &amp;Orchestration Element"
+               menubarPath="file/new/NewServiceSs/implementation"
+               tooltip="Creates an Orchestration Element in a service class of the project ">
+               <!--selection class="org.eclipse.core.resources.IFile"
+					name="*.java">
+			   </selection-->
+         </action>
+         
+         <action
+               class="es.bsc.servicess.ide.actions.CreateServiceClassAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.newCreateServiceClassAction"
+               label="Create &amp;Service Class"
+               menubarPath="file/new/NewServiceSs/implementation"
+               tooltip="Creates a service class in a project">
+               
+               
+         </action>
+         <action
+               class="es.bsc.servicess.ide.actions.CreateProjectAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.newCreateProjectAction"
+               label="Create &amp;Project"
+               menubarPath="file/new/NewServiceSs/implementation"
+               tooltip="Creates a project">
+         </action>
+     </actionSet>
+   <!--Change labels to change the -->
+         
+      <actionSet
+            id="es.bsc.servicess.ide.actionSetMenu"
+            label="OPTIMIS"
+            visible="true">
+         <menu
+               id="ServiceSsMenu"
+               label="OPTIMIS"
+               path="additions">
+   		 	<!--menu
+         		id="implementMenu"
+               	label="&amp;Implementation">
+         	</menu-->
+         	<!--separator
+                	  name="implementation"/>
+            <separator name="building"/>
+            <separator name="building2"/-->  	  
+            
+            <separator name="additions"/>
+            
+   		 			
+         		
+   		 </menu>
+   		 <menu 
+   		 		id= "DeployMenu"
+   				label = "Deploy"
+   				path = "ServiceSsMenu/additions">
+   					<groupMarker name="deploy"/>
+   		</menu>
+   		 <menu 
+   		 		id= "BuildingMenu"
+   				label = "Building"
+   				path = "ServiceSsMenu/additions">
+   					<groupMarker name="build"/>
+   		</menu>
+   		<menu 
+   		 		id= "ImplementationMenu"
+   				label = "Implementation"
+   				path = "ServiceSsMenu/additions">
+   					<groupMarker name="implementation"/>
+   		</menu>
+   		 <!--action
+               class="es.bsc.servicess.ide.actions.DeployAction"
+               icon="icons/sample.gif"
+               id="es.bsc.servicess.ide.actions.cloudDeployAction"
+               label="&amp;Cloud"
+               menubarPath="ServiceSsMenu/DeployMenu/deploy"
+               toolbarPath="%Bundle-Name"
+               tooltip="Generate the manifest for a Service">
+         </action-->
+         <action
+               class="es.bsc.servicess.ide.actions.DeployAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.localhostDeployAction"
+               label="&amp;Localhost"
+               menubarPath="ServiceSsMenu/DeployMenu/deploy"
+               toolbarPath="OPTIMIS"
+               tooltip="Deploy Service in localhost">
+         </action>
+        
+   		 
+     <!--/actionSet>
+     <actionSet
+            id="es.bsc.servicess.ide.actionSetImplementationMenu"
+            label="Implementation"
+            visible="true"-->
+         
+         <action
+               class="es.bsc.servicess.ide.actions.CreateCoreElementAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.CreateCoreElementAction"
+               label="Add &amp;Core Element"
+               menubarPath="ServiceSsMenu/ImplementationMenu/implementation"
+          
+               tooltip="Creates an Core Element in the project ">
+         </action>
+         <action
+               class="es.bsc.servicess.ide.actions.CreateOrchestrationElementAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.CreateOrchestrationElementAction"
+               label="Add &amp;Orchestration Element"
+               menubarPath="ServiceSsMenu/ImplementationMenu/implementation"
+               tooltip="Creates an Orchestration Element in a service class of the project ">
+               <!--selection class="org.eclipse.core.resources.IFile"
+					name="*.java">
+			   </selection-->
+         </action>
+         
+         <action
+               class="es.bsc.servicess.ide.actions.CreateServiceClassAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.CreateServiceClassAction"
+               label="Create &amp;Service Class"
+               menubarPath="ServiceSsMenu/ImplementationMenu/implementation"
+               tooltip="Creates a service class in a project">
+         </action>
+         <action
+               class="es.bsc.servicess.ide.actions.CreateProjectAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.CreateProjectAction"
+               label="Create &amp;Project"
+               menubarPath="ServiceSsMenu/ImplementationMenu/implementation"
+               tooltip="Creates a project">
+         </action>
+         
+     <!--/actionSet>
+     <actionSet
+            id="es.bsc.servicess.ide.actionSetImplementationMenu"
+            label="Build"
+            visible="true"-->
+         <!--menu
+         		id="es.bsc.servicess.ide.ServiceSsBuildingMenu"
+               	label="&amp;Build"
+               	path="es.bsc.servicess.ide.ServiceSsMenu/building">
+               	<groupMarker
+                  name="build">
+            </groupMarker>
+         </menu-->
+         <!--action
+               class="es.bsc.servicess.ide.actions.GenerateServiceManifestAction"
+               icon="icons/sample.gif"
+               id="es.bsc.servicess.ide.actions.GenerateServiceManifestAction"
+               label="&amp;Generate Service Manifest"
+               menubarPath="ServiceSsMenu/BuildingMenu/build"
+               tooltip="Generate the manifest for an built service">
+         </action>
+         <action
+               class="es.bsc.servicess.ide.actions.CreateImagesAction"
+               icon="icons/sample.gif"
+               id="es.bsc.servicess.ide.actions.CreateImagesAction"
+               label="&amp;Create Service Images"
+               menubarPath="ServiceSsMenu/BuildingMenu/build"
+               tooltip="Build the service">
+         </action-->
+         <action
+               class="es.bsc.servicess.ide.actions.BuildServiceAction"
+               icon="icons/optimis.gif"
+               id="es.bsc.servicess.ide.actions.BuildServiceAction"
+               label="&amp;Build Service"
+               menubarPath="ServiceSsMenu/BuildingMenu/build"
+               tooltip="Build the service">
+         </action>
+         
+         
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="es.bsc.servicess.ide.editors.ServiceFormEditor"
+            contributorClass="es.bsc.servicess.ide.editors.ServiceEditorContributor"
+            filenames="project.xml, resources.xml, metadata.xml"
+            default = "true"
+            icon="icons/optimis.gif"
+            id="es.bsc.servicess.ide.editors.ServiceEditor"
+            name="Service Project Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="service_deployment"
+            name="Service Deployment">
+      </category>
+      <view
+            category="service_deployment"
+            class="es.bsc.servicess.ide.views.ServiceManagerView"
+            icon="icons/sample.gif"
+            id="es.bsc.servicess.ide.views.ServiceManagerView"
+            name="Service Status">
+      </view>
+      <view
+            category="service_deployment"
+            class="es.bsc.servicess.ide.views.ServiceGraphView"
+            icon="icons/sample.gif"
+            id="es.bsc.servicess.ide.views.ServiceGraphView"
+            name="Service Graph">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <!--extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="es.bsc.servicess.ide.contribution1"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="es.bsc.servicess.ide.menu1"
+               label="New Submenu"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="es.bsc.servicess.ide.popup.actions.NewAction"
+               enablesFor="1"
+               id="es.bsc.servicess.ide.newAction"
+               label="New Action"
+               menubarPath="es.bsc.servicess.ide.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension-->
+
+</plugin>

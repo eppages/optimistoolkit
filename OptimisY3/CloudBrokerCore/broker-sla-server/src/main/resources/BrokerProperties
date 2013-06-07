@@ -1,0 +1,31 @@
+#####  This file contains everything #####
+
+#VMC Config File Path
+#{usually required}
+vmc.config.file.path=/opt/optimis/vmc/bt/
+
+#Services Manager
+#{usually required}
+service.manager.host=200.0.0.1
+service.manager.port=8080
+
+#TREC Common API  
+trec.service.host=200.0.0.1
+trec.service.port=8080
+
+#Use for IP discovery, i.e., looking for available IPs  
+ip.discovery.host=200.0.0.1
+ip.discovery.port=8080
+
+
+sp.trec.db.url=jdbc:mysql://optimis-database:3306/sptrecdb
+sp.trec.db.username=db_usr
+sp.trec.db.password=xxxxxxxxx
+
+broker.dmsynchclient.host=200.0.0.1
+broker.dmsynchclient.port=8080
+
+#Special Purpose
+#is.service.bursting.case=true
+#is.brokerage.case=true
+#eu.optimis.localprovider.name=atos

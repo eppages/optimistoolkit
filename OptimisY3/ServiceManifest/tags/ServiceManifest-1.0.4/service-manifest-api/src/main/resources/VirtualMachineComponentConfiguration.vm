@@ -1,0 +1,5 @@
+<opt-sp:VirtualMachineComponentConfiguration xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+                             opt-sp:componentId="${componentId}">
+    <opt-sp:SoftwareDependencies></opt-sp:SoftwareDependencies>
+    <opt-sp:SecurityKeyType>None</opt-sp:SecurityKeyType>
+</opt-sp:VirtualMachineComponentConfiguration>

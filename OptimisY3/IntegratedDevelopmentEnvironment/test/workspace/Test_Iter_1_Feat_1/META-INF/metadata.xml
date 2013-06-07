@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.test.iter1.feature1" name="Test_Iter_1_Feat_1" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/" source_dir="src">
+  
+<orchestration_class class="eu.optimis.test.iter1.feature1.TestClass" type="Web Service Interface Class"/>
+<elasticity element="testce(OBJECT_T)TestCEClass" max="1" min="1"/>
+<elasticity element="testCE_2(OBJECT_T)TestCEClass" max="1" min="1"/>
+<dependency location="/home/user/OPTIMIS/IntegratedDevelopmentEnvironment/test/deps/GeneDetection.war" other_info="GeneDetection/GeneDetection" type="WAR File">
+    <element label="detectGenes(OBJECT_T, OBJECT_T, INT_T, INT_T, FLOAT_T){http://genedetection.bsc.es/}.GeneDetectionService.GeneDetectionPort"/>
+  </dependency>
+<dependency location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+<package name="Test_Iter_1_Feat_1" type="Orchestration Elements">
+    <element label="testOE(java.lang.String)eu.optimis.test.iter1.feature1.TestClass"/>
+  </package>
+  <package name="autoMethod" type="Method Core Elements">
+    <element label="testce(OBJECT_T)TestCEClass"/>
+    <element label="testCE_3()TestCEClass"/>
+  </package>
+  <package name="autoMethod_1" type="Method Core Elements">
+    <element label="testCE_2(OBJECT_T)TestCEClass"/>
+  </package>
+  <package name="autoService" type="Service Core Elements">
+    <element label="detectGenes(OBJECT_T, OBJECT_T, INT_T, INT_T, FLOAT_T){http://genedetection.bsc.es/}.GeneDetectionService.GeneDetectionPort"/>
+  </package>
+</project_metadata>

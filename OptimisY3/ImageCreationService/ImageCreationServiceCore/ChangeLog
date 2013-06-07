@@ -1,0 +1,179 @@
+2012-05-08  Roland Kuebert  <kuebert@hlrs.de>
+
+ * Image.java (Image): Determine host name from local machine, not from
+ properties file.
+
+2012-05-07  Roland Kuebert <kuebert@hlrs.de>
+
+ * FileUtils.java: Add kpartx in the game again for mounting the image even
+ though we use qemu-nbd.
+
+ * Image.java (getUrl): Build the URL using URL path plus image file name,
+ not by concatenating UUID and ".img".
+
+2012-05-04  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.9-SNAPSHOT.
+
+ * Image.java: Set default image file extension to qcow2.
+ * CoreElement.java (cloneImage): Likewise.
+ * OrchestrationElement.java (cloneImage): Likewise.
+
+ * PermissionSetter.java: Organized imports.
+
+2012-05-03  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.8-SNAPSHOT.
+
+ * FileUtils.java: Implemented usage of qemu-nbd instead of kpartx.
+
+ * BaseClient.java (createImageAndWait): Sleep 5 seconds after image creation
+ to prevent a race condition.
+
+2012-04-03  Roland Kuebert <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.7-SNAPSHOT.
+ 
+ * ics.properties: Set default host to spvm again.
+
+ * FileCopier.java (unzipFile): Unzip JAR files (or any files with separate
+ path information) correctly.
+
+2012-03-22  Roland Kuebert <kuebert@hlrs.de>
+
+ * ImageCreationService.java (finalizeImage): Return the finalized Image's URL.
+
+ * Image.java (getUrl): New method.
+
+ * pom.xml: Bumped to version 0.6-SNAPSHOT; copy images with rsync sparsely.
+
+ * BaseImageCopier.java (run): Copy images with rsync sparsely, not with Apache
+ FileUtils non-sparsely.
+
+ * FileUtils.java (mountImageToTempDirectory): Mount image from loopXp1 instead
+ of loopXp2.
+
+ * ShellUtil.java (executeShellCommand): Output more debug information.
+
+2012-03-15  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.5-SNAPSHOT; includes extract zip functionality
+ and set permissions for file.
+
+ * FileCopier.java (copyFile): Fixed error in target directory name (getName()
+ should be getPath()).
+
+ * FileUtils.java (mountImageToTempDirectory): Use
+ 'grep -e loop[[:digit:]]p2' instead of 'grep p2' in order to avoid problems
+ when loop device is loop2, thus partition are loop2pX.
+
+ * FileUtils.java (setPermissions): New method for setting file permissions.
+
+2012-03-14  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.4-SNAPSHOT; includes putWar functionality.
+
+ * FileCopier.java (copyFile): Created target directory with parent directories.
+
+ * BaseImageCopier.java: Renamed from ImageCopier.java to make the role clearer.
+
+ * ics.properties: Default target.directory is "optimis_service" now.
+
+2012-03-13  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.3-SNAPSHOT.
+
+2012-03-09  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Bumped to version 0.2-SNAPSHOT.
+
+ * ImageCreationService.java (deleteImage): Compare image id with equals(),
+ not with ==, dummy. 
+
+2012-03-06  Roland Kuebert  <kuebert@hlrs.de>
+
+  * FileCopier.java (copyFile): Use a temporary directory for mounting the
+  image.
+
+ * ics.properties: Removed mount.directory property.
+
+ * FileUtils.java: New class.
+
+2012-03-05  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationService.java (updateImage): Compare image id with equals(),
+ not with ==, dummy. 
+
+2012-03-02  Roland Kuebert  <kuebert@hlrs.de>
+
+ * pom.xml: Set version to 0.1-SNAPSHOT.
+
+ * ImageCreationService.java: Created methods for finalizing and unfinalizing
+ images.
+
+ * ImageState.java: Reduced states to BUSY, READY and FINALIZED.
+
+2012-02-27  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ProcessResult.java: Moved to eu.optimis.ics.shell package.
+
+ * ShellUtil.java: Use log4j instead of System. for logging.
+ * FileCopier.java: Likewise.
+
+2012-02-27  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationService.java: Implement finalization.
+
+ * ImageNotFoundException.java: Extend Exception, not Throwable.
+
+ * Image.java (Image): Explicitly assume all fields are null when an Image is
+ created from a UUID.
+
+ * Image.java (toTextPlain): New method.
+
+2012-02-22  Roland Kuebert  <kuebert@hlrs.de>
+
+ * FileCoper.java (copyFile): Replaced dummy code with real copying to image.
+
+ * RuntimeExecTest.java (main): Take image file as command line argument,
+ print usage message when invoked wrongly.
+
+2012-02-21  Roland Kuebert  <kuebert@hlrs.de>
+
+ * ImageCreationService.java (flushDatabase): Correctly delete images
+ from database.
+
+2012-02-20  Roland Kuebert  <kuebert@hlrs.de>
+
+ * Image.java (deleteImageFile): More detailed log output, print file name if
+ file not found.
+
+ * BaseClient.java (getImages): New method. (printImages): Likewise.
+
+ * ListImagesClient.java: New class.
+
+2012-01-27  Roland Kuebert  <kuebert@hlrs.de>
+
+	* RuntimeExecTest.java: New class.
+	* ProcessResult.java: New class.
+
+2012-01-25  Roland Kuebert  <kuebert@hlrs.de>
+
+	* ImageCreationService.java: Use embedded server mode for db4o in order to
+	hopefully prevent locking problems. (getImage): Added operation.
+
+	* Image.java: Class is not abstract any more. Added logging.
+	(Image): Created constructor with UUID. 
+
+2012-01-23  Roland Kuebert  <kuebert@hlrs.de>
+
+	* pom.xml: db4o should be coming from the optimis repository now.
+
+2012-01-05  Roland Kuebert  <kuebert@hlrs.de>
+
+	* create-test-repository-folder.sh: New class.
+	* Image.java (putFile): New method. (executeFile): Likewise.
+	* FileCopiert.java: New class.
+	* FileExecutor.java: New class.
+	* ImageCreationService.java (main): Removed method.
+	(getImages): Made method public.

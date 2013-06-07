@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.optimis.cbr.client</groupId>
+  <artifactId>CloudBrokerClient</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>CloudBrokerClient Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+		<repository>
+			<id>optimis-repo</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<name>repo</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/repo</url> 
+			<!-- <url>http://95.211.106.248/artifactory/repo/</url> -->
+		</repository>
+  		<repository>
+  		<releases>
+  			<enabled>false</enabled>
+  		</releases>
+  		<snapshots>
+  			<enabled>false</enabled>
+  		</snapshots>
+  		<id>maven2-repository.dev.java.net</id>
+  		<url>http://download.java.net/maven/2</url>
+  	</repository>
+  </repositories>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>3.8.1</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.sun.jersey</groupId>
+  		<artifactId>jersey-client</artifactId>
+  		<version>1.5</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	 <dependency>
+  		<groupId>eu.optimis.servicemanifest</groupId>
+  		<artifactId>service-manifest-api</artifactId>
+  		<version>1.0.6-SNAPSHOT</version>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+		<groupId>eu.optimis.ipdiscovery</groupId>
+		<artifactId>IPDatamodel</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</dependency>
+  	  	
+    <dependency>
+    	<groupId>com.sun.jersey</groupId>
+    	<artifactId>jersey-server</artifactId>
+    	<version>1.5</version>
+    	<optional>false</optional>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>CloubBrokerClient</finalName>
+    
+      <plugins>
+	<plugin>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>2.3.2</version>
+		<configuration>
+			<source>1.6</source>
+			<target>1.6</target>
+		</configuration>
+	</plugin>
+   </plugins>
+    
+    
+  </build>
+  	<distributionManagement>
+		<!-- For releases -->
+		<repository>
+			<id>optimis-repo</id>
+			<name>optimis-repo-releases</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/libs-release-local</url>
+		</repository>
+		<!-- For snapshots -->
+		<snapshotRepository>
+			<id>optimis-repo</id>
+			<uniqueVersion>false</uniqueVersion>
+			<name>optimis-repo-snapshots</name>
+			<url>http://optimis-artifactory.atosorigin.es/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

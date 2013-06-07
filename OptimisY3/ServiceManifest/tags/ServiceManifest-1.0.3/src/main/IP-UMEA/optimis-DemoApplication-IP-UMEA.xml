@@ -1,0 +1,1501 @@
+<ServiceManifest opt:manifestId="OPTIMIS_VM:1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://schemas.optimis.eu/optimis/"
+xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+xmlns:opt="http://schemas.optimis.eu/optimis/"
+xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData"
+opt:serviceProviderId="OPTIMUMWEB">
+  <opt:VirtualMachineDescription opt:serviceId="DemoApp">
+    <ovf:Envelope>
+      <!-- Django: changed these paths to represent image locations on IP side, VM images will be copied (during stage-in?) -->
+      <ovf:References>
+        <!--VM images -->
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-jboss.img"
+        ovf:id="jboss-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-db.img"
+        ovf:id="mysql-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-lb.img"
+        ovf:id="lb-img" />
+        <ovf:File ovf:href="/opt/optimis/repository/image/DemoApp-vpn.img"
+        ovf:id="vpn-img" />
+        <!-- ISO images -->
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_1.iso"
+        ovf:id="jboss-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_2.iso"
+        ovf:id="jboss-2-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_3.iso"
+        ovf:id="jboss-3-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_4.iso"
+        ovf:id="jboss-4-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_5.iso"
+        ovf:id="jboss-5-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_6.iso"
+        ovf:id="jboss-6-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_7.iso"
+        ovf:id="jboss-7-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_8.iso"
+        ovf:id="jboss-8-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_9.iso"
+        ovf:id="jboss-9-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_10.iso"
+        ovf:id="jboss-10-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_11.iso"
+        ovf:id="jboss-11-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_12.iso"
+        ovf:id="jboss-12-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_13.iso"
+        ovf:id="jboss-13-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_14.iso"
+        ovf:id="jboss-14-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_15.iso"
+        ovf:id="jboss-15-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-jboss_16.iso"
+        ovf:id="jboss-16-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-db_1.iso"
+        ovf:id="mysql-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-lb_1.iso"
+        ovf:id="lb-1-iso" />
+        <ovf:File ovf:href="/opt/optimis/repository/iso/DemoApp-vpn_1.iso"
+        ovf:id="vpn-1-iso" />
+      </ovf:References>
+      <ovf:DiskSection>
+        <ovf:Info />
+        <!-- TODO: these formats are incorrect we are using raw images and vanilla ISO-9660 -->
+        <!-- VM disks -->
+        <ovf:Disk ovf:capacity="6252516" ovf:diskId="jboss_disk"
+        ovf:fileRef="jboss-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="7380016" ovf:diskId="mysql_disk"
+        ovf:fileRef="mysql-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="5160576" ovf:diskId="lb_disk"
+        ovf:fileRef="lb-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="6252516" ovf:diskId="vpn_disk"
+        ovf:fileRef="vpn-img"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <!-- Django: the sizes to be determined by VMM -->
+        <!-- Django: using disks for the ISO's due to lack of support for cdrom devices in XEN-->
+        <!-- ISO disks, -->
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_2"
+        ovf:fileRef="jboss-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_3"
+        ovf:fileRef="jboss-2-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_4"
+        ovf:fileRef="jboss-3-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_5"
+        ovf:fileRef="jboss-4-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_6"
+        ovf:fileRef="jboss-5-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_7"
+        ovf:fileRef="jboss-6-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_8"
+        ovf:fileRef="jboss-7-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_9"
+        ovf:fileRef="jboss-8-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_10"
+        ovf:fileRef="jboss-9-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_11"
+        ovf:fileRef="jboss-10-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_12"
+        ovf:fileRef="jboss-11-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_13"
+        ovf:fileRef="jboss-12-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_14"
+        ovf:fileRef="jboss-13-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_15"
+        ovf:fileRef="jboss-14-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_16"
+        ovf:fileRef="jboss-15-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="jboss_disk_17"
+        ovf:fileRef="jboss-16-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="mysql_disk_2"
+        ovf:fileRef="mysql-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="lb_disk_2"
+        ovf:fileRef="lb-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+        <ovf:Disk ovf:capacity="1" ovf:diskId="vpn_disk_2"
+        ovf:fileRef="vpn-1-iso"
+        ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+      </ovf:DiskSection>
+      <ovf:NetworkSection>
+        <ovf:Info />
+        <ovf:Network ovf:name="jboss_net">
+          <ovf:Description>Network to connect to
+          instance jboss</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="mysql_net">
+          <ovf:Description>Network to connect to
+          instance-mysql</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="lb_net">
+          <ovf:Description>Network to connect to
+          LB</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="serviceLB_net">
+          <ovf:Description>Network to connect to
+          LB</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="vpn_net">
+          <ovf:Description>Network to connect to
+          VPN</ovf:Description>
+        </ovf:Network>
+        <ovf:Network ovf:name="vpn2_net">
+          <ovf:Description>Network to connect to
+          VPN</ovf:Description>
+        </ovf:Network>
+      </ovf:NetworkSection>
+      <!-- NOTE: Generate the IP addresses for each of these machines from pool on SP side? -->
+      <!-- Django: Added all instances to collection -->
+      <ovf:VirtualSystemCollection ovf:id="service-collection">
+        <ovf:Info>Collection of virtual systems</ovf:Info>
+        <!-- VPN Instance -->
+        <ovf:VirtualSystem ovf:id="instance-vpn-1">
+          <ovf:Info>VPN description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>VPN</ovf:Product>
+            <ovf:Version></ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.70" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="InternalIP2" ovf:type="string"
+            ovf:value="130.239.48.71" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-vpn-1" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>vpn_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on VPN
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>vpn2_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on VPN
+              network</rasd:ElementName>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/vpn_disk</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/vpn_disk_2</rasd:HostResource>
+              <rasd:InstanceID>6</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <!-- Load Balancer Instance -->
+        <ovf:VirtualSystem ovf:id="instance-lb-1">
+          <ovf:Info>LB description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>LB</ovf:Product>
+            <ovf:Version></ovf:Version>
+            <ovf:Property ovf:key="ExternalIP" ovf:type="string"
+            ovf:value="130.239.48.72" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.73" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-lb-1" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>512 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>lb_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on load balancer
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/lb_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/lb_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <!-- Mysql Instance -->
+        <ovf:VirtualSystem ovf:id="instance-mysql-1">
+          <ovf:Info>BBDD description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>mysql</ovf:Product>
+            <ovf:Version></ovf:Version>
+          <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.74" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-mysql-1" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 2048Mb, 2 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>512 MB of memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>mysql_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on mysql_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/mysql_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <!-- Jboss Instances -->
+        <ovf:VirtualSystem ovf:id="instance-jboss-1">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.75" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-1" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_2</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-2">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.76" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-2" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_3</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-3">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.77" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-3" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_4</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-4">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.78" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-4" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_5</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-5">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.79" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-5" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_6</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-6">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.80" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-6" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_7</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-7">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.81" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-7" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_8</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-8">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.82" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-8" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_9</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-9">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.83" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-9" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_10</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-10">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.84" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-10" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_11</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-11">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.85" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-11" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_12</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-12">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.86" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-12" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_13</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-13">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.87" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-13" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_14</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-14">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.88" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-14" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_15</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-15">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.89" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-15" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_16</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>
+        <ovf:VirtualSystem ovf:id="instance-jboss-16">
+          <ovf:Info>JBOSS VM description</ovf:Info>
+          <ovf:ProductSection ovf:class="com.sun.master">
+            <ovf:Info>Product customization for the installed
+            software</ovf:Info>
+            <ovf:Product>JBOSS</ovf:Product>
+            <ovf:Version>5.1</ovf:Version>
+            <ovf:Property ovf:key="InternalIP" ovf:type="string"
+            ovf:value="130.239.48.90" /> <!-- Example of IP specific property, needs to be changed -->
+            <ovf:Property ovf:key="Hostname" ovf:type="string"
+            ovf:value="optimis-instance-jboss-16" />
+          </ovf:ProductSection>
+          <ovf:VirtualHardwareSection>
+            <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1 CPU,
+            1 disk, 1 nic</ovf:Info>
+            <ovf:System>
+              <vssd:ElementName>Virtual Hardware
+              Family</vssd:ElementName>
+              <vssd:InstanceID>0</vssd:InstanceID>
+              <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+            </ovf:System>
+            <ovf:Item>
+              <rasd:Description>Number of virtual
+              CPUs</rasd:Description>
+              <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+              <rasd:InstanceID>1</rasd:InstanceID>
+              <rasd:ResourceType>3</rasd:ResourceType>
+              <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AllocationUnits>
+              MegaBytes</rasd:AllocationUnits>
+              <rasd:Description>Memory Size</rasd:Description>
+              <rasd:ElementName>1024 MB of
+              memory</rasd:ElementName>
+              <rasd:InstanceID>2</rasd:InstanceID>
+              <rasd:ResourceType>4</rasd:ResourceType>
+              <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:AutomaticAllocation>
+              true</rasd:AutomaticAllocation>
+              <rasd:Connection>jboss_net</rasd:Connection>
+              <rasd:ElementName>Ethernet adapter on jboss_net
+              network</rasd:ElementName>
+              <rasd:InstanceID>3</rasd:InstanceID>
+              <rasd:ResourceType>10</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 1</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk</rasd:HostResource>
+              <rasd:InstanceID>4</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+            <ovf:Item>
+              <rasd:ElementName>Harddisk 2</rasd:ElementName>
+              <rasd:HostResource>ovf:/disk/jboss_disk_17</rasd:HostResource>
+              <rasd:InstanceID>5</rasd:InstanceID>
+              <rasd:Parent>4</rasd:Parent>
+              <rasd:ResourceType>17</rasd:ResourceType>
+            </ovf:Item>
+          </ovf:VirtualHardwareSection>
+        </ovf:VirtualSystem>                
+      </ovf:VirtualSystemCollection>
+    </ovf:Envelope>
+    <!-- Django: This new section defines groups of Virtual Systems -->
+    <opt:VirtualSystemGroupSection>
+      <opt:VirtualSystemGroup opt:id="instance-jboss-group">
+        <opt:VirtualSystemId>instance-jboss-1</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-2</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-3</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-4</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-5</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-6</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-7</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-8</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-9</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-10</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-11</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-12</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-13</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-14</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-15</opt:VirtualSystemId>
+        <opt:VirtualSystemId>instance-jboss-16</opt:VirtualSystemId>
+      </opt:VirtualSystemGroup>
+      <opt:VirtualSystemGroup opt:id="instance-mysql-group">
+        <opt:VirtualSystemId>instance-mysql-1</opt:VirtualSystemId>
+      </opt:VirtualSystemGroup>
+      <opt:VirtualSystemGroup opt:id="instance-lb-group">
+        <opt:VirtualSystemId>instance-lb-1</opt:VirtualSystemId>
+      </opt:VirtualSystemGroup>
+      <opt:VirtualSystemGroup opt:id="instance-lb-group">
+        <opt:VirtualSystemId>instance-vpn-1</opt:VirtualSystemId>
+      </opt:VirtualSystemGroup>
+    </opt:VirtualSystemGroupSection>
+    <opt:AllocationSection>
+      <opt:AllocationConstraint opt:virtualSystemGroupId="instance-jboss-group"> <!-- Django: changed to group id -->
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>16</opt:UpperBound> <!-- Django: Is 16 instances enough for the demo? -->
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemGroupId="instance-mysql-group"> <!-- Django: changed to group id -->
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemGroupId="instance-lb-group"> <!-- Django: changed to group id -->
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+      <opt:AllocationConstraint opt:virtualSystemGroupId="instance-vpn-group"> <!-- Django: changed to group id -->
+        <opt:LowerBound>1</opt:LowerBound>
+        <opt:UpperBound>1</opt:UpperBound>
+        <opt:Initial>1</opt:Initial>
+      </opt:AllocationConstraint>
+    </opt:AllocationSection>
+  </opt:VirtualMachineDescription>
+  <opt:TRECSection>
+    <opt:TrustSection>
+      <opt:TrustLevel>5</opt:TrustLevel>
+    </opt:TrustSection>
+    <opt:RiskSection>
+      <opt:AvailabilityArray>
+        <!-- defines a minimum availability of the VM of 99% at a day -->
+        <opt:Availability opt:AssessmentInterval="P1D">
+        98</opt:Availability>
+        <!-- defines a minimum availability of the VM of 99% at a month -->
+        <opt:Availability opt:AssessmentInterval="P1M">
+        99</opt:Availability>
+      </opt:AvailabilityArray>
+    </opt:RiskSection>
+    <opt:EcoEfficiencySection>
+      <opt:LEEDCertification></opt:LEEDCertification>
+      <opt:BREEAMCertification></opt:BREEAMCertification>
+      <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+      <opt:EnergyStarRating>No</opt:EnergyStarRating>
+    </opt:EcoEfficiencySection>
+    <opt:CostSection>
+      <opt:Price opt:currency="EUR">100.00</opt:Price>
+    </opt:CostSection>
+  </opt:TRECSection>
+  <opt:ElasticitySection>
+    <opt:Rule>
+      <opt:Scope>
+        <opt:VirtualSystemGroupId>instance-jboss-group</opt:VirtualSystemGroupId>
+      </opt:Scope>
+      <!-- Current amount of JVM Threads in the JBoss JVM -->
+      <opt:KPIName>ThreadCount</opt:KPIName>
+      <!-- These values are not used for this measurement -->
+      <opt:Window>P5M</opt:Window>
+      <opt:Frequency>1</opt:Frequency>
+      <!-- 100 users per thread, with a tolerance of 5% (so trigger at more than 105 users, and down again at below 95 users ) -->
+      <opt:Quota>100</opt:Quota>
+      <opt:Tolerance>5</opt:Tolerance>
+    </opt:Rule>
+  </opt:ElasticitySection>
+  <opt:DataProtectionSection>
+    <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+    <opt:DataEncryptionLevel>
+      <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+    </opt:DataEncryptionLevel>
+  </opt:DataProtectionSection>
+</ServiceManifest>

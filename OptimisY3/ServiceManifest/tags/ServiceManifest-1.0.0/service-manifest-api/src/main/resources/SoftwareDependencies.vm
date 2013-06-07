@@ -1,0 +1,5 @@
+<opt-sp:SoftwareDependencies xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+                             opt-sp:componentId="${componentId}">
+
+
+</opt-sp:SoftwareDependencies>

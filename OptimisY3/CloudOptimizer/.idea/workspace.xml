@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CloudOptimizerServer:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/resources/IpManifest.xml" line="1377" />
+    <bookmark url="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/resources/IpManifest.xml" line="718" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="475eaaa6-c31a-450e-8c1e-b199f833f377" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java" afterPath="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestManifest.java" afterPath="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestManifest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/testMan.xml" afterPath="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/testMan.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="CloudOptimizerPackage.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/CloudOptimizerREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368716952826" ignored="false" />
+    <file path="/CloudOptimizerRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368544848580" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/eu/optimis/VMManagerRESTClient/1.9-SNAPSHOT/VMManagerRESTClient-1.9-SNAPSHOT.jar!/META-INF/maven/eu.optimis/VMManagerRESTClient/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360581182097" ignored="false" />
+    <file path="/Queries.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368708067915" ignored="false" />
+    <file path="/a.dummy" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1370010504756" ignored="false" />
+    <file path="/VirtualResource.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360594541063" ignored="false" />
+    <file path="/IPStateTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360594463359" ignored="false" />
+    <file path="/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368705491216" ignored="false" />
+    <file path="/XmlUtil.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360596629208" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FTEService/src/main/java/eu/optimis/faulttoleranceengine/core/FTAssessor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368535512069" ignored="false" />
+    <file path="/DBUtil.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363949231522" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FTEService/src/main/java/eu/optimis/faulttoleranceengine/core/Monitor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368001190322" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FaultToleranceEngineRESTClient/src/main/java/eu/optimis/faulttoleranceengine/rest/client/FaultToleranceEngineRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362063809537" ignored="false" />
+    <file path="/FaultToleranceEngineRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362063807194" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/eu/optimis/CloudOptimizerRESTClient/1.0-SNAPSHOT/CloudOptimizerRESTClient-1.0-SNAPSHOT.jar!/META-INF/maven/eu.optimis/CloudOptimizerRESTClient/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360763512109" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FTEService/src/main/java/eu/optimis/faulttoleranceengine/rest/FaultToleranceEngineREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363080859534" ignored="false" />
+    <file path="/FaultToleranceEngineREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363080832367" ignored="false" />
+    <file path="/FTAssessor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368535475726" ignored="false" />
+    <file path="/Monitor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368001177560" ignored="false" />
+    <file path="/SuggestionResponse.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360767871780" ignored="false" />
+    <file path="/CloudManager.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1370012186903" ignored="false" />
+    <file path="/Outsourcing.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368640404063" ignored="false" />
+    <file path="/HolisticManager.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368716338000" ignored="false" />
+    <file path="/ServiceDeployer.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368633542127" ignored="false" />
+    <file path="/Dummy.txt" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368713915202" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/rest/VMManagerREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1370012357057" ignored="false" />
+    <file path="/VMManagerREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368722607386" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/eu/optimis/BusinessDescriptor/1.0-SNAPSHOT/BusinessDescriptor-1.0-SNAPSHOT.jar!/policy.xsd" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1360838998822" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerRESTClient/src/main/java/eu/optimis/vmmanager/rest/client/VMManagerRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361979025969" ignored="false" />
+    <file path="/VMManagerRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361979025969" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/PlacementOptimizer.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368620350844" ignored="false" />
+    <file path="/PlacementOptimizer.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368545042363" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerRESTClient/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361978121091" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/Placement.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367331322090" ignored="false" />
+    <file path="/Placement.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366116378292" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/AbstractPlacement.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367331263328" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/Migration.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367334132343" ignored="false" />
+    <file path="/Migration.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367334127482" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/NoMigration.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367331302719" ignored="false" />
+    <file path="/NoMigration.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363339162714" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368616444923" ignored="false" />
+    <file path="/AbstractPlacement.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367331262349" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerRESTClient/src/test/java/eu/optimis/vmmanager/rest/client/AppTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361879337977" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FaultToleranceEngineRESTClient/src/test/java/eu/optimis/faulttoleranceengine/rest/client/AppTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362063889665" ignored="false" />
+    <file path="/HMTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362063061637" ignored="false" />
+    <file path="/VirtualResources.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361464584779" ignored="false" />
+    <file path="/HolisticManagementRESTClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361801149317" ignored="false" />
+    <file path="/policy.xsd" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366793975260" ignored="false" />
+    <file path="/BLOSchemaTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361877789682" ignored="false" />
+    <file path="$USER_HOME$/Desktop/untitled/src/Main.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361887895653" ignored="false" />
+    <file path="/Main.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363343504234" ignored="false" />
+    <file path="/DeploymentTest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368711732561" ignored="false" />
+    <file path="/a.html" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361896599640" ignored="false" />
+    <file path="/a.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363877794137" ignored="false" />
+    <file path="/a.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361896611156" ignored="false" />
+    <file path="$USER_HOME$/Desktop/untitled1/src/main.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361962349160" ignored="false" />
+    <file path="/main.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361962343857" ignored="false" />
+    <file path="$USER_HOME$/code/emotiveJU/VRMM/RM/RM/src/main/java/net/emotivecloud/vrmm/rm/HostsConnectionException.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361964530508" ignored="false" />
+    <file path="/HostsConnectionException.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361964861631" ignored="false" />
+    <file path="$USER_HOME$/code/emotiveJU/VRMM/RM/RM/src/main/java/net/emotivecloud/vrmm/rm/UnreachableHostsException.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361964886572" ignored="false" />
+    <file path="/UnreachableHostsException.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361964553871" ignored="false" />
+    <file path="$USER_HOME$/code/emotiveJU/VRMM/RM/RMREST/src/main/java/net/emotivecloud/vrmm/rm/rest/RMREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361965522136" ignored="false" />
+    <file path="/RMREST.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361965382257" ignored="false" />
+    <file path="$USER_HOME$/code/emotiveJU/VRMM/RM/RMRESTClient/src/main/java/net/emotivecloud/vrmm/rm/rest/client/RMClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361965676146" ignored="false" />
+    <file path="/RMClient.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1361965670623" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FTEService/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368178363156" ignored="false" />
+    <file path="$USER_HOME$/code/emotiveJU/Scheduler/OVFWrapper/src/main/java/net/emotivecloud/utils/ovf/optimis/OptimisReader.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365086187177" ignored="false" />
+    <file path="/OptimisReader.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362563567206" ignored="false" />
+    <file path="$PROJECT_DIR$/../TRECCommon/TRECCommonAPIIP/src/main/java/eu/optimis/treccommon/TrecApiIP.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1364310235013" ignored="false" />
+    <file path="$PROJECT_DIR$/../TRECCommon/TRECCommonAPIIP/src/test/java/eu/optimis/treccommon/test/TestIPCommonAPI.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1362654210205" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170572453" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/Market.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170274352" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/MarketMatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170223999" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/DishonestClientBehavior.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170302943" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/BrokenProvider.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170347714" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/Cluster.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170385743" ignored="false" />
+    <file path="$USER_HOME$/code/EERMsf/trunk/src/main/java/es/bsc/eerm/trust/TrustSimulator.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363170385743" ignored="false" />
+    <file path="/fragment.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367589986591" ignored="false" />
+    <file path="/*.regexp" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366894826369" ignored="false" />
+    <file path="$USER_HOME$/code/github/untitled/src/Main.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363343505123" ignored="false" />
+    <file path="/a.js" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1363877794932" ignored="false" />
+    <file path="/TestTREC.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1364293744779" ignored="false" />
+    <file path="/BLOUtils.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366797371872" ignored="false" />
+    <file path="$USER_HOME$/Desktop/borrame/src/Copsa.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365001514198" ignored="false" />
+    <file path="/Copsa.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365001400091" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/wl/Node.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365773264851" ignored="false" />
+    <file path="/Node.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365773221533" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/wl/Task.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365775171254" ignored="false" />
+    <file path="/Task.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365775081464" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/Provider.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365772981681" ignored="false" />
+    <file path="/Provider.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1365772981681" ignored="false" />
+    <file path="$PROJECT_DIR$/../optimis-parent/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368001274095" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FaultToleranceEngineRESTClient/pom.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366205004221" ignored="false" />
+    <file path="/*.txt" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366634280287" ignored="false" />
+    <file path="/TRECWatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366712199279" ignored="false" />
+    <file path="$PROJECT_DIR$/../FaultToleranceEngine/FTEService/src/main/java/eu/optimis/faulttoleranceengine/core/TestingMonitor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366894108747" ignored="false" />
+    <file path="/TestingMonitor.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366894104500" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/eu/optimis/trec/common/ip/TRECCommonAPIIP/3.0-SNAPSHOT/TRECCommonAPIIP-3.0-SNAPSHOT.jar!/eu/optimis/treccommon/TrecApiIP.class" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369231687920" ignored="false" />
+    <file path="$USER_HOME$/Desktop/borrame/fuckyou/src/asdf.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366894967089" ignored="false" />
+    <file path="/asdf.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366894959308" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/Emotive.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970262607" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/eu/optimis/hm/simul/emotive/Emotive.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970304196" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/eu/optimis/hm/simul/emotive/DRP.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970311464" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/hm/HolisticManager.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970409314" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/ipvm/VMM.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970438157" ignored="false" />
+    <file path="$PROJECT_DIR$/HMSimul/src/eu/optimis/hm/simul/emotive/Host.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1366970792431" ignored="false" />
+    <file path="/VirtualMachine.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369317274614" ignored="false" />
+    <file path="/PhysicalNode.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369317528604" ignored="false" />
+    <file path="/DRP.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368009732831" ignored="false" />
+    <file path="/FaultToleranceEngine.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369317631286" ignored="false" />
+    <file path="/VMManager.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368009727570" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/.idea/workspace.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367336924251" ignored="false" />
+    <file path="$PROJECT_DIR$/../VMManager/VMManagerService/src/main/java/eu/optimis/vmmanager/core/MigrationBeforePlacement.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367331240947" ignored="false" />
+    <file path="/Simulator.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369317610488" ignored="false" />
+    <file path="/MathUtils.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367588992565" ignored="false" />
+    <file path="/Service.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1367590205257" ignored="false" />
+    <file path="/MarketMatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368621664336" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/matcher/MarketMatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368622325682" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/Market.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368628410602" ignored="false" />
+    <file path="/RandomMatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368627902411" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/matcher/RandomMatcher.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368627944913" ignored="false" />
+    <file path="/Market.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368628410602" ignored="false" />
+    <file path="$USER_HOME$/code/github/reputation/src/edu/upc/mario/trustsim/TrustSimulator.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368628616985" ignored="false" />
+    <file path="/TrustSimulator.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368628613600" ignored="false" />
+    <file path="/ManifestManipulator.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1368634383438" ignored="false" />
+    <file path="/TestManifest.java" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1370012010750" ignored="false" />
+    <file path="/BurstingManifestyY2.xml" changelist="475eaaa6-c31a-450e-8c1e-b199f833f377" time="1369138147982" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="CloudOptimizerPackage">
+      <favorite_root url="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/rest/CloudOptimizerREST.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/main/java/eu/optimis/cloudoptimizer/rest/client/CloudOptimizerRESTClient.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+    <favorites_list name="CloudOptimizer" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="CloudManager.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="178" column="23" selection-start="8022" selection-end="8022" vertical-scroll-proportion="0.374092">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testMan.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/test/java/testMan.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="54" selection-start="798" selection-end="798" vertical-scroll-proportion="-5.44">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestManifest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestManifest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="0" selection-start="1970" selection-end="1970" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HolisticManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/HolisticManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="195" column="16" selection-start="7772" selection-end="7772" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceDeployer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/ServiceDeployer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="160" column="61" selection-start="8049" selection-end="8049" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataFormats/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="21" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CloudOptimizerRESTClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/main/java/eu/optimis/cloudoptimizer/rest/client/CloudOptimizerRESTClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="40" selection-start="2494" selection-end="2520" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeploymentTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/java/eu/optimis/cloudoptimizer/rest/client/DeploymentTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="59" selection-start="1875" selection-end="1875" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Outsourcing.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/Outsourcing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="102" column="32" selection-start="4317" selection-end="4317" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Queries.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/persistence/Queries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="39" selection-start="5009" selection-end="5009" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CloudOptimizerREST.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/rest/CloudOptimizerREST.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="311" column="21" selection-start="10579" selection-end="10588" vertical-scroll-proportion="17.88">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/main/java/eu/optimis/cloudoptimizer/rest/client/CloudOptimizerRESTClient.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/persistence/Queries.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/ServiceDeployer.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/rest/CloudOptimizerREST.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/HolisticManager.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/xml/PhysicalResource.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/CloudOptimizerRESTClient/src/main/java/eu/optimis/cloudoptimizer/rest/client/CloudOptimizerRESTClient.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestTREC.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/pom.xml" />
+        <option value="$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/data/VMType.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/util/ManifestManipulator.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/Outsourcing.java" />
+        <option value="$PROJECT_DIR$/DataFormats/pom.xml" />
+        <option value="$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/persistence/Queries.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/java/eu/optimis/cloudoptimizer/rest/client/DeploymentTest.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/HolisticManager.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/rest/CloudOptimizerREST.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/resources/BurstingManifestyY2.xml" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/ServiceDeployer.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/testMan.xml" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestManifest.java" />
+        <option value="$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="usePluginRegistry" value="true" />
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <option name="showIgnored" value="false" />
+    <option name="showBasicPhasesOnly" value="false" />
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="CloudOptimizerServer" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="CloudOptimizerServer" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="CloudOptimizerRESTClient" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="CloudOptimizer" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="CloudOptimizer" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-4" />
+    <option name="y" value="-6" />
+    <option name="width" value="1688" />
+    <option name="height" value="1017" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+          <State>
+            <id>ActionScript specificJavaScript</id>
+          </State>
+          <State>
+            <id>Assignment issues</id>
+          </State>
+          <State>
+            <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Bitwise operation issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Class metrics</id>
+          </State>
+          <State>
+            <id>Class structure</id>
+          </State>
+          <State>
+            <id>Code maturity issues</id>
+          </State>
+          <State>
+            <id>Code quality toolsJavaScript</id>
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Compiler issues</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Data flow issues</id>
+          </State>
+          <State>
+            <id>Data flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Declaration redundancy</id>
+          </State>
+          <State>
+            <id>Encapsulation issues</id>
+          </State>
+          <State>
+            <id>Error handling</id>
+          </State>
+          <State>
+            <id>Error handlingJavaScript</id>
+          </State>
+          <State>
+            <id>Finalization issues</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Google Web Toolkit issues</id>
+          </State>
+          <State>
+            <id>Imports</id>
+          </State>
+          <State>
+            <id>Inheritance issues</id>
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+          <State>
+            <id>J2ME issues</id>
+          </State>
+          <State>
+            <id>JPA issues</id>
+          </State>
+          <State>
+            <id>JSP Inspections</id>
+          </State>
+          <State>
+            <id>JUnit issues</id>
+          </State>
+          <State>
+            <id>Java EE issues</id>
+          </State>
+          <State>
+            <id>Java language level issues</id>
+          </State>
+          <State>
+            <id>Java language level migration aids</id>
+          </State>
+          <State>
+            <id>JavaBeans issues</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Javadoc issues</id>
+          </State>
+          <State>
+            <id>Language Injection</id>
+          </State>
+          <State>
+            <id>Logging issues</id>
+          </State>
+          <State>
+            <id>Memory issues</id>
+          </State>
+          <State>
+            <id>Method metrics</id>
+          </State>
+          <State>
+            <id>Naming conventions</id>
+          </State>
+          <State>
+            <id>Naming conventionsJavaScript</id>
+          </State>
+          <State>
+            <id>Numeric issues</id>
+          </State>
+          <State>
+            <id>Performance issues</id>
+          </State>
+          <State>
+            <id>Portability issues</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>Resource management issues</id>
+          </State>
+          <State>
+            <id>Security issues</id>
+          </State>
+          <State>
+            <id>Serialization issues</id>
+          </State>
+          <State>
+            <id>Threading issues</id>
+          </State>
+          <State>
+            <id>Visibility issues</id>
+          </State>
+          <State>
+            <id>Web Services</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="1" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages PackagesPane="false" ProjectPane="true" />
+      <showMembers />
+      <showModules PackagesPane="false" />
+      <showLibraryContents PackagesPane="false" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CloudOptimizerServer">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CloudOptimizerServer">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CloudOptimizerServer">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CloudOptimizerServer">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudOptimizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eu.optimis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="180" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="180" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="65" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="183" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="162" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="157" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CloudOptimizerServer" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="159" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="727" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="159" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="743" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/DataFormats/src/main/java" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.tabs" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RunManager" selected="JUnit.TestManifest.testManifest">
+    <configuration default="false" name="HMTest.testOther" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="CloudOptimizerRESTClient" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="eu.optimis.cloudoptimizer.rest.client" />
+      <option name="MAIN_CLASS_NAME" value="eu.optimis.cloudoptimizer.rest.client.HMTest" />
+      <option name="METHOD_NAME" value="testOther" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DeploymentTest.testIPDeployment" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="CloudOptimizerRESTClient" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="eu.optimis.cloudoptimizer.rest.client" />
+      <option name="MAIN_CLASS_NAME" value="eu.optimis.cloudoptimizer.rest.client.DeploymentTest" />
+      <option name="METHOD_NAME" value="testIPDeployment" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DeploymentTest.testInsertManifestInDB" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="CloudOptimizerRESTClient" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="eu.optimis.cloudoptimizer.rest.client" />
+      <option name="MAIN_CLASS_NAME" value="eu.optimis.cloudoptimizer.rest.client.DeploymentTest" />
+      <option name="METHOD_NAME" value="testInsertManifestInDB" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestTREC.testHolisticManagement" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="CloudOptimizerServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestTREC" />
+      <option name="METHOD_NAME" value="testHolisticManagement" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestManifest.testManifest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="CloudOptimizerServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestManifest" />
+      <option name="METHOD_NAME" value="testManifest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="COServer" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="jreName" value="1.6" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/CloudOptimizerServer" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Maven.COServer" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.HMTest.testOther" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DeploymentTest.testIPDeployment" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DeploymentTest.testInsertManifestInDB" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestTREC.testHolisticManagement" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.TestManifest.testManifest" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestManifest.testManifest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DeploymentTest.testIPDeployment" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestTREC.testHolisticManagement" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HMTest.testOther" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DeploymentTest.testInsertManifestInDB" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+    <option name="ACTIVE_ACTIONS" value="SHOW_NON_PUBLIC,ALPHA_COMPARATOR,SHOW_FIELDS" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/.idea" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/.idea" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/BusinessDescriptor" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/BusinessDescriptor" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/CloudOptimizerRESTClient" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/CloudOptimizerRESTClient" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/CloudOptimizerServer" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/CloudOptimizerServer" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/DataFormats" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/DataFormats" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="475eaaa6-c31a-450e-8c1e-b199f833f377" name="Default" comment="" />
+      <created>1359119505803</created>
+      <updated>1359119505803</updated>
+    </task>
+    <task id="LOCAL-00001">
+      <created>1360770814110</created>
+      <updated>1360770814110</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1361458422109</created>
+      <updated>1361458422109</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1363343234114</created>
+      <updated>1363343234114</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1367313989103</created>
+      <updated>1367313989103</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1367316111118</created>
+      <updated>1367316111118</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1367316419103</created>
+      <updated>1367316419103</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1367318903103</created>
+      <updated>1367318903103</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1367318945103</created>
+      <updated>1367318945103</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1367335986104</created>
+      <updated>1367335986104</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1368713930130</created>
+      <updated>1368713930130</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="-6" width="1688" height="1017" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32681563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Sonar" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4751445" sideWeight="0.49265605" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13856813" sideWeight="0.50306" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15973072" sideWeight="0.2182448" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49164346" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1822376" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1802543" sideWeight="0.26121372" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16140603" sideWeight="0.6834734" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16095471" sideWeight="0.64665127" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20930232" sideWeight="0.6480447" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5387283" sideWeight="0.49265605" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16140603" sideWeight="0.44957983" order="4" side_tool="false" content_ui="tabs" x="96" y="94" width="410" height="309" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298731" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/BusinessDescriptor/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="482" selection-end="500" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="2090" selection-end="2291" vertical-scroll-proportion="-7.32">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataFormats/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="21" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/etc/sample.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="27" selection-start="1192" selection-end="1207" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/java/eu/optimis/cloudoptimizer/rest/client/DeploymentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="59" selection-start="1875" selection-end="1875" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/main/java/eu/optimis/cloudoptimizer/rest/client/CloudOptimizerRESTClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="40" selection-start="2494" selection-end="2520" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/eu/optimis/VMManagerRESTClient/1.9-SNAPSHOT/VMManagerRESTClient-1.9-SNAPSHOT.jar!/eu/optimis/vmmanager/rest/client/VMManagerRESTClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="29" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-17.4" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerRESTClient/src/test/resources/BurstingManifestyY2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="784" column="123" selection-start="59982" selection-end="59982" vertical-scroll-proportion="0.8769602" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/HolisticManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="16" selection-start="7772" selection-end="7772" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/ServiceDeployer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="61" selection-start="8049" selection-end="8049" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/Outsourcing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="32" selection-start="4317" selection-end="4317" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/rest/CloudOptimizerREST.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="311" column="21" selection-start="10579" selection-end="10588" vertical-scroll-proportion="17.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataFormats/src/main/java/eu/optimis/cloudoptimizer/persistence/Queries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="39" selection-start="5009" selection-end="5009" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/test/java/testMan.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="54" selection-start="798" selection-end="798" vertical-scroll-proportion="-5.44">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/test/java/TestManifest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1970" selection-end="1970" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CloudOptimizerServer/src/main/java/eu/optimis/cloudoptimizer/core/CloudManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="23" selection-start="8022" selection-end="8022" vertical-scroll-proportion="0.374092">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CloudOptimizerServer:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BusinessDescriptor</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

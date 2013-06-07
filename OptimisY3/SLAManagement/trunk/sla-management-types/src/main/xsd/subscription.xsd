@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:oss="http://www.optimis.eu/subscription/"
+    xmlns:wsag-engine="http://schemas.scai.fraunhofer.de/2008/11/wsag4j/engine" 
+    targetNamespace="http://www.optimis.eu/subscription/"
+    attributeFormDefault="qualified"
+    elementFormDefault="qualified">
+    
+    <import namespace="http://schemas.scai.fraunhofer.de/2008/11/wsag4j/engine"/>
+
+    <element name="SubscriptionDetail" type="oss:SubscriptionDetailType" />
+    <complexType name="SubscriptionDetailType">
+        <sequence>
+            <element name="URI" type="anyURI" />
+            <element name="AgreementId" type="string" />
+        </sequence>
+    </complexType>
+    
+    
+    <element name="ResourceCollection" type="oss:ResourceCollectionType"/>
+    <complexType name="ResourceCollectionType">
+        <sequence>
+            <element name="URI" type="anyURI" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    
+    <element name="NotificationEventCollection" type="oss:NotificationEventCollectionType"/>
+    <complexType name="NotificationEventCollectionType">
+        <sequence>
+            <element name="NotificationEvent" type="oss:NotificationEventType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="AgreementId" type="string" />
+    </complexType>
+    
+    <complexType name="NotificationEventType">
+        <complexContent>
+            <extension base="wsag-engine:SLAMonitoringNotificationEventType">
+                <attribute name="timestamp" type="dateTime" />
+            </extension>
+        </complexContent>
+    </complexType>
+    
+</schema>

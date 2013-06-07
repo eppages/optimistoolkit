@@ -1,0 +1,268 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis.sdo</groupId>
+		<artifactId>DeploymentService</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>eu.optimis.sdo</groupId>
+	<artifactId>SDO-GUI</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Optimis Demo for the SDO</name>
+	<description>ZK + REST GUI.</description>
+	<url>http://www.optimis-project.eu/</url>
+
+	<properties>
+		<commons-io.version>2.1</commons-io.version>
+		<commons-lang.version>2.4</commons-lang.version>
+		<commons-config.version>1.6</commons-config.version>
+		<commons-logging.version>1.1</commons-logging.version>
+		
+		<json.version>20090211</json.version>
+
+		<com.sun.jersey.version>1.6</com.sun.jersey.version>
+
+		<zk.version>5.0.10</zk.version>
+		<sd.version>1.0-SNAPSHOT</sd.version>
+		<TRECCommonAPISP.version>3.0-SNAPSHOT</TRECCommonAPISP.version>
+
+		<ServiceManifest.version>1.0.8</ServiceManifest.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- TRECCommonAPI -->
+		<dependency>
+			<groupId>eu.optimis.trec.common.sp</groupId>
+			<artifactId>TRECCommonAPISP</artifactId>
+			<version>${TRECCommonAPISP.version}</version>
+			<optional>false</optional>
+		</dependency>
+		
+		<!-- json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+		 
+		<!-- ServiceManifest API -->
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+			<artifactId>service-manifest-api</artifactId>
+			<version>${ServiceManifest.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>xercesImpl</artifactId>
+			<groupId>xerces</groupId>
+			<version>2.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
+		<!-- Service Deployer -->
+		<dependency>
+			<groupId>eu.optimis.sdo</groupId>
+			<artifactId>ServiceDeployer</artifactId>
+			<version>${sd.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xercesImpl</artifactId>
+					<groupId>xerces</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>eu.optimis.servicemanifest</groupId>
+					<artifactId>service-manifest-api</artifactId>
+				</exclusion>
+
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<!-- Commons io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+
+		<!-- Commons lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- Commons configuration -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons-config.version}</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+			<type>jar</type>
+		</dependency>
+
+
+		<!-- Jersey REST -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+
+		<!-- ZK Libraries -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zhtml</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkex</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkmax</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<!-- ================== MAVEN EXEC PLUGIN =================== -->
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<encoding>UTF-8</encoding>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/webapp</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.10</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<contextPath>/</contextPath>
+					<stopKey>stop</stopKey>
+					<stopPort>9997</stopPort>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8087</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<systemProperties>
+						<systemProperty>
+							<name>log4j.configuration</name>
+							<value>log4j-jetty-sdo-gui.properties</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+						<version>${commons-logging.version}</version>
+						<type>jar</type>
+					</dependency>
+					<dependency>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+						<version>1.2.14</version>
+						<type>jar</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+		<finalName>sdo-gui</finalName>
+	</build>
+</project>

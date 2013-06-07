@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mkdir vmimages
+
+
+sshfs vmimages@datamanager.fusion-algorithms.com:/home/vmimages/sids ./vmimages
+

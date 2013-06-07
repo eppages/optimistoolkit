@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='eu.optimis.ip.gui.MonitoringManagerWeb' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/MonitoringManagerWeb/greet" class="eu.optimis.ip.gui.server.MonitoringManagerWebServiceImpl" />
+
+</module>

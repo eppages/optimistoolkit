@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opt:DataProtectionSection xmlns:cim="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:class="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:class1="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:opt="http://schemas.optimis.eu/optimis/" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.optimis.eu/optimis/ optimis.xsd ">
+  <opt:EligibleCountryList>
+    <opt:Country>GR</opt:Country>
+  </opt:EligibleCountryList>
+  <opt:NonEligibleCountryList>
+    <opt:Country>DE</opt:Country>
+  </opt:NonEligibleCountryList>
+  <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+  <opt:DataEncryptionLevel>
+    <opt:EncryptionAlgoritm>NotApplicable</opt:EncryptionAlgoritm>
+    
+    <opt:EncryptionKeySize>128</opt:EncryptionKeySize>
+    
+  </opt:DataEncryptionLevel>
+  
+</opt:DataProtectionSection>

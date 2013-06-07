@@ -1,0 +1,89 @@
+
+FUNCTION_BLOCK utilityAspect	
+
+VAR_INPUT
+	risk : REAL;
+	security : REAL;
+	elasticityRules : REAL;
+	performance : REAL;
+	reliability : REAL;
+	legal : REAL;
+END_VAR
+
+VAR_OUTPUT
+	trust : REAL;
+END_VAR
+
+FUZZIFY risk			
+	TERM veryLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+FUZZIFY security			
+	TERM tooLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+FUZZIFY elasticityRules			
+	TERM veryClose := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM close := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM normal := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM far := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryFar := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+FUZZIFY performance			
+	TERM tooLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+FUZZIFY reliability			
+	TERM tooLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+FUZZIFY legal			
+	TERM tooLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ; 
+END_FUZZIFY
+
+DEFUZZIFY trust
+	TERM veryLow := (0, 1) (0.71, 1) (1.07, 0) ; 
+	TERM low := (0.71, 0) (1.07, 1) (1.78, 1) (2.14, 0) ;
+	TERM medium := (1.78, 0) (2.14, 1) (2.85, 1) (3.21, 0) ;
+	TERM high := (2.85, 0) (3.21, 1) (3.92, 1) (4.28, 0) ;
+	TERM veryHigh := (3.92, 0) (4.28, 1) (5.0, 1) ;
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 2.5;		// Default value is 2.5 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or')
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF performance IS veryHigh AND security IS veryHigh AND reliability IS veryHigh AND legal is veryHigh THEN trust IS veryHigh;
+	RULE 2 : IF security IS tooLow OR legal IS tooLow THEN trust IS veryLow;
+	RULE 3 : IF performance IS NOT tooLow AND (risk IS veryLow OR elasticityRules IS veryFar) THEN trust IS veryHigh;
+	RULE 4 : IF performance IS high AND (security IS high AND legal IS high) THEN trust IS high;
+	RULE 5 : IF (legal IS low OR security is low) AND (performance IS NOT high OR reliability IS NOT high) THEN trust IS low;
+	RULE 6 : IF elasticityRules IS far OR (risk IS NOT high AND performance IS medium AND reliability IS NOT low) THEN trust IS medium;	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Service Manifest">
+
+   <skin>
+      <groupId>org.apache.maven.skins</groupId>
+      <artifactId>maven-fluido-skin</artifactId>
+      <version>1.1</version>
+   </skin>
+
+   <version position="left"/>
+   <publishDate position="navigation-bottom"/>
+
+   <bannerLeft>
+      <name>Optimis Project</name>
+      <src>images/logo.png</src>
+      <href>http://www.optimis-project.eu/</href>
+   </bannerLeft>
+   <bannerRight>
+      <name>${project.name} - Fraunhofer Institute SCAI</name>
+      <src>images/fraunhofer-logo.gif</src>
+      <href>http://www.scai.fraunhofer.de</href>
+   </bannerRight>
+   <body>
+      <head>
+         <meta name="keywords" content="license management, grid, cloud, license token"/>
+         <meta name="description" content=""/>
+      </head>
+
+      <links>
+         <item name="Optimis" href="http://www.de.atosorigin.com/de-de/"/>
+         <item name="Fraunhofer" href="http://scai.fraunhofer.de/"/>
+      </links>
+
+      <menu name="Service Manifest">
+         <item name="Manifest API User Guide" href="index.html"/>
+         <item name="SP Manifest Construction" href="sp-manifest-construction.html"/>
+         <item name="SP Extensions" href="sp-extensions.html"/>
+         <item name="Export &amp; Import" href="import-export.html"/>
+         <item name="IP Extensions" href="ip-extensions.html"/>
+         <item name="Manifest Splitting" href="manifest-splitting.html"/>
+         <item name="Changelog" href="changelog.html"/>
+         <!--<item name="Frequently asked Questions" href="faq.html"/>-->
+      </menu>
+
+      <menu ref="reports"/>
+
+   </body>
+</project>

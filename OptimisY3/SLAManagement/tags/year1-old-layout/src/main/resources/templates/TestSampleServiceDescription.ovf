@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xsi:schemaLocation="http://schemas.dmtf.org/ovf/envelope/1 http://schemas.dmtf.org/ovf/envelope/1" xml:lang="en-US" ovf:version="1.0">
+  <References>
+    <File ovf:href="disk-image.vmdk" ovf:id="file1"/>
+  </References>
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+    <Disk ovf:capacity="30000000000" ovf:diskId="vmdisk1" ovf:fileRef="file1" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized"/>
+  </DiskSection>
+  <NetworkSection>
+    <Info>Logical networks used in the package</Info>
+    <Network ovf:name="NAT">
+      <Description>Logical network used by this appliance.</Description>
+    </Network>
+  </NetworkSection>
+  <ovf:VirtualSystemCollection ovf:id="OptimisVirtualSystem">
+	  <VirtualSystem ovf:id="TestMigrateVM">
+	    <Info>A virtual machine</Info>
+	    <OperatingSystemSection ovf:id="36">
+	      <Info>The kind of installed guest operating system</Info>
+	      <Description>LINUX</Description>
+	    </OperatingSystemSection>
+	    <VirtualHardwareSection>
+	      <Info>Virtual hardware requirements for a virtual machine</Info>
+	      <System>
+	        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+	        <vssd:InstanceID>0</vssd:InstanceID>
+	        <vssd:VirtualSystemIdentifier>Test</vssd:VirtualSystemIdentifier>
+	        <vssd:VirtualSystemType>vmx-04</vssd:VirtualSystemType>
+	      </System>
+	      <Item>
+	        <rasd:Caption>Virtual CPUs</rasd:Caption>
+	        <rasd:Description>Number of virtual CPUs</rasd:Description>
+	        <rasd:ElementName>Virtual CPUs</rasd:ElementName>
+	        <rasd:InstanceID>1</rasd:InstanceID>
+	        <rasd:ResourceType>3</rasd:ResourceType>
+	        <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+	      </Item>
+	      <Item>
+	        <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+	        <rasd:Caption>1024 MB of memory</rasd:Caption>
+	        <rasd:Description>Memory Size</rasd:Description>
+	        <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+	        <rasd:InstanceID>2</rasd:InstanceID>
+	        <rasd:ResourceType>4</rasd:ResourceType>
+	        <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+	      </Item>
+	      <Item>
+	        <rasd:Address>0</rasd:Address>
+	        <rasd:Caption>ideController0</rasd:Caption>
+	        <rasd:Description>IDE Controller</rasd:Description>
+	        <rasd:ElementName>ideController0</rasd:ElementName>
+	        <rasd:InstanceID>3</rasd:InstanceID>
+	        <rasd:ResourceSubType>PIIX4</rasd:ResourceSubType>
+	        <rasd:ResourceType>5</rasd:ResourceType>
+	      </Item>
+	      <Item>
+	        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+	        <rasd:Caption>Ethernet adapter on 'NAT'</rasd:Caption>
+	        <rasd:Connection>NAT</rasd:Connection>
+	        <rasd:ElementName>Ethernet adapter on 'NAT'</rasd:ElementName>
+	        <rasd:InstanceID>6</rasd:InstanceID>
+	        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+	        <rasd:ResourceType>10</rasd:ResourceType>
+	      </Item>
+	      <Item>
+	        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+	        <rasd:Caption>disk1</rasd:Caption>
+	        <rasd:Description>Disk Image</rasd:Description>
+	        <rasd:ElementName>disk1</rasd:ElementName>
+	        <rasd:HostResource>/disk/vmdisk1</rasd:HostResource>
+	        <rasd:InstanceID>9</rasd:InstanceID>
+	        <rasd:Parent>2</rasd:Parent>
+	        <rasd:ResourceType>17</rasd:ResourceType>
+	      </Item>
+	    </VirtualHardwareSection>
+	  </VirtualSystem>
+  </ovf:VirtualSystemCollection>
+</Envelope>

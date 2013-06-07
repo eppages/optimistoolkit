@@ -1,0 +1,4 @@
+package eu.optimis.ide.test.coreelements;
+
+public class CoreTest{
+}

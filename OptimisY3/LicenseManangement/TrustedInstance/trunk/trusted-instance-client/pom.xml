@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <artifactId>trusted-instance</artifactId>
+    <groupId>eu.optimis.trusted-instance</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>trusted-instance-client</artifactId>
+  
+  
+  <name>trusted-instance-client</name>
+    
+  <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</configuration>
+			</plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+			<groupId>eu.elasticlm.types</groupId>
+			<artifactId>elasticlm-types</artifactId>
+		</dependency>
+        <dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>   
+    </dependencies>
+  
+</project>

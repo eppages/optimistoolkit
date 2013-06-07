@@ -1,0 +1,44 @@
+log4j.rootLogger=DEBUG, rollingFile, rollingFileSimplified, rollingFileSimplifiedINFO
+
+# set the log level for the OPTIMIS
+log4j.logger.eu.optimis.sla=${optimis_sla_log_level}
+
+# set the log level for the WSAG4J framework
+log4j.logger.org.ogf.graap.wsag=${optimis_sla_wsag_log_level}
+
+# set the log level for the WSAG4J security module
+log4j.logger.org.ogf.graap.wsag.security=${optimis_sla_wsag_sec_log_level}
+
+# set the log level for the WSAG4J API module,
+# which includes the configuration tools
+log4j.logger.org.ogf.graap.wsag.api=${optimis_sla_wsag_log_level}
+
+# set the log level for the MUSE framework
+log4j.logger.org.apache.muse.core=${optimis_sla_wsag_muse_log_level}
+
+# set the log level for the XMLSEC framework
+log4j.logger.org.apache.xml.security=WARN
+
+log4j.logger.org.apache.axis2=INFO
+
+log4j.appender.rollingFile=org.apache.log4j.RollingFileAppender
+log4j.appender.rollingFile.File=/opt/optimis/var/log/SLAManagement/sla.log
+log4j.appender.rollingFile.MaxFileSize=10MB
+log4j.appender.rollingFile.MaxBackupIndex=10
+log4j.appender.rollingFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.rollingFile.layout.ConversionPattern=%d{ISO8601} [%t] %-5p (%F:%L) - %m%n
+
+log4j.appender.rollingFileSimplified=org.apache.log4j.RollingFileAppender
+log4j.appender.rollingFileSimplified.File=/opt/optimis/var/log/SLAManagement/sla_Simplified.log
+log4j.appender.rollingFileSimplified.MaxFileSize=10MB
+log4j.appender.rollingFileSimplified.MaxBackupIndex=10
+log4j.appender.rollingFileSimplified.layout=org.apache.log4j.PatternLayout
+log4j.appender.rollingFileSimplified.layout.ConversionPattern=%d{HH:mm:ss} %-5p - %m%n
+
+log4j.appender.rollingFileSimplifiedINFO=org.apache.log4j.RollingFileAppender
+log4j.appender.rollingFileSimplifiedINFO.File=/opt/optimis/var/log/SLAManagement/sla_info.log
+log4j.appender.rollingFileSimplifiedINFO.MaxFileSize=10MB
+log4j.appender.rollingFileSimplifiedINFO.MaxBackupIndex=10
+log4j.appender.rollingFileSimplifiedINFO.Threshold=info
+log4j.appender.rollingFileSimplifiedINFO.layout=org.apache.log4j.PatternLayout
+log4j.appender.rollingFileSimplifiedINFO.layout.ConversionPattern=%d{HH:mm:ss} %-5p - %m%n

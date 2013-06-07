@@ -1,0 +1,1495 @@
+<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB"
+                     xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure"
+                     xmlns:opt-sp="http://schemas.optimis.eu/optimis/service"
+                     xmlns:NS1="http://schemas.ogf.org/graap/2009/11/ws-agreement-negotiation"
+                     xmlns:muse-op="http://schemas.ogf.org/graap/2009/11/ws-agreement-negotiation"
+                     xmlns:wsrf-rp="http://docs.oasis-open.org/wsrf/rp-2" xmlns:opt="http://schemas.optimis.eu/optimis/"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <opt:VirtualMachineDescription opt:isFederationAllowed="true" opt:serviceId="9adbe33b-ef8c-43a5-b65d-d1817685dbab">
+
+        <opt:VirtualMachineComponent opt:componentId="optimis-pm-autoMethod0"
+                                     xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+                                     xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+                                     xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+            <opt:OVFDefinition>
+                <ovf:References>
+                    <ovf:File
+                            ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//40fe69e8-6baa-4a4e-afbd-5687a04282a3.qcow2"
+                            ovf:id="optimis-pm-autoMethod0-img-file"/>
+                    <ovf:File
+                            ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//9adbe33b-ef8c-43a5-b65d-d1817685dbab_optimis-pm-autoMethod0.iso"
+                            ovf:id="optimis-pm-autoMethod0-context-file"/>
+                </ovf:References>
+                <ovf:DiskSection>
+                    <ovf:Info/>
+                    <ovf:Disk ovf:capacity="10240" ovf:diskId="optimis-pm-autoMethod0-img-disk"
+                              ovf:fileRef="optimis-pm-autoMethod0-img-file"
+                              ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                    <ovf:Disk ovf:capacity="1" ovf:diskId="optimis-pm-autoMethod0-context-disk"
+                              ovf:fileRef="optimis-pm-autoMethod0-context-file"
+                              ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                </ovf:DiskSection>
+                <ovf:NetworkSection>
+                    <ovf:Info/>
+                    <ovf:Network ovf:name="optimis-pm-autoMethod0-net">
+                        <ovf:Description>Network to connect to system-optimis-pm-autoMethod0</ovf:Description>
+                    </ovf:Network>
+                </ovf:NetworkSection>
+                <ovf:VirtualSystem ovf:id="system-optimis-pm-autoMethod0">
+                    <ovf:Info>optimis-pm-autoMethod0 VM description</ovf:Info>
+                    <ovf:ProductSection ovf:class="com.sun.master">
+                        <ovf:Info>Product customization for the installed software</ovf:Info>
+                        <ovf:Product>
+                            [|runGeneWise(FILE_T,FILE_T,OBJECT_T)es.bsc.genedetection.coreelements.GeneWise;prepareGenewiseFiles(FILE_T,OBJECT_T,OBJECT_T,OBJECT_T,FILE_T,FILE_T)core.genedetect.GeneDetectMethods;postProcessGenewise(OBJECT_T,OBJECT_T)core.genedetect.GeneDetectMethods;runNCBIBlastp(OBJECT_T,OBJECT_T)core.genedetect.GeneDetectMethods;mergeGenewiseResults(OBJECT_T)core.genedetect.GenewiseReport;mergeBlastResults(OBJECT_T,OBJECT_T)core.genedetect.GeneDetectMethods;fromFastaToCommentedNASequence(STRING_T,FILE_T)core.genedetect.GeneDetectMethods;runNCBIFormatdb(STRING_T,FILE_T)core.genedetect.GeneDetectMethods;runNCBIBlastAgainstDBFromFASTA(FILE_T,OBJECT_T,OBJECT_T)core.genedetect.GeneDetectMethods|3]
+                        </ovf:Product>
+                        <ovf:Version/>
+                    </ovf:ProductSection>
+                    <ovf:OperatingSystemSection ovf:id="76">
+                        <ovf:Info>Specifies the operating system installed</ovf:Info>
+                        <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+                    </ovf:OperatingSystemSection>
+                    <ovf:VirtualHardwareSection>
+                        <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                            2 disks, 1 nic
+                        </ovf:Info>
+                        <ovf:System>
+                            <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                            <vssd:InstanceID>0</vssd:InstanceID>
+                            <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                        </ovf:System>
+                        <ovf:Item>
+                            <rasd:Description>Number of virtual CPUs</rasd:Description>
+                            <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                            <rasd:InstanceID>1</rasd:InstanceID>
+                            <rasd:ResourceType>3</rasd:ResourceType>
+                            <rasd:VirtualQuantity>3</rasd:VirtualQuantity>
+                        </ovf:Item>
+                        <ovf:Item>
+                            <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                            <rasd:Description>Memory Size</rasd:Description>
+                            <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                            <rasd:InstanceID>2</rasd:InstanceID>
+                            <rasd:ResourceType>4</rasd:ResourceType>
+                            <rasd:VirtualQuantity>1536</rasd:VirtualQuantity>
+                        </ovf:Item>
+                        <ovf:Item>
+                            <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+                            <rasd:ElementName>MHz reservation</rasd:ElementName>
+                            <rasd:InstanceID>1</rasd:InstanceID>
+                            <rasd:Reservation>500</rasd:Reservation>
+                            <rasd:ResourceType>3</rasd:ResourceType>
+                        </ovf:Item>
+                        <ovf:Item>
+                            <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                            <rasd:Connection>optimis-pm-autoMethod0-net</rasd:Connection>
+                            <rasd:ElementName>Ethernet adapter on optimis-pm-autoMethod0-net network</rasd:ElementName>
+                            <rasd:InstanceID>3</rasd:InstanceID>
+                            <rasd:ResourceType>10</rasd:ResourceType>
+                        </ovf:Item>
+                        <ovf:Item>
+                            <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                            <rasd:HostResource>ovf:/disk/optimis-pm-autoMethod0-img-disk</rasd:HostResource>
+                            <rasd:InstanceID>4</rasd:InstanceID>
+                            <rasd:Parent>4</rasd:Parent>
+                            <rasd:ResourceType>17</rasd:ResourceType>
+                        </ovf:Item>
+                        <ovf:Item>
+                            <rasd:ElementName>Harddisk 2</rasd:ElementName>
+                            <rasd:HostResource>ovf:/disk/optimis-pm-autoMethod0-context-disk</rasd:HostResource>
+                            <rasd:InstanceID>4</rasd:InstanceID>
+                            <rasd:Parent>4</rasd:Parent>
+                            <rasd:ResourceType>17</rasd:ResourceType>
+                        </ovf:Item>
+                    </ovf:VirtualHardwareSection>
+                </ovf:VirtualSystem>
+            </opt:OVFDefinition>
+            <opt:AllocationConstraints>
+                <opt:LowerBound>1</opt:LowerBound>
+                <opt:UpperBound>3</opt:UpperBound>
+                <opt:Initial>1</opt:Initial>
+            </opt:AllocationConstraints>
+            <opt:AffinityConstraints>Medium</opt:AffinityConstraints>
+            <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+            <opt:ServiceEndpoints>
+                <opt:ServiceEndpoint opt:name="ServiceManager">
+                    http://optimis-spvm.atosorigin.es:8080/ServiceManager/services/9adbe33b-ef8c-43a5-b65d-d1817685dbab
+                </opt:ServiceEndpoint>
+                <opt:ServiceEndpoint opt:name="MonitoringInfrastructure">http://212.0.127.140:7070/data
+                </opt:ServiceEndpoint>
+            </opt:ServiceEndpoints>
+        </opt:VirtualMachineComponent>
+        <opt:AffinitySection>
+            <opt:AffinityRule>
+                <opt:Scope>
+
+                    <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+
+                </opt:Scope>
+                <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+            </opt:AffinityRule>
+        </opt:AffinitySection>
+        <opt:AntiAffinitySection>
+            <opt:AntiAffinityRule>
+                <opt:Scope>
+
+                    <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+                </opt:Scope>
+                <opt:AntiAffinityConstraints>High</opt:AntiAffinityConstraints>
+            </opt:AntiAffinityRule>
+        </opt:AntiAffinitySection>
+    </opt:VirtualMachineDescription>
+    <opt:TRECSection>
+        <opt:TrustSection>
+            <opt:Scope>
+
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+            </opt:Scope>
+            <opt:MinimumTrustLevel>1</opt:MinimumTrustLevel>
+        </opt:TrustSection>
+        <opt:RiskSection>
+            <opt:Scope>
+
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+            </opt:Scope>
+            <opt:RiskLevel>3</opt:RiskLevel>
+            <opt:AvailabilityArray>
+                <opt:Availability opt:assessmentInterval="P1D">0.0</opt:Availability>
+            </opt:AvailabilityArray>
+        </opt:RiskSection>
+        <opt:EcoEfficiencySection>
+            <opt:Scope>
+
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+            </opt:Scope>
+            <opt:LEEDCertification>NotRequired</opt:LEEDCertification>
+            <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+            <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+            <opt:EnergyStarRating>No</opt:EnergyStarRating>
+            <opt:ISO14000>No</opt:ISO14000>
+            <opt:GreenStar>No</opt:GreenStar>
+            <opt:CASBEE>No</opt:CASBEE>
+            <opt:EcoMetricArray>
+                <opt:EcoMetric>
+                    <opt:Name>EnergyEfficiency</opt:Name>
+                    <opt:ThresholdValue>1.0</opt:ThresholdValue>
+                    <opt:SLAType>Soft</opt:SLAType>
+                    <opt:MagnitudePenalty>NA</opt:MagnitudePenalty>
+                    <opt:TimePenalty>NA</opt:TimePenalty>
+                </opt:EcoMetric>
+                <opt:EcoMetric>
+                    <opt:Name>EcologicalEfficiency</opt:Name>
+                    <opt:ThresholdValue>1.6</opt:ThresholdValue>
+                    <opt:SLAType>Hard</opt:SLAType>
+                    <opt:MagnitudePenalty>0.6</opt:MagnitudePenalty>
+                    <opt:TimePenalty>0.8</opt:TimePenalty>
+                </opt:EcoMetric>
+            </opt:EcoMetricArray>
+        </opt:EcoEfficiencySection>
+        <opt:CostSection>
+            <opt:Scope>
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+
+            </opt:Scope>
+            <opt:PricePlan opt:currency="EUR" opt:planCap="15.0" opt:planFloor="0.0"/>
+        </opt:CostSection>
+    </opt:TRECSection>
+
+    <opt:DataProtectionSection>
+        <opt:EligibleCountryList>
+            <opt:Country>ES</opt:Country>
+            <opt:Country>SE</opt:Country>
+            <opt:Country>GB</opt:Country>
+            <opt:Country>US</opt:Country>
+        </opt:EligibleCountryList>
+        <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+        <opt:DataEncryptionLevel>
+            <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+        </opt:DataEncryptionLevel>
+        <opt:DataStorage>
+            <opt:Scope>
+
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+            </opt:Scope>
+            <opt:Name>storage</opt:Name>
+            <opt:AllocationUnit>byte</opt:AllocationUnit>
+            <opt:Capacity>0</opt:Capacity>
+        </opt:DataStorage>
+        <opt:DataStorage>
+            <opt:Scope>
+                <opt:ComponentId>optimis-pm-autoMethod0</opt:ComponentId>
+            </opt:Scope>
+            <opt:Name>Encrypted Storage</opt:Name>
+            <opt:AllocationUnit/>
+            <opt:Capacity>0</opt:Capacity>
+        </opt:DataStorage>
+        <opt:SCC>
+            <opt:apply>true</opt:apply>
+            <opt:Clause>
+                <opt:Title>Clause 1</opt:Title>
+                <opt:Description>Definitions</opt:Description>
+                <opt:Item>For the purposes of the Clauses:</opt:Item>
+                <opt:Item>(a) 'personal data', 'special categories of data', 'process/processing', 'controller',
+                    'processor', 'data subject' and 'supervisory authority' shall have the same meaning as in Directive
+                    95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of
+                    individuals with regard to the processing of personal data and on the free movement of such data1;
+                </opt:Item>
+                <opt:Item>(b) 'the data exporter' means the controller who transfers the personal data;</opt:Item>
+                <opt:Item>(c) 'the data importer' means the processor who agrees to receive from the data exporter
+                    personal data intended for processing on his behalf after the transfer in accordance with his
+                    instructions and the terms of the Clauses and who is not subject to a third country's system
+                    ensuring adequate protection within the meaning of Article 25(1) of Directive 95/46/EC;
+                </opt:Item>
+                <opt:Item>(d) 'the subprocessor' means any processor engaged by the data importer or by any other
+                    subprocessor of the data importer who agrees to receive from the data importer or from any other
+                    subprocessor of the data importer personal data exclusively intended for processing activities to be
+                    carried out on behalf of the data exporter after the transfer in accordance with his instructions,
+                    the terms of the Clauses and the terms of the written subcontract;
+                </opt:Item>
+                <opt:Item>(e) 'the applicable data protection law' means the legislation protecting the fundamental
+                    rights and freedoms of individuals and, in particular, their right to privacy with respect to the
+                    processing of personal data applicable to a data controller in the Member State in which the data
+                    exporter is established;
+                </opt:Item>
+                <opt:Item>(f) 'technical and organisational security measures' means those measures aimed at protecting
+                    personal data against accidental or unlawful destruction or accidental loss, alteration,
+                    unauthorised disclosure or access, in particular where the processing involves the transmission of
+                    data over a network, and against all other unlawful forms of processing.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 2</opt:Title>
+                <opt:Description>Details of the transfer</opt:Description>
+                <opt:Item>The details of the transfer and in particular the special categories of personal data where
+                    applicable are specified in Appendix 1 which forms an integral part of the Clauses.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 3</opt:Title>
+                <opt:Description>Third-party beneficiary clause</opt:Description>
+                <opt:Item>1. The data subject can enforce against the data exporter this Clause, Clause 4(b) to (i),
+                    Clause 5(a) to (e), and (g) to (j), Clause 6(1) and (2), Clause 7, Clause 8(2), and Clauses 9 to 12
+                    as third-party beneficiary.
+                </opt:Item>
+                <opt:Item>2. The data subject can enforce against the data importer this Clause, Clause 5(a) to (e) and
+                    (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where the data exporter has
+                    factually disappeared or has ceased to exist in law unless any successor entity has assumed the
+                    entire legal obligations of the data exporter by contract or by operation of law, as a result of
+                    which it takes on the rights and obligations of the data exporter, in which case the data subject
+                    can enforce them against such entity.
+                </opt:Item>
+                <opt:Item>3. The data subject can enforce against the subprocessor this Clause, Clause 5(a) to (e) and
+                    (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where both the data exporter and
+                    the data importer have factually disappeared or ceased to exist in law or have become insolvent,
+                    unless any successor entity has assumed the entire legal obligations of the data exporter by
+                    contract or by operation of law as a result of which it takes on the rights and obligations of the
+                    data exporter, in which case the data subject can enforce them against such entity. Such third-party
+                    liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+                </opt:Item>
+                <opt:Item>4. The parties do not object to a data subject being represented by an association or other
+                    body if the data subject so expressly wishes and if permitted by national law.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 4</opt:Title>
+                <opt:Description>Obligations of the data exporter</opt:Description>
+                <opt:Item>The data exporter agrees and warrants:</opt:Item>
+                <opt:Item>(a) that the processing, including the transfer itself, of the personal data has been and will
+                    continue to be carried out in accordance with the relevant provisions of the applicable data
+                    protection law (and, where applicable, has been notified to the relevant authorities of the Member
+                    State where the data exporter is established) and does not violate the relevant provisions of that
+                    State;
+                </opt:Item>
+                <opt:Item>(b) that it has instructed and throughout the duration of the personal data processing
+                    services will instruct the data importer to process the personal data transferred only on the data
+                    exporter's behalf and in accordance with the applicable data protection law and the Clauses;
+                </opt:Item>
+                <opt:Item>(c) that the data importer will provide sufficient guarantees in respect of the technical and
+                    organisational security measures specified in Appendix 2 to this contract;
+                </opt:Item>
+                <opt:Item>(d) that after assessment of the requirements of the applicable data protection law, the
+                    security measures are appropriate to protect personal data against accidental or unlawful
+                    destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where
+                    the processing involves the transmission of data over a network, and against all other unlawful
+                    forms of processing, and that these measures ensure a level of security appropriate to the risks
+                    presented by the processing and the nature of the data to be protected having regard to the state of
+                    the art and the cost of their implementation;
+                </opt:Item>
+                <opt:Item>(e) that it will ensure compliance with the security measures;</opt:Item>
+                <opt:Item>(f) that, if the transfer involves special categories of data, the data subject has been
+                    informed or will be informed before, or as soon as possible after, the transfer that its data could
+                    be transmitted to a third country not providing adequate protection within the meaning of Directive
+                    95/46/EC;
+                </opt:Item>
+                <opt:Item>(g) to forward any notification received from the data importer or any subprocessor pursuant
+                    to Clause 5(b) and Clause 8(3) to the data protection supervisory authority if the data exporter
+                    decides to continue the transfer or to lift the suspension;
+                </opt:Item>
+                <opt:Item>(h) to make available to the data subjects upon request a copy of the Clauses, with the
+                    exception of Appendix 2, and a summary description of the security measures, as well as a copy of
+                    any contract for subprocessing services which has to be made in accordance with the Clauses, unless
+                    the Clauses or the contract contain commercial information, in which case it may remove such
+                    commercial information;
+                </opt:Item>
+                <opt:Item>(i) that, in the event of subprocessing, the processing activity is carried out in accordance
+                    with Clause 11 by a subprocessor providing at least the same level of protection for the personal
+                    data and the rights of data subject as the data importer under the Clauses; and
+                </opt:Item>
+                <opt:Item>(j) that it will ensure compliance with Clause 4(a) to (i).</opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 5</opt:Title>
+                <opt:Description>Obligations of the data importer</opt:Description>
+                <opt:Item>The data importer agrees and warrants:</opt:Item>
+                <opt:Item>(a) to process the personal data only on behalf of the data exporter and in compliance with
+                    its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it
+                    agrees to inform promptly the data exporter of its inability to comply, in which case the data
+                    exporter is entitled to suspend the transfer of data and/or terminate the contract;
+                </opt:Item>
+                <opt:Item>(b) that it has no reason to believe that the legislation applicable to it prevents it from
+                    fulfilling the instructions received from the data exporter and its obligations under the contract
+                    and that in the event of a change in this legislation which is likely to have a substantial adverse
+                    effect on the warranties and obligations provided by the Clauses, it will promptly notify the change
+                    to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend
+                    the transfer of data and/or terminate the contract;
+                </opt:Item>
+                <opt:Item>(c) that it has implemented the technical and organisational security measures specified in
+                    Appendix 2 before processing the personal data transferred;
+                </opt:Item>
+                <opt:Item>(d) that it will promptly notify the data exporter about: (i) any legally binding request for
+                    disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as
+                    a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,
+                    (ii) any accidental or unauthorised access, and (iii) any request received directly from the data
+                    subjects without responding to that request, unless it has been otherwise authorised to do so;
+                </opt:Item>
+                <opt:Item>(e) to deal promptly and properly with all inquiries from the data exporter relating to its
+                    processing of the personal data subject to the transfer and to abide by the advice of the
+                    supervisory authority with regard to the processing of the data transferred;
+                </opt:Item>
+                <opt:Item>(f) at the request of the data exporter to submit its data processing facilities for audit of
+                    the processing activities covered by the Clauses which shall be carried out by the data exporter or
+                    an inspection body composed of independent members and in possession of the required professional
+                    qualifications bound by a duty of confidentiality, selected by the data exporter, where applicable,
+                    in agreement with the supervisory authority;
+                </opt:Item>
+                <opt:Item>(g) to make available to the data subject upon request a copy of the Clauses, or any existing
+                    contract for subprocessing, unless the Clauses or contract contain commercial information, in which
+                    case it may remove such commercial information, with the exception of Appendix 2 which shall be
+                    replaced by a summary description of the security measures in those cases where the data subject is
+                    unable to obtain a copy from the data exporter;
+                </opt:Item>
+                <opt:Item>(h) that, in the event of subprocessing, it has previously informed the data exporter and
+                    obtained its prior written consent;
+                </opt:Item>
+                <opt:Item>(i) that the processing services by the subprocessor will be carried out in accordance with
+                    Clause 11;
+                </opt:Item>
+                <opt:Item>(j) to send promptly a copy of any subprocessor agreement it concludes under the Clauses to
+                    the data exporter.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 6</opt:Title>
+                <opt:Description>Liability</opt:Description>
+                <opt:Item>1. The parties agree that any data subject, who has suffered damage as a result of any breach
+                    of the obligations referred to in Clause 3 or in Clause 11 by any party or subprocessor is entitled
+                    to receive compensation from the data exporter for the damage suffered.
+                </opt:Item>
+                <opt:Item>2. If a data subject is not able to bring a claim for compensation in accordance with
+                    paragraph 1 against the data exporter, arising out of a breach by the data importer or his
+                    subprocessor of any of their obligations referred to in Clause 3 or in Clause 11, because the data
+                    exporter has factually disappeared or ceased to exist in law or has become insolvent, the data
+                    importer agrees that the data subject may issue a claim against the data importer as if it were the
+                    data exporter, unless any successor entity has assumed the entire legal obligations of the data
+                    exporter by contract of by operation of law, in which case the data subject can enforce its rights
+                    against such entity. The data importer may not rely on a breach by a subprocessor of its obligations
+                    in order to avoid its own liabilities.
+                </opt:Item>
+                <opt:Item>3. If a data subject is not able to bring a claim against the data exporter or the data
+                    importer referred to in paragraphs 1 and 2, arising out of a breach by the subprocessor of any of
+                    their obligations referred to in Clause 3 or in Clause 11 because both the data exporter and the
+                    data importer have factually disappeared or ceased to exist in law or have become insolvent, the
+                    subprocessor agrees that the data subject may issue a claim against the data subprocessor with
+                    regard to its own processing operations under the Clauses as if it were the data exporter or the
+                    data importer, unless any successor entity has assumed the entire legal obligations of the data
+                    exporter or data importer by contract or by operation of law, in which case the data subject can
+                    enforce its rights against such entity. The liability of the subprocessor shall be limited to its
+                    own processing operations under the Clauses.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 7</opt:Title>
+                <opt:Description>Mediation and jurisdiction</opt:Description>
+                <opt:Item>1.The data importer agrees that if the data subject invokes against it third-party beneficiary
+                    rights and/or claims compensation for damages under the Clauses, the data importer will accept the
+                    decision of the data subject: (a) to refer the dispute to mediation, by an independent person or,
+                    where applicable, by the supervisory authority; (b) to refer the dispute to the courts in the Member
+                    State in which the data exporter is established.
+                </opt:Item>
+                <opt:Item>2.The parties agree that the choice made by the data subject will not prejudice its
+                    substantive or procedural rights to seek remedies in accordance with other provisions of national or
+                    international law.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 8</opt:Title>
+                <opt:Description>Cooperation with supervisory authorities</opt:Description>
+                <opt:Item>1.The data exporter agrees to deposit a copy of this contract with the supervisory authority
+                    if it so requests or if such deposit is required under the applicable data protection law.
+                </opt:Item>
+                <opt:Item>2.The parties agree that the supervisory authority has the right to conduct an audit of the
+                    data importer, and of any subprocessor, which has the same scope and is subject to the same
+                    conditions as would apply to an audit of the data exporter under the applicable data protection law.
+                </opt:Item>
+                <opt:Item>3.The data importer shall promptly inform the data exporter about the existence of legislation
+                    applicable to it or any subprocessor preventing the conduct of an audit of the data importer, or any
+                    subprocessor, pursuant to paragraph 2. In such a case the data exporter shall be entitled to take
+                    the measures foreseen in Clause 5 (b).
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 9</opt:Title>
+                <opt:Description>Governing Law</opt:Description>
+                <opt:Item>The Clauses shall be governed by the law of the Member State in which the data exporter is
+                    established
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 10</opt:Title>
+                <opt:Description>Variation of the contract</opt:Description>
+                <opt:Item>The parties undertake not to vary or modify the Clauses. This does not preclude the parties
+                    from adding clauses on business related issues where required as long as they do not contradict the
+                    Clause.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 11</opt:Title>
+                <opt:Description>Subprocessing</opt:Description>
+                <opt:Item>1. The data importer shall not subcontract any of its processing operations performed on
+                    behalf of the data exporter under the Clauses without the prior written consent of the data
+                    exporter. Where the data importer subcontracts its obligations under the Clauses, with the consent
+                    of the data exporter, it shall do so only by way of a written agreement with the subprocessor which
+                    imposes the same obligations on the subprocessor as are imposed on the data importer under the
+                    Clauses1. Where the subprocessor fails to fulfil its data protection obligations under such written
+                    agreement the data importer shall remain fully liable to the data exporter for the performance of
+                    the subprocessor's obligations under such agreement.
+                </opt:Item>
+                <opt:Item>2. The prior written contract between the data importer and the subprocessor shall also
+                    provide for a third-party beneficiary clause as laid down in Clause 3 for cases where the data
+                    subject is not able to bring the claim for compensation referred to in paragraph 1 of Clause 6
+                    against the data exporter or the data importer because they have factually disappeared or have
+                    ceased to exist in law or have become insolvent and no successor entity has assumed the entire legal
+                    obligations of the data exporter or data importer by contract or by operation of law. Such
+                    third-party liability of the subprocessor shall be limited to its own processing operations under
+                    the Clauses.
+                </opt:Item>
+                <opt:Item>3. The provisions relating to data protection aspects for subprocessing of the contract
+                    referred to in paragraph 1 shall be governed by the law of the Member State in which the data
+                    exporter is established.
+                </opt:Item>
+                <opt:Item>4. The data exporter shall keep a list of subprocessing agreements concluded under the Clauses
+                    and notified by the data importer pursuant to Clause 5 (j), which shall be updated at least once a
+                    year. The list shall be available to the data exporter's data protection supervisory authority.
+                </opt:Item>
+            </opt:Clause>
+            <opt:Clause>
+                <opt:Title>Clause 12</opt:Title>
+                <opt:Description>Obligation after the termination of personal data processing services</opt:Description>
+                <opt:Item>1. The parties agree that on the termination of the provision of data processing services, the
+                    data importer and the subprocessor shall, at the choice of the data exporter, return all the
+                    personal data transferred and the copies thereof to the data exporter or shall destroy all the
+                    personal data and certify to the data exporter that it has done so, unless legislation imposed upon
+                    the data importer prevents it from returning or destroying all or part of the personal data
+                    transferred. In that case, the data importer warrants that it will guarantee the confidentiality of
+                    the personal data transferred and will not actively process the personal data transferred anymore.
+                </opt:Item>
+                <opt:Item>2. The data importer and the subprocessor warrant that upon request of the data exporter
+                    and/or of the supervisory authority, it will submit its data processing facilities for an audit of
+                    the measures referred to in paragraph 1.
+                </opt:Item>
+            </opt:Clause>
+        </opt:SCC>
+        <opt:BCR>
+            <opt:apply>true</opt:apply>
+            <opt:Rule>
+                <opt:Title>Rule 1</opt:Title>
+                <opt:Description>Data Protection Safeguards</opt:Description>
+                <opt:Item>(Name of organisation) group of companies processing personal data must comply with this BCR
+                    to ensure that your data is processed fairly and in compliance with applicable law. In particular,
+                    your personal data will only be processed where;
+                </opt:Item>
+                <opt:Item>1. We have a legal basis for doing so, which may be based on your consent, the performance of
+                    a contract you have entered into with (name of organisation) or is required in connection with the
+                    legitimate interests of (name of organisation);
+                </opt:Item>
+                <opt:Item>2. We notify you of the specific purposes for which your data is collected and will not
+                    process your data in a way which is incompatible with those purposes; we will only collect the type
+                    and amount of your personal data which is necessary in connection with the purpose for which it is
+                    collected;
+                </opt:Item>
+                <opt:Item>3. Your personal data is accurate and up to date where necessary and we will destroy the data
+                    once it is no longer needed in line with data retention and other applicable law; and
+                </opt:Item>
+                <opt:Item>4. We put in place security and confidentiality measures to ensure that your personal data is
+                    protected against unauthorized use or disclosure.
+                </opt:Item>
+                <opt:Item>(Name of organisation) may in certain cases disclose your personal data to third parties, for
+                    example, to our customer support service providers and companies managing employee benefit schemes.
+                    (Name of organisation) companies will not disclose your personal data (including sensitive data) to
+                    third parties unless they have agreed to safeguard your data and conduct the processing of your data
+                    in compliance with applicable law. Where the third parties are located in certain countries outside
+                    the EU, we will ensure that your personal data is transferred to those countries in compliance with
+                    applicable law and protected by BCR, model contracts or any other measure relevant to the specific
+                    case, which may include obtaining your consent to the processing.
+                </opt:Item>
+            </opt:Rule>
+            <opt:Rule>
+                <opt:Title>Rule 2</opt:Title>
+                <opt:Description>Data Subject Rights</opt:Description>
+                <opt:Item>If you are a European employee or customer of (name of organisation), you have the following
+                    rights under EU data protection law:
+                </opt:Item>
+                <opt:Item>1. The right of access to your personal data processed by us. However, (name of organisation)
+                    reserves the right to charge a fee for such access where permitted under applicable law or withhold
+                    such access if it is not permitted by applicable law.
+                </opt:Item>
+                <opt:Item>2. The right to have incomplete or inaccurate personal data about you corrected, erased or
+                    blocked.
+                </opt:Item>
+                <opt:Item>3. The right to object to the processing of your personal data and to require (name of
+                    organisation) to stop processing your data where there are legitimate grounds for doing so.
+                </opt:Item>
+                <opt:Item>4. The right to request that significant decisions about you are not made through the
+                    automatic processing of your personal data.
+                </opt:Item>
+            </opt:Rule>
+            <opt:Rule>
+                <opt:Title>Rule 3</opt:Title>
+                <opt:Description>Additional Data Subject Rights under the BCR</opt:Description>
+                <opt:Item>In addition, if you are a European employee or customer of (name of organisation), the BCR
+                    gives you the following rights, as a third party beneficiary, where you believe your personal data
+                    has been transferred to any of our group of companies located in certain countries outside the EU
+                    and processed by that company in breach of this BCR:
+                </opt:Item>
+                <opt:Item>1. To lodge a complaint with our EU Company that transferred your data outside the EU. This
+                    can be done by contacting the Privacy Office at our website. Any complaint shall be fully
+                    investigated by the company with a view to resolving the complaint; and /or
+                </opt:Item>
+                <opt:Item>2. To lodge a complaint with the Data Protection Authority located in the same country as our
+                    European company that transferred your data outside the EU; and/or
+                </opt:Item>
+                <opt:Item>3. To bring a court action against our EU Company that transferred your data outside the EU.
+                    In which case the European (name of organisation) company shall defend any claim, have the burden of
+                    proving that breach of the rules did not take place, and the responsibility to pay any damages
+                    awarded to you by the court.
+                </opt:Item>
+                <opt:Item>Any further information on our BCR can be obtained from our Privacy Office through our
+                    website.
+                </opt:Item>
+            </opt:Rule>
+        </opt:BCR>
+        <opt:IPR>
+            <opt:apply>true</opt:apply>
+            <opt:Rule>
+                <opt:Title>IPR_1</opt:Title>
+                <opt:Description>SP retains service data ownership, but not metadata</opt:Description>
+                <opt:Item>Service Provider ( as Cloud customer) retains ownership of any intellectual property rights in
+                    the content it deployed to the cloud. Any intellectual property developed by the cloud provider
+                    during the performance of the services belongs to the cloud provider.
+                </opt:Item>
+            </opt:Rule>
+        </opt:IPR>
+    </opt:DataProtectionSection>
+    <opt-sp:ServiceProviderExtensions>
+
+        <opt-sp:VirtualMachineComponentConfiguration opt-sp:componentId="optimis-pm-autoMethod0">
+            <opt-sp:SoftwareDependencies/>
+            <opt-sp:SecurityVPN>false</opt-sp:SecurityVPN>
+            <opt-sp:IPS>false</opt-sp:IPS>
+            <opt-sp:SecuritySSH>true</opt-sp:SecuritySSH>
+            <opt-sp:SSHKey>
+                LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb1FJQkFBS0NBUUVBN3BuQVBsUXVISFA2TkwrbjV1NGNFZ0QvaHdQTVNNK3pQa2diaDRsc2UrQzJWRWNXCi9Wakp6R1B2VlBta3ZEY1NGUWlwY1pYZVNpUDVEU1ZzNmRFWlBtcXYyUjI2b1g4dXdUY05Ma083YUx1NVd4ZWYKdEo5QWs3cW5WREd4K1RzbElLWWdyTDJvamlUWG9aOFo1Sm1QWTNXeEplcUo3VVd5U3pkaU4rbk1wMzE0NEY2TgpPWEo2bkczMlRrbmltOTlpaC9mSW9jWWVrOHpKT043S2tWalprSkJrckxldEN1Z1RMU29DR3NBSVBZc3hSWi8vCjJaSFFkVitjWXZhRnpEbzlTTFpGR3lQakhrdFE5MlhtNzhDclpFVTZwdkc4VnRkaHBUbjRIVHlqWjNUb2RXVWQKNmJHWlhMaE1sSFRjZmJNRm5hNS9idGg5REJ2QmVrck50Zm1qeVFJQkl3S0NBUUFVYzVRaW1ZQkxsT21QZmlSVgpuMkY5NHRRUzR4R0NsWFhEZ29ZRVRadVZsdXNPaWNBa1dCRk1DSkRiWmRycmo3RVh2dW56eXdSc3dVRTdwQjlIClBjNzJ1Sy84cXNiYXBJQlp0RUwxVmtORGZjNFBIMGcwRGFaekQvKzJ3bTVYTVBTTnhSaStXV1k0RWNsVy93STQKS210Z1MrcWMyWmJMTWR3VkUyQXdyYVBUMTJPakdYT2tBOUw2OUNUOUdNeFRyc2xiWUU3cFd1N3d4M2tZcUJiTApPZFFneW81STl4T212cDM2SlVqSndwaDlacHI1alJ5YktSY1lKNUNGNVlSVmV6c0hETThydjhVS0dMdUluRVpFCnAxdGlpZVk0clZWSUZnUGpLWHZiVER5OWtrUTdDTFZaYXVMMCtpeUlsVi91OWZMZ0JRa1Y4UXNGcXNhRVhnTmQKTmdFTEF
+                vR0JBUDFLeUlMMmhLdFBQdy9PajhTV2hKMENsM09OM3RFS0x1aWV0N2FIejQwRE9mN0pNam9JT0xXcgo5VkdPOEdhN3gvekhPdkNXQnB1ZUhISEMvNVR0ZCtFMjhJbVl1TEpFK3FrMUZ5WUNFS3RpckpwZjlvT3J1NzVZCk9wMGJ6SXFaZWtCdVVrVy80QkpkZUdSOVFjSEdCZFJnUFNrWTMxY1A5c0JJamlwVXJhN1JBb0dCQVBFbXdtL0oKYTl5SURveE1RM2pmdU8yd3AyY2NGNzg3TVZ2UDAxOXhPL2NPeGVubG1EaHBWTlVhMXdvRW5BUEt3TThlOXNHRwpxOUlTeXVuYksrajVlZ0MvaFovWldJdGpoWEV6TDQwaUQ0Q0QrbmV4djZzTXhYWHl4Z3RZUy83VSt1RldWK25CClI5blZMb3N6RHhEVHpSK3lpK3hWL1BxNkIwcCt5U2JNZ0pONUFvR0JBS1p5K01zWEJybTN1N251SS9ZM0JyQlMKS1FMSzhZSU9BWkdNM3lBdFhJRThvblE3RW1DbVVTYnRXQkVHS1BNTnIwNVhDWG1IS09ucmp3anQyeWRhT05YVApwV0c4SVptNFRQTFp2c0UwanB5Q3EvQnE4blBJbi9JY3VNMmtqYm9xVjZhdTVadU10OUdONFdhYmRGckQ5VFBLCk50SGRKUTFUb2lhV0ZFZXovUnNiQW9HQVBnS25CczFrNE8vSk9nVDdhRG1IVXhBckMrS25CVW04UEM0Z2FQL2MKT0RiL3NTeG8rSkFkSU5zRUdJVFhxVFFpODI1Y3RXdkZ5RTM1cWRsRnpqR0Z4YTJYWTU1SjkvVUZEbnJnVjMzSgplTkY2NjVRYlY5NjJic2xtSUN5bDA5QmR4T3BSSHRudDU0Nlc4SmdaMFNDRk5BbFhMaVM5WlF0RHRCSDVOZHpRCm12TUNnWUI3VlpHa0xYMnlOQXE2Mk8wdERKUDFSaklndFNxL0JVeUt3cTQrZXR2SDJMR0gyVmw5QTB
+                nOFZCS28KdXpreE53S1ptbElDK3c1MUdEOUZHd3VCK0dNZ1FFM0ZlSU5qN2lMK013b1pGTzJzNUhxOEJoUmh5VE9Td2Q1cwo1MmZVS1BwcTZpWnhFcEs3MjZEd3lmdFUzYndaTUdkc1krRFRJKzBvWWY0cWx2VDhNQT09Ci0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCnNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQUJJd0FBQVFFQTdwbkFQbFF1SEhQNk5MK241dTRjRWdEL2h3UE1TTSt6UGtnYmg0bHNlK0MyVkVjVy9Wakp6R1B2VlBta3ZEY1NGUWlwY1pYZVNpUDVEU1ZzNmRFWlBtcXYyUjI2b1g4dXdUY05Ma083YUx1NVd4ZWZ0SjlBazdxblZER3grVHNsSUtZZ3JMMm9qaVRYb1o4WjVKbVBZM1d4SmVxSjdVV3lTemRpTituTXAzMTQ0RjZOT1hKNm5HMzJUa25pbTk5aWgvZklvY1llazh6Sk9ON0trVmpaa0pCa3JMZXRDdWdUTFNvQ0dzQUlQWXN4UlovLzJaSFFkVitjWXZhRnpEbzlTTFpGR3lQakhrdFE5MlhtNzhDclpFVTZwdkc4VnRkaHBUbjRIVHlqWjNUb2RXVWQ2YkdaWExoTWxIVGNmYk1GbmE1L2J0aDlEQnZCZWtyTnRmbWp5UT09IHVzZXJAaG9zdG5hbWU=
+            </opt-sp:SSHKey>
+            <opt-sp:EncryptedSpace>
+                <opt-sp:EncryptionKey/>
+            </opt-sp:EncryptedSpace>
+            <opt-sp:LicenseToken>
+                PHRvazpMaWNlbnNlVG9rZW4gSUQ9ImVsYXN0aWNsbS1kYmJmYzc4Yi04ODk4LTQ1YjgtOWFkYi1iOGY5YmM2OWQ3MzAiIGxpY2Vuc2VJZD0ib3B0aW1pcy1nZW5ld2lzZS1saWNlbnNlIiBpc1VzZWRPZmZsaW5lPSJmYWxzZSIgYWdyZWVtZW50SWQ9IjgxMzM4N2U2LTNiZGQtNGUxYi04YzcyLWZhZjg5ZDM5YWY4NCIgdG9rZW5JZD0iZWxhc3RpY0xNLVRva2VuLWUwZWEzYjBiLWNlNDctNDRlMi1iMjNlLTlmNWZjNzEyYmRmNiIgeG1sbnM6dG9rPSJodHRwOi8vZWxhc3RpY2xtLmV1L3NjaGVtYXMvMjAwOS8wNS9saWNlbnNlL3Rva2VuIj4KICA8dG9rOkZlYXR1cmVzPgogICAgPHRvazpGZWF0dXJlIGZlYXR1cmVJZD0iYXBwLW5hbWUiIHJlc2VydmF0aW9uSWQ9ImJhOWQzMzU5LTcyMTUtNGFhNi05ZjQ3LTA0ODYzZmNjZjhiNyI+CiAgICAgIDx0b2s6TmFtZT5HZW5ld2lzZTwvdG9rOk5hbWU+CiAgICAgIDx0b2s6VmFsdWU+MTwvdG9rOlZhbHVlPgogICAgPC90b2s6RmVhdHVyZT4KICAgIDx0b2s6RmVhdHVyZSBmZWF0dXJlSWQ9ImNmdGhyZWFkcyIgcmVzZXJ2YXRpb25JZD0iIj4KICAgICAgPHRvazpOYW1lPlRIUkVBRFM8L3RvazpOYW1lPgogICAgICA8dG9rOlZhbHVlPjQ8L3RvazpWYWx1ZT4KICAgIDwvdG9rOkZlYXR1cmU+CiAgPC90b2s6RmVhdHVyZXM+CiAgPHRvazpUb2tlbkFjdGl2YXRpb24+MjAxMy0wMi0xOVQxMTowMTowMCswMTowMDwvdG9rOlRva2VuQWN0aXZhdGlvbj4KICA8dG9rOlRva2VuRXhwa
+                XJ5PjIwMTMtMDMtMjFUMTE6MDE6MDArMDE6MDA8L3RvazpUb2tlbkV4cGlyeT4KICA8dG9rOlZhbGlkYXRpb25VUkw+aHR0cDovL29wdGltaXMtbG1zLmRzLmNzLnVtdS5zZTo4MDgwL2VsYXN0aWNsbS1saWNlbnNlLXNlcnZpY2UvVG9rZW5TZXJ2bGV0U2VjPC90b2s6VmFsaWRhdGlvblVSTD4KICA8dG9rOkF1dGhvcml6YXRpb24+UEdGMWREcEJkWFJvYjNKcGVtRjBhVzl1SUVsRVBTSmxiR0Z6ZEdsamJHMHRZemc1TURBNVltRXRNRFJrT0MwME56RTRMV0ZrWlRZdFpqa3dOMk5rTnpsaE16RmhJaUJPYjNSQ1pXWnZjbVU5SWpJd01URXRNREV0TURGVU1USTZNREE2TURBdU1EQXdLekF4T2pBd0lpQk9iM1JQYms5eVFXWjBaWEk5SWpJd01UVXRNVEl0TXpGVU1USTZNREE2TURBdU1EQXdLekF4T2pBd0lpQjRiV3h1Y3pwaGRYUTlJbWgwZEhBNkx5OWxiR0Z6ZEdsamJHMHVaWFV2YzJOb1pXMWhjeTh5TURBNUx6QTNMM05sWTNWeWFYUjVMMkYxZEdodmNtbDZZWFJwYjI0aVBqeGhkWFE2U1hOemRXVnlQbVZ0WVdsc1FXUmtjbVZ6Y3oxa1pXMXZMV2x6ZGtCbGJHRnpkR2xqYkcwdVpHVXNJRU5PUFdWc1lYTjBhV05NVFNCRVpXMXZJRWxUVml3Z1QxVTlRa2xQSUVkeWFXUWdSM0p2ZFhBc0lFODlSbkpoZFc1b2IyWmxjaUJUUTBGSkxDQk1QVk5oYm10MElFRjFaM1Z6ZEdsdUxDQlRWRDFPVWxjc0lFTTlSRVU4TDJGMWREcEpjM04xWlhJK1BHRjFkRHBUZFdKcVpXTjBQang0WkRwTFpYbEpibVp2SUhodGJHNXpPbmhrUFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4e
+                U1EQXdMekE1TDNodGJHUnphV2NqSWo0OGVHUTZXRFV3T1VSaGRHRStQSGhrT2xnMU1EbERaWEowYVdacFkyRjBaVDVOU1VsRVQxUkRRMEZ4UzJkQmQwbENRV2RKUWtKVVFVNUNaMnR4YUd0cFJ6bDNNRUpCVVZWR1FVUkRRbTVxUlV4TlFXdEhRVEZWUlVKb1RVTlNSVlY0UkVSQlMwSm5UbFpDUVdkVVFUQTFVMVo2UlZoTlFsVkhRVEZWUlVKNFRVOVZNa1oxWVROUloxRllWbTVrV0U0d1lWYzBlRWRFUVZkQ1owNVdRa0Z2VkVRd1dubFpXRloxWVVjNWJWcFlTV2RWTUU1Q1UxUkZXRTFDVlVkQk1WVkZRM2hOVDFGcmJGQkpSV1I1WVZkUloxSXpTblprV0VGNFJsUkJWRUpuVGxaQ1FVMVVSRWRXYzFsWVRqQmhWMDVOVkZOQ1JGRlVSV1ZOUW5kSFExTnhSMU5KWWpORVVVVktRVkpaVUZreVJrRmFWM2hvWXpOU2NGa3llSFJNYlZKc1RVSTBXRVJVUlhoTlJHdDNUMFJCTlUxcVJYaE5WbTlZUkZSSmVFMUVhM2RPVkVFMVRXcEZlRTFXYjNkbllrVjRRM3BCU2tKblRsWkNRVmxVUVd0U1JrMVJkM2REWjFsRVZsRlJTVVYzVGs5VmJHTjRSbnBCVmtKblRsWkNRV05VUkd4T2FHSnRkREJKUlVZeFdqTldlbVJIYkhWTlVtZDNSbWRaUkZaUlVVdEZkemxIWTIxR01XSnRhSFphYlZaNVNVWk9SRkZWYTNoR2VrRldRbWRPVmtKQmMxUkVhMHBLVkhsQ1NHTnRiR3RKUldSNVlqTldkMDFUV1hkS1FWbEVWbEZSUkVWNE1XeGlSMFo2WkVkc2FsUkZNR2RTUjFaMFlubENUV0ZYVG14aWJrNXNTVVpPYkdOdVdteGpha1ZuVFVJMFIwTlRjVWRUU1dJelJGRkZTa0ZTV1ZKYVIxWjBZakJDYkdKS
+                FJucGtSMnhxWWtjd2RWcEhWWGRuV2poM1JGRlpTa3R2V2tsb2RtTk9RVkZGUWtKUlFVUm5XVEJCVFVsSFNrRnZSMEpCVEhWRmJEQTFOaTlsZG5CWWVGbGhWRGhWTmpsS04yMVNhMk5QVGl0bVZYUlNRV056ZFhWd1pscFRNR2g2ZUZVMU5Xc3laa050YzBKWVFWY3ZibGxMU21waFVtNVVWVVZLVUd4bE1IQk9URFZZT0c1SVpVUk5kVkJoVDJsS2VISnplbFpaU1habU1tbEViRllyV2xSNFpXSjRkVmhxVjNJMVJtdHVVWFpKYlRGU2FYWTFabTV4TkhGRE5VMU1VMnczUlN0bmVUbDRVREJqT1hsRU1qTmpZMjFWZW1ndk1VcDNSREk1UVdkTlFrRkJSMnBqYWtKM1RVRTRSMEV4VldSRmQwVkNMM2RSUmsxQlRVTkJVVUYzU0ZGWlJGWlNNRTlDUWxsRlJrTlZSMjV0TVZRMVoyaEVkbXBMV1dsSVRrbEViakptTWtnclprMUJjMGRCTVZWa1JIZFJSVUYzU1VZMFJFRlNRbWRzWjJoclowSm9kbWhEUVZGRlJVSkJUVU5DYTBGM1NHZFpTbGxKV2tsQldXSTBVV2RGVGtKQ1JWZEVNMmhxV1ZOQ2FscFlTakJoVjFwd1dUSkdNRnBVUVU1Q1oydHhhR3RwUnpsM01FSkJVVlZHUVVGUFFtZFJRVWhpY0UxcE5FRXdlbk01V0hWeVdUVnBjbTQxZDNwcFMyOXllV3BYUTJ3M2RuQjVXa2NyZUZaU1JqWjBVRVZ4ZW5WTFVFWTNSVUZGU1RaSGNGRkhVMWgwWmpFMlFsTkZObVpQU2xWcU5YVk9ZV3B1YVc1eVVVSXpaMUJMUWxaSVYydHlhbFIzVm5kRkwzaFBTR0pCUzAxclNucGxRMWhzY25OMUwwSlpOVU5ITWsxTk9WTjRUV2t2VjFNeWFuQnplalJoVm5wUU1VVkxUMnc0UVZCNlVtUklWM3B2UjJOd
+                mNXbHlRVDA5UEM5NFpEcFlOVEE1UTJWeWRHbG1hV05oZEdVK1BDOTRaRHBZTlRBNVJHRjBZVDQ4TDNoa09rdGxlVWx1Wm04K1BDOWhkWFE2VTNWaWFtVmpkRDQ4VTJsbmJtRjBkWEpsSUhodGJHNXpQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBd0x6QTVMM2h0YkdSemFXY2pJajQ4VTJsbmJtVmtTVzVtYno0OFEyRnViMjVwWTJGc2FYcGhkR2x2YmsxbGRHaHZaQ0JCYkdkdmNtbDBhRzA5SW1oMGRIQTZMeTkzZDNjdWR6TXViM0puTHpJd01ERXZNVEF2ZUcxc0xXVjRZeTFqTVRSdUkxZHBkR2hEYjIxdFpXNTBjeUl2UGp4VGFXZHVZWFIxY21WTlpYUm9iMlFnUVd4bmIzSnBkR2h0UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMekE1TDNodGJHUnphV2NqY25OaExYTm9ZVEVpTHo0OFVtVm1aWEpsYm1ObElGVlNTVDBpSTJWc1lYTjBhV05zYlMxak9Ea3dNRGxpWVMwd05HUTRMVFEzTVRndFlXUmxOaTFtT1RBM1kyUTNPV0V6TVdFaVBqeFVjbUZ1YzJadmNtMXpQanhVY21GdWMyWnZjbTBnUVd4bmIzSnBkR2h0UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMekE1TDNodGJHUnphV2NqWlc1MlpXeHZjR1ZrTFhOcFoyNWhkSFZ5WlNJdlBqd3ZWSEpoYm5ObWIzSnRjejQ4UkdsblpYTjBUV1YwYUc5a0lFRnNaMjl5YVhSb2JUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM4d09TOTRiV3hrYzJsbkkzTm9ZVEVpTHo0OFJHbG5aWE4wVm1Gc2RXVStkbUpPZVVSMWVFTTVUbEV6TkRBeVZqVlJjVUoyYkZsWGVHbHZQVHd2Ukdsb
+                lpYTjBWbUZzZFdVK1BDOVNaV1psY21WdVkyVStQQzlUYVdkdVpXUkpibVp2UGp4VGFXZHVZWFIxY21WV1lXeDFaVDV6YkZaQmRHTlpPRmsxYlVWdWNGUnhhWEZxZDBaeGVVcHJlVWN6VkVSMVVHRnlhemhHWW1OQlRrTmpaM05MTkhsa2IxRlJWMFkzVTBsWWQzTTBkbmRETVV0RVYwUlZZM0YzUlVGeENqQXhOR1k0WVdOTE9IZ3piMjFhYWxkbWExZERWVGhxYjBWQ1dYcEhVelo2VFhaV05GRkNSbXBtWnpkWFJuTlBUVkYxTUhSU2FWTnVVMHhxY1ZCUFRrbzJlbkZLVVV4dFdFNXBOSEVLWjFScFZqRnNhamd3Y0dveWNUZG1VbFY0ZHowOEwxTnBaMjVoZEhWeVpWWmhiSFZsUGp4TFpYbEpibVp2UGp4WU5UQTVSR0YwWVQ0OFdEVXdPVU5sY25ScFptbGpZWFJsUGsxSlNVUk5ha05EUVhCMVowRjNTVUpCWjBsQ1FXcEJUa0puYTNGb2EybEhPWGN3UWtGUlZVWkJSRU5DYm1wRlRFMUJhMGRCTVZWRlFtaE5RMUpGVlhoRVJFRkxRbWRPVmtKQloxUUtRVEExVTFaNlJWaE5RbFZIUVRGVlJVSjRUVTlWTWtaMVlUTlJaMUZZVm01a1dFNHdZVmMwZUVkRVFWZENaMDVXUWtGdlZFUXdXbmxaV0ZaMVlVYzViVnBZU1dkVk1FNUNVMVJGV0FwTlFsVkhRVEZWUlVONFRVOVJhMnhRU1VWa2VXRlhVV2RTTTBwMlpGaEJlRVpVUVZSQ1owNVdRa0ZOVkVSSFZuTlpXRTR3WVZkT1RWUlRRa1JSVkVWbFRVSjNSME5UY1VkVFNXSXpDa1JSUlVwQlVsbFFXVEpHUVZwWGVHaGpNMUp3V1RKNGRFeHRVbXhOUWpSWVJGUkZlRTFFYTNkUFJFRTFUVlJOZWsxR2IxaEVWRWw0VFVScmQwNVVRVFZOVkUxN
+                lRVWnZkMmRoYjNnS1EzcEJTa0puVGxaQ1FWbFVRV3RTUmsxUmQzZERaMWxFVmxGUlNVVjNUazlWYkdONFJucEJWa0puVGxaQ1FXTlVSR3hPYUdKdGREQkpSVVl4V2pOV2VtUkhiSFZOVW1kM1JtZFpSQXBXVVZGTFJYYzVSMk50UmpGaWJXaDJXbTFXZVVsR1RrUlJWV3Q0Um5wQlZrSm5UbFpDUVhOVVJHdEtTbFI1UWtoamJXeHJTVVZrZVdJelZuZE5Vbk4zUjFGWlJGWlJVVVJGZUVwc0NtSkhSbnBrUjJ4cVZFVXdaMUpIVm5SaWVVSktWVEZaZUVwRVFXbENaMnR4YUd0cFJ6bDNNRUpEVVVWWFJsZFNiR0pYT0hSaFdFNHlVVWRXYzFsWVRqQmhWMDV6WWxNMWExcFVRMElLYm5wQlRrSm5hM0ZvYTJsSE9YY3dRa0ZSUlVaQlFVOUNhbEZCZDJkWmEwTm5XVVZCTVhodFVsRnBWMFZFVFNzNVMzWlhjV3BGUkRabE1HNURkalpvVDNkSVZYSmhRbmhZYVdsamJncERWM2hHTVU1SFQyUjFaVGMyUjFWUVJrWmpUMGs1UVhkcFdrTXhVM1F5VUZwQlJsWmpkVlJEVVhaMmRUbGFlbVpMTHpCcmN6ZFJNeXRHVGpJNWVFTjJWRXBhVjJOU2RIQnBRM053Q2tKeVZIRlFOR1ppVEdKYVQxRTJWamhaTTA5SWVYTnpZbFZNYm5Cd0wwWTRNMjgzYUdSUVUwaHpXbmcwVEhSMVFqazRRblFyTmpoRFFYZEZRVUZoVG5sTlNFRjNSSGRaUkZaU01GUUtRVkZJTDBKQlZYZEJkMGxDUVVSQlpFSm5UbFpJVVRSRlJtZFJWU3RZT0ZKVVdVVlROMjQwWjBoQ05HVldUVzFFUm1wU1JrNU9OSGREZDFsRVZsSXdVRUpCVVVSQloxTjNUVUpGUndwRFYwTkhVMEZIUnl0RlNVSkJVVkZGUVhkSlJtOUVRV1ZDWjJ4b
+                mFHdG5RbWgyYUVOQlVUQkZSVkpaVUdWSFRtaEpSMDVzWTI1U2NGcHRiR3BaV0ZKc1RVRXdSME5UY1VkVFNXSXpDa1JSUlVKQ1VWVkJRVFJIUWtGTFpHZGxaMWxGUjNvMFZ6VkpWWGd4WlhoemQyaDVkRmxyTmxOR04zTnhVVGhQVDBvd2FXRjZRVVIwWTNaalRpdDJXRkp2TjFkTWNrTkVjR3AxVFdVS1JtOHlURnBRU1RNdlIxVjZaMFJ2TTBkclptNVNUbEJHV0ZCVE1tNUpTRFl5YlZSaVJGWlRVeXRaVlhVMGVVUTBlSEpKZUZCMVIweExORTFuWlZkTGFFSnFhMlJYY2s5RVkxRTFhQW94U0V0WlMzaDNRak14VlVGUVptOW9RbFo2ZW1aeGRGZHBlR1V6Ym5OVmR6d3ZXRFV3T1VObGNuUnBabWxqWVhSbFBqd3ZXRFV3T1VSaGRHRStQQzlMWlhsSmJtWnZQand2VTJsbmJtRjBkWEpsUGp3dllYVjBPa0YxZEdodmNtbDZZWFJwYjI0KzwvdG9rOkF1dGhvcml6YXRpb24+CiAgPFNpZ25hdHVyZSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+CiAgICA8U2lnbmVkSW5mbz4KICAgICAgPENhbm9uaWNhbGl6YXRpb25NZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biNXaXRoQ29tbWVudHMiLz4KICAgICAgPFNpZ25hdHVyZU1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNyc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iI2VsYXN0aWNsbS1kYmJmYzc4Yi04ODk4LTQ1YjgtOWFkYi1iOGY5YmM2OWQ3MzAiPgogICAgICAgIDxUcmFuc2Zvc
+                m1zPgogICAgICAgICAgPFRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIi8+CiAgICAgICAgPC9UcmFuc2Zvcm1zPgogICAgICAgIDxEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT5JQXVhbXhOeHFRc2Z2UnpBcm1hZkVxT2ZFWms9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CiAgICA8U2lnbmF0dXJlVmFsdWU+SloyRnAwUHBRT1owRkdlbHlaSjh6Y2FSbnBuZVpnYkpoajVMNzBTblRmMHptRlA0Z1hkU2FKd2dkMHlLRjd2RElWMVFlVVBqUk5OQgpQVVozeVdrZm5pa0RQWVNsLzU2Z0d5UVc1ZlhBUllSdXRydDJncFZra05Gd1pDSGxzUmFrRU9BS0ozRGVFcDJQRmc1UDRhVXRYbktqClBUc2RVamhwQW1NN2dyZEhzWWM9PC9TaWduYXR1cmVWYWx1ZT4KICAgIDxLZXlJbmZvPgogICAgICA8WDUwOURhdGE+CiAgICAgICAgPFg1MDlDZXJ0aWZpY2F0ZT5NSUlET1RDQ0FxS2dBd0lCQWdJQkJUQU5CZ2txaGtpRzl3MEJBUVVGQURDQm5qRUxNQWtHQTFVRUJoTUNSRVV4RERBS0JnTlZCQWdUCkEwNVNWekVYTUJVR0ExVUVCeE1PVTJGdWEzUWdRWFZuZFhOMGFXNHhHREFXQmdOVkJBb1REMFp5WVhWdWFHOW1aWElnVTBOQlNURVgKTUJVR0ExVUVDeE1PUWtsUElFZHlhV1FnUjNKdmRYQXhGVEFUQmdOVkJBTVRER1ZzWVhOMGFXT
+                k1UU0JEUVRFZU1Cd0dDU3FHU0liMwpEUUVKQVJZUFkyRkFaV3hoYzNScFkyeHRMbVJsTUI0WERURXhNRGt3T0RBNU1qRXhNVm9YRFRJeE1Ea3dOVEE1TWpFeE1Wb3dnYkV4CkN6QUpCZ05WQkFZVEFrUkZNUXd3Q2dZRFZRUUlFd05PVWxjeEZ6QVZCZ05WQkFjVERsTmhibXQwSUVGMVozVnpkR2x1TVJnd0ZnWUQKVlFRS0V3OUdjbUYxYm1odlptVnlJRk5EUVVreEZ6QVZCZ05WQkFzVERrSkpUeUJIY21sa0lFZHliM1Z3TVNZd0pBWURWUVFERXgxbApiR0Z6ZEdsalRFMGdSR1Z0YnlCTWFXTmxibk5sSUZObGNuWmxjakVnTUI0R0NTcUdTSWIzRFFFSkFSWVJaR1Z0YjBCbGJHRnpkR2xqCmJHMHVaR1V3Z1o4d0RRWUpLb1pJaHZjTkFRRUJCUUFEZ1kwQU1JR0pBb0dCQUx1RWwwNTYvZXZwWHhZYVQ4VTY5SjdtUmtjT04rZlUKdFJBY3N1dXBmWlMwaHp4VTU1azJmQ21zQlhBVy9uWUtKamFSblRVRUpQbGUwcE5MNVg4bkhlRE11UGFPaUp4cnN6VllJdmYyaURsVgorWlR4ZWJ4dVhqV3I1RmtuUXZJbTFSaXY1Zm5xNHFDNU1MU2w3RStneTl4UDBjOXlEMjNjY21VemgvMUp3RDI5QWdNQkFBR2pjakJ3Ck1BOEdBMVVkRXdFQi93UUZNQU1DQVFBd0hRWURWUjBPQkJZRUZDVUdubTFUNWdoRHZqS1lpSE5JRG4yZjJIK2ZNQXNHQTFVZER3UUUKQXdJRjREQVJCZ2xnaGtnQmh2aENBUUVFQkFNQ0JrQXdIZ1lKWUlaSUFZYjRRZ0VOQkJFV0QzaGpZU0JqWlhKMGFXWnBZMkYwWlRBTgpCZ2txaGtpRzl3MEJBUVVGQUFPQmdRQUhicE1pNEEwenM5WHVyWTVpcm41d3ppS29yeWpXQ
+                2w3dnB5WkcreFZSRjZ0UEVxenVLUEY3CkVBRUk2R3BRR1NYdGYxNkJTRTZmT0pVajV1TmFqbmluclFCM2dQS0JWSFdrcmpUd1Z3RS94T0hiQUtNa0p6ZUNYbHJzdS9CWTVDRzIKTU05U3hNaS9XUzJqcHN6NGFWelAxRUtPbDhBUHpSZEhXem9HY29xaXJBPT08L1g1MDlDZXJ0aWZpY2F0ZT4KICAgICAgPC9YNTA5RGF0YT4KICAgIDwvS2V5SW5mbz4KICA8L1NpZ25hdHVyZT4KPC90b2s6TGljZW5zZVRva2VuPg==
+            </opt-sp:LicenseToken>
+        </opt-sp:VirtualMachineComponentConfiguration>
+        <opt-sp:DataManagerKey>
+            CmV5SndZWFJvSWpvaUwyaHZiV1V2ZG0xcGJXRm5aWE12YzJsa2N5OXpPVEV6TlRFMU5URTJOREprTm1GagpOems0WlNJc0ltbHdZV1JrY21WemMxQjFZaUk2SWpJeE15NHlOeTR5TVRFdU1URTNJaXdpZFhObGNtNWgKYldVaU9tNTFiR3dzSW10bGVTSTZJa3hUTUhSTVV6RkRVbFZrU2xScFFsTlZNRVZuVlVaS1NsWnJSbFZTClUwSk1VbFpyZEV4VE1IUk1VWEJPVTFWc1JGZEZSa3BSYTBaQ1V6QktibFZWVWs1aWJrWTFXVlJHZDJWcwpTbkJqYXpsS1pFVkdkR1JxVmxoU1JWcE9XbFpvTkdSWWJEWlJibkJ5WWtoc1IxWkhUa1ZqYTBwVlZIcFIKZGt0NlRrbFRSVXB5UTJ0a2VsbHFWbE5pVkdSU1ZVWndURnBIVmtkVWEwMXlZMnBGZUZWdGFHOVNSWEJXClpWaHNUbEV5U2taWlZrbzBXa2hTUTFwSE1XNVRSV3cwVkVkT00wNTZSbEZrTUZGNFZsWk9lRTlZUm5kbApWbXhoWkZaRlMxcEhPWE5UU0U1NFRUSTRkMk50U2taalJUVlpZa2hKTTJSdFJrTlVWa1pQV1RGd1lVc3kKY0RWT1IxWXlWa001ZDJOVWJHNWhhMmN4VWxkb2NtUldTbTFrU0d4T1RucFNXVko2UlRWVlZXeEZVVlpHClFsRm5jRUppTUdSQ1ZrVkdWVTB4YTNoUFNHUlVUakowV2xKWGRGaGxSVVV5Vld4c1dFMXVSVEpYU0d4RQpVbnBzUm1KcmVHOU9WWGhVVXpGck5GZFRjM1pWYTBVd1V6TkZkMU51U2pWUFJVa3dZVWRhVkdReGNGZEQKYTJod1ZVVkpNbVZzU1hkaFNFNXpWVVJTY2xOck5WUlNSbXhWV1RGRmQxUkRkRVJpTURGU1ZrZHNhMVZxClkzWmpSa0pvVXpGR2Qxb
+            HJlRk5VZWtaQ1lraHNkRnBGTVhWaWVscHpXa1ZLTm1GVk9UTmlhM2RMWW01UwpWazB4Y0haU2EyeHpaRzFvVkZwRWFFdFVNbFY0WVcweFVrc3pWazVqTVhCc1ZXdEdkVk5VYUhKa1JGVjYKV1ZSR1VWVkdhSFZWZVhRMFVWVldSRlZXUmtWaVJtaE5VbFpTZDA5Rll6VldNMHBxVG1kd1UxUlViRkJrCmJFMHhUVEJzY1ZJd1JsbFZWR2Q2VmpOamVFOUViRzFQVkZKTldXMXNOVlV4Vm1oVU1YQlBUREphY1U0egpVbGRXUjJ4V1RWWm9hMVpGTlVSVmFsSkZXWHBHTUdJeVpGWlNWa1pxWkRKT1VFTnRlR3hXYlRGYVlrZHcKUTFGWGRFWlJWRlpJVTIxRmVtRkZVa3hPVnpVMVZWVk5NMDFyTlhKVVZYUnhWa1phY1ZOc1dUUldhMmhGClVrTTVkVm93WkUxTWVsWlhWMnRvUTAxRVJrdGFSVVp2VFVaUk1WWlhhMHRhYlRWYVRUQTFVbUpxWkdwVgpSV1JRVFZSQ1MwNHljREJOYm1oRVYyMUtjRmRGV2taV00wcHNWa1prVDFWVmNFSldSVEZwVFVkUk0xTkgKTVZOalZGcERWRE52TUdGSFNqVmFNbVEyVGpOb2JscFhSblJrUVhCSVVsZHNibG94VVRCVlJ6bEpZVEpTCmQxTlZUblJOZWxseVdqTnNWbFJ0WnpCU1JYQndXbTF3VlZKWVRsWlhSekZFVVdwS2VWa3hjRnBoVkZFeApVWHBzTTFvd2JIVlhWM2h2VFZka1VsTnJSbEJVV0ZaeVEycFNWMkZVVGpKVVJFMHhXV3R3U2xKcmNFdGwKYld0M1RsZFNjRTV1Vm5salYzUnlXa1YwU2xWWGR6VmpiVlpGVjFSV1UwMTZWbFJTYmxwaFRrWkNjR050CmNGZGtWVll4Wld0b05WWkViRXBoV0ZwcFVqRkZTMDB3ZEZSVmEzQkhaRWRLY0U1cVNYb
+            GtNRTVTVXpKcwpVbE5yU2tKVVNFSlhXVEpXYW1OdVkzSlpNSFJzVGpOV2FsVjZUVFJVVjBwNFN6QnNTV1JyVW1wVGFteFgKVldrNVJHRkVSa3BqTVZaSllXNVNWbVJCY0ZOV01XUlVWVVZKTVZwRk1ERlZNMXB3VWtWR1FsUkdWbWhSCk1uaE5aRWhrYUZwV1RsTmFNSEJOVWxkTmVFeDZiRlJrVlZwTVQxWnNRbEJSYjNSTVV6QjBURlZXVDFKRApRbE5WTUVWblZVWktTbFpyUmxWU1UwSk1VbFpyZEV4VE1IUk1VVzg5SWl3aVkyMWtJam9pYzNOb1puTWcKY3preE16VXhOVFV4TmpReVpEWmhZemM1T0dWQUpYTTZMMmh2YldVdmN6a3hNelV4TlRVeE5qUXlaRFpoCll6YzVPR1V2YjJSbWN5QXZjM1J2Y21GblpTQXRieUJKWkdWdWRHbDBlVVpwYkdVOUwyVjBZeTlFVFd0bAplUzV6YzJnZ0xXOGdZV3hzYjNkZmIzUm9aWElnTFc4Z2NtVmpiMjV1WldOMElDMXZJR1p2Ykd4dmQxOXoKZVcxc2FXNXJjeUF0YnlCMGNtRnVjMlp2Y20xZmMzbHRiR2x1YTNNZ0xXOGdaWGhsWXlBdGJ5QjFhV1E5Ck1DQXRieUJuYVdROU1DQWdMVzhnVTNSeWFXTjBTRzl6ZEV0bGVVTm9aV05yYVc1blBXNXZJaXdpY0hKdgpkbWxrWlhJaU9pSmhkRzl6SWl3aWFYQmhaR1J5WlhOeklqb2lNVGt5TGpFMk9DNHlOVEl1TlRraWZRPT0KCg==
+        </opt-sp:DataManagerKey>
+    </opt-sp:ServiceProviderExtensions>
+
+    <opt-ip:InfrastructureProviderExtensions>
+        <opt-ip:AllocationOffer>
+            <opt-ip:AllocationPattern opt-ip:componentId="optimis-pm-autoMethod0">
+                <opt-ip:PhysicalHost opt-ip:elastic="false">optimis2</opt-ip:PhysicalHost>
+                <opt-ip:PhysicalHost opt-ip:elastic="true">optimis2</opt-ip:PhysicalHost>
+            </opt-ip:AllocationPattern>
+            <opt-ip:Cost>
+                <currency>EUR</currency>
+                <planCap>70</planCap>
+                <planFloor>10</planFloor>
+                <name>DemoApp</name>
+                <priceComponent>
+                    <name>system-vpn</name>
+                    <componentCap>4</componentCap>
+                    <componentFloor>4</componentFloor>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>VM_Costs</name>
+                        <absoluteAmount>4</absoluteAmount>
+                        <multiplier>Hr</multiplier>
+                    </priceLevel>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>jboss_disk</name>
+                        <absoluteAmount>5.962863922119140625</absoluteAmount>
+                        <multiplier>Gbyte</multiplier>
+                    </priceLevel>
+                </priceComponent>
+                <priceComponent>
+                    <name>system-lb</name>
+                    <componentCap>1</componentCap>
+                    <componentFloor>1</componentFloor>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>VM_Costs</name>
+                        <absoluteAmount>1</absoluteAmount>
+                        <multiplier>Hr</multiplier>
+                    </priceLevel>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>mysql_disk</name>
+                        <absoluteAmount>7.0381317138671875</absoluteAmount>
+                        <multiplier>Gbyte</multiplier>
+                    </priceLevel>
+                </priceComponent>
+                <priceComponent>
+                    <name>system-mysql</name>
+                    <componentCap>1</componentCap>
+                    <componentFloor>1</componentFloor>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>VM_Costs</name>
+                        <absoluteAmount>1</absoluteAmount>
+                        <multiplier>Hr</multiplier>
+                    </priceLevel>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>lb_disk</name>
+                        <absoluteAmount>4.9215087890625</absoluteAmount>
+                        <multiplier>Gbyte</multiplier>
+                    </priceLevel>
+                </priceComponent>
+                <priceComponent>
+                    <name>system-jboss</name>
+                    <componentCap>64</componentCap>
+                    <componentFloor>4</componentFloor>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>VM_Costs</name>
+                        <absoluteAmount>4</absoluteAmount>
+                        <multiplier>Hr</multiplier>
+                    </priceLevel>
+                    <priceLevel>
+                        <priceType>USAGE</priceType>
+                        <name>vpn_disk</name>
+                        <absoluteAmount>5.962863922119140625</absoluteAmount>
+                        <multiplier>Gbyte</multiplier>
+                    </priceLevel>
+                </priceComponent>
+            </opt-ip:Cost>
+            <opt-ip:Risk>0.25</opt-ip:Risk>
+            <opt-ip:ExternalDeployment>
+                <opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1" opt:serviceProviderId="OPTIMUMWEB">
+                    <opt:VirtualMachineDescription opt:isFederationAllowed="true"
+                                                   opt:serviceId="9adbe33b-ef8c-43a5-b65d-d1817685dbab">
+                        <opt:VirtualMachineComponent opt:componentId="optimis-pm-GeneDetection"
+                                                     xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+                                                     xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+                                                     xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+                            <opt:OVFDefinition>
+                                <ovf:References>
+                                    <ovf:File
+                                            ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//40fe69e8-6baa-4a4e-afbd-5687a04282a3.qcow2"
+                                            ovf:id="optimis-pm-GeneDetection-img-file"/>
+                                    <ovf:File
+                                            ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//9adbe33b-ef8c-43a5-b65d-d1817685dbab_optimis-pm-GeneDetection.iso"
+                                            ovf:id="optimis-pm-GeneDetection-context-file"/>
+                                </ovf:References>
+                                <ovf:DiskSection>
+                                    <ovf:Info/>
+                                    <ovf:Disk ovf:capacity="10240" ovf:diskId="optimis-pm-GeneDetection-img-disk"
+                                              ovf:fileRef="optimis-pm-GeneDetection-img-file"
+                                              ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                                    <ovf:Disk ovf:capacity="1" ovf:diskId="optimis-pm-GeneDetection-context-disk"
+                                              ovf:fileRef="optimis-pm-GeneDetection-context-file"
+                                              ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                                </ovf:DiskSection>
+                                <ovf:NetworkSection>
+                                    <ovf:Info/>
+                                    <ovf:Network ovf:name="optimis-pm-GeneDetection-net">
+                                        <ovf:Description>Network to connect to system-optimis-pm-GeneDetection
+                                        </ovf:Description>
+                                    </ovf:Network>
+                                </ovf:NetworkSection>
+                                <ovf:VirtualSystem ovf:id="system-optimis-pm-GeneDetection">
+                                    <ovf:Info>optimis-pm-GeneDetection VM description</ovf:Info>
+                                    <ovf:ProductSection ovf:class="com.sun.master">
+                                        <ovf:Info>Product customization for the installed software</ovf:Info>
+                                        <ovf:Product/>
+                                        <ovf:Version/>
+                                    </ovf:ProductSection>
+                                    <ovf:OperatingSystemSection ovf:id="76">
+                                        <ovf:Info>Specifies the operating system installed</ovf:Info>
+                                        <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+                                    </ovf:OperatingSystemSection>
+                                    <ovf:VirtualHardwareSection>
+                                        <ovf:Info>Virtual Hardware Requirements: 1024Mb, 1CPU,
+                                            2 disks, 1 nic
+                                        </ovf:Info>
+                                        <ovf:System>
+                                            <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                                            <vssd:InstanceID>0</vssd:InstanceID>
+                                            <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                                        </ovf:System>
+                                        <ovf:Item>
+                                            <rasd:Description>Number of virtual CPUs</rasd:Description>
+                                            <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                                            <rasd:InstanceID>1</rasd:InstanceID>
+                                            <rasd:ResourceType>3</rasd:ResourceType>
+                                            <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+                                        </ovf:Item>
+                                        <ovf:Item>
+                                            <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                                            <rasd:Description>Memory Size</rasd:Description>
+                                            <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                                            <rasd:InstanceID>2</rasd:InstanceID>
+                                            <rasd:ResourceType>4</rasd:ResourceType>
+                                            <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+                                        </ovf:Item>
+                                        <ovf:Item>
+                                            <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+                                            <rasd:ElementName>MHz reservation</rasd:ElementName>
+                                            <rasd:InstanceID>1</rasd:InstanceID>
+                                            <rasd:Reservation>500</rasd:Reservation>
+                                            <rasd:ResourceType>3</rasd:ResourceType>
+                                        </ovf:Item>
+                                        <ovf:Item>
+                                            <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                            <rasd:Connection>optimis-pm-GeneDetection-net</rasd:Connection>
+                                            <rasd:ElementName>Ethernet adapter on optimis-pm-GeneDetection-net network
+                                            </rasd:ElementName>
+                                            <rasd:InstanceID>3</rasd:InstanceID>
+                                            <rasd:ResourceType>10</rasd:ResourceType>
+                                        </ovf:Item>
+                                        <ovf:Item>
+                                            <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                                            <rasd:HostResource>ovf:/disk/optimis-pm-GeneDetection-img-disk
+                                            </rasd:HostResource>
+                                            <rasd:InstanceID>4</rasd:InstanceID>
+                                            <rasd:Parent>4</rasd:Parent>
+                                            <rasd:ResourceType>17</rasd:ResourceType>
+                                        </ovf:Item>
+                                        <ovf:Item>
+                                            <rasd:ElementName>Harddisk 2</rasd:ElementName>
+                                            <rasd:HostResource>ovf:/disk/optimis-pm-GeneDetection-context-disk
+                                            </rasd:HostResource>
+                                            <rasd:InstanceID>4</rasd:InstanceID>
+                                            <rasd:Parent>4</rasd:Parent>
+                                            <rasd:ResourceType>17</rasd:ResourceType>
+                                        </ovf:Item>
+                                    </ovf:VirtualHardwareSection>
+                                </ovf:VirtualSystem>
+                            </opt:OVFDefinition>
+                            <opt:AllocationConstraints>
+                                <opt:LowerBound>1</opt:LowerBound>
+                                <opt:UpperBound>1</opt:UpperBound>
+                                <opt:Initial>1</opt:Initial>
+                            </opt:AllocationConstraints>
+                            <opt:AffinityConstraints>Medium</opt:AffinityConstraints>
+                            <opt:AntiAffinityConstraints>Low</opt:AntiAffinityConstraints>
+                            <opt:ServiceEndpoints>
+                                <opt:ServiceEndpoint opt:name="ServiceManager">
+                                    http://optimis-spvm.atosorigin.es:8080/ServiceManager/services/9adbe33b-ef8c-43a5-b65d-d1817685dbab
+                                </opt:ServiceEndpoint>
+                                <opt:ServiceEndpoint opt:name="MonitoringInfrastructure">
+                                    http://212.0.127.140:7070/data
+                                </opt:ServiceEndpoint>
+                            </opt:ServiceEndpoints>
+                        </opt:VirtualMachineComponent>
+                        <opt:AffinitySection>
+                            <opt:AffinityRule>
+                                <opt:Scope>
+                                    <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                                    <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                                </opt:Scope>
+                                <opt:AffinityConstraints>Low</opt:AffinityConstraints>
+                            </opt:AffinityRule>
+                        </opt:AffinitySection>
+                        <opt:AntiAffinitySection>
+                            <opt:AntiAffinityRule>
+                                <opt:Scope>
+                                    <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                                </opt:Scope>
+                                <opt:AntiAffinityConstraints>High</opt:AntiAffinityConstraints>
+                            </opt:AntiAffinityRule>
+                        </opt:AntiAffinitySection>
+                    </opt:VirtualMachineDescription>
+                    <opt:TRECSection>
+                        <opt:TrustSection>
+                            <opt:Scope>
+                                <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                            </opt:Scope>
+                            <opt:MinimumTrustLevel>1</opt:MinimumTrustLevel>
+                        </opt:TrustSection>
+                        <opt:RiskSection>
+                            <opt:Scope>
+                                <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                            </opt:Scope>
+                            <opt:RiskLevel>3</opt:RiskLevel>
+                            <opt:AvailabilityArray>
+                                <opt:Availability opt:assessmentInterval="P1D">0.0</opt:Availability>
+                            </opt:AvailabilityArray>
+                        </opt:RiskSection>
+                        <opt:EcoEfficiencySection>
+                            <opt:Scope>
+                                <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                            </opt:Scope>
+                            <opt:LEEDCertification>NotRequired</opt:LEEDCertification>
+                            <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+                            <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+                            <opt:EnergyStarRating>No</opt:EnergyStarRating>
+                            <opt:ISO14000>No</opt:ISO14000>
+                            <opt:GreenStar>No</opt:GreenStar>
+                            <opt:CASBEE>No</opt:CASBEE>
+                            <opt:EcoMetricArray>
+                                <opt:EcoMetric>
+                                    <opt:Name>EnergyEfficiency</opt:Name>
+                                    <opt:ThresholdValue>1.0</opt:ThresholdValue>
+                                    <opt:SLAType>Soft</opt:SLAType>
+                                    <opt:MagnitudePenalty>NA</opt:MagnitudePenalty>
+                                    <opt:TimePenalty>NA</opt:TimePenalty>
+                                </opt:EcoMetric>
+                                <opt:EcoMetric>
+                                    <opt:Name>EcologicalEfficiency</opt:Name>
+                                    <opt:ThresholdValue>1.6</opt:ThresholdValue>
+                                    <opt:SLAType>Hard</opt:SLAType>
+                                    <opt:MagnitudePenalty>0.6</opt:MagnitudePenalty>
+                                    <opt:TimePenalty>0.8</opt:TimePenalty>
+                                </opt:EcoMetric>
+                            </opt:EcoMetricArray>
+                        </opt:EcoEfficiencySection>
+                        <opt:CostSection>
+                            <opt:Scope>
+                                <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                            </opt:Scope>
+                            <opt:PricePlan opt:currency="EUR" opt:planCap="15.0" opt:planFloor="0.0"/>
+                        </opt:CostSection>
+                    </opt:TRECSection>
+                    <opt:DataProtectionSection>
+                        <opt:EligibleCountryList>
+                            <opt:Country>ES</opt:Country>
+                            <opt:Country>SE</opt:Country>
+                            <opt:Country>GB</opt:Country>
+                            <opt:Country>US</opt:Country>
+                        </opt:EligibleCountryList>
+                        <opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+                        <opt:DataEncryptionLevel>
+                            <opt:EncryptionAlgoritm>AES</opt:EncryptionAlgoritm>
+                        </opt:DataEncryptionLevel>
+                        <opt:DataStorage>
+                            <opt:Scope>
+                                <opt:ComponentId>optimis-pm-GeneDetection</opt:ComponentId>
+                            </opt:Scope>
+                            <opt:Name>storage</opt:Name>
+                            <opt:AllocationUnit>byte</opt:AllocationUnit>
+                            <opt:Capacity>0</opt:Capacity>
+                        </opt:DataStorage>
+                        <opt:SCC>
+                            <opt:apply>true</opt:apply>
+                            <opt:Clause>
+                                <opt:Title>Clause 1</opt:Title>
+                                <opt:Description>Definitions</opt:Description>
+                                <opt:Item>For the purposes of the Clauses:</opt:Item>
+                                <opt:Item>(a) 'personal data', 'special categories of data', 'process/processing',
+                                    'controller', 'processor', 'data subject' and 'supervisory authority' shall have the
+                                    same meaning as in Directive 95/46/EC of the European Parliament and of the Council
+                                    of 24 October 1995 on the protection of individuals with regard to the processing of
+                                    personal data and on the free movement of such data1;
+                                </opt:Item>
+                                <opt:Item>(b) 'the data exporter' means the controller who transfers the personal
+                                    data;
+                                </opt:Item>
+                                <opt:Item>(c) 'the data importer' means the processor who agrees to receive from the
+                                    data exporter personal data intended for processing on his behalf after the transfer
+                                    in accordance with his instructions and the terms of the Clauses and who is not
+                                    subject to a third country's system ensuring adequate protection within the meaning
+                                    of Article 25(1) of Directive?95/46/EC;
+                                </opt:Item>
+                                <opt:Item>(d) 'the subprocessor' means any processor engaged by the data importer or by
+                                    any other subprocessor of the data importer who agrees to receive from the data
+                                    importer or from any other subprocessor of the data importer personal data
+                                    exclusively intended for processing activities to be carried out on behalf of the
+                                    data exporter after the transfer in accordance with his instructions, the terms of
+                                    the Clauses and the terms of the written subcontract;
+                                </opt:Item>
+                                <opt:Item>(e) 'the applicable data protection law' means the legislation protecting the
+                                    fundamental rights and freedoms of individuals and, in particular, their right to
+                                    privacy with respect to the processing of personal data applicable to a data
+                                    controller in the Member State in which the data exporter is established;
+                                </opt:Item>
+                                <opt:Item>(f) 'technical and organisational security measures' means those measures
+                                    aimed at protecting personal data against accidental or unlawful destruction or
+                                    accidental loss, alteration, unauthorised disclosure or access, in particular where
+                                    the processing involves the transmission of data over a network, and against all
+                                    other unlawful forms of processing.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 2</opt:Title>
+                                <opt:Description>Details of the transfer</opt:Description>
+                                <opt:Item>The details of the transfer and in particular the special categories of
+                                    personal data where applicable are specified in Appendix 1 which forms an integral
+                                    part of the Clauses.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 3</opt:Title>
+                                <opt:Description>Third-party beneficiary clause</opt:Description>
+                                <opt:Item>1. The data subject can enforce against the data exporter this Clause, Clause
+                                    4(b) to (i), Clause 5(a) to (e), and (g) to (j), Clause 6(1) and (2), Clause 7,
+                                    Clause 8(2), and Clauses 9 to 12 as third-party beneficiary.
+                                </opt:Item>
+                                <opt:Item>2. The data subject can enforce against the data importer this Clause, Clause
+                                    5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases
+                                    where the data exporter has factually disappeared or has ceased to exist in law
+                                    unless any successor entity has assumed the entire legal obligations of the data
+                                    exporter by contract or by operation of law, as a result of which it takes on the
+                                    rights and obligations of the data exporter, in which case the data subject can
+                                    enforce them against such entity.
+                                </opt:Item>
+                                <opt:Item>3. The data subject can enforce against the subprocessor this Clause, Clause
+                                    5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases
+                                    where both the data exporter and the data importer have factually disappeared or
+                                    ceased to exist in law or have become insolvent, unless any successor entity has
+                                    assumed the entire legal obligations of the data exporter by contract or by
+                                    operation of law as a result of which it takes on the rights and obligations of the
+                                    data exporter, in which case the data subject can enforce them against such entity.
+                                    Such third-party liability of the subprocessor shall be limited to its own
+                                    processing operations under the Clauses.
+                                </opt:Item>
+                                <opt:Item>4. The parties do not object to a data subject being represented by an
+                                    association or other body if the data subject so expressly wishes and if permitted
+                                    by national law.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 4</opt:Title>
+                                <opt:Description>Obligations of the data exporter</opt:Description>
+                                <opt:Item>The data exporter agrees and warrants:</opt:Item>
+                                <opt:Item>(a) that the processing, including the transfer itself, of the personal data
+                                    has been and will continue to be carried out in accordance with the relevant
+                                    provisions of the applicable data protection law (and, where applicable, has been
+                                    notified to the relevant authorities of the Member State where the data exporter is
+                                    established) and does not violate the relevant provisions of that State;
+                                </opt:Item>
+                                <opt:Item>(b) that it has instructed and throughout the duration of the personal data
+                                    processing services will instruct the data importer to process the personal data
+                                    transferred only on the data exporter's behalf and in accordance with the applicable
+                                    data protection law and the Clauses;
+                                </opt:Item>
+                                <opt:Item>(c) that the data importer will provide sufficient guarantees in respect of
+                                    the technical and organisational security measures specified in Appendix 2 to this
+                                    contract;
+                                </opt:Item>
+                                <opt:Item>(d) that after assessment of the requirements of the applicable data
+                                    protection law, the security measures are appropriate to protect personal data
+                                    against accidental or unlawful destruction or accidental loss, alteration,
+                                    unauthorised disclosure or access, in particular where the processing involves the
+                                    transmission of data over a network, and against all other unlawful forms of
+                                    processing, and that these measures ensure a level of security appropriate to the
+                                    risks presented by the processing and the nature of the data to be protected having
+                                    regard to the state of the art and the cost of their implementation;
+                                </opt:Item>
+                                <opt:Item>(e) that it will ensure compliance with the security measures;</opt:Item>
+                                <opt:Item>(f) that, if the transfer involves special categories of data, the data
+                                    subject has been informed or will be informed before, or as soon as possible after,
+                                    the transfer that its data could be transmitted to a third country not providing
+                                    adequate protection within the meaning of Directive 95/46/EC;
+                                </opt:Item>
+                                <opt:Item>(g) to forward any notification received from the data importer or any
+                                    subprocessor pursuant to Clause 5(b) and Clause 8(3) to the data protection
+                                    supervisory authority if the data exporter decides to continue the transfer or to
+                                    lift the suspension;
+                                </opt:Item>
+                                <opt:Item>(h) to make available to the data subjects upon request a copy of the Clauses,
+                                    with the exception of Appendix 2, and a summary description of the security
+                                    measures, as well as a copy of any contract for subprocessing services which has to
+                                    be made in accordance with the Clauses, unless the Clauses or the contract contain
+                                    commercial information, in which case it may remove such commercial information;
+                                </opt:Item>
+                                <opt:Item>(i) that, in the event of subprocessing, the processing activity is carried
+                                    out in accordance with Clause 11 by a subprocessor providing at least the same level
+                                    of protection for the personal data and the rights of data subject as the data
+                                    importer under the Clauses; and
+                                </opt:Item>
+                                <opt:Item>(j) that it will ensure compliance with Clause 4(a) to (i).</opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 5</opt:Title>
+                                <opt:Description>Obligations of the data importer</opt:Description>
+                                <opt:Item>The data importer agrees and warrants:</opt:Item>
+                                <opt:Item>(a) to process the personal data only on behalf of the data exporter and in
+                                    compliance with its instructions and the Clauses; if it cannot provide such
+                                    compliance for whatever reasons, it agrees to inform promptly the data exporter of
+                                    its inability to comply, in which case the data exporter is entitled to suspend the
+                                    transfer of data and/or terminate the contract;
+                                </opt:Item>
+                                <opt:Item>(b) that it has no reason to believe that the legislation applicable to it
+                                    prevents it from fulfilling the instructions received from the data exporter and its
+                                    obligations under the contract and that in the event of a change in this legislation
+                                    which is likely to have a substantial adverse effect on the warranties and
+                                    obligations provided by the Clauses, it will promptly notify the change to the data
+                                    exporter as soon as it is aware, in which case the data exporter is entitled to
+                                    suspend the transfer of data and/or terminate the contract;
+                                </opt:Item>
+                                <opt:Item>(c) that it has implemented the technical and organisational security measures
+                                    specified in Appendix 2 before processing the personal data transferred;
+                                </opt:Item>
+                                <opt:Item>(d) that it will promptly notify the data exporter about: (i) any legally
+                                    binding request for disclosure of the personal data by a law enforcement authority
+                                    unless otherwise prohibited, such as a prohibition under criminal law to preserve
+                                    the confidentiality of a law enforcement investigation, (ii) any accidental or
+                                    unauthorised access, and (iii) any request received directly from the data subjects
+                                    without responding to that request, unless it has been otherwise authorised to do
+                                    so;
+                                </opt:Item>
+                                <opt:Item>(e) to deal promptly and properly with all inquiries from the data exporter
+                                    relating to its processing of the personal data subject to the transfer and to abide
+                                    by the advice of the supervisory authority with regard to the processing of the data
+                                    transferred;
+                                </opt:Item>
+                                <opt:Item>(f) at the request of the data exporter to submit its data processing
+                                    facilities for audit of the processing activities covered by the Clauses which shall
+                                    be carried out by the data exporter or an inspection body composed of independent
+                                    members and in possession of the required professional qualifications bound by a
+                                    duty of confidentiality, selected by the data exporter, where applicable, in
+                                    agreement with the supervisory authority;
+                                </opt:Item>
+                                <opt:Item>(g) to make available to the data subject upon request a copy of the Clauses,
+                                    or any existing contract for subprocessing, unless the Clauses or contract contain
+                                    commercial information, in which case it may remove such commercial information,
+                                    with the exception of Appendix 2 which shall be replaced by a summary description of
+                                    the security measures in those cases where the data subject is unable to obtain a
+                                    copy from the data exporter;
+                                </opt:Item>
+                                <opt:Item>(h) that, in the event of subprocessing, it has previously informed the data
+                                    exporter and obtained its prior written consent;
+                                </opt:Item>
+                                <opt:Item>(i) that the processing services by the subprocessor will be carried out in
+                                    accordance with Clause 11;
+                                </opt:Item>
+                                <opt:Item>(j) to send promptly a copy of any subprocessor agreement it concludes under
+                                    the Clauses to the data exporter.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 6</opt:Title>
+                                <opt:Description>Liability</opt:Description>
+                                <opt:Item>1. The parties agree that any data subject, who has suffered damage as a
+                                    result of any breach of the obligations referred to in Clause 3 or in Clause 11 by
+                                    any party or subprocessor is entitled to receive compensation from the data exporter
+                                    for the damage suffered.
+                                </opt:Item>
+                                <opt:Item>2. If a data subject is not able to bring a claim for compensation in
+                                    accordance with paragraph 1 against the data exporter, arising out of a breach by
+                                    the data importer or his subprocessor of any of their obligations referred to in
+                                    Clause 3 or in Clause 11, because the data exporter has factually disappeared or
+                                    ceased to exist in law or has become insolvent, the data importer agrees that the
+                                    data subject may issue a claim against the data importer as if it were the data
+                                    exporter, unless any successor entity has assumed the entire legal obligations of
+                                    the data exporter by contract of by operation of law, in which case the data subject
+                                    can enforce its rights against such entity. The data importer may not rely on a
+                                    breach by a subprocessor of its obligations in order to avoid its own liabilities.
+                                </opt:Item>
+                                <opt:Item>3. If a data subject is not able to bring a claim against the data exporter or
+                                    the data importer referred to in paragraphs 1 and 2, arising out of a breach by the
+                                    subprocessor of any of their obligations referred to in Clause 3 or in Clause 11
+                                    because both the data exporter and the data importer have factually disappeared or
+                                    ceased to exist in law or have become insolvent, the subprocessor agrees that the
+                                    data subject may issue a claim against the data subprocessor with regard to its own
+                                    processing operations under the Clauses as if it were the data exporter or the data
+                                    importer, unless any successor entity has assumed the entire legal obligations of
+                                    the data exporter or data importer by contract or by operation of law, in which case
+                                    the data subject can enforce its rights against such entity. The liability of the
+                                    subprocessor shall be limited to its own processing operations under the Clauses.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 7</opt:Title>
+                                <opt:Description>Mediation and jurisdiction</opt:Description>
+                                <opt:Item>1.The data importer agrees that if the data subject invokes against it
+                                    third-party beneficiary rights and/or claims compensation for damages under the
+                                    Clauses, the data importer will accept the decision of the data subject: (a) to
+                                    refer the dispute to mediation, by an independent person or, where applicable, by
+                                    the supervisory authority; (b) to refer the dispute to the courts in the Member
+                                    State in which the data exporter is established.
+                                </opt:Item>
+                                <opt:Item>2.The parties agree that the choice made by the data subject will not
+                                    prejudice its substantive or procedural rights to seek remedies in accordance with
+                                    other provisions of national or international law.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 8</opt:Title>
+                                <opt:Description>Cooperation with supervisory authorities</opt:Description>
+                                <opt:Item>1.The data exporter agrees to deposit a copy of this contract with the
+                                    supervisory authority if it so requests or if such deposit is required under the
+                                    applicable data protection law.
+                                </opt:Item>
+                                <opt:Item>2.The parties agree that the supervisory authority has the right to conduct an
+                                    audit of the data importer, and of any subprocessor, which has the same scope and is
+                                    subject to the same conditions as would apply to an audit of the data exporter under
+                                    the applicable data protection law.
+                                </opt:Item>
+                                <opt:Item>3.The data importer shall promptly inform the data exporter about the
+                                    existence of legislation applicable to it or any subprocessor preventing the conduct
+                                    of an audit of the data importer, or any subprocessor, pursuant to paragraph 2. In
+                                    such a case the data exporter shall be entitled to take the measures foreseen in
+                                    Clause 5 (b).
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 9</opt:Title>
+                                <opt:Description>Governing Law</opt:Description>
+                                <opt:Item>The Clauses shall be governed by the law of the Member State in which the data
+                                    exporter is established
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 10</opt:Title>
+                                <opt:Description>Variation of the contract</opt:Description>
+                                <opt:Item>The parties undertake not to vary or modify the Clauses. This does not
+                                    preclude the parties from adding clauses on business related issues where required
+                                    as long as they do not contradict the Clause.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 11</opt:Title>
+                                <opt:Description>Subprocessing</opt:Description>
+                                <opt:Item>1. The data importer shall not subcontract any of its processing operations
+                                    performed on behalf of the data exporter under the Clauses without the prior written
+                                    consent of the data exporter. Where the data importer subcontracts its obligations
+                                    under the Clauses, with the consent of the data exporter, it shall do so only by way
+                                    of a written agreement with the subprocessor which imposes the same obligations on
+                                    the subprocessor as are imposed on the data importer under the Clauses1. Where the
+                                    subprocessor fails to fulfil its data protection obligations under such written
+                                    agreement the data importer shall remain fully liable to the data exporter for the
+                                    performance of the subprocessor's obligations under such agreement.
+                                </opt:Item>
+                                <opt:Item>2. The prior written contract between the data importer and the subprocessor
+                                    shall also provide for a third-party beneficiary clause as laid down in Clause 3 for
+                                    cases where the data subject is not able to bring the claim for compensation
+                                    referred to in paragraph 1 of Clause 6 against the data exporter or the data
+                                    importer because they have factually disappeared or have ceased to exist in law or
+                                    have become insolvent and no successor entity has assumed the entire legal
+                                    obligations of the data exporter or data importer by contract or by operation of
+                                    law. Such third-party liability of the subprocessor shall be limited to its own
+                                    processing operations under the Clauses.
+                                </opt:Item>
+                                <opt:Item>3. The provisions relating to data protection aspects for subprocessing of the
+                                    contract referred to in paragraph 1 shall be governed by the law of the Member State
+                                    in which the data exporter is established.
+                                </opt:Item>
+                                <opt:Item>4. The data exporter shall keep a list of subprocessing agreements concluded
+                                    under the Clauses and notified by the data importer pursuant to Clause 5 (j), which
+                                    shall be updated at least once a year. The list shall be available to the data
+                                    exporter's data protection supervisory authority.
+                                </opt:Item>
+                            </opt:Clause>
+                            <opt:Clause>
+                                <opt:Title>Clause 12</opt:Title>
+                                <opt:Description>Obligation after the termination of personal data processing services
+                                </opt:Description>
+                                <opt:Item>1. The parties agree that on the termination of the provision of data
+                                    processing services, the data importer and the subprocessor shall, at the choice of
+                                    the data exporter, return all the personal data transferred and the copies thereof
+                                    to the data exporter or shall destroy all the personal data and certify to the data
+                                    exporter that it has done so, unless legislation imposed upon the data importer
+                                    prevents it from returning or destroying all or part of the personal data
+                                    transferred. In that case, the data importer warrants that it will guarantee the
+                                    confidentiality of the personal data transferred and will not actively process the
+                                    personal data transferred anymore.
+                                </opt:Item>
+                                <opt:Item>2. The data importer and the subprocessor warrant that upon request of the
+                                    data exporter and/or of the supervisory authority, it will submit its data
+                                    processing facilities for an audit of the measures referred to in paragraph 1.
+                                </opt:Item>
+                            </opt:Clause>
+                        </opt:SCC>
+                        <opt:BCR>
+                            <opt:apply>true</opt:apply>
+                            <opt:Rule>
+                                <opt:Title>Rule 1</opt:Title>
+                                <opt:Description>Data Protection Safeguards</opt:Description>
+                                <opt:Item>(Name of organisation) group of companies processing personal data must comply
+                                    with this BCR to ensure that your data is processed fairly and in compliance with
+                                    applicable law. In particular, your personal data will only be processed where;
+                                </opt:Item>
+                                <opt:Item>1. We have a legal basis for doing so, which may be based on your consent, the
+                                    performance of a contract you have entered into with (name of organisation) or is
+                                    required in connection with the legitimate interests of (name of organisation);
+                                </opt:Item>
+                                <opt:Item>2. We notify you of the specific purposes for which your data is collected and
+                                    will not process your data in a way which is incompatible with those purposes; we
+                                    will only collect the type and amount of your personal data which is necessary in
+                                    connection with the purpose for which it is collected;
+                                </opt:Item>
+                                <opt:Item>3. Your personal data is accurate and up to date where necessary and we will
+                                    destroy the data once it is no longer needed in line with data retention and other
+                                    applicable law; and
+                                </opt:Item>
+                                <opt:Item>4. We put in place security and confidentiality measures to ensure that your
+                                    personal data is protected against unauthorized use or disclosure.
+                                </opt:Item>
+                                <opt:Item>(Name of organisation) may in certain cases disclose your personal data to
+                                    third parties, for example, to our customer support service providers and companies
+                                    managing employee benefit schemes. (Name of organisation) companies will not
+                                    disclose your personal data (including sensitive data) to third parties unless they
+                                    have agreed to safeguard your data and conduct the processing of your data in
+                                    compliance with applicable law. Where the third parties are located in certain
+                                    countries outside the EU, we will ensure that your personal data is transferred to
+                                    those countries in compliance with applicable law and protected by BCR, model
+                                    contracts or any other measure relevant to the specific case, which may include
+                                    obtaining your consent to the processing.
+                                </opt:Item>
+                            </opt:Rule>
+                            <opt:Rule>
+                                <opt:Title>Rule 2</opt:Title>
+                                <opt:Description>Data Subject Rights</opt:Description>
+                                <opt:Item>If you are a European employee or customer of (name of organisation), you have
+                                    the following rights under EU data protection law:
+                                </opt:Item>
+                                <opt:Item>1. The right of access to your personal data processed by us. However, (name
+                                    of organisation) reserves the right to charge a fee for such access where permitted
+                                    under applicable law or withhold such access if it is not permitted by applicable
+                                    law.
+                                </opt:Item>
+                                <opt:Item>2. The right to have incomplete or inaccurate personal data about you
+                                    corrected, erased or blocked.
+                                </opt:Item>
+                                <opt:Item>3. The right to object to the processing of your personal data and to require
+                                    (name of organisation) to stop processing your data where there are legitimate
+                                    grounds for doing so.
+                                </opt:Item>
+                                <opt:Item>4. The right to request that significant decisions about you are not made
+                                    through the automatic processing of your personal data.
+                                </opt:Item>
+                            </opt:Rule>
+                            <opt:Rule>
+                                <opt:Title>Rule 3</opt:Title>
+                                <opt:Description>Additional Data Subject Rights under the BCR</opt:Description>
+                                <opt:Item>In addition, if you are a European employee or customer of (name of
+                                    organisation), the BCR gives you the following rights, as a third party beneficiary,
+                                    where you believe your personal data has been transferred to any of our group of
+                                    companies located in certain countries outside the EU and processed by that company
+                                    in breach of this BCR:
+                                </opt:Item>
+                                <opt:Item>1. To lodge a complaint with our EU Company that transferred your data outside
+                                    the EU. This can be done by contacting the Privacy Office at our website. Any
+                                    complaint shall be fully investigated by the company with a view to resolving the
+                                    complaint; and /or
+                                </opt:Item>
+                                <opt:Item>2. To lodge a complaint with the Data Protection Authority located in the same
+                                    country as our European company that transferred your data outside the EU; and/or
+                                </opt:Item>
+                                <opt:Item>3. To bring a court action against our EU Company that transferred your data
+                                    outside the EU. In which case the European (name of organisation) company shall
+                                    defend any claim, have the burden of proving that breach of the rules did not take
+                                    place, and the responsibility to pay any damages awarded to you by the court.
+                                </opt:Item>
+                                <opt:Item>Any further information on our BCR can be obtained from our Privacy Office
+                                    through our website.
+                                </opt:Item>
+                            </opt:Rule>
+                        </opt:BCR>
+                        <opt:IPR>
+                            <opt:apply>true</opt:apply>
+                            <opt:Rule>
+                                <opt:Title>IPR_1</opt:Title>
+                                <opt:Description>SP retains service data ownership, but not metadata</opt:Description>
+                                <opt:Item>Service Provider ( as Cloud customer) retains ownership of any intellectual
+                                    property rights in the content it deployed to the cloud. Any intellectual property
+                                    developed by the cloud provider during the performance of the services belongs to
+                                    the cloud provider.
+                                </opt:Item>
+                            </opt:Rule>
+                        </opt:IPR>
+                    </opt:DataProtectionSection>
+                    <opt-sp:ServiceProviderExtensions>
+                        <opt-sp:VirtualMachineComponentConfiguration opt-sp:componentId="optimis-pm-GeneDetection">
+                            <opt-sp:SoftwareDependencies/>
+                            <opt-sp:SecurityVPN>false</opt-sp:SecurityVPN>
+                            <opt-sp:IPS>false</opt-sp:IPS>
+                            <opt-sp:SecuritySSH>true</opt-sp:SecuritySSH>
+                            <opt-sp:SSHKey>
+                                LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb1FJQkFBS0NBUUVBN3BuQVBsUXVISFA2TkwrbjV1NGNFZ0QvaHdQTVNNK3pQa2diaDRsc2UrQzJWRWNXCi9Wakp6R1B2VlBta3ZEY1NGUWlwY1pYZVNpUDVEU1ZzNmRFWlBtcXYyUjI2b1g4dXdUY05Ma083YUx1NVd4ZWYKdEo5QWs3cW5WREd4K1RzbElLWWdyTDJvamlUWG9aOFo1Sm1QWTNXeEplcUo3VVd5U3pkaU4rbk1wMzE0NEY2TgpPWEo2bkczMlRrbmltOTlpaC9mSW9jWWVrOHpKT043S2tWalprSkJrckxldEN1Z1RMU29DR3NBSVBZc3hSWi8vCjJaSFFkVitjWXZhRnpEbzlTTFpGR3lQakhrdFE5MlhtNzhDclpFVTZwdkc4VnRkaHBUbjRIVHlqWjNUb2RXVWQKNmJHWlhMaE1sSFRjZmJNRm5hNS9idGg5REJ2QmVrck50Zm1qeVFJQkl3S0NBUUFVYzVRaW1ZQkxsT21QZmlSVgpuMkY5NHRRUzR4R0NsWFhEZ29ZRVRadVZsdXNPaWNBa1dCRk1DSkRiWmRycmo3RVh2dW56eXdSc3dVRTdwQjlIClBjNzJ1Sy84cXNiYXBJQlp0RUwxVmtORGZjNFBIMGcwRGFaekQvKzJ3bTVYTVBTTnhSaStXV1k0RWNsVy93STQKS210Z1MrcWMyWmJMTWR3VkUyQXdyYVBUMTJPakdYT2tBOUw2OUNUOUdNeFRyc2xiWUU3cFd1N3d4M2tZcUJiTApPZFFneW81STl4T212cDM2SlVqSndwaDlacHI1alJ5YktSY1lKNUNGNVlSVmV6c0hETThydjhVS0dMdUluRVpFCnAxdGlpZVk0clZWSUZnUGpLWHZiVER5OWtrUTdDTFZaYXVMMCtpeUlsVi91OWZMZ0JRa1Y4UXNGcXNhRVhnTmQ
+                                KTmdFTEFvR0JBUDFLeUlMMmhLdFBQdy9PajhTV2hKMENsM09OM3RFS0x1aWV0N2FIejQwRE9mN0pNam9JT0xXcgo5VkdPOEdhN3gvekhPdkNXQnB1ZUhISEMvNVR0ZCtFMjhJbVl1TEpFK3FrMUZ5WUNFS3RpckpwZjlvT3J1NzVZCk9wMGJ6SXFaZWtCdVVrVy80QkpkZUdSOVFjSEdCZFJnUFNrWTMxY1A5c0JJamlwVXJhN1JBb0dCQVBFbXdtL0oKYTl5SURveE1RM2pmdU8yd3AyY2NGNzg3TVZ2UDAxOXhPL2NPeGVubG1EaHBWTlVhMXdvRW5BUEt3TThlOXNHRwpxOUlTeXVuYksrajVlZ0MvaFovWldJdGpoWEV6TDQwaUQ0Q0QrbmV4djZzTXhYWHl4Z3RZUy83VSt1RldWK25CClI5blZMb3N6RHhEVHpSK3lpK3hWL1BxNkIwcCt5U2JNZ0pONUFvR0JBS1p5K01zWEJybTN1N251SS9ZM0JyQlMKS1FMSzhZSU9BWkdNM3lBdFhJRThvblE3RW1DbVVTYnRXQkVHS1BNTnIwNVhDWG1IS09ucmp3anQyeWRhT05YVApwV0c4SVptNFRQTFp2c0UwanB5Q3EvQnE4blBJbi9JY3VNMmtqYm9xVjZhdTVadU10OUdONFdhYmRGckQ5VFBLCk50SGRKUTFUb2lhV0ZFZXovUnNiQW9HQVBnS25CczFrNE8vSk9nVDdhRG1IVXhBckMrS25CVW04UEM0Z2FQL2MKT0RiL3NTeG8rSkFkSU5zRUdJVFhxVFFpODI1Y3RXdkZ5RTM1cWRsRnpqR0Z4YTJYWTU1SjkvVUZEbnJnVjMzSgplTkY2NjVRYlY5NjJic2xtSUN5bDA5QmR4T3BSSHRudDU0Nlc4SmdaMFNDRk5BbFhMaVM5WlF0RHRCSDVOZHpRCm12TUNnWUI3VlpHa0xYMnlOQXE2Mk8wdERKUDFSaklndFNxL0JVeUt3cTQrZXR2SDJMR0g
+                                yVmw5QTBnOFZCS28KdXpreE53S1ptbElDK3c1MUdEOUZHd3VCK0dNZ1FFM0ZlSU5qN2lMK013b1pGTzJzNUhxOEJoUmh5VE9Td2Q1cwo1MmZVS1BwcTZpWnhFcEs3MjZEd3lmdFUzYndaTUdkc1krRFRJKzBvWWY0cWx2VDhNQT09Ci0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCnNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQUJJd0FBQVFFQTdwbkFQbFF1SEhQNk5MK241dTRjRWdEL2h3UE1TTSt6UGtnYmg0bHNlK0MyVkVjVy9Wakp6R1B2VlBta3ZEY1NGUWlwY1pYZVNpUDVEU1ZzNmRFWlBtcXYyUjI2b1g4dXdUY05Ma083YUx1NVd4ZWZ0SjlBazdxblZER3grVHNsSUtZZ3JMMm9qaVRYb1o4WjVKbVBZM1d4SmVxSjdVV3lTemRpTituTXAzMTQ0RjZOT1hKNm5HMzJUa25pbTk5aWgvZklvY1llazh6Sk9ON0trVmpaa0pCa3JMZXRDdWdUTFNvQ0dzQUlQWXN4UlovLzJaSFFkVitjWXZhRnpEbzlTTFpGR3lQakhrdFE5MlhtNzhDclpFVTZwdkc4VnRkaHBUbjRIVHlqWjNUb2RXVWQ2YkdaWExoTWxIVGNmYk1GbmE1L2J0aDlEQnZCZWtyTnRmbWp5UT09IHVzZXJAaG9zdG5hbWU=
+                            </opt-sp:SSHKey>
+                            <opt-sp:LicenseToken>
+                                PHRvazpMaWNlbnNlVG9rZW4gSUQ9ImVsYXN0aWNsbS1kYmJmYzc4Yi04ODk4LTQ1YjgtOWFkYi1iOGY5YmM2OWQ3MzAiIGxpY2Vuc2VJZD0ib3B0aW1pcy1nZW5ld2lzZS1saWNlbnNlIiBpc1VzZWRPZmZsaW5lPSJmYWxzZSIgYWdyZWVtZW50SWQ9IjgxMzM4N2U2LTNiZGQtNGUxYi04YzcyLWZhZjg5ZDM5YWY4NCIgdG9rZW5JZD0iZWxhc3RpY0xNLVRva2VuLWUwZWEzYjBiLWNlNDctNDRlMi1iMjNlLTlmNWZjNzEyYmRmNiIgeG1sbnM6dG9rPSJodHRwOi8vZWxhc3RpY2xtLmV1L3NjaGVtYXMvMjAwOS8wNS9saWNlbnNlL3Rva2VuIj4KICA8dG9rOkZlYXR1cmVzPgogICAgPHRvazpGZWF0dXJlIGZlYXR1cmVJZD0iYXBwLW5hbWUiIHJlc2VydmF0aW9uSWQ9ImJhOWQzMzU5LTcyMTUtNGFhNi05ZjQ3LTA0ODYzZmNjZjhiNyI+CiAgICAgIDx0b2s6TmFtZT5HZW5ld2lzZTwvdG9rOk5hbWU+CiAgICAgIDx0b2s6VmFsdWU+MTwvdG9rOlZhbHVlPgogICAgPC90b2s6RmVhdHVyZT4KICAgIDx0b2s6RmVhdHVyZSBmZWF0dXJlSWQ9ImNmdGhyZWFkcyIgcmVzZXJ2YXRpb25JZD0iIj4KICAgICAgPHRvazpOYW1lPlRIUkVBRFM8L3RvazpOYW1lPgogICAgICA8dG9rOlZhbHVlPjQ8L3RvazpWYWx1ZT4KICAgIDwvdG9rOkZlYXR1cmU+CiAgPC90b2s6RmVhdHVyZXM+CiAgPHRvazpUb2tlbkFjdGl2YXRpb24+MjAxMy0wMi0xOVQxMTowMTowMCswMTowMDwvdG9rOlRva2VuQWN0aXZhdGlvbj4KICA8dG9rOlRva
+                                2VuRXhwaXJ5PjIwMTMtMDMtMjFUMTE6MDE6MDArMDE6MDA8L3RvazpUb2tlbkV4cGlyeT4KICA8dG9rOlZhbGlkYXRpb25VUkw+aHR0cDovL29wdGltaXMtbG1zLmRzLmNzLnVtdS5zZTo4MDgwL2VsYXN0aWNsbS1saWNlbnNlLXNlcnZpY2UvVG9rZW5TZXJ2bGV0U2VjPC90b2s6VmFsaWRhdGlvblVSTD4KICA8dG9rOkF1dGhvcml6YXRpb24+UEdGMWREcEJkWFJvYjNKcGVtRjBhVzl1SUVsRVBTSmxiR0Z6ZEdsamJHMHRZemc1TURBNVltRXRNRFJrT0MwME56RTRMV0ZrWlRZdFpqa3dOMk5rTnpsaE16RmhJaUJPYjNSQ1pXWnZjbVU5SWpJd01URXRNREV0TURGVU1USTZNREE2TURBdU1EQXdLekF4T2pBd0lpQk9iM1JQYms5eVFXWjBaWEk5SWpJd01UVXRNVEl0TXpGVU1USTZNREE2TURBdU1EQXdLekF4T2pBd0lpQjRiV3h1Y3pwaGRYUTlJbWgwZEhBNkx5OWxiR0Z6ZEdsamJHMHVaWFV2YzJOb1pXMWhjeTh5TURBNUx6QTNMM05sWTNWeWFYUjVMMkYxZEdodmNtbDZZWFJwYjI0aVBqeGhkWFE2U1hOemRXVnlQbVZ0WVdsc1FXUmtjbVZ6Y3oxa1pXMXZMV2x6ZGtCbGJHRnpkR2xqYkcwdVpHVXNJRU5PUFdWc1lYTjBhV05NVFNCRVpXMXZJRWxUVml3Z1QxVTlRa2xQSUVkeWFXUWdSM0p2ZFhBc0lFODlSbkpoZFc1b2IyWmxjaUJUUTBGSkxDQk1QVk5oYm10MElFRjFaM1Z6ZEdsdUxDQlRWRDFPVWxjc0lFTTlSRVU4TDJGMWREcEpjM04xWlhJK1BHRjFkRHBUZFdKcVpXTjBQang0WkRwTFpYbEpibVp2SUhodGJHNXpPbmhrUFNKb2RIUndPaTh2ZDNkM0xuY3pMb
+                                Tl5Wnk4eU1EQXdMekE1TDNodGJHUnphV2NqSWo0OGVHUTZXRFV3T1VSaGRHRStQSGhrT2xnMU1EbERaWEowYVdacFkyRjBaVDVOU1VsRVQxUkRRMEZ4UzJkQmQwbENRV2RKUWtKVVFVNUNaMnR4YUd0cFJ6bDNNRUpCVVZWR1FVUkRRbTVxUlV4TlFXdEhRVEZWUlVKb1RVTlNSVlY0UkVSQlMwSm5UbFpDUVdkVVFUQTFVMVo2UlZoTlFsVkhRVEZWUlVKNFRVOVZNa1oxWVROUloxRllWbTVrV0U0d1lWYzBlRWRFUVZkQ1owNVdRa0Z2VkVRd1dubFpXRloxWVVjNWJWcFlTV2RWTUU1Q1UxUkZXRTFDVlVkQk1WVkZRM2hOVDFGcmJGQkpSV1I1WVZkUloxSXpTblprV0VGNFJsUkJWRUpuVGxaQ1FVMVVSRWRXYzFsWVRqQmhWMDVOVkZOQ1JGRlVSV1ZOUW5kSFExTnhSMU5KWWpORVVVVktRVkpaVUZreVJrRmFWM2hvWXpOU2NGa3llSFJNYlZKc1RVSTBXRVJVUlhoTlJHdDNUMFJCTlUxcVJYaE5WbTlZUkZSSmVFMUVhM2RPVkVFMVRXcEZlRTFXYjNkbllrVjRRM3BCU2tKblRsWkNRVmxVUVd0U1JrMVJkM2REWjFsRVZsRlJTVVYzVGs5VmJHTjRSbnBCVmtKblRsWkNRV05VUkd4T2FHSnRkREJKUlVZeFdqTldlbVJIYkhWTlVtZDNSbWRaUkZaUlVVdEZkemxIWTIxR01XSnRhSFphYlZaNVNVWk9SRkZWYTNoR2VrRldRbWRPVmtKQmMxUkVhMHBLVkhsQ1NHTnRiR3RKUldSNVlqTldkMDFUV1hkS1FWbEVWbEZSUkVWNE1XeGlSMFo2WkVkc2FsUkZNR2RTUjFaMFlubENUV0ZYVG14aWJrNXNTVVpPYkdOdVdteGpha1ZuVFVJMFIwTlRjVWRUU1dJelJGRkZTa0ZTV1ZKYVIxWjBZa
+                                kJDYkdKSFJucGtSMnhxWWtjd2RWcEhWWGRuV2poM1JGRlpTa3R2V2tsb2RtTk9RVkZGUWtKUlFVUm5XVEJCVFVsSFNrRnZSMEpCVEhWRmJEQTFOaTlsZG5CWWVGbGhWRGhWTmpsS04yMVNhMk5QVGl0bVZYUlNRV056ZFhWd1pscFRNR2g2ZUZVMU5Xc3laa050YzBKWVFWY3ZibGxMU21waFVtNVVWVVZLVUd4bE1IQk9URFZZT0c1SVpVUk5kVkJoVDJsS2VISnplbFpaU1habU1tbEViRllyV2xSNFpXSjRkVmhxVjNJMVJtdHVVWFpKYlRGU2FYWTFabTV4TkhGRE5VMU1VMnczUlN0bmVUbDRVREJqT1hsRU1qTmpZMjFWZW1ndk1VcDNSREk1UVdkTlFrRkJSMnBqYWtKM1RVRTRSMEV4VldSRmQwVkNMM2RSUmsxQlRVTkJVVUYzU0ZGWlJGWlNNRTlDUWxsRlJrTlZSMjV0TVZRMVoyaEVkbXBMV1dsSVRrbEViakptTWtnclprMUJjMGRCTVZWa1JIZFJSVUYzU1VZMFJFRlNRbWRzWjJoclowSm9kbWhEUVZGRlJVSkJUVU5DYTBGM1NHZFpTbGxKV2tsQldXSTBVV2RGVGtKQ1JWZEVNMmhxV1ZOQ2FscFlTakJoVjFwd1dUSkdNRnBVUVU1Q1oydHhhR3RwUnpsM01FSkJVVlZHUVVGUFFtZFJRVWhpY0UxcE5FRXdlbk01V0hWeVdUVnBjbTQxZDNwcFMyOXllV3BYUTJ3M2RuQjVXa2NyZUZaU1JqWjBVRVZ4ZW5WTFVFWTNSVUZGU1RaSGNGRkhVMWgwWmpFMlFsTkZObVpQU2xWcU5YVk9ZV3B1YVc1eVVVSXpaMUJMUWxaSVYydHlhbFIzVm5kRkwzaFBTR0pCUzAxclNucGxRMWhzY25OMUwwSlpOVU5ITWsxTk9WTjRUV2t2VjFNeWFuQnplalJoVm5wUU1VVkxUMnc0UVZCNlVtUklWM
+                                3B2UjJOdmNXbHlRVDA5UEM5NFpEcFlOVEE1UTJWeWRHbG1hV05oZEdVK1BDOTRaRHBZTlRBNVJHRjBZVDQ4TDNoa09rdGxlVWx1Wm04K1BDOWhkWFE2VTNWaWFtVmpkRDQ4VTJsbmJtRjBkWEpsSUhodGJHNXpQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBd0x6QTVMM2h0YkdSemFXY2pJajQ4VTJsbmJtVmtTVzVtYno0OFEyRnViMjVwWTJGc2FYcGhkR2x2YmsxbGRHaHZaQ0JCYkdkdmNtbDBhRzA5SW1oMGRIQTZMeTkzZDNjdWR6TXViM0puTHpJd01ERXZNVEF2ZUcxc0xXVjRZeTFqTVRSdUkxZHBkR2hEYjIxdFpXNTBjeUl2UGp4VGFXZHVZWFIxY21WTlpYUm9iMlFnUVd4bmIzSnBkR2h0UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMekE1TDNodGJHUnphV2NqY25OaExYTm9ZVEVpTHo0OFVtVm1aWEpsYm1ObElGVlNTVDBpSTJWc1lYTjBhV05zYlMxak9Ea3dNRGxpWVMwd05HUTRMVFEzTVRndFlXUmxOaTFtT1RBM1kyUTNPV0V6TVdFaVBqeFVjbUZ1YzJadmNtMXpQanhVY21GdWMyWnZjbTBnUVd4bmIzSnBkR2h0UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMekE1TDNodGJHUnphV2NqWlc1MlpXeHZjR1ZrTFhOcFoyNWhkSFZ5WlNJdlBqd3ZWSEpoYm5ObWIzSnRjejQ4UkdsblpYTjBUV1YwYUc5a0lFRnNaMjl5YVhSb2JUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM4d09TOTRiV3hrYzJsbkkzTm9ZVEVpTHo0OFJHbG5aWE4wVm1Gc2RXVStkbUpPZVVSMWVFTTVUbEV6TkRBeVZqVlJjVUoyYkZsWGVHbHZQV
+                                Hd2UkdsblpYTjBWbUZzZFdVK1BDOVNaV1psY21WdVkyVStQQzlUYVdkdVpXUkpibVp2UGp4VGFXZHVZWFIxY21WV1lXeDFaVDV6YkZaQmRHTlpPRmsxYlVWdWNGUnhhWEZxZDBaeGVVcHJlVWN6VkVSMVVHRnlhemhHWW1OQlRrTmpaM05MTkhsa2IxRlJWMFkzVTBsWWQzTTBkbmRETVV0RVYwUlZZM0YzUlVGeENqQXhOR1k0WVdOTE9IZ3piMjFhYWxkbWExZERWVGhxYjBWQ1dYcEhVelo2VFhaV05GRkNSbXBtWnpkWFJuTlBUVkYxTUhSU2FWTnVVMHhxY1ZCUFRrbzJlbkZLVVV4dFdFNXBOSEVLWjFScFZqRnNhamd3Y0dveWNUZG1VbFY0ZHowOEwxTnBaMjVoZEhWeVpWWmhiSFZsUGp4TFpYbEpibVp2UGp4WU5UQTVSR0YwWVQ0OFdEVXdPVU5sY25ScFptbGpZWFJsUGsxSlNVUk5ha05EUVhCMVowRjNTVUpCWjBsQ1FXcEJUa0puYTNGb2EybEhPWGN3UWtGUlZVWkJSRU5DYm1wRlRFMUJhMGRCTVZWRlFtaE5RMUpGVlhoRVJFRkxRbWRPVmtKQloxUUtRVEExVTFaNlJWaE5RbFZIUVRGVlJVSjRUVTlWTWtaMVlUTlJaMUZZVm01a1dFNHdZVmMwZUVkRVFWZENaMDVXUWtGdlZFUXdXbmxaV0ZaMVlVYzViVnBZU1dkVk1FNUNVMVJGV0FwTlFsVkhRVEZWUlVONFRVOVJhMnhRU1VWa2VXRlhVV2RTTTBwMlpGaEJlRVpVUVZSQ1owNVdRa0ZOVkVSSFZuTlpXRTR3WVZkT1RWUlRRa1JSVkVWbFRVSjNSME5UY1VkVFNXSXpDa1JSUlVwQlVsbFFXVEpHUVZwWGVHaGpNMUp3V1RKNGRFeHRVbXhOUWpSWVJGUkZlRTFFYTNkUFJFRTFUVlJOZWsxR2IxaEVWRWw0VFVScmQwNVVRV
+                                FZOVkUxNlRVWnZkMmRoYjNnS1EzcEJTa0puVGxaQ1FWbFVRV3RTUmsxUmQzZERaMWxFVmxGUlNVVjNUazlWYkdONFJucEJWa0puVGxaQ1FXTlVSR3hPYUdKdGREQkpSVVl4V2pOV2VtUkhiSFZOVW1kM1JtZFpSQXBXVVZGTFJYYzVSMk50UmpGaWJXaDJXbTFXZVVsR1RrUlJWV3Q0Um5wQlZrSm5UbFpDUVhOVVJHdEtTbFI1UWtoamJXeHJTVVZrZVdJelZuZE5Vbk4zUjFGWlJGWlJVVVJGZUVwc0NtSkhSbnBrUjJ4cVZFVXdaMUpIVm5SaWVVSktWVEZaZUVwRVFXbENaMnR4YUd0cFJ6bDNNRUpEVVVWWFJsZFNiR0pYT0hSaFdFNHlVVWRXYzFsWVRqQmhWMDV6WWxNMWExcFVRMElLYm5wQlRrSm5hM0ZvYTJsSE9YY3dRa0ZSUlVaQlFVOUNhbEZCZDJkWmEwTm5XVVZCTVhodFVsRnBWMFZFVFNzNVMzWlhjV3BGUkRabE1HNURkalpvVDNkSVZYSmhRbmhZYVdsamJncERWM2hHTVU1SFQyUjFaVGMyUjFWUVJrWmpUMGs1UVhkcFdrTXhVM1F5VUZwQlJsWmpkVlJEVVhaMmRUbGFlbVpMTHpCcmN6ZFJNeXRHVGpJNWVFTjJWRXBhVjJOU2RIQnBRM053Q2tKeVZIRlFOR1ppVEdKYVQxRTJWamhaTTA5SWVYTnpZbFZNYm5Cd0wwWTRNMjgzYUdSUVUwaHpXbmcwVEhSMVFqazRRblFyTmpoRFFYZEZRVUZoVG5sTlNFRjNSSGRaUkZaU01GUUtRVkZJTDBKQlZYZEJkMGxDUVVSQlpFSm5UbFpJVVRSRlJtZFJWU3RZT0ZKVVdVVlROMjQwWjBoQ05HVldUVzFFUm1wU1JrNU9OSGREZDFsRVZsSXdVRUpCVVVSQloxTjNUVUpGUndwRFYwTkhVMEZIUnl0RlNVSkJVVkZGUVhkSlJtOUVRV
+                                1ZDWjJ4bmFHdG5RbWgyYUVOQlVUQkZSVkpaVUdWSFRtaEpSMDVzWTI1U2NGcHRiR3BaV0ZKc1RVRXdSME5UY1VkVFNXSXpDa1JSUlVKQ1VWVkJRVFJIUWtGTFpHZGxaMWxGUjNvMFZ6VkpWWGd4WlhoemQyaDVkRmxyTmxOR04zTnhVVGhQVDBvd2FXRjZRVVIwWTNaalRpdDJXRkp2TjFkTWNrTkVjR3AxVFdVS1JtOHlURnBRU1RNdlIxVjZaMFJ2TTBkclptNVNUbEJHV0ZCVE1tNUpTRFl5YlZSaVJGWlRVeXRaVlhVMGVVUTBlSEpKZUZCMVIweExORTFuWlZkTGFFSnFhMlJYY2s5RVkxRTFhQW94U0V0WlMzaDNRak14VlVGUVptOW9RbFo2ZW1aeGRGZHBlR1V6Ym5OVmR6d3ZXRFV3T1VObGNuUnBabWxqWVhSbFBqd3ZXRFV3T1VSaGRHRStQQzlMWlhsSmJtWnZQand2VTJsbmJtRjBkWEpsUGp3dllYVjBPa0YxZEdodmNtbDZZWFJwYjI0KzwvdG9rOkF1dGhvcml6YXRpb24+CiAgPFNpZ25hdHVyZSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+CiAgICA8U2lnbmVkSW5mbz4KICAgICAgPENhbm9uaWNhbGl6YXRpb25NZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biNXaXRoQ29tbWVudHMiLz4KICAgICAgPFNpZ25hdHVyZU1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNyc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iI2VsYXN0aWNsbS1kYmJmYzc4Yi04ODk4LTQ1YjgtOWFkYi1iOGY5YmM2OWQ3MzAiPgogICAgICAgIDxUc
+                                mFuc2Zvcm1zPgogICAgICAgICAgPFRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIi8+CiAgICAgICAgPC9UcmFuc2Zvcm1zPgogICAgICAgIDxEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT5JQXVhbXhOeHFRc2Z2UnpBcm1hZkVxT2ZFWms9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CiAgICA8U2lnbmF0dXJlVmFsdWU+SloyRnAwUHBRT1owRkdlbHlaSjh6Y2FSbnBuZVpnYkpoajVMNzBTblRmMHptRlA0Z1hkU2FKd2dkMHlLRjd2RElWMVFlVVBqUk5OQgpQVVozeVdrZm5pa0RQWVNsLzU2Z0d5UVc1ZlhBUllSdXRydDJncFZra05Gd1pDSGxzUmFrRU9BS0ozRGVFcDJQRmc1UDRhVXRYbktqClBUc2RVamhwQW1NN2dyZEhzWWM9PC9TaWduYXR1cmVWYWx1ZT4KICAgIDxLZXlJbmZvPgogICAgICA8WDUwOURhdGE+CiAgICAgICAgPFg1MDlDZXJ0aWZpY2F0ZT5NSUlET1RDQ0FxS2dBd0lCQWdJQkJUQU5CZ2txaGtpRzl3MEJBUVVGQURDQm5qRUxNQWtHQTFVRUJoTUNSRVV4RERBS0JnTlZCQWdUCkEwNVNWekVYTUJVR0ExVUVCeE1PVTJGdWEzUWdRWFZuZFhOMGFXNHhHREFXQmdOVkJBb1REMFp5WVhWdWFHOW1aWElnVTBOQlNURVgKTUJVR0ExVUVDeE1PUWtsUElFZHlhV1FnUjNKdmRYQXhGVEFUQmdOVkJBTVRER1ZzW
+                                VhOMGFXTk1UU0JEUVRFZU1Cd0dDU3FHU0liMwpEUUVKQVJZUFkyRkFaV3hoYzNScFkyeHRMbVJsTUI0WERURXhNRGt3T0RBNU1qRXhNVm9YRFRJeE1Ea3dOVEE1TWpFeE1Wb3dnYkV4CkN6QUpCZ05WQkFZVEFrUkZNUXd3Q2dZRFZRUUlFd05PVWxjeEZ6QVZCZ05WQkFjVERsTmhibXQwSUVGMVozVnpkR2x1TVJnd0ZnWUQKVlFRS0V3OUdjbUYxYm1odlptVnlJRk5EUVVreEZ6QVZCZ05WQkFzVERrSkpUeUJIY21sa0lFZHliM1Z3TVNZd0pBWURWUVFERXgxbApiR0Z6ZEdsalRFMGdSR1Z0YnlCTWFXTmxibk5sSUZObGNuWmxjakVnTUI0R0NTcUdTSWIzRFFFSkFSWVJaR1Z0YjBCbGJHRnpkR2xqCmJHMHVaR1V3Z1o4d0RRWUpLb1pJaHZjTkFRRUJCUUFEZ1kwQU1JR0pBb0dCQUx1RWwwNTYvZXZwWHhZYVQ4VTY5SjdtUmtjT04rZlUKdFJBY3N1dXBmWlMwaHp4VTU1azJmQ21zQlhBVy9uWUtKamFSblRVRUpQbGUwcE5MNVg4bkhlRE11UGFPaUp4cnN6VllJdmYyaURsVgorWlR4ZWJ4dVhqV3I1RmtuUXZJbTFSaXY1Zm5xNHFDNU1MU2w3RStneTl4UDBjOXlEMjNjY21VemgvMUp3RDI5QWdNQkFBR2pjakJ3Ck1BOEdBMVVkRXdFQi93UUZNQU1DQVFBd0hRWURWUjBPQkJZRUZDVUdubTFUNWdoRHZqS1lpSE5JRG4yZjJIK2ZNQXNHQTFVZER3UUUKQXdJRjREQVJCZ2xnaGtnQmh2aENBUUVFQkFNQ0JrQXdIZ1lKWUlaSUFZYjRRZ0VOQkJFV0QzaGpZU0JqWlhKMGFXWnBZMkYwWlRBTgpCZ2txaGtpRzl3MEJBUVVGQUFPQmdRQUhicE1pNEEwenM5WHVyWTVpcm41d3ppS
+                                29yeWpXQ2w3dnB5WkcreFZSRjZ0UEVxenVLUEY3CkVBRUk2R3BRR1NYdGYxNkJTRTZmT0pVajV1TmFqbmluclFCM2dQS0JWSFdrcmpUd1Z3RS94T0hiQUtNa0p6ZUNYbHJzdS9CWTVDRzIKTU05U3hNaS9XUzJqcHN6NGFWelAxRUtPbDhBUHpSZEhXem9HY29xaXJBPT08L1g1MDlDZXJ0aWZpY2F0ZT4KICAgICAgPC9YNTA5RGF0YT4KICAgIDwvS2V5SW5mbz4KICA8L1NpZ25hdHVyZT4KPC90b2s6TGljZW5zZVRva2VuPg==
+                            </opt-sp:LicenseToken>
+                        </opt-sp:VirtualMachineComponentConfiguration>
+                        <opt-sp:DataManagerKey>
+                            CmV5SndZWFJvSWpvaUwyaHZiV1V2ZG0xcGJXRm5aWE12YzJsa2N5OXpPVEV6TlRFMU5URTJOREprTm1GagpOems0WlNJc0ltbHdZV1JrY21WemMxQjFZaUk2SWpJeE15NHlOeTR5TVRFdU1URTNJaXdpZFhObGNtNWgKYldVaU9tNTFiR3dzSW10bGVTSTZJa3hUTUhSTVV6RkRVbFZrU2xScFFsTlZNRVZuVlVaS1NsWnJSbFZTClUwSk1VbFpyZEV4VE1IUk1VWEJPVTFWc1JGZEZSa3BSYTBaQ1V6QktibFZWVWs1aWJrWTFXVlJHZDJWcwpTbkJqYXpsS1pFVkdkR1JxVmxoU1JWcE9XbFpvTkdSWWJEWlJibkJ5WWtoc1IxWkhUa1ZqYTBwVlZIcFIKZGt0NlRrbFRSVXB5UTJ0a2VsbHFWbE5pVkdSU1ZVWndURnBIVmtkVWEwMXlZMnBGZUZWdGFHOVNSWEJXClpWaHNUbEV5U2taWlZrbzBXa2hTUTFwSE1XNVRSV3cwVkVkT00wNTZSbEZrTUZGNFZsWk9lRTlZUm5kbApWbXhoWkZaRlMxcEhPWE5UU0U1NFRUSTRkMk50U2taalJUVlpZa2hKTTJSdFJrTlVWa1pQV1RGd1lVc3kKY0RWT1IxWXlWa001ZDJOVWJHNWhhMmN4VWxkb2NtUldTbTFrU0d4T1RucFNXVko2UlRWVlZXeEZVVlpHClFsRm5jRUppTUdSQ1ZrVkdWVTB4YTNoUFNHUlVUakowV2xKWGRGaGxSVVV5Vld4c1dFMXVSVEpYU0d4RQpVbnBzUm1KcmVHOU9WWGhVVXpGck5GZFRjM1pWYTBVd1V6TkZkMU51U2pWUFJVa3dZVWRhVkdReGNGZEQKYTJod1ZVVkpNbVZzU1hkaFNFNXpWVVJTY2xOck5WUlNSbXhWV1RGRmQxUkRkRVJpTURGU1ZrZHNhMVZxClkzWmpSa0pvV
+                            XpGR2QxbHJlRk5VZWtaQ1lraHNkRnBGTVhWaWVscHpXa1ZLTm1GVk9UTmlhM2RMWW01UwpWazB4Y0haU2EyeHpaRzFvVkZwRWFFdFVNbFY0WVcweFVrc3pWazVqTVhCc1ZXdEdkVk5VYUhKa1JGVjYKV1ZSR1VWVkdhSFZWZVhRMFVWVldSRlZXUmtWaVJtaE5VbFpTZDA5Rll6VldNMHBxVG1kd1UxUlViRkJrCmJFMHhUVEJzY1ZJd1JsbFZWR2Q2VmpOamVFOUViRzFQVkZKTldXMXNOVlV4Vm1oVU1YQlBUREphY1U0egpVbGRXUjJ4V1RWWm9hMVpGTlVSVmFsSkZXWHBHTUdJeVpGWlNWa1pxWkRKT1VFTnRlR3hXYlRGYVlrZHcKUTFGWGRFWlJWRlpJVTIxRmVtRkZVa3hPVnpVMVZWVk5NMDFyTlhKVVZYUnhWa1phY1ZOc1dUUldhMmhGClVrTTVkVm93WkUxTWVsWlhWMnRvUTAxRVJrdGFSVVp2VFVaUk1WWlhhMHRhYlRWYVRUQTFVbUpxWkdwVgpSV1JRVFZSQ1MwNHljREJOYm1oRVYyMUtjRmRGV2taV00wcHNWa1prVDFWVmNFSldSVEZwVFVkUk0xTkgKTVZOalZGcERWRE52TUdGSFNqVmFNbVEyVGpOb2JscFhSblJrUVhCSVVsZHNibG94VVRCVlJ6bEpZVEpTCmQxTlZUblJOZWxseVdqTnNWbFJ0WnpCU1JYQndXbTF3VlZKWVRsWlhSekZFVVdwS2VWa3hjRnBoVkZFeApVWHBzTTFvd2JIVlhWM2h2VFZka1VsTnJSbEJVV0ZaeVEycFNWMkZVVGpKVVJFMHhXV3R3U2xKcmNFdGwKYld0M1RsZFNjRTV1Vm5salYzUnlXa1YwU2xWWGR6VmpiVlpGVjFSV1UwMTZWbFJTYmxwaFRrWkNjR050CmNGZGtWVll4Wld0b05WWkViRXBoV0ZwcFVqRkZTMDB3ZEZSVmEzQkhaRWRLY
+                            0U1cVNYbGtNRTVTVXpKcwpVbE5yU2tKVVNFSlhXVEpXYW1OdVkzSlpNSFJzVGpOV2FsVjZUVFJVVjBwNFN6QnNTV1JyVW1wVGFteFgKVldrNVJHRkVSa3BqTVZaSllXNVNWbVJCY0ZOV01XUlVWVVZKTVZwRk1ERlZNMXB3VWtWR1FsUkdWbWhSCk1uaE5aRWhrYUZwV1RsTmFNSEJOVWxkTmVFeDZiRlJrVlZwTVQxWnNRbEJSYjNSTVV6QjBURlZXVDFKRApRbE5WTUVWblZVWktTbFpyUmxWU1UwSk1VbFpyZEV4VE1IUk1VVzg5SWl3aVkyMWtJam9pYzNOb1puTWcKY3preE16VXhOVFV4TmpReVpEWmhZemM1T0dWQUpYTTZMMmh2YldVdmN6a3hNelV4TlRVeE5qUXlaRFpoCll6YzVPR1V2YjJSbWN5QXZjM1J2Y21GblpTQXRieUJKWkdWdWRHbDBlVVpwYkdVOUwyVjBZeTlFVFd0bAplUzV6YzJnZ0xXOGdZV3hzYjNkZmIzUm9aWElnTFc4Z2NtVmpiMjV1WldOMElDMXZJR1p2Ykd4dmQxOXoKZVcxc2FXNXJjeUF0YnlCMGNtRnVjMlp2Y20xZmMzbHRiR2x1YTNNZ0xXOGdaWGhsWXlBdGJ5QjFhV1E5Ck1DQXRieUJuYVdROU1DQWdMVzhnVTNSeWFXTjBTRzl6ZEV0bGVVTm9aV05yYVc1blBXNXZJaXdpY0hKdgpkbWxrWlhJaU9pSmhkRzl6SWl3aWFYQmhaR1J5WlhOeklqb2lNVGt5TGpFMk9DNHlOVEl1TlRraWZRPT0KCg==
+                        </opt-sp:DataManagerKey>
+                    </opt-sp:ServiceProviderExtensions>
+                    <opt-ip:InfrastructureProviderExtensions>
+                        <opt-ip:IncarnatedServiceComponents xsi:type="opt-ip:IncarnatedVirtualMachineComponentsType">
+                            <opt-ip:IncarnatedVirtualMachineComponent opt:componentId="optimis-pm-GeneDetection"
+                                                                      xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+                                                                      xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+                                                                      xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+                                <opt:OVFDefinition>
+                                    <ovf:References>
+                                        <ovf:File
+                                                ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//40fe69e8-6baa-4a4e-afbd-5687a04282a3.qcow2"
+                                                ovf:id="optimis-pm-GeneDetection-img-file"/>
+                                        <ovf:File
+                                                ovf:href="/opt/optimis/vmstorage/s91351551642d6ac798e//9adbe33b-ef8c-43a5-b65d-d1817685dbab_optimis-pm-GeneDetection_1.iso"
+                                                ovf:id="optimis-pm-GeneDetection-context-file_1"/>
+                                    </ovf:References>
+                                    <ovf:DiskSection>
+                                        <ovf:Info/>
+                                        <ovf:Disk ovf:capacity="10240" ovf:diskId="optimis-pm-GeneDetection-img-disk"
+                                                  ovf:fileRef="optimis-pm-GeneDetection-img-file"
+                                                  ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                                        <ovf:Disk ovf:capacity="1" ovf:diskId="optimis-pm-GeneDetection-context-disk_1"
+                                                  ovf:fileRef="optimis-pm-GeneDetection-context-file_1"
+                                                  ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html"/>
+                                    </ovf:DiskSection>
+                                    <ovf:NetworkSection>
+                                        <ovf:Info/>
+                                        <ovf:Network ovf:name="optimis-pm-GeneDetection-net">
+                                            <ovf:Description>Network to connect to system-optimis-pm-GeneDetection
+                                            </ovf:Description>
+                                        </ovf:Network>
+                                    </ovf:NetworkSection>
+                                    <ovf:VirtualSystemCollection ovf:id="optimis-pm-GeneDetection-system-collection">
+                                        <ovf:Info>Collection of virtual system instances</ovf:Info>
+                                        <ovf:VirtualSystem ovf:id="system-optimis-pm-GeneDetection_instance-1">
+                                            <ovf:Info>optimis-pm-GeneDetection VM description</ovf:Info>
+                                            <ovf:ProductSection ovf:class="com.sun.master">
+                                                <ovf:Info>Product customization for the installed software</ovf:Info>
+                                                <ovf:Product/>
+                                                <ovf:Version/>
+                                                <ovf:Property ovf:key="ExternalIP" ovf:type="string" ovf:value=""/>
+                                                <ovf:Property ovf:key="InternalIP" ovf:type="string" ovf:value=""/>
+                                                <ovf:Property ovf:key="InternalMask" ovf:type="string" ovf:value=""/>
+                                                <ovf:Property ovf:key="Hostname" ovf:type="string"
+                                                              ovf:value="optimis-instance-optimis-pm-GeneDetection-1"/>
+                                            </ovf:ProductSection>
+                                            <ovf:OperatingSystemSection ovf:id="76">
+                                                <ovf:Info>Specifies the operating system installed</ovf:Info>
+                                                <ovf:Description>Microsoft Windows Server 2008</ovf:Description>
+                                            </ovf:OperatingSystemSection>
+                                            <ovf:VirtualHardwareSection>
+                                                <ovf:Info>Virtual Hardware Requirements: 1024MB, 2 CPU,
+                                                    1 disk, 1 nic
+                                                </ovf:Info>
+                                                <ovf:System>
+                                                    <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+                                                    <vssd:InstanceID>0</vssd:InstanceID>
+                                                    <vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+                                                </ovf:System>
+                                                <ovf:Item>
+                                                    <rasd:Description>Number of virtual CPUs</rasd:Description>
+                                                    <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+                                                    <rasd:InstanceID>1</rasd:InstanceID>
+                                                    <rasd:ResourceType>3</rasd:ResourceType>
+                                                    <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+                                                </ovf:Item>
+                                                <ovf:Item>
+                                                    <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+                                                    <rasd:Description>Memory Size</rasd:Description>
+                                                    <rasd:ElementName>1024 MB of memory</rasd:ElementName>
+                                                    <rasd:InstanceID>2</rasd:InstanceID>
+                                                    <rasd:ResourceType>4</rasd:ResourceType>
+                                                    <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+                                                </ovf:Item>
+                                                <ovf:Item>
+                                                    <rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+                                                    <rasd:ElementName>MHz reservation</rasd:ElementName>
+                                                    <rasd:InstanceID>1</rasd:InstanceID>
+                                                    <rasd:Reservation>500</rasd:Reservation>
+                                                    <rasd:ResourceType>3</rasd:ResourceType>
+                                                </ovf:Item>
+                                                <ovf:Item>
+                                                    <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+                                                    <rasd:Connection>optimis-pm-GeneDetection-net</rasd:Connection>
+                                                    <rasd:ElementName>Ethernet adapter on optimis-pm-GeneDetection-net
+                                                        network
+                                                    </rasd:ElementName>
+                                                    <rasd:InstanceID>3</rasd:InstanceID>
+                                                    <rasd:ResourceType>10</rasd:ResourceType>
+                                                </ovf:Item>
+                                                <ovf:Item>
+                                                    <rasd:ElementName>Harddisk 1</rasd:ElementName>
+                                                    <rasd:HostResource>ovf:/disk/optimis-pm-GeneDetection-img-disk
+                                                    </rasd:HostResource>
+                                                    <rasd:InstanceID>4</rasd:InstanceID>
+                                                    <rasd:Parent>4</rasd:Parent>
+                                                    <rasd:ResourceType>17</rasd:ResourceType>
+                                                </ovf:Item>
+                                                <ovf:Item>
+                                                    <rasd:ElementName>Harddisk 2</rasd:ElementName>
+                                                    <rasd:HostResource>
+                                                        ovf:/disk/optimis-pm-GeneDetection-context-disk_1
+                                                    </rasd:HostResource>
+                                                    <rasd:InstanceID>4</rasd:InstanceID>
+                                                    <rasd:Parent>4</rasd:Parent>
+                                                    <rasd:ResourceType>17</rasd:ResourceType>
+                                                </ovf:Item>
+                                            </ovf:VirtualHardwareSection>
+                                        </ovf:VirtualSystem>
+                                    </ovf:VirtualSystemCollection>
+                                </opt:OVFDefinition>
+                            </opt-ip:IncarnatedVirtualMachineComponent>
+                        </opt-ip:IncarnatedServiceComponents>
+                    </opt-ip:InfrastructureProviderExtensions>
+                </opt:ServiceManifest>
+            </opt-ip:ExternalDeployment>
+            <opt-ip:Decision>accepted</opt-ip:Decision>
+        </opt-ip:AllocationOffer>
+    </opt-ip:InfrastructureProviderExtensions>
+</opt:ServiceManifest>

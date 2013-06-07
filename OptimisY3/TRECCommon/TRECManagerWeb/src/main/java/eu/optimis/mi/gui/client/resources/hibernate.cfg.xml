@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+    <!-- OPTIMIS MySQL DB Server Conf. 
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    -->    
+    <!-- IPRA MySQL DB Server Conf.    
+        <property name="hibernate.connection.url">jdbc:mysql://optimis-database.atosorigin.es:3306/ipratoolhdb</property>    
+        <property name="hibernate.connection.username">ipratool</property>
+        <property name="hibernate.connection.password">0H#Yih25jO8v27$</property>
+    -->
+    <!-- TRECommon MySQL DB Server Conf. -->
+        <property name="hibernate.connection.url">jdbc:mysql://optimis-database.atosorigin.es:3306/iptrecdb</property> 
+        <property name="hibernate.connection.username">mmanager_usr</property>
+        <property name="hibernate.connection.password">2mUF51@4@NYptsl9</property>
+    
+    <!-- Local MySQL DB Server Conf.
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">doughnuts</property>
+    -->
+    <!-- HSQLDB 
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:file:./ipratoolhdb/ip_histodb_file</property>
+    -->    
+    <!--
+	<property name="hibernate.connection.pool_size">5</property>
+        <property name="hibernate.c3p0.min_size">2</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+    -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <mapping class="eu.optimis.infrastructureproviderriskassessmentframework.serviceproviderevaluator.DsAhpProviderObject"/>
+        <mapping class="eu.optimis.infrastructureproviderriskassessmentframework.riskassessor.OperationPhaseRiskAssessmentResultsObject"/>
+        <mapping class="eu.optimis.infrastructureproviderriskassessmentframework.riskinventory.dao.populate.ThreatDataObject"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,43 @@
+<wsag4j-config:Configuration xmlns:wsag4j-config="http://schemas.scai.fraunhofer.de/config/wsag4j">
+
+  <wsag4j-config:WSRFEngineConfiguration>
+  
+<!--
+	The gateway uri is a required parameter for each wsag4j installation.
+	It should be set to the uri clients use to access this service. All
+	web service resources are deployed at this url. 
+
+    <wsag4j-config:GatewayAddress>http://localhost:9090/optimis-sla</wsag4j-config:GatewayAddress>
+    
+-->    
+
+    <wsag4j-config:GatewayAddress>http://${optimis_sla_server_host}:${optimis_sla_server_port}/optimis-sla</wsag4j-config:GatewayAddress>
+    
+    <wsag4j-config:Keystore>
+      <wsag4j-config:KeystoreType>${optimis_sla_server_keystore_type}</wsag4j-config:KeystoreType>
+      <wsag4j-config:KeystoreFile>${optimis_sla_server_keystore}</wsag4j-config:KeystoreFile>
+      <wsag4j-config:KeystorePassword>${optimis_sla_server_keystore_password}</wsag4j-config:KeystorePassword>
+      <wsag4j-config:Alias>${optimis_sla_server_keystore_alias}</wsag4j-config:Alias>
+      <wsag4j-config:AliasPassword>${optimis_sla_server_keystore_password}</wsag4j-config:AliasPassword>
+    </wsag4j-config:Keystore>
+
+    <wsag4j-config:Truststore>
+      <wsag4j-config:TruststoreType>${optimis_sla_server_truststore_type}</wsag4j-config:TruststoreType>
+      <wsag4j-config:TruststoreFile>${optimis_sla_server_truststore}</wsag4j-config:TruststoreFile>
+      <wsag4j-config:TruststorePassword>${optimis_sla_server_truststore_password}</wsag4j-config:TruststorePassword>
+    </wsag4j-config:Truststore>
+    
+    <wsag4j-config:SecurityHandlerChain>
+    	<wsag4j-config:Handler>
+    		<wsag4j-config:HandlerName>WSAG4J_SECURITY_HANDLER</wsag4j-config:HandlerName>
+    		<wsag4j-config:ImplementationClass>org.ogf.graap.wsag.security.core.server.WSSecurityHandler</wsag4j-config:ImplementationClass>
+    	</wsag4j-config:Handler>
+    </wsag4j-config:SecurityHandlerChain>
+    
+    <wsag4j-config:WSAG4JEngineInstances>
+    	<wsag4j-config:WSAG4JEngine wsag4j-config:EngineConfigurationFile="/optimis.config" />
+    </wsag4j-config:WSAG4JEngineInstances>
+    
+  </wsag4j-config:WSRFEngineConfiguration>
+  
+</wsag4j-config:Configuration>

@@ -1,0 +1,16 @@
+<opt:ElasticityRule xmlns:opt="http://schemas.optimis.eu/optimis/" opt:name="${name}">
+    <opt:Scope>
+        <opt:ComponentId>${componentId}</opt:ComponentId>
+    </opt:Scope>
+    <opt:Condition>
+        <opt:Expression></opt:Expression>
+        <opt:AssessmentCriteria>
+            <opt:Window>P1M</opt:Window>
+            <opt:Frequency>1</opt:Frequency>
+        </opt:AssessmentCriteria>
+    </opt:Condition>
+    <opt:Effect>
+        <opt:Importance>10</opt:Importance>
+        <opt:Action>scaleUp</opt:Action>
+    </opt:Effect>
+</opt:ElasticityRule>

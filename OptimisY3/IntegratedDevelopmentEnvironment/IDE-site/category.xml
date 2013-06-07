@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/IDEFeature_1.1.0.qualifier.jar" id="IDEFeature" version="1.1.0.qualifier" os="linux" ws="gtk" nl="en">
+      <category name="ConstructionTools"/>
+   </feature>
+   <category-def name="ConstructionTools" label="Construction Tools"/>
+</site>

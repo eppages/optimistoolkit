@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opt:ServiceManifest opt:manifestId="OPTIMIS_VM:1"
+	opt:serviceProviderId="OPTIMUMWEB" xmlns:opt="http://schemas.optimis.eu/optimis/"
+	xmlns:opt-sp="http://schemas.optimis.eu/optimis/service" xmlns:opt-ip="http://schemas.optimis.eu/optimis/infrastructure">
+	<opt:VirtualMachineDescription
+		opt:serviceId="8a51dc22-bb0f-4a13-80d1-fcf0826cd888" opt:isFederationAllowed="true">
+		<opt:VirtualMachineComponent
+			opt:componentId="monitor_leg2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+			xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+			xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+			<opt:OVFDefinition>
+				<ovf:References>
+					<!--vm image -->
+					<ovf:File ovf:href="/opt/optimis-ics/optimisWinHVM_w2k3.qcow2"
+						ovf:id="monitor-img-file" />
+					<ovf:File ovf:href="/opt/optimis-ics/optimisWinHVM.iso"
+						ovf:id="monitor-context-file" />
+				</ovf:References>
+				<ovf:DiskSection>
+					<ovf:Info />
+					<ovf:Disk ovf:capacity="20480" ovf:diskId="monitor-img-disk"
+						ovf:fileRef="monitor-img-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+					<ovf:Disk ovf:capacity="1" ovf:diskId="monitor-context-disk"
+						ovf:fileRef="monitor-context-file" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+				</ovf:DiskSection>
+				<ovf:NetworkSection>
+					<ovf:Info />
+					<ovf:Network ovf:name="monitor-net">
+						<ovf:Description>Network to connect to system-monitor
+						</ovf:Description>
+					</ovf:Network>
+				</ovf:NetworkSection>
+				<!-- Virtual System Instances Template -->
+				<ovf:VirtualSystem ovf:id="system-monitor_leg2">
+					<ovf:Info>monitor VM description</ovf:Info>
+					<ovf:ProductSection ovf:class="com.sun.master">
+						<ovf:Info>Product customization for the installed software
+						</ovf:Info>
+						<ovf:Product />
+						<ovf:Version />
+					</ovf:ProductSection>
+					<!-- this is the default operating system -->
+					<ovf:OperatingSystemSection ovf:id="76">
+						<ovf:Info>Specifies the operating system installed</ovf:Info>
+						<ovf:Description>Microsoft Windows Server 2008 64 bit
+						</ovf:Description>
+					</ovf:OperatingSystemSection>
+					<ovf:VirtualHardwareSection>
+						<ovf:Info>Virtual Hardware Requirements: 2048Mb, 2CPU,
+							2 disks, 1 nic
+						</ovf:Info>
+						<ovf:System>
+							<vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+							<vssd:InstanceID>0</vssd:InstanceID>
+							<vssd:VirtualSystemType>xen</vssd:VirtualSystemType>
+						</ovf:System>
+						<ovf:Item>
+							<rasd:Description>Number of virtual CPUs</rasd:Description>
+							<rasd:ElementName>2 virtual CPU</rasd:ElementName>
+							<rasd:InstanceID>1</rasd:InstanceID>
+							<rasd:ResourceType>3</rasd:ResourceType>
+							<rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+						</ovf:Item>
+						<ovf:Item>
+							<rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+							<rasd:Description>Memory Size</rasd:Description>
+							<rasd:ElementName>2048 MB of memory</rasd:ElementName>
+							<rasd:InstanceID>2</rasd:InstanceID>
+							<rasd:ResourceType>4</rasd:ResourceType>
+							<rasd:VirtualQuantity>2048</rasd:VirtualQuantity>
+						</ovf:Item>
+						<ovf:Item>
+							<rasd:AllocationUnits>MHz</rasd:AllocationUnits>
+							<rasd:ElementName>MHz reservation</rasd:ElementName>
+							<rasd:InstanceID>1</rasd:InstanceID>
+							<rasd:Reservation>2000</rasd:Reservation>
+							<rasd:ResourceType>3</rasd:ResourceType>
+						</ovf:Item>
+						<ovf:Item>
+							<rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+							<rasd:Connection>monitor-net</rasd:Connection>
+							<rasd:ElementName>Ethernet adapter on monitor-net network
+							</rasd:ElementName>
+							<rasd:InstanceID>3</rasd:InstanceID>
+							<rasd:ResourceType>10</rasd:ResourceType>
+						</ovf:Item>
+						<ovf:Item>
+							<rasd:ElementName>Harddisk 1</rasd:ElementName>
+							<rasd:HostResource>ovf:/disk/monitor-img-disk</rasd:HostResource>
+							<rasd:InstanceID>4</rasd:InstanceID>
+							<rasd:Parent>4</rasd:Parent>
+							<rasd:ResourceType>17</rasd:ResourceType>
+						</ovf:Item>
+						<ovf:Item>
+							<rasd:ElementName>Harddisk 2</rasd:ElementName>
+							<rasd:HostResource>ovf:/disk/monitor-context-disk
+							</rasd:HostResource>
+							<rasd:InstanceID>4</rasd:InstanceID>
+							<rasd:Parent>4</rasd:Parent>
+							<rasd:ResourceType>17</rasd:ResourceType>
+						</ovf:Item>
+					</ovf:VirtualHardwareSection>
+				</ovf:VirtualSystem>
+			</opt:OVFDefinition>
+			<opt:AllocationConstraints>
+				<opt:LowerBound>1</opt:LowerBound>
+				<opt:UpperBound>2</opt:UpperBound>
+				<opt:Initial>1</opt:Initial>
+			</opt:AllocationConstraints>
+			<opt:AffinityConstraints>Low</opt:AffinityConstraints>
+			<opt:ServiceEndpoints />
+		</opt:VirtualMachineComponent>
+		<opt:AffinitySection>
+			<opt:AffinityRule>
+				<opt:Scope>
+					<opt:ComponentId>monitor_leg2</opt:ComponentId>
+				</opt:Scope>
+				<opt:AffinityConstraints>Low</opt:AffinityConstraints>
+			</opt:AffinityRule>
+		</opt:AffinitySection>
+	</opt:VirtualMachineDescription>
+	<opt:TRECSection>
+		<opt:TrustSection>
+			<opt:Scope>
+				<opt:ComponentId>monitor_leg2</opt:ComponentId>
+			</opt:Scope>
+			<opt:MinimumTrustLevel>0</opt:MinimumTrustLevel>
+			<opt:SocialNetworkingTrustLevel>0</opt:SocialNetworkingTrustLevel>
+			<opt:TrustLevel>1</opt:TrustLevel>
+		</opt:TrustSection>
+		<opt:RiskSection>
+			<opt:Scope>
+				<opt:ComponentId>monitor_leg2</opt:ComponentId>
+			</opt:Scope>
+			<opt:RiskLevel>1</opt:RiskLevel>
+			<opt:AvailabilityArray>
+				<opt:Availability opt:assessmentInterval="P1D">98.0
+				</opt:Availability>
+				<opt:Availability opt:assessmentInterval="P1M">99.5
+				</opt:Availability>
+			</opt:AvailabilityArray>
+		</opt:RiskSection>
+		<opt:EcoEfficiencySection>
+			<opt:Scope>
+				<opt:ComponentId>monitor_leg2</opt:ComponentId>
+			</opt:Scope>
+			<opt:LEEDCertification>Silver</opt:LEEDCertification>
+			<opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+			<opt:EuCoCCompliant>true</opt:EuCoCCompliant>
+			<opt:EnergyStarRating>No</opt:EnergyStarRating>
+		</opt:EcoEfficiencySection>
+		<opt:CostSection>
+			<opt:Scope>
+				<opt:ComponentId>monitor_leg2</opt:ComponentId>
+			</opt:Scope>
+			<opt:PricePlan opt:currency="EUR" opt:planCap="100.0"
+				opt:planFloor="0.0">
+			</opt:PricePlan>
+		</opt:CostSection>
+	</opt:TRECSection>
+	<opt:ElasticitySection>		
+		<opt:Rule>
+			<opt:Scope>
+				<opt:ComponentId>monitor_leg2</opt:ComponentId>
+			</opt:Scope>
+			<opt:KPIName>virtual:cpu_user</opt:KPIName>
+			<opt:Window>P1M</opt:Window>
+			<opt:Frequency>1</opt:Frequency>
+			<opt:Quota>80</opt:Quota>
+			<opt:Tolerance>5</opt:Tolerance>
+		</opt:Rule>
+	</opt:ElasticitySection>
+	<opt:DataProtectionSection>
+		<opt:EligibleCountryList>
+			<opt:Country>ES</opt:Country>
+			<opt:Country>UK</opt:Country>
+		</opt:EligibleCountryList>
+		<opt:DataProtectionLevel>DPA</opt:DataProtectionLevel>
+		<opt:DataEncryptionLevel>
+			<opt:EncryptionAlgoritm>AES-Twofish</opt:EncryptionAlgoritm>
+		</opt:DataEncryptionLevel>
+		<opt:DataStorage>
+			<opt:AllocationUnit>byte</opt:AllocationUnit>
+			<opt:Capacity>0</opt:Capacity>
+		</opt:DataStorage>
+	</opt:DataProtectionSection>
+	<opt-sp:ServiceProviderExtensions>
+		<opt-sp:VirtualMachineComponentConfiguration
+			opt-sp:componentId="monitor_leg2">
+			<opt-sp:SoftwareDependencies />
+			<opt-sp:SecurityVPN>false</opt-sp:SecurityVPN>
+			<opt-sp:SecuritySSH>false</opt-sp:SecuritySSH>
+		</opt-sp:VirtualMachineComponentConfiguration>
+	</opt-sp:ServiceProviderExtensions>
+</opt:ServiceManifest>

@@ -1,0 +1,9 @@
+# This is the template data file for use by the dummy_collector.sh collector script.
+# Lines starting with the "#" char are ignored by dummy_collector.sh.
+# To generate a real data file for dummy_collector.sh, copy this file to dummy_collector.data and enter values in the pipe-separated fields. Then, let the collector process the data file automatically.
+# Below are 3 lines providing examples.
+# Field names:
+# physical_resource_id|metric_name|metric_value|metric_unit|service_resource_id|virtual_resource_id|resource_type
+optimis1|maria|65887|MB|||service
+optimis1|callas|65887|MB|||service
+optimis1|norma|65887|MB|||service

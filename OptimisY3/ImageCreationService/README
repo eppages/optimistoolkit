@@ -1,0 +1,217 @@
+====================================================================
+ImageCreationService 2.0-SNAPSHOT README
+====================================================================
+Image Creation Service
+Software Release Number 2.0
+Release Date of the Software: 2013-03-31
+
+====================================================================
+LICENSE AND COPYRIGHT 
+====================================================================
+Copyright 2011 University of Stuttgart
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+====================================================================
+INTRODUCTION 
+====================================================================
+The Image Creation Service (ICS) is a RESTful web service that allows
+the creation of custom images from pre-defined base images. The images 
+can be cloned from the base images, and then customised by adding 
+war / zip / txt files, setting permissions of files in the image 
+or extracting archives to an image. 
+
+====================================================================
+NEW FEATURES AND FUNCTIONS IN THIS RELEASE 
+====================================================================
+This release implements these new features and functionality:
+- able to create a custom image according to a service manifest
+  or a set of requirements like image size or operating system.
+- base images can be heterogenous, in terms of image size, operating
+  system and architecture.
+
+====================================================================
+KNOWN LIMITATIONS
+====================================================================
+ICS needs to be installed and run on a physical machine for better I/O performance. 
+This is because qcow2 images are frequently created, updated and deleted.
+
+====================================================================
+GETTING STARTED
+====================================================================
+
+SOFTWARE DEPENDENCIES
+--------------------------------------------------------------------
+Apache Tomcat	>= 6.0.32	
+Apache HTTP Server	>= 2.2.16	
+Qemu 	>= 0.12.5	
+Qemu Utilities (qemu-utils)	>= 0.12.5	
+Network Block Device (NBD) Client 	>= 3.0	
+
+
+PLATFORM SUPPORTED
+--------------------------------------------------------------------
+Unix-like operating systems (BSD, Linux)
+
+
+INSTALLATION INSTRUCTIONS
+--------------------------------------------------------------------
+- Copy or move the ICS war file to your $TOMCAT_DIR/webapps folder. 
+  Note that $TOMCAT_DIR refers to the location of your Apache Tomcat installation.
+
+- Create these following directories on a machine that runs ImageCreationService.war
+  * For storing temporary files to be uploaded to the image, type:
+    # install -d /opt/optimis/ImageCreationService/tmp
+    
+  * For storing ICS properties and databases files, type:
+    # install -d /opt/optimis/etc/ImageCreationService/
+    
+  * For storing ICS log file, type:
+    # install -d /opt/optimis/var/log/ImageCreationService/
+    
+- Move the properties files stored inside the ICS war file:
+  # mv -v $TOMCAT_DIR/webapps/ImageCreationService/WEB-INF/classes/*.properties /opt/optimis/etc/ImageCreationService/
+  
+- Configure the /opt/optimis/etc/ImageCreationService/ics.properties file. 
+  This file is heavily commented so that you know what each setting does.
+
+- Create qcow2 images for base images and stored them on 
+  /opt/optimis/ImageCreationService/
+  Instructions on how to create qcow2 images can be found on the next section.
+
+- Create a new file image_template.csv (if it does not exist).
+  This template file lists all the available base images to be used by the ICS.
+  # vim /opt/optimis/ImageCreationService/image_template.csv
+
+- Inside image_template.csv, the structure looks like the following.
+  Note that "#" denotes a comment and it is being ignored by the ICS when 
+  reading this file.
+
+    # image id = starts from 1 ... n (integer)
+    # image file = name of image stored in the same directory as this csv file (in qcow2 format only)
+    # tomcat's webapps directory = the location of tomcat webapps inside the image
+    #
+    # List the base images one by one:    
+    # image id, image filename, OS, OS_version, img_size (GB), architecture, tomcat's webapps directory
+    1, centos_10g_i386.qcow2, CentOS, 6.3, 10, i386, /var/lib/tomcat6/webapps
+    2, centos_15g_x86_64.qcow2, CentOS, 6.3, 15, x86_64, /var/lib/tomcat6/webapps
+    3, ubuntu_05g_i386.qcow2, Ubuntu, 12.04, 5, i386, /var/lib/tomcat6/webapps
+    4, ubuntu_10g_x86_64.qcow2, Ubuntu, 12.04, 10, x86_64, /var/lib/tomcat6/webapps
+
+
+- If tomcat runs as a tomcat user (not root), then change the directory ownership. 
+  Otherwise, tomcat won't be able to write into a log file and clone images.
+  # chown -hR tomcat6:tomcat6 /opt/optimis/
+
+
+CREATING BASE IMAGES
+--------------------------------------------------------------------
+* To create an image with qcow2 format:
+  # qemu-img create -f qcow2 ubuntu_5GB.qcow2 5G
+
+* To install the newly-created image (use either qemu 32- or 64-bit command):
+  # qemu-system-i386   -m 1024 -boot d -enable-kvm -hda ubuntu_5GB.qcow2 -cdrom ubuntu-12.04.1-server-i386.iso
+  -- OR --
+  # qemu-system-x86_64 -m 1024 -boot d -enable-kvm -hda ubuntu_5GB.qcow2 -cdrom ubuntu-12.04.1-server-amd64.iso
+
+* when creating a CentOS image:
+  - select manual partition not automatic otherwise qemu-nbd will only mount the grub / boot partition.
+  - create 2 partitions: / (ext4) and swap (1GB). 
+    Make sure that the / partition is the primary one at the beginning and swap for the remaining one.
+    
+  - if the CentOS image has no network connection, check the ifcfg-eth0 file.
+  The /etc/sysconfig/network-scripts/ifcfg-eth0 file should contain the following lines:
+      DEVICE=eth0
+      BOOTPROTO=dhcp
+      ONBOOT=yes
+  Then perform: 
+      # /etc/init.d/network restart  
+
+* when creating an Ubuntu Server image:
+  - select a manual partition
+  - create 2 primary partitions: / (ext4) with 0% reserve block and swap (1GB)
+    Make sure that the / partition is the primary one at the beginning and swap for the remaining one.
+  - select OpenSSH and Tomcat Java servers
+  - To enable the root account: $ sudo passwd root
+  - To disable root account: $ sudo passwd -l root
+
+* To run the qcow2 image:
+  # qemu-system-i386   -m 1024 -net nic,model=e1000 -net user -enable-kvm -hda ubuntu_5G.qcow2 &
+  -- OR --
+  # qemu-system-x86_64 -m 1024 -net nic,model=e1000 -net user -enable-kvm -hda ubuntu_5G.qcow2 &
+
+* Once the image is running, upload the below script and run it to install packages:
+  # ./scripts/base_image/configuration/centos.sh         -- for CentOS 6.3 image
+  # ./scripts/base_image/configuration/ubuntu/ubuntu.sh  -- for Ubuntu Server 12.04 image
+  NOTE: For the Ubuntu image, also upload configuration (*.conf) files into the image
+
+  To change the root password in the CentOS image:
+  # echo root_pwd > blah.txt                   (change the "root_pwd" !!)
+  # cat blah.txt | passwd --stdin root
+  
+  To change the root password in the Ubuntu image:
+  # echo "root:root_pwd" > blah.txt            (change the "root_pwd" !!)
+  # echo "optimis:optimis_pwd" >> blah.txt     (change the "optimis_pwd" !!)
+  # chpasswd < blah.txt
+
+* After the base image has been successfully configured, run the below
+  script to compress the qcow2 image.
+  NOTE: Required packages are zerofree qemu-utils nbd-client 
+  # sudo ./scripts/base_image/compress_qcow2_images.sh [directory]
+
+
+USING THE SOFTWARE
+--------------------------------------------------------------------
+To run ICS, automated scripts have been created. Usage:
+./scripts/test_ics.sh  [IP_address]
+./scripts/test_image_requirement.sh  [IP_address]
+
+Note that [IP_address] means optional. If this parameter is not given,
+ICS will run in a localhost.
+
+
+====================================================================
+CONTRIBUTORS 
+====================================================================  
+The following people at HLRS (University Stuttgart) designed and developed 
+the ICS for OPTIMIS (they are listed alphabetically):
+Roland Kuebert, Anthony Sulistio, Tinghe Wang.
+
+
+====================================================================
+CONTACT INFORMATION AND WEBSITE
+====================================================================
+http://www.optimis-project.eu/
+
+We welcome your feedback, suggestions and contributions. Contact us
+via email if you have questions, feedback, code submissions, 
+and bug reports.
+
+For general inquiries, see http://www.optimis-project.eu/contact
+
+
+You can submit bug, patches, software contributions, and feature 
+requests using Bugzilla.  
+Access Bugzilla at: 
+http://itforgebugzilla.atosresearch.eu/bugzilla/enter_bug.cgi?product=Optimis 
+
+
+====================================================================
+DIRECTORY STRUCTURE 
+====================================================================
+This directory contains the following subdirectories or files:
+./ImageCreationServiceCore : Core ICS classes 
+./ImageCreationServiceREST : REST API of ICS
+./ImageCreationServiceRESTClient : ICS Client code (a simple example)
+./scripts : scripts on how to use ICS and configure the qcow2 base images
+

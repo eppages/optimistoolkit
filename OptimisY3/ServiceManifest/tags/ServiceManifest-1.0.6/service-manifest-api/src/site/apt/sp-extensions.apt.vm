@@ -1,0 +1,18 @@
+#include("header.apt.vm")
+
+* SP Extensions
+
+    The SP Extensions can be used for Components on the SP side to configure virtual machine
+    components with e.g. Software Dependencies or License Tokens. This section is only available through the
+    SP Manifest Interface.
+
+    In the following snipped we configure the jboss component. The component has some software dependencies, it also
+    needs ssh and vpn security enabled and it requires license tokens for its software.
+
+%{snippet|id=SPExtensions|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+    To upload images to the Data Manager it is necessary to provide the key to be able to access it:
+
+%{snippet|id=dataManagerKey|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<riskproposals>
+    <proposal sid="progModelService">
+        <action type="or">
+             <task>federation</task>
+             <param>true</param> 
+         </action>
+         <action type="or">             
+             <task>increase-replication</task>
+             <param>4</param>
+         </action>
+         <action type="or">             
+             <task>reboot</task>
+             <param>123.232.21.23</param>
+         </action>
+         <action type="or">             
+             <task>shutdown</task>
+             <param>123.12.21.23</param>
+         </action>
+         <action type="or">
+             <task>increase-strorage</task>
+             <param>2GB</param>
+         </action>         
+        <action type="and">
+             <task>add-vm</task>
+             <param></param>
+         </action>
+         <action type="and">             
+             <task>increase-strorage</task>
+             <param>2GB</param>
+         </action>        
+    </proposal>    
+</riskproposals>

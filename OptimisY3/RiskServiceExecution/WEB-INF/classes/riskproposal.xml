@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<riskproposals>
+    <proposal sid="progModelService">
+        <action type="or">
+             <task>federation</task>
+             <param>true</param> 
+         </action>
+         <action type="or">             
+             <task>increase-replication</task>
+             <param>2</param>
+         </action>                 
+    </proposal>    
+</riskproposals>

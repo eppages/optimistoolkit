@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+             
+        <persistence-unit name="resourcemanager_test_hsqldb_memory"
+	transaction-type="RESOURCE_LOCAL">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>eu.optimis.trustedinstance.DBStorageEntry</class>
+	<properties>
+		<property name="eclipselink.logging.level" value="OFF" />
+		<property name="eclipselink.jdbc.password" value="" />
+		<property name="eclipselink.jdbc.user" value="sa" />
+		<property name="eclipselink.jdbc.url" value="jdbc:hsqldb:mem:manifest_registry" />
+		<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+		<property name="eclipselink.target-database" value="HSQL" />
+		<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+
+		<property name="eclipselink.cache.shared.default" value="true" />
+		<property name="eclipselink.cache.size.default" value="1000" />
+		<property name="eclipselink.cache.type.default" value="SoftWeak" />
+
+		<property name="eclipselink.cache.type.Reservation" value="Full" />
+		<property name="eclipselink.cache.size.Reservation" value="500" />
+		<property name="eclipselink.cache.type.Resource" value="Full" />
+		<property name="eclipselink.cache.size.Resource" value="100" />
+		<property name="eclipselink.jdbc.cache-statements" value="true" />
+		<property name="eclipselink.jdbc.cache-statements.size"
+			value="100" />
+		<property name="eclipselink.jdbc.native-sql" value="false" />
+		<property name="eclipselink.jdbc.bind-parameters" value="false" />
+
+		<property name="eclipselink.jdbc.read-connections.min" value="2" />
+		<property name="eclipselink.jdbc.read-connections.max" value="10" />
+		<property name="eclipselink.jdbc.write-connections.min"
+			value="5" />
+		<property name="eclipselink.jdbc.write-connections.max"
+			value="25" />
+	</properties>
+</persistence-unit>
+
+	<persistence-unit name="resourcemanager_prod_postgres"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.optimis.trustedinstance.DBStorageEntry</class>
+		<properties>
+			<property name="eclipselink.logging.level" value="OFF" />
+			<property name="eclipselink.jdbc.password" value="manifest_registry" />
+			<property name="eclipselink.jdbc.user" value="manifest_registry" />
+			<property name="eclipselink.jdbc.url"
+				value="jdbc:postgresql://localhost/manifest_registry" />
+			<property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="eclipselink.target-database" value="PostgreSQL" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+
+			<property name="eclipselink.cache.shared.default" value="true" />
+			<property name="eclipselink.cache.size.default" value="1000" />
+			<property name="eclipselink.cache.type.default" value="SoftWeak" />
+
+			<property name="eclipselink.cache.type.Reservation" value="Full" />
+			<property name="eclipselink.cache.size.Reservation" value="500" />
+			<property name="eclipselink.cache.type.Resource" value="Full" />
+			<property name="eclipselink.cache.size.Resource" value="100" />
+			<property name="eclipselink.jdbc.cache-statements" value="true" />
+			<property name="eclipselink.jdbc.cache-statements.size"
+				value="100" />
+			<property name="eclipselink.jdbc.native-sql" value="false" />
+			<property name="eclipselink.jdbc.bind-parameters" value="false" />
+
+			<property name="eclipselink.jdbc.read-connections.min"
+				value="2" />
+			<property name="eclipselink.jdbc.read-connections.max"
+				value="10" />
+			<property name="eclipselink.jdbc.write-connections.min"
+				value="5" />
+			<property name="eclipselink.jdbc.write-connections.max"
+				value="25" />
+		</properties>
+	</persistence-unit>
+
+    <persistence-unit name="resourcemanager_prod_mysql"
+                      transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.optimis.trustedinstance.DBStorageEntry</class>
+        <properties>
+            <property name="eclipselink.logging.level" value="OFF" />
+            <property name="eclipselink.jdbc.password" value="password" />
+            <property name="eclipselink.jdbc.user" value="root" />
+            <property name="eclipselink.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/trustedinstance" />
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="eclipselink.target-database" value="MySQL" />
+            <property name="eclipselink.ddl-generation" value="create-tables" />
+
+            <property name="eclipselink.cache.shared.default" value="true" />
+            <property name="eclipselink.cache.size.default" value="1000" />
+            <property name="eclipselink.cache.type.default" value="SoftWeak" />
+
+            <property name="eclipselink.cache.type.Reservation" value="Full" />
+            <property name="eclipselink.cache.size.Reservation" value="500" />
+            <property name="eclipselink.cache.type.Resource" value="Full" />
+            <property name="eclipselink.cache.size.Resource" value="100" />
+            <property name="eclipselink.jdbc.cache-statements" value="true" />
+            <property name="eclipselink.jdbc.cache-statements.size"
+                      value="100" />
+            <property name="eclipselink.jdbc.native-sql" value="false" />
+            <property name="eclipselink.jdbc.bind-parameters" value="false" />
+
+            <property name="eclipselink.jdbc.read-connections.min"
+                      value="2" />
+            <property name="eclipselink.jdbc.read-connections.max"
+                      value="10" />
+            <property name="eclipselink.jdbc.write-connections.min"
+                      value="5" />
+            <property name="eclipselink.jdbc.write-connections.max"
+                      value="25" />
+        </properties>
+    </persistence-unit>
+
+	<persistence-unit name="resourcemanager_test_hsqldb"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.optimis.trustedinstance.DBStorageEntry</class>
+		<properties>
+			<property name="eclipselink.logging.level" value="OFF" />
+			<property name="eclipselink.jdbc.password" value="" />
+			<property name="eclipselink.jdbc.user" value="sa" />
+			<property name="eclipselink.jdbc.url" value="jdbc:hsqldb:file:target/manifest-registry-data/testdb" />
+			<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="eclipselink.target-database" value="HSQL" />
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+
+			<property name="eclipselink.cache.shared.default" value="true" />
+			<property name="eclipselink.cache.size.default" value="1000" />
+			<property name="eclipselink.cache.type.default" value="SoftWeak" />
+
+			<property name="eclipselink.cache.type.Reservation" value="Full" />
+			<property name="eclipselink.cache.size.Reservation" value="500" />
+			<property name="eclipselink.cache.type.Resource" value="Full" />
+			<property name="eclipselink.cache.size.Resource" value="100" />
+			<property name="eclipselink.jdbc.cache-statements" value="true" />
+			<property name="eclipselink.jdbc.cache-statements.size"
+				value="100" />
+			<property name="eclipselink.jdbc.native-sql" value="false" />
+			<property name="eclipselink.jdbc.bind-parameters" value="false" />
+
+			<property name="eclipselink.jdbc.read-connections.min"
+				value="2" />
+			<property name="eclipselink.jdbc.read-connections.max"
+				value="10" />
+			<property name="eclipselink.jdbc.write-connections.min"
+				value="5" />
+			<property name="eclipselink.jdbc.write-connections.max"
+				value="25" />
+		</properties>
+	</persistence-unit>
+</persistence>

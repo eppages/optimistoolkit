@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns="http://schemas.optimis.eu/optimis/" 
+          xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" 
+          xmlns:opt="http://schemas.optimis.eu/optimis/" 
+          xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" 
+          xmlns:rsrvr="http://schemas.telefonica.com/claudia/ovf" 
+          xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xsi:schemaLocation="http://schemas.dmtf.org/ovf/envelope/1 http://schemas.dmtf.org/ovf/envelope/1" >
+
+	<opt:VMConfiguration>
+		<ovf:References>
+		    <!-- 
+		      removed rsrvr:digest="391846509855d0c4c45a07269568cfc0d1448c9a" attribute
+		      it was mentioned that reservoir syntax is not supported in OVF 
+		    -->
+			<ovf:File ovf:href="http://84.21.173.55:81/ttylinux.img"
+				ovf:id="master" />
+		</ovf:References>
+		<ovf:DiskSection>
+			<ovf:Info />
+			<ovf:Disk ovf:capacity="1536MB" ovf:diskId="master"
+				ovf:fileRef="master" ovf:format="http://www.gnome.org/~markmc/qcow-image-format.html" />
+		</ovf:DiskSection>
+		<ovf:NetworkSection>
+			<ovf:Info />
+			<ovf:Network ovf:name="sge_net">
+				<ovf:Description>Network to connect service components (VEEMaster and VEEExecutors)</ovf:Description>
+			</ovf:Network>
+            <!-- 
+              removed rsrvr:public="true" attribute
+              it was mentioned that reservoir syntax is not supported in OVF 
+            -->
+			<ovf:Network ovf:name="admin_net">
+				<ovf:Description>Network to provide administrative access to VEEMaster</ovf:Description>
+			</ovf:Network>
+		</ovf:NetworkSection>
+         <!-- 
+           removed rsrvr:initial="1", rsrvr:max="1" rsrvr:min="1" attribute
+           it was mentioned that reservoir syntax is not supported in OVF 
+           
+           subsequently a number of reservoir attributes where removed,
+           not sure how to handle this...
+         -->
+		<ovf:VirtualSystem ovf:id="VEEMaster">
+			<ovf:Info>Master VEE description</ovf:Info>
+			<ovf:ProductSection ovf:class="com.sun.master">
+				<ovf:Info>Product customization for the installed master software</ovf:Info>
+				<ovf:Product>SGE Master</ovf:Product>
+				<ovf:Version>6.2</ovf:Version>
+				<ovf:Property ovf:key="KPIQualifier" ovf:type="string"
+					ovf:value="es.tid.customers.cc1.services.ss1"/>
+				<ovf:Property ovf:key="KPIName" ovf:type="string"
+					ovf:value="es.tid.customers.cc1.services.ss1.kpis.queueLength"/>
+				<ovf:Property ovf:key="KPITimesUrl" ovf:type="string"
+					ovf:value="http://10.95.240.4:5555/times" />
+				<ovf:Property ovf:key="KPIChannel" ovf:type="string"
+					ovf:value="229.229.0.1" />
+				<ovf:Property ovf:key="ExternalIP" ovf:type="string"
+					ovf:value="84.21.173.156" />
+				<ovf:Property ovf:key="InternalIP" ovf:type="string"
+					ovf:value="192.168.0.9" />
+				<ovf:Property ovf:key="ExternalMask" ovf:type="string"
+					ovf:value="255.255.255.0" />
+				<ovf:Property ovf:key="InternalMask" ovf:type="string"
+					ovf:value="255.255.255.248" />
+				<ovf:Property ovf:key="Hostname" ovf:type="string"
+					ovf:value="loadBalancer1" />
+				<ovf:Property ovf:key="InternalSecondaryIP" ovf:type="string"
+					ovf:value="192.168.0.10" />
+			</ovf:ProductSection>
+			<ovf:VirtualHardwareSection>
+				<ovf:Info>Virtual Hardware Requirements: 512Mb, 2 CPU, 1 disk, 1 nic</ovf:Info>
+				<ovf:System>
+					<vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+					<vssd:InstanceID>0</vssd:InstanceID>
+					<vssd:VirtualSystemType>kvm</vssd:VirtualSystemType>
+				</ovf:System>
+				<ovf:Item>
+					<rasd:Description>Number of virtual CPUs</rasd:Description>
+					<rasd:ElementName>1 virtual CPU</rasd:ElementName>
+					<rasd:InstanceID>1</rasd:InstanceID>
+					<rasd:ResourceType>3</rasd:ResourceType>
+					<rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+				</ovf:Item>
+				<ovf:Item>
+					<rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+					<rasd:Description>Memory Size</rasd:Description>
+					<rasd:ElementName>512 MB of memory</rasd:ElementName>
+					<rasd:InstanceID>2</rasd:InstanceID>
+					<rasd:ResourceType>4</rasd:ResourceType>
+					<rasd:VirtualQuantity>512</rasd:VirtualQuantity>
+				</ovf:Item>
+				<ovf:Item>
+					<rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+					<rasd:Connection>sge_net</rasd:Connection>
+					<rasd:ElementName>Ethernet adapter on sge_net network</rasd:ElementName>
+					<rasd:InstanceID>3</rasd:InstanceID>
+					<rasd:ResourceType>10</rasd:ResourceType>
+				</ovf:Item>
+				<ovf:Item>
+					<rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+					<rasd:Connection>admin_net</rasd:Connection>
+					<rasd:ElementName>Ethernet adapter on admin_net network</rasd:ElementName>
+					<rasd:InstanceID>3</rasd:InstanceID>
+					<rasd:ResourceType>10</rasd:ResourceType>
+				</ovf:Item>
+				<ovf:Item>
+					<rasd:ElementName>Harddisk 1</rasd:ElementName>
+					<rasd:HostResource>ovf://disk/master</rasd:HostResource>
+					<rasd:InstanceID>5</rasd:InstanceID>
+					<rasd:Parent>4</rasd:Parent>
+					<rasd:ResourceType>17</rasd:ResourceType>
+				</ovf:Item>
+			</ovf:VirtualHardwareSection>
+			<!-- Empty sections are not allowed -->
+            <!-- <ovf:ProductSection />-->
+		</ovf:VirtualSystem>
+	</opt:VMConfiguration>
+
+	<opt:VMQoSSection>
+		<!-- Defines constraints on the VM availability. Multiple assessment intervals 
+			can be defined with dedicated availability rates. -->
+		<opt:VMAvailabilityConstraints>
+			<!-- defines a minimum availability of the VM of 99% at a day -->
+			<opt:Availability opt:AssessmentInterval="P1D">98</opt:Availability>
+			<!-- defines a minimum availability of the VM of 99% at a month -->
+			<opt:Availability opt:AssessmentInterval="P1M">99</opt:Availability>
+		</opt:VMAvailabilityConstraints>
+		<!-- Defines constraints on the virtual disk encryption. May not apply 
+			to Y1 prototype. -->
+		<opt:DiskEcryptionLevel>
+			<opt:EncryptionAlgoritm>NotApplicable</opt:EncryptionAlgoritm>
+		</opt:DiskEcryptionLevel>
+		<!-- Defines constraints on the data center energy certification. -->
+		<opt:EcoEfficiencyConstraints>
+			<opt:LEEDCertification>NotRequired</opt:LEEDCertification>
+			<opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+			<opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+			<opt:EnergyStarRating>No</opt:EnergyStarRating>
+		</opt:EcoEfficiencyConstraints>
+	</opt:VMQoSSection>
+  <!-- 
+        Defines the scaling rules for a generic VM provisioning process.
+        Since in Year 1 we are targeting the provisioning of plain VMs,
+        there is no KPI such as response time. Response time is at every 
+        time associated with a specific network service. For plain VM 
+        provisioning the IP is not aware which services are installed in 
+        a VM. 
+        
+        I assume that these KPIs are static for a VM provisioning process.
+        The SLA template will contain a set of constraints that prevent users
+        to change these values.
+        
+        In Year 2 these parameters should be modeled as SLA guarantees. 
+        
+        Question: any other KPIs required here? (should apply to plain VMs)
+   -->
+  <opt:ElasticitySection>
+      <opt:Rule>
+            <!-- Max CPU utilization in last 5 minutes must not be more than 90% -->
+            <rsrvr:KPIName>Max_CPU_5</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>90</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+      <opt:Rule>
+            <!-- Max CPU utilization in last 10 minutes must not be more than 85% -->
+            <rsrvr:KPIName>Max_CPU_10</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>85</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+      <opt:Rule>
+            <!-- Max CPU utilization in last 15 minutes must not be more than 80% -->
+            <rsrvr:KPIName>Max_CPU_15</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>80</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+      <opt:Rule>
+            <!-- Max memory utilization in last 5 minutes must not be more than 90% -->
+            <rsrvr:KPIName>Max_MEM_5</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>90</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+      <opt:Rule>
+            <!-- Max memory utilization in last 10 minutes must not be more than 85% -->
+            <rsrvr:KPIName>Max_MEM_10</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>85</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+      <opt:Rule>
+            <!--  Max memory utilization in last 15 minutes must not be more than 80% -->
+            <rsrvr:KPIName>Max_MEM_15</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>80</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </opt:Rule>   
+  </opt:ElasticitySection>
+  
+  <!--
+    Data management must adhere to constraints defined in the deployment section.
+    
+    Comment: we might need to extend or redefine this section according to the comments 
+             raised by Benno/George on the mailing list. 
+   -->
+  <opt:DeploymentConstraints>
+        <opt:Restriction>
+            <rsrvr:Country>DE</rsrvr:Country>
+            <rsrvr:Country>GB</rsrvr:Country>
+            <rsrvr:Country>ES</rsrvr:Country>
+            <rsrvr:Country>GR</rsrvr:Country>
+        </opt:Restriction>
+  </opt:DeploymentConstraints>
+  
+</ServiceManifest>

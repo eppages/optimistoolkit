@@ -1,0 +1,30 @@
+<project name="ServiceManifest" default="update-src" basedir=".">
+
+    <property name="base.dir" value="."/>
+
+    <target name="update-src">
+
+        <echo>Updating source from Subversion</echo>
+
+        <exec executable="svn" dir="${base.dir}">
+
+            <arg line="up"/>
+
+        </exec>
+
+        <echo>Deploying maven artifact</echo>
+
+        <exec executable="mvn" dir="${base.dir}" failonerror="true">
+            <arg line="clean"/>
+            <arg line="deploy"/>
+        </exec>
+
+        <echo>Deploying maven site for manifest-api</echo>
+        <exec executable="mvn" dir="${base.dir}" failonerror="false">
+            <arg line="site:site"/>
+            <arg line="site:deploy"/>
+            <arg line="-pl service-manifest-api"/>
+        </exec>
+
+    </target>
+</project>

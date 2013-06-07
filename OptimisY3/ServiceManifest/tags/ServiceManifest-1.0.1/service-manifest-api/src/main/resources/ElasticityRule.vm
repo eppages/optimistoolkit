@@ -1,0 +1,13 @@
+<opt:Rule xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        <opt:componentId>${componentId}</opt:componentId>
+    </opt:Scope>
+    <!-- Current amount of JVM Threads in the JBoss JVM -->
+    <opt:KPIName>ThreadCount</opt:KPIName>
+    <!-- These values are not used for this measurement -->
+    <opt:Window>P1M</opt:Window>
+    <opt:Frequency>1</opt:Frequency>
+    <!-- 100 users per thread, with a tolerance of 5% (so trigger at more than 105 users, and down again at below 95 users ) -->
+    <opt:Quota>100</opt:Quota>
+    <opt:Tolerance>5</opt:Tolerance>
+</opt:Rule>

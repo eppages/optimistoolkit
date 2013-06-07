@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.ide.iter1.feat3" name="Test_Iter_1_Feat_3" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit" source_dir="src">
+  <dependency location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+<orchestration_class class="eu.optimis.ide.iter1.feat3.TestClass" type="Web Service Interface Class"/>
+</project_metadata>

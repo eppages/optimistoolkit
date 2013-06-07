@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="71" version="2.0">
+<workbenchAdvisor/>
+<window height="768" maximized="true" width="1024" x="0" y="0">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="32"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="es.bsc.servicess.ide.actionSetMenu" itemType="typeToolBarContribution" x="56" y="32"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="32"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="32"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="32"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="es.bsc.servicess.ide.editors.ServiceEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1343037225228" focus="true" label="Workspace - Resource">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="es.bsc.servicess.ide.editors.ServiceEditor" name="metadata.xml" partName="Service Project Editor" path="/home/user/OPTIMIS/IntegratedDevelopmentEnvironment/test/workspace/Test_Iter_1_Feat_2/META-INF/metadata.xml" title="Service Project Editor" tooltip="Test_Iter_1_Feat_2/META-INF/metadata.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test_Iter_1_Feat_2/META-INF/metadata.xml"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="service_manifest.xml" partName="service_manifest.xml" path="/home/user/OPTIMIS/IntegratedDevelopmentEnvironment/test/workspace/Test_Iter_1_Feat_2/output/packages/service_manifest.xml" title="service_manifest.xml" tooltip="Test_Iter_1_Feat_2/output/packages/service_manifest.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test_Iter_1_Feat_2/output/packages/service_manifest.xml"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
+<viewState activate="true" allSessions="true" column2="1301" column3="150" column4="154" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
+<viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
+<sorter groupBy="CATEGORY_QUERY">
+<sorter>
+<sort0 sortDirection="1" sortKey="PRIORITY"/>
+<sort1 sortDirection="1" sortKey="RANK"/>
+<sort2 sortDirection="1" sortKey="DATE_CREATED"/>
+<sort3 sortDirection="1" sortKey="NONE"/>
+<sort4 sortDirection="1" sortKey="NONE"/>
+<sort5 sortDirection="1" sortKey="NONE"/>
+<sort6 sortDirection="1" sortKey="NONE"/>
+<sort7 sortDirection="1" sortKey="NONE"/>
+</sorter>
+</sorter>
+<filteredTreeFindHistory/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="672" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="es.bsc.servicess.ide.actionSetNewMenu"/>
+<alwaysOnActionSet id="es.bsc.servicess.ide.actionSetMenu"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.jst.j2ee.J2EEPerspective"/>
+<perspective_action id="org.eclipse.team.cvs.ui.cvsPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<perspective_action id="org.eclipse.wst.jsdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.wst.xml.ui.perspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.pde.runtime.LogView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@21533b2c" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.gef.ui.palette_view" ratio="0.23593287" ratioLeft="239" ratioRight="774" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.7124183" ratioLeft="436" ratioRight="176" relationship="4" relative="org.eclipse.gef.ui.palette_view">
+<folder activePageID="org.eclipse.pde.runtime.LogView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
+<page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.1590909" ratioLeft="119" ratioRight="629" relationship="2" relative="org.eclipse.gef.ui.palette_view"/>
+<info folder="true" part="bottomLeft" ratio="0.6666667" ratioLeft="408" ratioRight="204" relationship="4" relative="topLeft">
+<folder activePageID="org.eclipse.mylyn.tasks.ui.views.tasks" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter2_Feat_6/output/packages/service_manifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClass.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClassItf.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClass.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClassItf.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/coreelements/TestCE.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Test_Iter3_Feat_8/META-INF/optimis.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Test_Iter3_Feat_8/META-INF/optimis.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter3_Feat_8/output/packages/service_manifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter3_Feat_8/output/packages/service_manifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" path="/Test_Iter_1_Feat_2/META-INF/metadata.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Test_Iter_1_Feat_2/output/packages/service_manifest.xml"/>
+</editors>
+<item historyLabel="Service Project Editor" index="3"/>
+<item historyLabel="Service Project Editor" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TestOrchClassItf.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TestOrchClass.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="5"/>
+<item historyLabel="Service Project Editor" index="6"/>
+<item historyLabel="Service Project Editor" index="5"/>
+<item historyLabel="Service Project Editor" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="service_manifest.xml" index="0">
+<position info="not_deleted" x="20755" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="5"/>
+<item historyLabel="TestOrchClass.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="5"/>
+<item historyLabel="Service Project Editor" index="6"/>
+<item historyLabel="Service Project Editor" index="6"/>
+<item historyLabel="metadata.xml" index="7">
+<position info="not_deleted" x="586" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="TestOrchClass.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="TestOrchClassItf.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TestCE.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TestOrchClassItf.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="metadata.xml" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="optimis.properties" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="metadata.xml" index="14">
+<position/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="metadata.xml" index="14">
+<position info="not_deleted" x="645" y="264"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="optimis.properties" index="15"/>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="optimis.properties" index="15">
+<position info="not_deleted" x="112" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="metadata.xml" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="service_manifest.xml" index="17">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="metadata.xml" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="8"/>
+<item historyLabel="metadata.xml" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="18"/>
+<item historyLabel="service_manifest.xml" index="19">
+<position info="not_deleted" x="14048" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="18"/>
+<item historyLabel="service_manifest.xml" index="19">
+<position info="not_deleted" x="14048" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="20">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="service_manifest.xml" index="19">
+<position info="not_deleted" x="14048" y="0"/>
+</item>
+<item historyLabel="Service Project Editor" index="18"/>
+<item historyLabel="Service Project Editor" index="20">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="service_manifest.xml" index="21">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="service_manifest.xml" tooltip="Test_Iter_1_Feat_2/output/packages/service_manifest.xml">
+<persistable path="/Test_Iter_1_Feat_2/output/packages/service_manifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" name="metadata.xml" tooltip="Test_Iter_1_Feat_2/META-INF/metadata.xml">
+<persistable path="/Test_Iter_1_Feat_2/META-INF/metadata.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="service_manifest.xml" tooltip="Test_Iter3_Feat_8/output/packages/service_manifest.xml">
+<persistable path="/Test_Iter3_Feat_8/output/packages/service_manifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" name="project.xml" tooltip="Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml">
+<persistable path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/project.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="optimis.properties" tooltip="Test_Iter3_Feat_8/META-INF/optimis.properties">
+<persistable path="/Test_Iter3_Feat_8/META-INF/optimis.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="metadata.xml" tooltip="Test_Iter3_Feat_8/META-INF/metadata.xml">
+<persistable path="/Test_Iter3_Feat_8/META-INF/metadata.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestCE.java" tooltip="Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/coreelements/TestCE.java">
+<persistable path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/coreelements/TestCE.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestOrchClassItf.java" tooltip="Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClassItf.java">
+<persistable path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClassItf.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestOrchClass.java" tooltip="Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClass.java">
+<persistable path="/Test_Iter3_Feat_8/src/eu/optimis/ide/tests/iter3/feat8/TestOrchClass.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestClass.java" tooltip="Test_Iter2_Feat_6/src/eu/optimis/ide/tests/iter2/feat6/TestClass.java">
+<persistable path="/Test_Iter2_Feat_6/src/eu/optimis/ide/tests/iter2/feat6/TestClass.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="service_manifest.xml" tooltip="Test_Iter2_Feat_6/output/packages/service_manifest.xml">
+<persistable path="/Test_Iter2_Feat_6/output/packages/service_manifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" name="project.xml" tooltip="Test_Iter2_Feat_6/src/eu/optimis/ide/tests/iter2/feat6/project.xml">
+<persistable path="/Test_Iter2_Feat_6/src/eu/optimis/ide/tests/iter2/feat6/project.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" name="metadata.xml" tooltip="Test_Iter2_Feat_4/META-INF/metadata.xml">
+<persistable path="/Test_Iter2_Feat_4/META-INF/metadata.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="es.bsc.servicess.ide.editors.ServiceEditor" name="project.xml" tooltip="Test_Iter2_Feat_4/src/eu/optimis/ide/test/iter2/feat4/project.xml">
+<persistable path="/Test_Iter2_Feat_4/src/eu/optimis/ide/test/iter2/feat4/project.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="service_manifest.xml" tooltip="Test_Iter3_Feat_7/output/packages/service_manifest.xml">
+<persistable path="/Test_Iter3_Feat_7/output/packages/service_manifest.xml"/>
+</file>
+</mruList>
+</workbench>

@@ -1,0 +1,17 @@
+# Server Side
+
+cd BrokerVPNCredentials/target/classes/
+echo "Please make sure that rmiregistry is running on port 1099"
+echo "Important: Make sure that you run rmiregistry from the classes dir, otherwise you'll get ClassNotFound errors"
+# Start the BrokerCA on the Broker server
+sudo java -cp ".:../BrokerVPNCredentials-3.0-jar-with-dependencies.jar" -Djava.rmi.server.hostname=217.33.61.85 -Djava.security.policy=../../casecurity.policy eu/optimis/ics/BrokerVPNCredentials/BrokerCA
+
+
+# Client Side
+
+cd BrokerVPNCredentials/target/classes/
+# Run the PeerCredManager client with the Broker's IP address
+sudo java -cp ".:../BrokerVPNCredentials-3.0-jar-with-dependencies.jar" -Djava.rmi.server.hostname=217.33.61.85 -Djava.security.policy=../../casecurity.policy eu/optimis/ics/BrokerVPNCredentials/PeerCredManager peer 217.33.61.85
+
+cd /etc/racoon/certs/
+sudo ln -s ca.crt `openssl x509 -hash -noout -in ca.crt`.0

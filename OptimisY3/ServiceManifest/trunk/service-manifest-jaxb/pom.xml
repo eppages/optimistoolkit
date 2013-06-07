@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis.servicemanifest</groupId>
+		<artifactId>ServiceManifest</artifactId>
+		<version>1.0.9-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>service-manifest-jaxb</artifactId>
+	<name>service-manifest-jaxb</name>
+
+	<properties>
+		<schema-dir>target/schema-resources/</schema-dir>
+	</properties>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>get optimis schemas</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>eu.optimis.servicemanifest</groupId>
+									<artifactId>service-manifest-schema</artifactId>
+									<type>jar</type>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${schema-dir}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.8.0</version>
+				<executions>
+					<execution>
+						<id>process schemas</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- the package for the generated java classes -->
+					<!--<generatePackage>eu.optimis.servicemanifest.types.jaxb</generatePackage> -->
+					<schemaDirectory>${schema-dir}</schemaDirectory>
+					<extension>true</extension>
+					<!-- whether old output should be removed, this field should generally 
+						be set to "true" -->
+					<removeOldOutput>true</removeOldOutput>
+					<!-- generate lots of output -->
+					<verbose>true</verbose>
+					<catalog>src/main/catalog/resolver-catalog.xml</catalog>
+					<bindingDirectory>src/main/xjb</bindingDirectory>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+						<version>2.11.0-patch</version>
+					</dependency>
+					<dependency>
+						<groupId>xml-apis</groupId>
+						<artifactId>xml-apis</artifactId>
+						<version>1.4.01</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<artifactId>jaxb-api</artifactId>
+			<groupId>javax.xml.bind</groupId>
+		</dependency>
+		<dependency>
+			<artifactId>jaxb-impl</artifactId>
+			<groupId>com.sun.xml.bind</groupId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+			<artifactId>service-manifest-schema</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

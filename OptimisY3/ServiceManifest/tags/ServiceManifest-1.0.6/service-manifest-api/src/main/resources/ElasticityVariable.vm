@@ -1,0 +1,3 @@
+<opt:Variable xmlns:opt="http://schemas.optimis.eu/optimis/" opt:metric="$metric" opt:type="$type" opt:name="$name">
+    <opt:Location>$path</opt:Location>
+</opt:Variable>

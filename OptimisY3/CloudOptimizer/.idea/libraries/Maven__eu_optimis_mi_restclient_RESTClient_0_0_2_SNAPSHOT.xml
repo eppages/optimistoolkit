@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.optimis.mi.restclient:RESTClient:0.0.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/mi/restclient/RESTClient/0.0.2-SNAPSHOT/RESTClient-0.0.2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/mi/restclient/RESTClient/0.0.2-SNAPSHOT/RESTClient-0.0.2-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/optimis/mi/restclient/RESTClient/0.0.2-SNAPSHOT/RESTClient-0.0.2-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

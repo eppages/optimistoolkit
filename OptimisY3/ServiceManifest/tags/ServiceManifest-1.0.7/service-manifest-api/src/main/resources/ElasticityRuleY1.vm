@@ -1,0 +1,12 @@
+<opt:Rule xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach( $componentId in $componentIdList)
+            <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:KPIName>${name}</opt:KPIName>
+    <opt:Window>P1M</opt:Window>
+    <opt:Frequency>1</opt:Frequency>
+    <opt:Quota>100</opt:Quota>
+    <opt:Tolerance>5</opt:Tolerance>
+</opt:Rule>

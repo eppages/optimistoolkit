@@ -1,0 +1,8 @@
+<opt:TrustSection xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach(${componentId} in ${componentIdList})
+            <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:MinimumTrustLevel>${trustLevel}</opt:MinimumTrustLevel>
+</opt:TrustSection>

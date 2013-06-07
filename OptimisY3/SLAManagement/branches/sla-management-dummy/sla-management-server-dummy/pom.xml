@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.optimis.sla-management-dummy</groupId>
+        <artifactId>sla-management-dummy</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>sla-management-server-dummy</artifactId>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server-resources</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.fraunhofer.scai.commons</groupId>
+            <artifactId>jsdl-types</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.sla-management-dummy</groupId>
+            <artifactId>sla-management-types-dummy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.mi.restclient</groupId>
+            <artifactId>RESTClient</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>eu.optimis.mi.monitoringresource</groupId>
+			<artifactId>MonitoringResource</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+							<systemProperties>
+								<property>
+									<name>wsag4j.gateway.address</name>
+									<value>${wsag4j.gateway.address}</value>
+								</property>
+								<property>
+									<name>org.wsag4j.persistence.datapath</name>
+									<value>${project.build.directory}/data</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

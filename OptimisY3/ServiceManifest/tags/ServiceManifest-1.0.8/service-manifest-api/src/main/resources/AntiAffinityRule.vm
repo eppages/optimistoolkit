@@ -1,0 +1,8 @@
+<opt:AntiAffinityRule xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach( $componentId in ${componentIdList} )
+        <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:AntiAffinityConstraints>${antiAffinityConstraints}</opt:AntiAffinityConstraints>
+</opt:AntiAffinityRule>

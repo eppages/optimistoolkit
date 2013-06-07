@@ -1,0 +1,217 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>eu.optimis</groupId>
+		<artifactId>optimis-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../optimis-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>ElasticityEngineServer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Elasticity Engine Server</name>
+	<description>Elasticity Engine Server </description>
+	<url>http://www.optimis-project.eu/</url>
+
+	<dependencies>
+
+		<!-- Commons lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+
+		<!-- Commons configuration -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons-config.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- Log4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<optional>false</optional>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		
+		<dependency>
+	            <groupId>net.sourceforge.Javaluator</groupId>
+	            <artifactId>Javaluator</artifactId>
+	            <version>1.0-SNAPSHOT</version>
+	            <scope>system</scope>
+	            <systemPath>${basedir}/Javaluator.jar</systemPath>
+        	</dependency>
+		
+		<dependency>
+            <groupId>eu.optimis.eerest</groupId>
+            <artifactId>ElasticityEngineREST</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+		<!-- Elasticity Engine Jar -->
+		<dependency>
+			<groupId>eu.optimis.ee</groupId>
+			<artifactId>ElasticityEngine</artifactId>
+			<version>0.0.5-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		
+		<!-- Cloud Optimizer -->
+	        <dependency>
+        	    <groupId>eu.optimis</groupId>
+	            <artifactId>CloudOptimizerRESTClient</artifactId>
+        	    <version>1.0-SNAPSHOT</version>
+	            <type>jar</type>
+        	</dependency>
+		<!-- Monitoring resource -->
+        	<dependency>
+   	            <groupId>eu.optimis.mi.monitoringresource</groupId>
+	            <artifactId>MonitoringResource</artifactId>
+	            <version>0.0.1-SNAPSHOT</version>
+        	</dependency>
+
+	        <!-- REST client for Monitoring -->
+        	<dependency>
+	            <groupId>eu.optimis.mi.restclient</groupId>
+	            <artifactId>RESTClient</artifactId>
+        	    <version>0.0.1-SNAPSHOT</version>
+	        </dependency>
+	
+		<!-- Jersey REST -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${com.sun.jersey.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.2.2</version>
+			<optional>false</optional>
+		</dependency>
+
+	</dependencies>
+	<properties>
+		<commons-lang.version>2.4</commons-lang.version>
+		<commons-config.version>1.6</commons-config.version>
+		<log4j.version>1.2.14</log4j.version>
+		<junit.version>4.8.2</junit.version>
+		
+		<commons-io.version>2.1</commons-io.version>
+		<commons-logging.version>1.1</commons-logging.version>
+
+		<com.sun.jersey.version>1.6</com.sun.jersey.version>
+	</properties>
+
+
+
+	<build>
+		<!-- ================== MAVEN EXEC PLUGIN =================== -->
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<encoding>UTF-8</encoding>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/webapp</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.10</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<contextPath>/</contextPath>
+					<stopKey>stop</stopKey>
+					<stopPort>5555</stopPort>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>4444</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<!-- 
+					<systemProperties>
+            			<systemProperty>
+                			<name>log4j.configuration</name>
+                			<value>log4j-jetty-sdo-gui.properties</value>
+            			</systemProperty>
+        			</systemProperties>
+        			 -->
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+						<version>${commons-logging.version}</version>
+						<type>jar</type>
+					</dependency>
+					<dependency>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+						<version>1.2.14</version>
+						<type>jar</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+		<finalName>ElasticityServer</finalName>
+	</build>
+</project>

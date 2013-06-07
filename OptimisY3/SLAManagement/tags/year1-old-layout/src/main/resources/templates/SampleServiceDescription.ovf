@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns="http://schemas.dmtf.org/ovf/envelope/1" 
+          xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" 
+          xmlns:opt="http://schemas.optimis.eu/optimis/" 
+          xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" 
+          xmlns:rsrvr="http://schemas.telefonica.com/claudia/ovf" 
+          xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xsi:schemaLocation="http://schemas.dmtf.org/ovf/envelope/1 http://schemas.dmtf.org/ovf/envelope/1" 
+          xml:lang="en-US" ovf:version="1.0">
+  <References>
+    <File ovf:href="C:\tmp\test\TestMigrateVM.vmdk" ovf:id="file1"/>
+  </References>
+  
+  <!--
+    We need to specify the location of the VM image for data management. 
+    Is there a unique VM id generated when the VM is transfered to the IP?
+    Or should we reference the VM image as a URL here? 
+   -->
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+    <Disk ovf:capacity="30000000000" ovf:diskId="vmdisk1" ovf:fileRef="file1" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized"/>
+  </DiskSection>
+  
+  <opt:VMQoSSection>
+	    <Info>QoS Allocation Section</Info>
+	    <!--
+	       Defines constraints on the VM availability. Multiple assessment intervals
+	       can be defined with dedicated availability rates. 
+	     -->
+	    <opt:VMAvailabilityConstraints>
+            <!-- defines a minimum availability of the VM of 99% at a day -->
+            <opt:Availability opt:AssessmentInterval="P1D">98</opt:Availability>
+            <!-- defines a minimum availability of the VM of 99% at a month -->
+            <opt:Availability opt:AssessmentInterval="P1M">99</opt:Availability>
+	    </opt:VMAvailabilityConstraints>
+        <!--
+           Defines constraints on the virtual disk encryption. May not apply to Y1 prototype.
+         -->
+	    <opt:DiskEcryptionLevel>
+	       <opt:EncryptionAlgoritm>NotApplicable</opt:EncryptionAlgoritm>
+	    </opt:DiskEcryptionLevel>
+        <!--
+           Defines constraints on the data center energy certification.
+         -->
+	    <opt:EcoEfficiencyConstraints>
+	       <opt:LEEDCertification>NotRequired</opt:LEEDCertification>
+	       <opt:BREEAMCertification>NotRequired</opt:BREEAMCertification>
+	       <opt:EuCoCCompliant>false</opt:EuCoCCompliant>
+	       <opt:EnergyStarRating>No</opt:EnergyStarRating>
+	    </opt:EcoEfficiencyConstraints>
+  </opt:VMQoSSection>
+  <!-- 
+        Defines the scaling rules for a generic VM provisioning process.
+        Since in Year 1 we are targeting the provisioning of plain VMs,
+        there is no KPI such as response time. Response time is at every 
+        time associated with a specific network service. For plain VM 
+        provisioning the IP is not aware which services are installed in 
+        a VM. 
+        
+        I assume that these KPIs are static for a VM provisioning process.
+        The SLA template will contain a set of constraints that prevent users
+        to change these values.
+        
+        In Year 2 these parameters should be modeled as SLA guarantees. 
+        
+        Question: any other KPIs required here? (should apply to plain VMs)
+   -->
+  <rsrvr:ElasticArraySection>
+      <ovf:Info>Elasticity definition for VM provisioning</ovf:Info>
+      <rsrvr:Rule>
+            <!-- Max CPU utilization in last 5 minutes must not be more than 90% -->
+            <rsrvr:KPIName>Max_CPU_5</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>90</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+      <rsrvr:Rule>
+            <!-- Max CPU utilization in last 10 minutes must not be more than 85% -->
+            <rsrvr:KPIName>Max_CPU_10</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>85</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+      <rsrvr:Rule>
+            <!-- Max CPU utilization in last 15 minutes must not be more than 80% -->
+            <rsrvr:KPIName>Max_CPU_15</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>80</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+      <rsrvr:Rule>
+            <!-- Max memory utilization in last 5 minutes must not be more than 90% -->
+            <rsrvr:KPIName>Max_MEM_5</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>90</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+      <rsrvr:Rule>
+            <!-- Max memory utilization in last 10 minutes must not be more than 85% -->
+            <rsrvr:KPIName>Max_MEM_10</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>85</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+      <rsrvr:Rule>
+            <!--  Max memory utilization in last 15 minutes must not be more than 80% -->
+            <rsrvr:KPIName>Max_MEM_15</rsrvr:KPIName>
+            <rsrvr:Window>300</rsrvr:Window>
+            <rsrvr:Frequency>60</rsrvr:Frequency>
+            <rsrvr:Quota>80</rsrvr:Quota>
+            <rsrvr:Tolerance>5</rsrvr:Tolerance>
+      </rsrvr:Rule>   
+  </rsrvr:ElasticArraySection>
+  
+  <!--
+    Data management must adhere to constraints defined in the deployment section.
+    
+    Comment: we might need to extend or redefine this section according to the comments 
+             raised by Benno/George on the mailing list. 
+   -->
+  <rsrvr:DeploymentSection>
+        <ovf:Info>geographical restriction of the VM deployment</ovf:Info>
+        <rsrvr:Restriction>
+            <rsrvr:Country>DE</rsrvr:Country>
+            <rsrvr:Country>GB</rsrvr:Country>
+            <rsrvr:Country>ES</rsrvr:Country>
+            <rsrvr:Country>GR</rsrvr:Country>
+        </rsrvr:Restriction>
+  </rsrvr:DeploymentSection>
+  
+  <NetworkSection>
+    <Info>Logical networks used in the package</Info>
+    <Network ovf:name="NAT">
+      <Description>Logical network used by this appliance.</Description>
+    </Network>
+  </NetworkSection>
+  
+  <!--
+    Definition of an Optimis Virtual System Collection. This collection contains the virtual system
+    definition for an OPTIMIS VM. Additionally, it contains a ResourceAllocationSection that
+    specifies the minimal resource requirements for each VM instance.   
+   -->
+  <ovf:VirtualSystemCollection ovf:id="OptimisVirtualSystem">
+      <ovf:Info>Definition of an Optimis Virtual System</ovf:Info>
+      <ResourceAllocationSection>
+        <Info>Specifies the minimal resource requirements for VM provisioning.</Info>
+        <Item ovf:bound="min">
+          <rasd:AllocationUnits>hertz</rasd:AllocationUnits>
+          <rasd:Caption>Minimum CPU speed</rasd:Caption>
+          <rasd:Description>Specifies the minimum CPU speed to allocate for each VM in Hertz.</rasd:Description>
+          <rasd:ElementName>RASD Element</rasd:ElementName>
+          <rasd:InstanceID>rasdID1</rasd:InstanceID>
+          <rasd:Reservation>2000000000</rasd:Reservation>
+          <rasd:ResourceType>3</rasd:ResourceType>
+        </Item>
+        <Item rsrvr:min="1" rsrvr:initial="1">
+          <rasd:Caption>Number of computer systems</rasd:Caption>
+          <rasd:Description>Specifies the number of computer systems (VM instances) to allocate.</rasd:Description>
+          <rasd:ElementName>RASD Element</rasd:ElementName>
+          <rasd:InstanceID>rasdID44</rasd:InstanceID>
+          <rasd:Reservation>4</rasd:Reservation>
+          <rasd:ResourceType>2</rasd:ResourceType>
+        </Item>
+      </ResourceAllocationSection>
+	  <!--
+	    Default definition of an Optimis Virtual System. The service provider may only 
+	    change the values for Virtual CPUs and Memory Size to acceptable values defined 
+	    in the SLA template (e.g. 1, 2 or 3 virtual CPUs, and 512, 1024 or 2048 MB of memory).
+	    The other values are fixed.
+	    
+	    Questions: 
+	           1. any other dynamic values required here?
+	           2. should we model a virtual system for each computer system 
+	              specified in the resource allocation section? 
+	              (e.g. we allocate 4 computer systems, should we include 4 virtual systems then?)  
+	   -->
+	  <VirtualSystem ovf:id="OptimisVM">
+	    <Info>A virtual machine</Info>
+	    <OperatingSystemSection ovf:id="36">
+	      <Info>The kind of installed guest operating system</Info>
+	      <Description>LINUX</Description>
+	    </OperatingSystemSection>
+	    <VirtualHardwareSection>
+	      <Info>Virtual hardware requirements for a virtual machine</Info>
+	      <System>
+	        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+	        <vssd:InstanceID>0</vssd:InstanceID>
+	        <vssd:VirtualSystemIdentifier>Optimis</vssd:VirtualSystemIdentifier>
+	        <vssd:VirtualSystemType>vmx-04</vssd:VirtualSystemType>
+	      </System>
+	      <Item>
+	        <rasd:Caption>Virtual CPUs</rasd:Caption>
+	        <rasd:Description>Number of virtual CPUs</rasd:Description>
+	        <rasd:ElementName>Virtual CPUs</rasd:ElementName>
+	        <rasd:InstanceID>1</rasd:InstanceID>
+	        <rasd:ResourceType>3</rasd:ResourceType>
+	        <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+	      </Item>
+	      <Item>
+	        <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+	        <rasd:Caption>MB of memory</rasd:Caption>
+	        <rasd:Description>Memory Size</rasd:Description>
+	        <rasd:ElementName>MB of memory</rasd:ElementName>
+	        <rasd:InstanceID>2</rasd:InstanceID>
+	        <rasd:ResourceType>4</rasd:ResourceType>
+	        <rasd:VirtualQuantity>1024</rasd:VirtualQuantity>
+	      </Item>
+	      <Item>
+	        <rasd:Address>0</rasd:Address>
+	        <rasd:Caption>ideController0</rasd:Caption>
+	        <rasd:Description>IDE Controller</rasd:Description>
+	        <rasd:ElementName>ideController0</rasd:ElementName>
+	        <rasd:InstanceID>3</rasd:InstanceID>
+	        <rasd:ResourceSubType>PIIX4</rasd:ResourceSubType>
+	        <rasd:ResourceType>5</rasd:ResourceType>
+	      </Item>
+	      <Item>
+	        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+	        <rasd:Caption>Ethernet adapter on 'NAT'</rasd:Caption>
+	        <rasd:Connection>NAT</rasd:Connection>
+	        <rasd:ElementName>Ethernet adapter on 'NAT'</rasd:ElementName>
+	        <rasd:InstanceID>6</rasd:InstanceID>
+	        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+	        <rasd:ResourceType>10</rasd:ResourceType>
+	      </Item>
+	      <Item>
+	        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+	        <rasd:Caption>disk1</rasd:Caption>
+	        <rasd:Description>Disk Image</rasd:Description>
+	        <rasd:ElementName>disk1</rasd:ElementName>
+	        <rasd:HostResource>/disk/vmdisk1</rasd:HostResource>
+	        <rasd:InstanceID>9</rasd:InstanceID>
+	        <rasd:Parent>2</rasd:Parent>
+	        <rasd:ResourceType>17</rasd:ResourceType>
+	      </Item>
+	    </VirtualHardwareSection>
+	  </VirtualSystem>
+  </ovf:VirtualSystemCollection>
+</Envelope>

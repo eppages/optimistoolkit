@@ -1,0 +1,19 @@
+package eu.optimis.ide.test;
+
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import integratedtoolkit.types.annotations.Constraints;
+import integratedtoolkit.types.annotations.Orchestration;
+import java.lang.String;
+import javax.jws.WebParam;
+
+@WebService
+public class TestService{
+
+	@WebMethod
+	@Constraints(memoryPhysicalSize = 1f, processorCPUCount = 1)
+	@Orchestration
+	public String OrchestrationTest(@WebParam(name="input1") String input1, @WebParam(name="input2") String input2){
+	
+	}
+}

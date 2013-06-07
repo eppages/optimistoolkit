@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.optimis.broker</groupId>
+        <artifactId>broker-sla</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>broker-sla-server</artifactId>
+    <name>broker-sla-server</name>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-server-resources</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsag4j</groupId>
+            <artifactId>wsag4j-client-resources</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.fraunhofer.scai.commons</groupId>
+            <artifactId>jsdl-types</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.broker</groupId>
+            <artifactId>broker-sla-types</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.optimis.servicemanifest</groupId>
+            <artifactId>service-manifest-api</artifactId>	
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+        </dependency>
+           
+        <dependency>
+        	<groupId>eu.optimis.cbr.client</groupId>
+        	<artifactId>CloudBrokerClient</artifactId>
+        </dependency>
+        
+        <dependency>
+		    <groupId>eu.optimis.ipdiscovery</groupId>
+		    <artifactId>IPDatamodel</artifactId>
+	    </dependency>
+      	<dependency>
+         <groupId>eu.optimis.sdo</groupId>
+         <artifactId>DeploymentServiceClient</artifactId>
+         <version>1.0-SNAPSHOT</version>
+        </dependency>
+      		
+      		         
+        <!-- ServiceManager -->
+        <dependency>
+            <groupId>eu.optimis.service_manager</groupId>
+            <artifactId>ServiceManagerRESTClient</artifactId>
+            <version>0.6-SNAPSHOT</version>
+        </dependency>
+         <dependency>
+            <groupId>eu.optimis.service_manager</groupId>
+            <artifactId>ServiceManagerSchema</artifactId>
+            <version>0.6-SNAPSHOT</version>
+        </dependency>   
+	<!--  Data Manager Client -->  
+
+		<!-- Contextualization -->
+		<dependency>  
+    		<groupId>eu.optimis.vc</groupId>  
+    		<artifactId>VmContextualizer</artifactId>  
+    		<!--<version>2.0.9-SNAPSHOT</version> -->  
+    		<version>3.1.0-SNAPSHOT</version>  
+		</dependency>  
+
+		<!-- DataSynchClient -->
+		<dependency> 
+    		<groupId>eu.optimis.broker</groupId> 
+    		<artifactId>CloudBrokerMiscClient</artifactId> 
+    		<version>1.0-SNAPSHOT</version> 	
+		</dependency> 
+		
+		<!--  Broker Visualization -->
+		<dependency>
+			<groupId>eu.optimis.cbr.monitoring.clientlib</groupId>
+			<artifactId>BrokerMonitorClientLib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>eu.optimis.DataManagerClient</groupId>
+			<artifactId>DataManagerClient</artifactId>
+			<version>0.53-SNAPSHOT</version>
+			<optional>false</optional>
+		</dependency>
+    </dependencies>
+
+
+
+</project>

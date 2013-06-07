@@ -1,0 +1,50 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" id="wsag4j-schemas">
+
+	<system systemId="file:XMLSchema.dtd" uri="./validator/XMLSchema.dtd" />
+
+	<system systemId="file:datatypes.dtd" uri="./validator/datatypes.dtd" />
+	
+	<system systemId="http://www.w3.org/2001/XMLSchema.dtd" uri="./validator/XMLSchema.dtd" />
+	
+	<system systemId="http://www.w3.org/2001/datatypes.dtd" uri="./validator/datatypes.dtd" />
+
+	<system systemId="http://www.w3.org/2001/xml.xsd" uri="./validator/xml.xsd" />
+
+	<public publicId="http://docs.oasis-open.org/wsrf/bf-2" uri="./validator/bf-2.xsd" />
+
+	<public publicId="http://www.w3.org/2001/XMLSchema" uri="./validator/XMLSchema.xml" />
+
+	<public publicId="http://www.w3.org/XML/1998/namespace" uri="./validator/xml.xsd" />
+
+	<public publicId="http://schemas.ggf.org/graap/2007/03/ws-agreement"
+		uri="./validator/ws-agreement-xsd-types.xsd" />
+
+	<public publicId="http://www.w3.org/2005/08/addressing" uri="./validator/ws-addr.xsd" />
+
+	<public publicId="http://schemas.ggf.org/jsdl/2005/11/jsdl" uri="./validator/jsdl.xsd-18.xsd" />
+
+	<public publicId="http://schemas.ggf.org/jsdl/2005/11/jsdl-posix"
+		uri="./validator/jsdl-posix.xsd-6.xsd" />
+
+	<public
+		publicId="http://schemas.wsag4j.org/2009/07/wsag4j-scheduling-extensions"
+		uri="./validator/wsag4j-scheduling-types.xsd" />
+
+	<public publicId="http://schemas.dmtf.org/ovf/envelope/1" uri="./validator/dsp8023.xsd" />
+
+	<public publicId="http://schemas.dmtf.org/wbem/wscim/1/common"
+		uri="./validator/common.xsd" />
+
+	<public
+		publicId="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData"
+		uri="./validator/CIM_VirtualSystemSettingData.xsd" />
+
+	<public
+		publicId="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData"
+		uri="./validator/CIM_ResourceAllocationSettingData.xsd" />
+	
+	<public
+		publicId="http://www.optimis.eu/sla/service-price-types"
+		uri="./validator/sla-service-price-types.xsd" />	
+
+</catalog>

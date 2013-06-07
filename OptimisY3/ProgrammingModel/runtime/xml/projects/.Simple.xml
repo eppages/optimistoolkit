@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project AppName="Matmul">
+
+	<Worker Name="mn1.bsc.es">
+		<WorkingDir>/home/ammp93/ammp93522/</WorkingDir>
+		<User>ammp93522</User>
+		<MaxJobCount>10</MaxJobCount>
+	</Worker>
+	
+</Project>

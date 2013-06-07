@@ -1,0 +1,11 @@
+#!/bin/bash
+
+fusermount -u /storage
+umount -l /storage  > /dev/null 2>&1
+rmdir /storage > /dev/null 2>&1
+
+
+
+
+
+

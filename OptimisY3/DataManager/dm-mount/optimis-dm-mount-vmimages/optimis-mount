@@ -1,0 +1,51 @@
+#!/usr/bin/ruby
+
+# OPTIMIS DataManager
+puts "OPTIMIS - Distributed Storage Service"
+
+require 'base64'
+require "rexml/document"
+include REXML
+
+conf = "/etc/datamanager.conf"
+
+if ! File.exist?(conf)
+   puts "Cannot Find configuration file at '#{conf}'"
+   exit
+end
+
+file = File.new(conf)
+doc = Document.new(file)
+
+mountpoint  = ""
+datamanager = ""
+sid         = ""
+key         = ""
+
+doc.elements.each("datamanager/ip") { |element|
+  datamanager = element.text.strip
+}
+
+doc.elements.each("datamanager/repository") { |element|
+  sid = element.text.strip
+}
+
+doc.elements.each("datamanager/key") { |element|
+    key = element.text.strip
+}
+
+doc.elements.each("datamanager/mountpoint") { |element|
+    mountpoint = element.text.strip
+}
+
+puts "Using Datamanager at '#{datamanager}'"
+puts "Repository: '#{sid}'"
+puts "Mountpoint: '#{mountpoint}'"
+
+key = Base64.decode64(key)
+out = `/bin/rmdir #{mountpoint} 2>&1`
+File.open('/etc/DM.key', 'w') {|f| f.write(key) }
+out = `/bin/chmod go-rwx /etc/DM.key`
+out = `/bin/mkdir -p #{mountpoint}`
+out = `/usr/bin/sshfs #{sid}@#{datamanager}:/home/#{sid}/sids #{mountpoint} -o IdentityFile=/etc/DM.key -o allow_other -o reconnect -o follow_symlinks -o transform_symlinks -o exec -o uid=0 -o gid=0 -o StrictHostKeyChecking=no`
+

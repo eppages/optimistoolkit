@@ -1,0 +1,5 @@
+
+Project ID: null:jersey-server:bundle:null
+
+Reason: Cannot find parent: com.sun.jersey:jersey-project for project: null:jersey-server:bundle:null for project null:jersey-server:bundle:null
+

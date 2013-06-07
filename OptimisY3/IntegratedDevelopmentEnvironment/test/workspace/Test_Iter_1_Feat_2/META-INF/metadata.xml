@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project_metadata main_package="eu.optimis.ide.test.iter1.feat2" name="Test_Iter_1_Feat_2" runtime_location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit" source_dir="src">
+  <dependency location="/home/user/OPTIMIS/ProgrammingModel/runtime/integratedtoolkit/lib/IT.jar" other_info="" type="JAR Library"/>
+<orchestration_class class="eu.optimis.ide.test.iter1.feat2.TestCE" type="Web Service Interface Class"/>
+<elasticity element="testCE_license(OBJECT_T)TestCE" max="1" min="1"/>
+<package name="Test_Iter_1_Feat_20" type="Orchestration Elements">
+    <element label="testOE()eu.optimis.ide.test.iter1.feat2.TestCE"/>
+  </package>
+  <package name="autoMethod0" type="Method Core Elements">
+    <element label="testCE_license(OBJECT_T)TestCE"/>
+  </package>
+</project_metadata>

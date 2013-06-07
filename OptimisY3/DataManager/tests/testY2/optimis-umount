@@ -1,0 +1,7 @@
+#!/bin/bash
+
+fuser -m -k /storage/*   > /dev/null 2>&1
+fusermount -u /storage  > /dev/null 2>&1                                        
+umount -l /storage  > /dev/null 2>&1                                            
+rmdir /storage > /dev/null 2>&1                                                                  
+

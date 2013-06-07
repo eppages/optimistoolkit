@@ -1,0 +1,5 @@
+#possible values: 
+# for testing with memory based data base: wsag4j_mem
+# for testing with file based data base: wsag4j_file
+# for production: wsag4j_prod_postgres
+db.persistenceUnit=${optimis_sla_storage}

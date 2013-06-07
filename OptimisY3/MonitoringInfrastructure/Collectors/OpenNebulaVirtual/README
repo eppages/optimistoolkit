@@ -1,0 +1,38 @@
+README
+
+Instructions on how to install the OpenNebula plugin:
+- update the src/main/resources/config.properties file
+with regards to onl.userpd and onl.host.oca parameters.
+
+- compile and make war:
+mvn -PTST package cargo:redeploy
+
+- copy the target/OpenNebulaVirtual.war file into the IPVM, 
+specifically the Tomcat's webapps directory
+or deploy the war through Tomcat Manager interface.
+
+- update virtual_collector.properties in the IPVM (location: /opt/optimis/MonitoringInfrastructure/scripts)
+or in the below SVN location:
+optimis/branches/OptimisY3/MonitoringInfrastructure/MI_Scripts/IPVM/MonitoringInfrastructure/scripts
+
+and set the below parameter to OpenNebula:
+CLOUDMIDDLEWARE=OpenNebula
+
+- test the plugin by typing:
+curl http://localhost:8080/OpenNebulaVirtual/virtual/data/str
+
+Note: if it reports an exception error like below
+java.lang.RuntimeException: XPathFactory#newInstance() failed to create an XPathFactory for the default object model: 
+http://java.sun.com/jaxp/xpath/dom with the XPathFactoryConfigurationException: 
+javax.xml.xpath.XPathFactoryConfigurationException: No XPathFctory implementation found for the object model: 
+http://java.sun.com/jaxp/xpath/dom
+    javax.xml.xpath.XPathFactory.newInstance(Unknown Source)
+    org.opennebula.client.PoolElement.&lt;init&gt;(PoolElement.java:70)
+    ...
+
+You need to have the following jar files copied to OpenNebulaVirtual/WEB-INF/lib/ :
+xalan.jar
+xercesImpl.jar
+xml-apis.jar  --- replaced the old one with this version
+xsltc.jar
+

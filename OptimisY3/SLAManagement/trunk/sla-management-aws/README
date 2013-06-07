@@ -1,0 +1,7 @@
+
+---------------------------------------------------------------------------
+redeploy to the different testbeds (no configuration needed afterwards)
+
+mvn -PATOS2 clean package cargo:redeploy -U
+---------------------------------------------------------------------------
+

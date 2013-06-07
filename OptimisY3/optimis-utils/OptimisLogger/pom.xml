@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>eu.optimis.utils</groupId>
+        <artifactId>Utils</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    
+    <groupId>eu.optimis.utils.optimislogger</groupId>
+    <artifactId>OptimisLogger</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Optimis Logger</name>
+    <description>Logging tools for Optimis</description>
+    <url>http://www.optimis-project.eu</url>
+
+    <!-- log4j -->
+     <dependencies> 
+        <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+	   <version>${log4j.version}</version>
+	</dependency>
+    <!-- Jersey REST -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>${com.sun.jersey.version}</version>
+        </dependency>
+     </dependencies>	
+
+
+    <!-- Version properties for different packages -->
+    <properties>
+        <com.sun.jersey.version>1.6</com.sun.jersey.version>
+        <log4j.version>1.2.14</log4j.version>
+    </properties>
+
+    <build>  
+        <plugins>
+        
+        </plugins>
+    </build>
+</project>

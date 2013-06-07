@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.optimis.servicemanifest</groupId>
+		<artifactId>ServiceManifest</artifactId>
+		<version>1.0.4</version>
+	</parent>
+
+	<artifactId>service-manifest-xmlbeans</artifactId>
+	<name>service-manifest-xmlbeans</name>
+
+	<properties>
+		<schema-dir>target/schema-resources</schema-dir>
+	</properties>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xmlbeans-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>compile schemas</id>
+						<goals>
+							<goal>xmlbeans</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<download>false</download>
+					<verbose>false</verbose>
+					<debug>false</debug>
+					<xsdJars>
+						<xsdJar implementation="java.lang.String">eu.optimis.servicemanifest:service-manifest-schema</xsdJar>
+					</xsdJars>
+				</configuration>
+				<!-- keep backward compatibility of the XML types -->
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.xmlbeans</groupId>
+						<artifactId>xmlbeans</artifactId>
+						<version>2.3.0</version>
+					</dependency>
+				</dependencies>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>eu.optimis.servicemanifest</groupId>
+			<artifactId>service-manifest-schema</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>

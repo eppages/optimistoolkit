@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.optimis.service_manager</groupId>
+  <artifactId>ServiceManagerPackage</artifactId>
+  <name>ServiceManager</name>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <url>http://www.optimis-project.eu/</url>
+  <dependencies>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+  </dependencies>
+  <parent>
+    <groupId>eu.optimis</groupId>
+    <artifactId>optimis-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>../optimis-parent/pom.xml</relativePath>
+  </parent>
+	<!-- 
+  <repositories>
+    <repository>
+      <id>java.net</id>
+      <url>http://download.java.net/maven/2</url>
+   </repository>
+    <repository>
+      <id>maven-repository.dev.java.net</id>
+      <name>Java.net Repository for Maven 1</name>
+      <url>http://download.java.net/maven/1/</url>
+      <layout>legacy</layout>
+    </repository>
+    <repository>
+      <id>maven2-repository.java.net</id>
+      <name>Java.net Repository for Maven</name>
+      <url>http://download.java.net/maven/2/</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+-->
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <modules>
+  	<module>ServiceManagerSchema</module>
+    <module>ServiceManagerCore</module>
+    <module>ServiceManagerREST</module>
+    <module>ServiceManagerRESTClient</module>
+  </modules>
+</project>

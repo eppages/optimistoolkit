@@ -1,0 +1,54 @@
+#!/usr/bin/ruby
+
+puts "OPTIMIS Distributed VM Manager"
+
+def create_xen_cfg(clusterpath, confname, memory)
+	File.open("#{clusterpath}/#{confname}.cfg", 'w') do |f|
+	  f.puts "bootloader = \"/usr/bin/pygrub\""
+	  f.puts "name = \"#{confname}\""
+	  f.puts "memory = #{memory}"
+	  f.puts "vif = [ \"bridge=xenbr0,script=vif-bridge\" ]"
+	  f.puts "root = \"/dev/xvda\""
+	  f.puts "extra = \"fastboot\""
+	  disk =  "disk = ['tap:aio:#{clusterpath}/#{confname}.img,xvda,w',"
+	  disk = disk + "'tap:aio:#{clusterpath}/context.iso,hdc:cdrom,r']"
+	  f.puts disk
+	end
+end
+
+
+def create_context(template, clusterpath)
+   system("mkisofs -r #{template} > #{clusterpath}/context.iso")
+end
+
+def clone_image(prototypeVM, newImage, path)
+   system("virt-clone -o #{prototypeVM} -n #{newImage} -f #{path}/#{newImage}.img")
+end
+
+def create_cluster(sid, num_vms)
+
+scriptpath      = File.expand_path(File.dirname(__FILE__))
+clusterpath     = scriptpath + "/clusters/#{sid}"
+
+# Create Cluster's Path
+Dir.mkdir(clusterpath)
+
+# Create MasterNode
+masterpath              = clusterpath + "/master"
+master_context_template = scriptpath + "/context/context-master"
+createVM(clusterpath, masterpath, "#{sid}_master", "odfs-master-prototype", master_context_template, "512")
+
+end
+
+
+def createVM(clusterpath, masterpath, imagename, master_prototype, context_template, memory)
+   Dir.mkdir(masterpath)
+   clone_image(master_prototype, imagename, masterpath)
+   create_xen_cfg(masterpath, imagename, memory) 
+   create_context(context_template, masterpath)
+   system("/usr/sbin/xm delete #{imagename}")
+   File.open("#{masterpath}/start", 'w') {|f| f.write("/usr/sbin/xm create #{imagename}.cfg -c") }
+end
+
+create_cluster("vrettos", 3)
+

@@ -1,0 +1,37 @@
+#include("header.apt.vm")
+
+* IP Extensions
+
+    All Optimis components on the IP side need to use the IP Interface to the manifest. Only
+    with this interface it is possible to access the infrastructure extension documents.
+
+%{snippet|id=IPManifest|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+** Incarnate VM Components
+
+    This method will initialize the right amount of VM instances in the VM description section
+    of the IP Extensions. For each component a virtual system group will be added, which
+    holds the maximum number of virtual systems, specified by the upperBound value in
+    the AllocationConstraints section of the manifest.
+
+    After the incarnation, you can access each component and set additional properties.
+
+%{snippet|id=incarnatedVMComponents|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+** Allocation Offer
+
+    The Admission Control component will add the allocation offer to the IP Extensions section in the Manifest.
+
+%{snippet|id=allocationOffer|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/WorkflowTest.java}
+
+
+** External Deployment
+
+    You can also add an extracted manifest to the IP extensions in the original
+    Manifest and set the provider ID where it is going to be deployed to.
+
+%{snippet|id=externalDeployment|file=${project.basedir}/src/test/java/eu/optimis/manifest/api/test/IPExtensionsTest.java}
+
+
+

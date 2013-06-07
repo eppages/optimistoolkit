@@ -1,0 +1,121 @@
+<WorkloadAnalysis>
+    <PhysicalHost id="host-id-001" host_name="host-name-001" public_ip="127.0.1.1" usedForElasticity="true">
+        <description>A first physical host example.</description>
+        <AssigendServices>
+            <Service id="service-id-001" name="service-name-001"/>
+            <Service id="service-id-002" name="service-name-002"/>
+        </AssigendServices>
+        <Load>
+            <Current>
+                <ResourceInformation>
+                    <Cpu physicalMetric="Ghz" phyicalValue="3">
+                        <value>0.70</value>
+                    </Cpu>
+                    <CpuCores physicalMetric="Cores" phyicalValue="4">
+                        <value>0.50</value>
+                    </CpuCores>
+                    <Memory physicalMetric="Mbyte" phyicalValue="4096">
+                        <value>0.60</value>
+                    </Memory>
+                    <Swap physicalMetric="Gbyte" phyicalValue="8192">
+                        <value>0.15</value>
+                    </Swap>
+                    <Storage physicalMetric="Gbyte" phyicalValue="40000">
+                        <value>0.35</value>
+                    </Storage>
+                    <NetworkBandwidth physicalMetric="Mbit" phyicalValue="1000">
+                        <value>0.45</value>
+                    </NetworkBandwidth>
+                </ResourceInformation>
+            </Current>
+            <Min>
+                <ResourceInformation>
+                    <Cpu physicalMetric="Ghz" phyicalValue="3">
+                        <value>0.20</value>
+                    </Cpu>
+                    <CpuCores physicalMetric="Cores" phyicalValue="4">
+                        <value>0.25</value>
+                    </CpuCores>
+                    <Memory physicalMetric="Mbyte" phyicalValue="4096">
+                        <value>0.30</value>
+                    </Memory>
+                    <Swap physicalMetric="Gbyte" phyicalValue="8192">
+                        <value>0.05</value>
+                    </Swap>
+                    <Storage physicalMetric="Gbyte" phyicalValue="40000">
+                        <value>0.15</value>
+                    </Storage>
+                    <NetworkBandwidth physicalMetric="Mbit" phyicalValue="1000">
+                        <value>0.15</value>
+                    </NetworkBandwidth>
+                </ResourceInformation>
+            </Min>
+            <Average>
+                <ResourceInformation>
+                    <Cpu physicalMetric="Ghz" phyicalValue="3">
+                        <value>0.50</value>
+                    </Cpu>
+                    <CpuCores physicalMetric="Cores" phyicalValue="4">
+                        <value>0.50</value>
+                    </CpuCores>
+                    <Memory physicalMetric="Mbyte" phyicalValue="4096">
+                        <value>0.50</value>
+                    </Memory>
+                    <Swap physicalMetric="Gbyte" phyicalValue="8192">
+                        <value>0.25</value>
+                    </Swap>
+                    <Storage physicalMetric="Gbyte" phyicalValue="40000">
+                        <value>0.30</value>
+                    </Storage>
+                    <NetworkBandwidth physicalMetric="Mbit" phyicalValue="1000">
+                        <value>0.55</value>
+                    </NetworkBandwidth>
+                </ResourceInformation>
+            </Average>
+            <Max>
+                <ResourceInformation>
+                    <Cpu physicalMetric="Ghz" phyicalValue="3">
+                        <value>0.90</value>
+                    </Cpu>
+                    <CpuCores physicalMetric="Cores" phyicalValue="4">
+                        <value>0.75</value>
+                    </CpuCores>
+                    <Memory physicalMetric="Mbyte" phyicalValue="4096">
+                        <value>0.80</value>
+                    </Memory>
+                    <Swap physicalMetric="Gbyte" phyicalValue="8192">
+                        <value>0.50</value>
+                    </Swap>
+                    <Storage physicalMetric="Gbyte" phyicalValue="40000">
+                        <value>0.70</value>
+                    </Storage>
+                    <NetworkBandwidth physicalMetric="Mbit" phyicalValue="1000">
+                        <value>0.95</value>
+                    </NetworkBandwidth>
+                </ResourceInformation>
+            </Max>
+        </Load>
+        <Remaining>
+            <ResourceInformation>
+                <Cpu physicalMetric="Ghz" phyicalValue="3">
+                    <value>0.30</value>
+                </Cpu>
+                <CpuCores physicalMetric="Cores" phyicalValue="4">
+                    <value>0.50</value>
+                </CpuCores>
+                <Memory physicalMetric="Mbyte" phyicalValue="4096">
+                    <value>0.40</value>
+                </Memory>
+                <Swap physicalMetric="Gbyte" phyicalValue="8192">
+                    <value>0.85</value>
+                </Swap>
+                <Storage physicalMetric="Gbyte" phyicalValue="40000">
+                    <value>0.65</value>
+                </Storage>
+                <NetworkBandwidth physicalMetric="Mbit" phyicalValue="1000">
+                    <value>0.55</value>
+                </NetworkBandwidth>
+            </ResourceInformation>
+        </Remaining>
+    </PhysicalHost>
+</WorkloadAnalysis>

@@ -1,0 +1,12 @@
+<opt:DataStorage xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach(${componentId} in ${componentIdList})
+            <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:Name>${dataStorageName}</opt:Name>
+    <opt:AllocationUnit>byte</opt:AllocationUnit>
+    <opt:Capacity>0</opt:Capacity>
+</opt:DataStorage>
+            
+        

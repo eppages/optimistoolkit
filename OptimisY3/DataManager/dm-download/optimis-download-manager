@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Copyright (c) 2012 OPTIMIS - National Technical University of Athens
+#
+# chkconfig: 2345 90 60
+# description: Optimis Download Service
+#
+### BEGIN INIT INFO
+# Provides:          optimis-download-manager
+# Required-Start:    $network
+# Required-Stop:
+# Default-Start:     3 5
+# Default-Stop:      0 1 2 6
+# Short-Description: optimis-datamanager mounts shared storage
+# Description:
+#  Optimis datamanager mounts a shared storage in optimis distributed
+#  file system.
+### END INIT INFO
+
+# Check for missing binaries
+OPTIMIS_DOWNLOAD_BIN=/usr/bin/optimis-download-server
+OPTIMIS_DOWNLOAD_LOG=/var/log/optimis-downloader.log
+
+
+test -x $OPTIMIS_DOWNLOAD_BIN || { echo "$OPTIMIS_DOWNLOAD_BIN not installed";
+if [ "$1" = "stop" ]; then exit 0;
+else exit 5; fi; }
+
+case "$1" in
+  start)
+    echo "Starting Optimis Datamanager Download Service "
+    /usr/bin/optimis-download-server 2>&1  >  $OPTIMIS_DOWNLOAD_LOG &
+    ;;
+  stop)
+    echo "Stopping Optimis Datamanager Download Service"
+
+    ;;
+  *)
+    echo "Usage: /etc/init.d/optimis-download-manager {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+

@@ -1,0 +1,14 @@
+<opt:EcoEfficiencySection xmlns:opt="http://schemas.optimis.eu/optimis/">
+    <opt:Scope>
+        #foreach(${componentId} in ${componentIdList})
+            <opt:ComponentId>${componentId}</opt:ComponentId>
+        #end
+    </opt:Scope>
+    <opt:LEEDCertification>${ecoLEEDCertification}</opt:LEEDCertification>
+    <opt:BREEAMCertification>${ecoBREEAMCertification}</opt:BREEAMCertification>
+    <opt:EuCoCCompliant>${ecoEuCoCCompliant}</opt:EuCoCCompliant>
+    <opt:EnergyStarRating>${ecoEnergyStarRating}</opt:EnergyStarRating>
+    <opt:ISO14000>${ecoISO14000}</opt:ISO14000>
+    <opt:GreenStar>${ecoGreenStar}</opt:GreenStar>
+    <opt:CASBEE>${ecoCASBEE}</opt:CASBEE>
+</opt:EcoEfficiencySection>

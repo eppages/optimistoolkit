@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://optimis-ws.servidoresdns.net:8443/OptimisWebService/imageManager/imageManager.asmx?wsdl" uri="wsdl/optimis-ws.servidoresdns.net_8443/OptimisWebService/imageManager/imageManager.asmx.wsdl"/>
+</catalog>
